@@ -54,6 +54,26 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/CatalogueController.php';
     (new CatalogueController())->activites();
 
+} elseif (preg_match('/^\/api\/groupes\/(\d+)\/rejoindre$/', $uri, $m) && $method === 'POST') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->rejoindre($m[1]);
+
+} elseif (preg_match('/^\/api\/groupes\/(\d+)\/inviter$/', $uri, $m) && $method === 'POST') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->invite($m[1]);
+
+} elseif (preg_match('/^\/api\/groupes\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->show($m[1]);
+
+} elseif ($uri === '/api/groupes' && $method === 'POST') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->create();
+
+} elseif ($uri === '/api/groupes' && $method === 'GET') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->index();
+    
 // ── VOTES ─────────────────────────────────────────────────────────────────────
 } elseif ($uri === '/api/votes' && $method === 'POST') {
     require_once 'controllers/VoteController.php';

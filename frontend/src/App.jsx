@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Catalogue from "./pages/Catalogue";
+import GroupCreate from "./pages/GroupCreate";
+import GroupDetail from "./pages/GroupDetail";
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
@@ -35,6 +37,22 @@ function App() {
             element={
               <PrivateRoute>
                 <Catalogue />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/groupes/creer"
+            element={
+              <PrivateRoute>
+                <GroupCreate />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/groupes/:id"
+            element={
+              <PrivateRoute>
+                <GroupDetail />
               </PrivateRoute>
             }
           />
