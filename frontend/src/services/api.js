@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 async function request(endpoint, options = {}) {
   const res = await fetch(`${API_URL}${endpoint}`, {
@@ -12,8 +12,10 @@ async function request(endpoint, options = {}) {
 }
 
 export const api = {
-  get:    (url)          => request(url),
-  post:   (url, body)    => request(url, { method: "POST",   body: JSON.stringify(body) }),
-  put:    (url, body)    => request(url, { method: "PUT",    body: JSON.stringify(body) }),
-  delete: (url)          => request(url, { method: "DELETE" }),
+  get: (url) => request(url),
+  post: (url, body) =>
+    request(url, { method: "POST", body: JSON.stringify(body) }),
+  put: (url, body) =>
+    request(url, { method: "PUT", body: JSON.stringify(body) }),
+  delete: (url) => request(url, { method: "DELETE" }),
 };
