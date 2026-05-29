@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { groupService } from "../services/group.service";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function GroupDetail() {
   const { id } = useParams();
@@ -11,6 +12,7 @@ export default function GroupDetail() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     groupService
@@ -170,12 +172,20 @@ export default function GroupDetail() {
           <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
           <div style={styles.stepList}>
             {[
-              { label: "Former le groupe", done: true },
-              { label: "Voter pour la destination", done: false },
-              { label: "Choisir les dates", done: false },
-              { label: "Sélectionner un hébergement", done: false },
-              { label: "Choisir les activités", done: false },
-              { label: "Valider et payer", done: false },
+              { label: "Former le groupe", done: true, action: null },
+              {
+                label: "Voter pour la destination",
+                done: false,
+                action: () => navigate(`/groupes/${id}/vote`),
+              },
+              { label: "Choisir les dates", done: false, action: null },
+              {
+                label: "Sélectionner un hébergement",
+                done: false,
+                action: null,
+              },
+              { label: "Choisir les activités", done: false, action: null },
+              { label: "Valider et payer", done: false, action: null },
             ].map((s, i) => (
               <div key={i} style={styles.stepRow}>
                 <span
@@ -190,10 +200,16 @@ export default function GroupDetail() {
                   style={{
                     ...styles.stepLabel,
                     color: s.done ? "#3B6D11" : "#444",
+                    flex: 1,
                   }}
                 >
                   {s.label}
                 </span>
+                {s.action && (
+                  <button onClick={s.action} style={styles.stepBtn}>
+                    Commencer →
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -346,4 +362,14 @@ const styles = {
     flexShrink: 0,
   },
   stepLabel: { fontSize: "14px" },
+  stepBtn: {
+    background: "#185FA5",
+    color: "white",
+    border: "none",
+    padding: "6px 14px",
+    borderRadius: "6px",
+    cursor: "pointer",
+    fontSize: "12px",
+    fontWeight: "500",
+  },
 };

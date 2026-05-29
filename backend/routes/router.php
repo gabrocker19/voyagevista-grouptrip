@@ -79,6 +79,14 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/VoteController.php';
     (new VoteController())->voter();
 
+} elseif ($uri === '/api/votes' && $method === 'GET') {
+    require_once 'controllers/VoteController.php';
+    (new VoteController())->resultats();
+
+} elseif ($uri === '/api/votes/valider' && $method === 'POST') {
+    require_once 'controllers/VoteController.php';
+    (new VoteController())->valider();
+
 // ── ITINERAIRE ────────────────────────────────────────────────────────────────
 } elseif ($uri === '/api/itineraires' && $method === 'POST') {
     require_once 'controllers/ItineraireController.php';
