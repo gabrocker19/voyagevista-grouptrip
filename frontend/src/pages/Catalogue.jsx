@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
 export default function Catalogue() {
+  const navigate = useNavigate();
   const [destinations, setDestinations] = useState([]);
   const [search, setSearch] = useState("");
   const [categorie, setCategorie] = useState("");
@@ -24,6 +26,9 @@ export default function Catalogue() {
   return (
     <div style={styles.page}>
       <div style={styles.header}>
+        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
+          ← Tableau de bord
+        </button>
         <h1 style={styles.title}>🌍 Destinations</h1>
         <p style={styles.sub}>Trouvez votre prochaine aventure</p>
       </div>
@@ -97,6 +102,16 @@ const styles = {
     fontFamily: "Arial, sans-serif",
     minHeight: "100vh",
     background: "#F5F4F0",
+  },
+  btnBack: {
+    background: "none",
+    border: "none",
+    color: "rgba(255,255,255,0.8)",
+    cursor: "pointer",
+    fontSize: "13px",
+    padding: "0",
+    marginBottom: "12px",
+    display: "block",
   },
   header: { background: "#0C447C", color: "white", padding: "40px 32px" },
   title: { fontSize: "28px", fontWeight: "bold", marginBottom: "8px" },

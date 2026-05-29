@@ -68,10 +68,63 @@ class AuthController {
         require_once 'middleware/auth.php';
         requireAuth();
 
-        $stmt = $this->db->prepare("SELECT id, nom, email, role FROM utilisateurs WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT id, nom, email, role, created_at FROM utilisateurs WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         echo json_encode($user);
+    }
+
+    public function updateProfil() {
+        require_once 'middleware/auth.php';
+        requireAuth();
+
+        $data = json_decode(file_get_contents("php://input"), true);
+        $userId = $_SESSION['user_id'];
+
+        if (empty($data['nom']) || empty($data['email'])) {
+            http_response_code(400);
+            echo json_encode(["error" => "Nom et email requis."]);
+            return;
+        }
+
+        // Vérifier que l'email n'est pas pris par quelqu'un d'autre
+        $stmt = $this->db->prepare("SELECT id FROM utilisateurs WHERE email = ? AND id != ?");
+        $stmt->execute([$data['email'], $userId]);
+        if ($stmt->fetch()) {
+            http_response_code(409);
+            echo json_encode(["error" => "Cet email est déjà utilisé."]);
+            return;
+        }
+
+        if (!empty($data['nouveau_mot_de_passe'])) {
+            // Vérifier l'ancien mot de passe
+            $stmt = $this->db->prepare("SELECT mot_de_passe FROM utilisateurs WHERE id = ?");
+            $stmt->execute([$userId]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!password_verify($data['ancien_mot_de_passe'] ?? '', $row['mot_de_passe'])) {
+                http_response_code(401);
+                echo json_encode(["error" => "Mot de passe actuel incorrect."]);
+                return;
+            }
+
+            $hash = password_hash($data['nouveau_mot_de_passe'], PASSWORD_BCRYPT);
+            $stmt = $this->db->prepare(
+                "UPDATE utilisateurs SET nom = ?, email = ?, mot_de_passe = ? WHERE id = ?"
+            );
+            $stmt->execute([$data['nom'], $data['email'], $hash, $userId]);
+        } else {
+            $stmt = $this->db->prepare(
+                "UPDATE utilisateurs SET nom = ?, email = ? WHERE id = ?"
+            );
+            $stmt->execute([$data['nom'], $data['email'], $userId]);
+        }
+
+        $_SESSION['user_email'] = $data['email'];
+
+        $stmt = $this->db->prepare("SELECT id, nom, email, role, created_at FROM utilisateurs WHERE id = ?");
+        $stmt->execute([$userId]);
+        echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
     }
 }

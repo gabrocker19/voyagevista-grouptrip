@@ -64,10 +64,10 @@ class GroupController {
     public function show($id) {
         requireAuth();
 
-        // Vérifier que l'utilisateur est membre
+        // Vérifier que l'utilisateur est membre (accepté ou en attente pour voir l'invitation)
         $stmt = $this->db->prepare("
-            SELECT mg.role FROM membres_groupe mg
-            WHERE mg.groupe_id = ? AND mg.utilisateur_id = ? AND mg.statut = 'accepte'
+            SELECT mg.role, mg.statut FROM membres_groupe mg
+            WHERE mg.groupe_id = ? AND mg.utilisateur_id = ?
         ");
         $stmt->execute([$id, $_SESSION['user_id']]);
         if (!$stmt->fetch()) {

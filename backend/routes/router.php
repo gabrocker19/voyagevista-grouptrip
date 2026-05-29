@@ -20,6 +20,10 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/AuthController.php';
     (new AuthController())->me();
 
+} elseif ($uri === '/api/profil' && $method === 'PUT') {
+    require_once 'controllers/AuthController.php';
+    (new AuthController())->updateProfil();
+
 // ── GROUPES ───────────────────────────────────────────────────────────────────
 } elseif ($uri === '/api/groupes' && $method === 'GET') {
     require_once 'controllers/GroupController.php';
@@ -37,6 +41,10 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/GroupController.php';
     (new GroupController())->invite($m[1]);
 
+} elseif (preg_match('/^\/api\/groupes\/(\d+)\/rejoindre$/', $uri, $m) && $method === 'POST') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->rejoindre($m[1]);
+
 // ── CATALOGUE ─────────────────────────────────────────────────────────────────
 } elseif ($uri === '/api/destinations' && $method === 'GET') {
     require_once 'controllers/CatalogueController.php';
@@ -52,28 +60,13 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
 
 } elseif ($uri === '/api/activites' && $method === 'GET') {
     require_once 'controllers/CatalogueController.php';
-    (new CatalogueController())->activites();
+    $ids = $_GET['ids'] ?? null;
+    if ($ids) {
+        (new CatalogueController())->activitesByIds();
+    } else {
+        (new CatalogueController())->activites();
+    }
 
-} elseif (preg_match('/^\/api\/groupes\/(\d+)\/rejoindre$/', $uri, $m) && $method === 'POST') {
-    require_once 'controllers/GroupController.php';
-    (new GroupController())->rejoindre($m[1]);
-
-} elseif (preg_match('/^\/api\/groupes\/(\d+)\/inviter$/', $uri, $m) && $method === 'POST') {
-    require_once 'controllers/GroupController.php';
-    (new GroupController())->invite($m[1]);
-
-} elseif (preg_match('/^\/api\/groupes\/(\d+)$/', $uri, $m) && $method === 'GET') {
-    require_once 'controllers/GroupController.php';
-    (new GroupController())->show($m[1]);
-
-} elseif ($uri === '/api/groupes' && $method === 'POST') {
-    require_once 'controllers/GroupController.php';
-    (new GroupController())->create();
-
-} elseif ($uri === '/api/groupes' && $method === 'GET') {
-    require_once 'controllers/GroupController.php';
-    (new GroupController())->index();
-    
 // ── VOTES ─────────────────────────────────────────────────────────────────────
 } elseif ($uri === '/api/votes' && $method === 'POST') {
     require_once 'controllers/VoteController.php';
@@ -91,13 +84,84 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
 } elseif ($uri === '/api/itineraires' && $method === 'POST') {
     require_once 'controllers/ItineraireController.php';
     (new ItineraireController())->create();
+    
+} elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/ItineraireController.php';
+    (new ItineraireController())->getByGroupe($m[1]);
+
+} elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)\/transport$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/ItineraireController.php';
+    (new ItineraireController())->annulerTransport($m[1]);
+
+} elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)\/activites\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/ItineraireController.php';
+    (new ItineraireController())->annulerActivite($m[1], $m[2]);
+
+// ── RESERVATIONS ──────────────────────────────────────────────────────────────
+} elseif ($uri === '/api/reservations' && $method === 'POST') {
+    require_once 'controllers/ReservationController.php';
+    (new ReservationController())->create();
+
+} elseif (preg_match('/^\/api\/reservations\/groupe\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/ReservationController.php';
+    (new ReservationController())->getByGroupe($m[1]);
 
 // ── NOTIFICATIONS ─────────────────────────────────────────────────────────────
+// ── ADMIN CATALOGUE ──────────────────────────────────────────────────────────
+} elseif ($uri === '/api/admin/destinations' && $method === 'POST') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->createDestination();
+
+} elseif (preg_match('/^\/api\/admin\/destinations\/(\d+)$/', $uri, $m) && $method === 'PUT') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->updateDestination($m[1]);
+
+} elseif (preg_match('/^\/api\/admin\/destinations\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->deleteDestination($m[1]);
+
+} elseif ($uri === '/api/admin/hebergements' && $method === 'POST') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->createHebergement();
+
+} elseif (preg_match('/^\/api\/admin\/hebergements\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->deleteHebergement($m[1]);
+
+} elseif ($uri === '/api/admin/activites' && $method === 'POST') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->createActivite();
+
+} elseif (preg_match('/^\/api\/admin\/activites\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->deleteActivite($m[1]);
+
 } elseif ($uri === '/api/notifications' && $method === 'GET') {
     require_once 'controllers/NotifController.php';
     (new NotifController())->index();
 
-} else {
+} elseif ($uri === '/api/notifications/lire-tout' && $method === 'PUT') {
+    require_once 'controllers/NotifController.php';
+    (new NotifController())->marquerToutesLues();
+
+} elseif (preg_match('/^\/api\/notifications\/(\d+)\/lire$/', $uri, $m) && $method === 'PUT') {
+    require_once 'controllers/NotifController.php';
+    (new NotifController())->marquerLue($m[1]);
+
+} elseif (preg_match('/^\/api\/transports\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->getTransport($m[1]);
+
+} elseif (preg_match('/^\/api\/hebergements\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->getHebergement($m[1]);
+
+} elseif (preg_match('/^\/api\/destinations\/(\d+)$/', $uri, $m) && $method === 'GET') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->getDestination($m[1]);
+} 
+else {
     http_response_code(404);
     echo json_encode(["error" => "Endpoint non trouvé : $method $uri"]);
 }
+

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
 
+
 export default function GroupCreate() {
   const [form, setForm] = useState({ nom: "", budget_max: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +23,9 @@ export default function GroupCreate() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
+        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
+          ← Mes voyages
+        </button>
         <h2 style={styles.title}>✈ Créer un GroupTrip</h2>
         <p style={styles.sub}>Organisez votre voyage en groupe</p>
 
@@ -75,6 +80,16 @@ const styles = {
     width: "100%",
     maxWidth: "480px",
     boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+  },
+  btnBack: {
+    background: "none",
+    border: "none",
+    color: "#185FA5",
+    cursor: "pointer",
+    fontSize: "13px",
+    padding: "0",
+    marginBottom: "16px",
+    display: "block",
   },
   title: {
     fontSize: "24px",

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { voteService } from "../services/vote.service";
 import { groupService } from "../services/group.service";
 import { api } from "../services/api";
@@ -7,6 +7,7 @@ import { useAuth } from "../context/AuthContext";
 
 export default function Vote() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [groupe, setGroupe] = useState(null);
   const [destinations, setDestinations] = useState([]);
@@ -68,6 +69,9 @@ export default function Vote() {
   return (
     <div style={styles.page}>
       <div style={styles.header}>
+        <button onClick={() => navigate(`/groupes/${id}`)} style={styles.btnBack}>
+          ← Retour au groupe
+        </button>
         <h1 style={styles.title}>🗳️ Vote — Destination</h1>
         <p style={styles.sub}>{groupe?.nom}</p>
       </div>
@@ -185,6 +189,16 @@ const styles = {
     background: "#F5F4F0",
   },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
+  btnBack: {
+    background: "none",
+    border: "none",
+    color: "rgba(255,255,255,0.8)",
+    cursor: "pointer",
+    fontSize: "13px",
+    padding: "0",
+    marginBottom: "10px",
+    display: "block",
+  },
   header: { background: "#0C447C", color: "white", padding: "32px" },
   title: { fontSize: "26px", fontWeight: "bold", marginBottom: "6px" },
   sub: { opacity: 0.8, fontSize: "14px" },
