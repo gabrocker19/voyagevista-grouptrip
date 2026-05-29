@@ -1,10 +1,22 @@
 <?php
+$dbPasswordFile = __DIR__ . '/db_password.php';
+$dbPassword = '';
+if (file_exists($dbPasswordFile)) {
+    require_once $dbPasswordFile;
+    $dbPassword = defined('DB_PASSWORD') ? DB_PASSWORD : '';
+}
+
 class Database {
     private $host     = "localhost";
     private $db_name  = "voyagevista";
     private $username = "root";
-    private $password = "";
+    private $password;
     public  $conn;
+
+    public function __construct() {
+        global $dbPassword;
+        $this->password = $dbPassword ?? '';
+    }
 
     public function getConnection() {
         $this->conn = null;

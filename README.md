@@ -40,7 +40,30 @@ Ouvrir **phpMyAdmin** à l'adresse `http://localhost/phpmyadmin` puis :
 2. Importer `database/schema.sql` → crée la base et toutes les tables
 3. Importer `database/seed.sql` → insère les données de test (destinations, transports, hébergements, activités, comptes utilisateurs)
 
-### 3. Compiler le frontend (une seule fois)
+### 3. Configurer le mot de passe MySQL (si nécessaire)
+
+Par défaut l'application utilise `root` sans mot de passe.
+
+Si ton WAMP a un mot de passe root MySQL, créer le fichier `backend/config/db_password.php` :
+
+```php
+<?php
+define('DB_PASSWORD', 'ton_mot_de_passe_ici');
+```
+
+> Ce fichier est ignoré par git — chacun crée le sien localement.
+
+**Pour supprimer le mot de passe root** (plus simple) : ouvrir phpMyAdmin → onglet SQL → exécuter :
+
+```sql
+UPDATE mysql.user SET authentication_string = '' WHERE User = 'root' AND Host = 'localhost';
+UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root' AND Host = 'localhost';
+FLUSH PRIVILEGES;
+```
+
+Puis redémarrer WAMP (clic droit icône → Restart All Services).
+
+### 4. Compiler le frontend (une seule fois)
 
 Dans le terminal VS Code (`Ctrl+ù`) :
 
