@@ -58,21 +58,16 @@ Il faut **deux terminaux ouverts en même temps**.
 
 ### Terminal 1 — Backend PHP
 
-Depuis la **racine du projet** (`voyagevista-grouptrip/`) :
-
 ```bash
-php -S localhost:8000 -t backend
+cd C:\wamp64\www\voyagevista-grouptrip && php -S localhost:8000 -t backend
 ```
 
 L'API répond sur `http://localhost:8000/api/...`
 
 ### Terminal 2 — Frontend React
 
-Depuis le dossier `frontend/` :
-
 ```bash
-cd frontend
-npm run dev
+cd C:\wamp64\www\voyagevista-grouptrip\frontend && npm run dev
 ```
 
 Le site est accessible sur **`http://localhost:5173`**
