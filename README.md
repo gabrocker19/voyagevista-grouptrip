@@ -9,8 +9,8 @@ Plateforme de planification de voyages en groupe.
 
 ## Stack technique
 
-- **Frontend :** React 19 + Vite (port 5173)
-- **Backend :** PHP 8 — API REST (port 8000)
+- **Frontend :** React 19 + Vite (servi par Apache/WAMP après build)
+- **Backend :** PHP 8 — API REST (servi par Apache/WAMP)
 - **Base de données :** MariaDB / MySQL (via WAMP)
 
 ---
@@ -18,8 +18,7 @@ Plateforme de planification de voyages en groupe.
 ## Prérequis
 
 - [WAMP Server](https://www.wampserver.com/) installé et démarré (icône verte dans la barre des tâches)
-- [Node.js](https://nodejs.org/) v18 ou supérieur
-- PHP 8.x disponible en ligne de commande (`php -v` pour vérifier)
+- [Node.js](https://nodejs.org/) v18 ou supérieur (pour la compilation du frontend, une seule fois)
 
 ---
 
@@ -41,36 +40,26 @@ Ouvrir **phpMyAdmin** à l'adresse `http://localhost/phpmyadmin` puis :
 2. Importer `database/schema.sql` → crée la base et toutes les tables
 3. Importer `database/seed.sql` → insère les données de test (destinations, transports, hébergements, activités, comptes utilisateurs)
 
-### 3. Installer les dépendances frontend
+### 3. Compiler le frontend (une seule fois)
 
-Dans un terminal, depuis le dossier `frontend/` :
+Dans le terminal VS Code (`Ctrl+ù`) :
 
 ```bash
-cd frontend
-npm install
+cd frontend && npm install && npm run build
 ```
 
 ---
 
 ## Lancer le site
 
-Il faut **deux terminaux ouverts en même temps**.
+1. Démarrer **WAMP** (icône verte dans la barre des tâches)
+2. Ouvrir le navigateur à l'adresse :
 
-### Terminal 1 — Backend PHP
+**`http://localhost/voyagevista-grouptrip/frontend/dist/`**
 
-```bash
-cd C:\wamp64\www\voyagevista-grouptrip && php -S localhost:8000 -t backend
-```
+C'est tout. Aucune commande à lancer.
 
-L'API répond sur `http://localhost:8000/api/...`
-
-### Terminal 2 — Frontend React
-
-```bash
-cd C:\wamp64\www\voyagevista-grouptrip\frontend && npm run dev
-```
-
-Le site est accessible sur **`http://localhost:5173`**
+> Si tu modifies du code React, relancer `npm run build` dans le terminal VS Code pour recompiler.
 
 ---
 
@@ -109,7 +98,7 @@ voyagevista-grouptrip/
 │   │   │                  # Panier, Paiement, Profil, Notifications, Admin
 │   │   └── services/      # api.js, auth.service.js, group.service.js,
 │   │                      # catalogue.service.js, vote.service.js
-│   └── .env               # VITE_API_URL=http://localhost:8000
+│   └── .env               # VITE_API_URL=http://localhost/voyagevista-grouptrip/backend
 └── database/
     ├── schema.sql          # Création des tables
     └── seed.sql            # Données de test

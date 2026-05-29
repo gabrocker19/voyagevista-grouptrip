@@ -1,6 +1,10 @@
 <?php
 $uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri    = str_replace('/backend', '', $uri);
+$base   = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+if ($base !== '' && strpos($uri, $base) === 0) {
+    $uri = substr($uri, strlen($base));
+}
+if (empty($uri)) $uri = '/';
 $method = $_SERVER['REQUEST_METHOD'];
 
 // ── AUTH ──────────────────────────────────────────────────────────────────────

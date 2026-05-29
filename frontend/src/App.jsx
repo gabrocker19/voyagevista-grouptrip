@@ -28,7 +28,7 @@ function PrivateRoute({ children }) {
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/voyagevista-grouptrip/frontend/dist">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
