@@ -43,7 +43,7 @@ export default function Vote() {
   }, [id]);
 
   const destsFiltrees = useMemo(() => {
-    return destinations.filter((d) => {
+    const filtered = destinations.filter((d) => {
       const matchSearch =
         !search ||
         d.nom.toLowerCase().includes(search.toLowerCase()) ||
@@ -51,7 +51,12 @@ export default function Vote() {
       const matchCat = !catFiltre || d.categorie === catFiltre;
       return matchSearch && matchCat;
     });
-  }, [destinations, search, catFiltre]);
+    return filtered.sort((a, b) => {
+      const aVal = groupe?.destination_id === a.id ? -1 : 0;
+      const bVal = groupe?.destination_id === b.id ? -1 : 0;
+      return aVal - bVal;
+    });
+  }, [destinations, search, catFiltre, groupe?.destination_id]);
 
   const handleVote = async (dest_id) => {
     try {
@@ -73,7 +78,6 @@ export default function Vote() {
   const handleValider = async (valeur) => {
     try {
       await voteService.valider({ groupe_id: id, type: "destination", valeur });
-      setMessage("Destination validée pour le groupe !");
       groupService.getOne(id).then(setGroupe);
     } catch (err) {
       setMessage(err.message);
@@ -87,6 +91,13 @@ export default function Vote() {
 
   return (
     <div style={s.page}>
+      <style>{`
+        @keyframes validatedPulse {
+          0%   { box-shadow: 0 0 0 0 rgba(66,168,90,0.55), 0 2px 8px rgba(0,0,0,0.07); }
+          50%  { box-shadow: 0 0 0 8px rgba(66,168,90,0), 0 2px 8px rgba(0,0,0,0.07); }
+          100% { box-shadow: 0 0 0 4px rgba(66,168,90,0.18), 0 2px 8px rgba(0,0,0,0.07); }
+        }
+      `}</style>
       <PageHeader
         title="🗳️ Vote — Destination"
         subtitle={groupe?.nom}
@@ -155,16 +166,22 @@ export default function Vote() {
               const votants = resultat ? resultat.votants : "";
               const pct = totalMembres > 0 ? Math.round((nbVotes / totalMembres) * 100) : 0;
               const isMyVote = monVote === String(d.id);
+              const isValidated = groupe?.destination_id === d.id;
 
               return (
                 <div
                   key={d.id}
                   style={{
                     ...s.card,
-                    border: isMyVote ? "2px solid #185FA5" : "1px solid #E0DED6",
-                    boxShadow: isMyVote
-                      ? "0 0 0 3px rgba(24,95,165,0.15)"
-                      : "0 2px 8px rgba(0,0,0,0.07)",
+                    border: isValidated
+                      ? "2px solid #42A85A"
+                      : isMyVote ? "2px solid #185FA5" : "1px solid #E0DED6",
+                    boxShadow: isValidated
+                      ? "0 0 0 4px rgba(66,168,90,0.18), 0 2px 8px rgba(0,0,0,0.07)"
+                      : isMyVote
+                        ? "0 0 0 3px rgba(24,95,165,0.15)"
+                        : "0 2px 8px rgba(0,0,0,0.07)",
+                    animation: isValidated ? "validatedPulse 0.7s ease-out" : undefined,
                   }}
                 >
                   {/* Image / icône */}
@@ -180,7 +197,10 @@ export default function Vote() {
                       : <span style={s.cardIconBadge}>{getDestIcon(d)}</span>
                     }
                     <span style={s.badge}>{d.categorie}</span>
-                    {isMyVote && <span style={s.myVoteBadge}>✓ Mon vote</span>}
+                    {isValidated
+                      ? <span style={s.validatedBadge}>✓ Validée</span>
+                      : isMyVote && <span style={s.myVoteBadge}>✓ Mon vote</span>
+                    }
                   </div>
 
                   {/* Infos */}
@@ -211,7 +231,7 @@ export default function Vote() {
                       >
                         {isMyVote ? "✓ Voté" : "Voter pour cette destination"}
                       </button>
-                      {isOrganisateur && nbVotes > 0 && (
+                      {isOrganisateur && nbVotes > 0 && !isValidated && (
                         <button
                           onClick={() => handleValider(String(d.id))}
                           style={s.btnValider}
@@ -296,6 +316,11 @@ const s = {
   myVoteBadge: {
     position: "absolute", top: "10px", right: "10px",
     background: "#185FA5", color: "white",
+    padding: "3px 10px", borderRadius: "12px", fontSize: "11px", fontWeight: "bold",
+  },
+  validatedBadge: {
+    position: "absolute", top: "10px", right: "10px",
+    background: "#42A85A", color: "white",
     padding: "3px 10px", borderRadius: "12px", fontSize: "11px", fontWeight: "bold",
   },
   cardBody: { padding: "14px 16px" },

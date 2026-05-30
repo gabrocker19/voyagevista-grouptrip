@@ -15,6 +15,7 @@ export default function GroupDetail() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [itineraire, setItineraire] = useState(null);
+  const [destinationNom, setDestinationNom] = useState(null);
 
   useEffect(() => {
     Promise.all([
@@ -24,6 +25,11 @@ export default function GroupDetail() {
       .then(([g, itin]) => {
         setGroupe(g);
         setItineraire(itin);
+        if (g.destination_id) {
+          api.get(`/api/destinations/${g.destination_id}`)
+            .then((dest) => setDestinationNom(dest.nom))
+            .catch(() => {});
+        }
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -86,7 +92,7 @@ export default function GroupDetail() {
     },
     {
       label: destinationValidee
-        ? `Planifier le voyage — destination validée ✓`
+        ? `Planifier le voyage — ${destinationNom || "destination validée ✓"}`
         : "Planifier le voyage (disponible après vote)",
       done: itineraireValide,
       action: destinationValidee
@@ -138,7 +144,9 @@ export default function GroupDetail() {
           </div>
           <div style={styles.headerStatDivider} />
           <div style={styles.headerStat}>
-            <span style={styles.headerStatVal}>{destinationValidee ? "✓" : "À voter"}</span>
+            <span style={{ ...styles.headerStatVal, fontSize: destinationNom ? "13px" : "16px" }}>
+              {destinationNom || (destinationValidee ? "✓" : "À voter")}
+            </span>
             <span style={styles.headerStatLabel}>🌍 Destination</span>
           </div>
         </div>
