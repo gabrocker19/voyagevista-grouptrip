@@ -144,7 +144,10 @@ export default function Catalogue() {
                       background: d.image_url ? undefined : "#E6F1FB",
                     }}
                   >
-                    {!d.image_url && <span style={s.destEmoji}>{getDestIcon(d)}</span>}
+                    {!d.image_url
+                      ? <span style={s.destEmoji}>{getDestIcon(d)}</span>
+                      : <span style={s.destIconBadge}>{getDestIcon(d)}</span>
+                    }
                     <span style={s.destBadge}>{d.categorie}</span>
                   </div>
                   <div style={s.destBody}>
@@ -340,8 +343,9 @@ const s = {
   destGrid: { display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(270px, 1fr))", gap:"16px", padding:"24px" },
   destCard: { background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 2px 8px rgba(0,0,0,0.07)" },
   destImg:  { height:"150px", backgroundSize:"cover", backgroundPosition:"center", position:"relative", display:"flex", alignItems:"center", justifyContent:"center" },
-  destEmoji:{ fontSize:"52px" },
-  destBadge:{ position:"absolute", top:"10px", left:"10px", background:"rgba(0,0,0,0.45)", color:"white", padding:"3px 10px", borderRadius:"12px", fontSize:"11px" },
+  destEmoji:    { fontSize:"52px" },
+  destIconBadge:{ position:"absolute", bottom:"10px", right:"10px", fontSize:"22px", background:"rgba(255,255,255,0.88)", borderRadius:"10px", padding:"4px 8px", lineHeight:1, backdropFilter:"blur(4px)" },
+  destBadge:    { position:"absolute", top:"10px", left:"10px", background:"rgba(0,0,0,0.45)", color:"white", padding:"3px 10px", borderRadius:"12px", fontSize:"11px" },
   destBody: { padding:"14px 16px" },
   destTitle:{ fontSize:"17px", fontWeight:"bold", color:"#0C447C", marginBottom:"2px" },
   destPays: { fontSize:"12px", color:"#73726c", marginBottom:"4px" },

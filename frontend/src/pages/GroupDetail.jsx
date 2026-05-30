@@ -133,16 +133,10 @@ export default function GroupDetail() {
               </p>
             </div>
             <div style={styles.inviteBtns}>
-              <button
-                onClick={() => handleRepondreInvitation("accepte")}
-                style={styles.btnAccepter}
-              >
+              <button onClick={() => handleRepondreInvitation("accepte")} style={styles.btnAccepter}>
                 ✓ Accepter
               </button>
-              <button
-                onClick={() => handleRepondreInvitation("refuse")}
-                style={styles.btnRefuser}
-              >
+              <button onClick={() => handleRepondreInvitation("refuse")} style={styles.btnRefuser}>
                 ✗ Refuser
               </button>
             </div>
@@ -158,24 +152,59 @@ export default function GroupDetail() {
           </div>
           <div style={styles.infoCard}>
             <div style={styles.infoIcon}>💶</div>
-            <div style={styles.infoVal}>
-              {groupe.budget_max ? `${groupe.budget_max}€` : "Non défini"}
-            </div>
+            <div style={styles.infoVal}>{groupe.budget_max ? `${groupe.budget_max}€` : "Non défini"}</div>
             <div style={styles.infoLabel}>Budget max / pers.</div>
           </div>
           <div style={styles.infoCard}>
             <div style={styles.infoIcon}>📅</div>
-            <div style={styles.infoVal}>
-              {groupe.date_depart || "À définir"}
-            </div>
+            <div style={styles.infoVal}>{groupe.date_depart || "À définir"}</div>
             <div style={styles.infoLabel}>Date de départ</div>
           </div>
           <div style={styles.infoCard}>
             <div style={styles.infoIcon}>🌍</div>
-            <div style={styles.infoVal}>
-              {destinationValidee ? "✓ Validée" : "À voter"}
-            </div>
+            <div style={styles.infoVal}>{destinationValidee ? "✓ Validée" : "À voter"}</div>
             <div style={styles.infoLabel}>Destination</div>
+          </div>
+        </div>
+
+        {/* ── Étapes (cartes cliquables) ── */}
+        <div style={styles.section}>
+          <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
+          <div style={styles.stepsGrid}>
+            {etapes.map((step, i) => {
+              const isActive = !step.done && !!step.action;
+              const isLocked = !step.done && !step.action;
+              return (
+                <div
+                  key={i}
+                  onClick={step.action || undefined}
+                  style={{
+                    ...styles.stepCard,
+                    ...(step.done   ? styles.stepCardDone   : {}),
+                    ...(isActive    ? styles.stepCardActive  : {}),
+                    ...(isLocked    ? styles.stepCardLocked  : {}),
+                    cursor: step.action ? "pointer" : "default",
+                  }}
+                >
+                  <div style={{
+                    ...styles.stepNum,
+                    background: step.done ? "#3B6D11" : isActive ? "#185FA5" : "#C8C6BC",
+                  }}>
+                    {step.done ? "✓" : i + 1}
+                  </div>
+                  <div style={styles.stepCardLabel}>{step.label}</div>
+                  {isActive && (
+                    <div style={styles.stepCardCta}>Commencer →</div>
+                  )}
+                  {step.done && step.action && (
+                    <div style={styles.stepCardEdit}>Modifier</div>
+                  )}
+                  {isLocked && (
+                    <div style={styles.stepCardLock}>🔒 En attente</div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -186,43 +215,24 @@ export default function GroupDetail() {
             <div style={styles.itinRow}>
               <span>✈️ Transport</span>
               <span style={styles.itinVal}>
-                {itineraire.compagnie
-                  ? `${itineraire.compagnie} — ${itineraire.transport_prix}€`
-                  : "Non sélectionné"}
+                {itineraire.compagnie ? `${itineraire.compagnie} — ${itineraire.transport_prix}€` : "Non sélectionné"}
               </span>
             </div>
             <div style={styles.itinRow}>
               <span>🏨 Hébergement</span>
               <span style={styles.itinVal}>
-                {itineraire.heb_nom
-                  ? `${itineraire.heb_nom} — ${itineraire.prix_nuit}€/nuit`
-                  : "Non sélectionné"}
+                {itineraire.heb_nom ? `${itineraire.heb_nom} — ${itineraire.prix_nuit}€/nuit` : "Non sélectionné"}
               </span>
             </div>
             <div style={styles.itinRow}>
               <span>🎯 Activités</span>
               <span style={styles.itinVal}>
-                {itineraire.activites?.length > 0
-                  ? `${itineraire.activites.length} activité(s)`
-                  : "Aucune"}
+                {itineraire.activites?.length > 0 ? `${itineraire.activites.length} activité(s)` : "Aucune"}
               </span>
             </div>
-            <div
-              style={{
-                ...styles.itinRow,
-                borderTop: "2px solid #E0DED6",
-                marginTop: "8px",
-                paddingTop: "8px",
-              }}
-            >
+            <div style={{ ...styles.itinRow, borderTop: "2px solid #E0DED6", marginTop: "8px", paddingTop: "8px" }}>
               <span style={{ fontWeight: "bold" }}>Total / personne</span>
-              <span
-                style={{
-                  fontWeight: "bold",
-                  color: "#0C447C",
-                  fontSize: "18px",
-                }}
-              >
+              <span style={{ fontWeight: "bold", color: "#0C447C", fontSize: "18px" }}>
                 {itineraire.cout_total}€
               </span>
             </div>
@@ -240,33 +250,18 @@ export default function GroupDetail() {
                   <div style={styles.memberName}>{m.nom}</div>
                   <div style={styles.memberEmail}>{m.email}</div>
                 </div>
-                <span
-                  style={{
-                    ...styles.memberBadge,
-                    background:
-                      m.role === "organisateur" ? "#E6F1FB" : "#F5F4F0",
-                    color: m.role === "organisateur" ? "#0C447C" : "#73726c",
-                  }}
-                >
+                <span style={{
+                  ...styles.memberBadge,
+                  background: m.role === "organisateur" ? "#E6F1FB" : "#F5F4F0",
+                  color: m.role === "organisateur" ? "#0C447C" : "#73726c",
+                }}>
                   {m.role}
                 </span>
-                <span
-                  style={{
-                    ...styles.memberBadge,
-                    background:
-                      m.statut === "accepte"
-                        ? "#EAF3DE"
-                        : m.statut === "en_attente"
-                          ? "#FAEEDA"
-                          : "#FCEBEB",
-                    color:
-                      m.statut === "accepte"
-                        ? "#3B6D11"
-                        : m.statut === "en_attente"
-                          ? "#854F0B"
-                          : "#A32D2D",
-                  }}
-                >
+                <span style={{
+                  ...styles.memberBadge,
+                  background: m.statut === "accepte" ? "#EAF3DE" : m.statut === "en_attente" ? "#FAEEDA" : "#FCEBEB",
+                  color: m.statut === "accepte" ? "#3B6D11" : m.statut === "en_attente" ? "#854F0B" : "#A32D2D",
+                }}>
                   {m.statut}
                 </span>
               </div>
@@ -289,53 +284,13 @@ export default function GroupDetail() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <button type="submit" style={styles.btnInvite}>
-                Inviter
-              </button>
+              <button type="submit" style={styles.btnInvite}>Inviter</button>
             </form>
             <p style={styles.hint}>
               Comptes de test : aurelien@test.fr · brice@test.fr · isiah@test.fr
             </p>
           </div>
         )}
-
-        {/* Étapes */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
-          <div style={styles.stepList}>
-            {etapes.map((s, i) => (
-              <div key={i} style={styles.stepRow}>
-                <span
-                  style={{
-                    ...styles.stepDot,
-                    background: s.done ? "#3B6D11" : "#D1CFC5",
-                  }}
-                >
-                  {s.done ? "✓" : i + 1}
-                </span>
-                <span
-                  style={{
-                    ...styles.stepLabel,
-                    color: s.done ? "#3B6D11" : s.action ? "#2C2C2A" : "#999",
-                    flex: 1,
-                  }}
-                >
-                  {s.label}
-                </span>
-                {s.action && !s.done && (
-                  <button onClick={s.action} style={styles.stepBtn}>
-                    Commencer →
-                  </button>
-                )}
-                {s.action && s.done && (
-                  <button onClick={s.action} style={styles.stepBtnDone}>
-                    Modifier
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -512,40 +467,77 @@ const styles = {
     marginBottom: "12px",
     fontSize: "14px",
   },
-  stepList: { display: "flex", flexDirection: "column", gap: "12px" },
-  stepRow: { display: "flex", alignItems: "center", gap: "12px" },
-  stepDot: {
-    width: "28px",
-    height: "28px",
+  // Grille étapes
+  stepsGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+    gap: "12px",
+  },
+  stepCard: {
+    background: "#F5F4F0",
+    border: "2px solid #E0DED6",
+    borderRadius: "12px",
+    padding: "18px 16px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+    gap: "10px",
+    transition: "box-shadow 0.15s",
+  },
+  stepCardActive: {
+    background: "#EBF3FC",
+    border: "2px solid #185FA5",
+    boxShadow: "0 4px 16px rgba(24,95,165,0.15)",
+  },
+  stepCardDone: {
+    background: "#F0F7EA",
+    border: "2px solid #84C257",
+  },
+  stepCardLocked: {
+    opacity: 0.55,
+  },
+  stepNum: {
+    width: "36px",
+    height: "36px",
     borderRadius: "50%",
     color: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "12px",
+    fontSize: "14px",
     fontWeight: "bold",
     flexShrink: 0,
   },
-  stepLabel: { fontSize: "14px" },
-  stepBtn: {
+  stepCardLabel: {
+    fontSize: "13px",
+    fontWeight: "600",
+    color: "#2C2C2A",
+    lineHeight: "1.35",
+  },
+  stepCardCta: {
+    marginTop: "auto",
     background: "#185FA5",
     color: "white",
-    border: "none",
-    padding: "6px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
+    padding: "7px 16px",
+    borderRadius: "8px",
     fontSize: "12px",
-    fontWeight: "500",
-    whiteSpace: "nowrap",
+    fontWeight: "600",
+    width: "100%",
   },
-  stepBtnDone: {
-    background: "#F5F4F0",
+  stepCardEdit: {
+    marginTop: "auto",
+    background: "white",
     color: "#73726c",
     border: "1px solid #D1CFC5",
-    padding: "6px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
+    padding: "6px 16px",
+    borderRadius: "8px",
     fontSize: "12px",
-    whiteSpace: "nowrap",
+    width: "100%",
+  },
+  stepCardLock: {
+    marginTop: "auto",
+    color: "#999",
+    fontSize: "11px",
   },
 };

@@ -40,6 +40,7 @@ CREATE TABLE destinations (
     description   TEXT,
     prix_min      DECIMAL(10,2) DEFAULT 0,
     image_url     VARCHAR(255),
+    icone         VARCHAR(10)   DEFAULT '🌍',
     created_at    DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -336,6 +337,69 @@ INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,imag
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
 (64,'La Réunion','France','aventure','Volcan Piton de la Fournaise en activité, cirques de montagne, surf à Saint-Leu et canyoning mythique.',850.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'),
 (65,'Cape Town','Afrique du Sud','aventure','Table Mountain, Cape Point, plages de Camps Bay, vignobles de Stellenbosch et safaris proches.',1050.00,'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80');
+
+-- ============================================================
+-- ICÔNES DES DESTINATIONS (depuis icons.js)
+-- ============================================================
+UPDATE destinations SET icone = '🏝️' WHERE id = 7;   -- Maldives
+UPDATE destinations SET icone = '🏖️' WHERE id = 8;   -- Phuket
+UPDATE destinations SET icone = '🌴' WHERE id = 9;   -- Cancún
+UPDATE destinations SET icone = '🏖️' WHERE id = 10;  -- Seychelles
+UPDATE destinations SET icone = '🐠' WHERE id = 11;  -- Zanzibar
+UPDATE destinations SET icone = '⛵' WHERE id = 12;  -- Mykonos
+UPDATE destinations SET icone = '🎶' WHERE id = 13;  -- Ibiza
+UPDATE destinations SET icone = '🌺' WHERE id = 14;  -- Bora Bora
+UPDATE destinations SET icone = '🌺' WHERE id = 15;  -- Île Maurice
+UPDATE destinations SET icone = '🌊' WHERE id = 16;  -- Miami Beach
+UPDATE destinations SET icone = '⛷️' WHERE id = 17;  -- Chamonix
+UPDATE destinations SET icone = '🎿' WHERE id = 18;  -- Queenstown
+UPDATE destinations SET icone = '🏔️' WHERE id = 19;  -- Zermatt
+UPDATE destinations SET icone = '🏔️' WHERE id = 20;  -- Dolomites
+UPDATE destinations SET icone = '🏔️' WHERE id = 21;  -- Tromsø
+UPDATE destinations SET icone = '🏔️' WHERE id = 22;  -- Aspen
+UPDATE destinations SET icone = '🏟️' WHERE id = 23;  -- Barcelone
+UPDATE destinations SET icone = '🌷' WHERE id = 24;  -- Amsterdam
+UPDATE destinations SET icone = '🌇' WHERE id = 25;  -- Singapour
+UPDATE destinations SET icone = '🏰' WHERE id = 26;  -- Prague
+UPDATE destinations SET icone = '🌆' WHERE id = 27;  -- Dubaï
+UPDATE destinations SET icone = '🗽' WHERE id = 28;  -- New York
+UPDATE destinations SET icone = '🛕' WHERE id = 29;  -- Bangkok
+UPDATE destinations SET icone = '🕌' WHERE id = 30;  -- Marrakech
+UPDATE destinations SET icone = '🏛️' WHERE id = 31;  -- Rome
+UPDATE destinations SET icone = '🕌' WHERE id = 32;  -- Istanbul
+UPDATE destinations SET icone = '🎋' WHERE id = 33;  -- Kyoto
+UPDATE destinations SET icone = '🐪' WHERE id = 34;  -- Le Caire
+UPDATE destinations SET icone = '🧗' WHERE id = 35;  -- Reykjavik
+UPDATE destinations SET icone = '🦁' WHERE id = 36;  -- Nairobi
+UPDATE destinations SET icone = '🧗' WHERE id = 37;  -- San José
+UPDATE destinations SET icone = '🧗' WHERE id = 38;  -- El Calafate
+UPDATE destinations SET icone = '🎡' WHERE id = 39;  -- Londres
+UPDATE destinations SET icone = '🧱' WHERE id = 40;  -- Berlin
+UPDATE destinations SET icone = '🎼' WHERE id = 41;  -- Vienne
+UPDATE destinations SET icone = '💃' WHERE id = 42;  -- Madrid
+UPDATE destinations SET icone = '🍫' WHERE id = 43;  -- Bruxelles
+UPDATE destinations SET icone = '🧜' WHERE id = 44;  -- Copenhague
+UPDATE destinations SET icone = '👑' WHERE id = 45;  -- Stockholm
+UPDATE destinations SET icone = '🌉' WHERE id = 46;  -- Budapest
+UPDATE destinations SET icone = '🏛️' WHERE id = 47;  -- Athènes
+UPDATE destinations SET icone = '🎨' WHERE id = 48;  -- Florence
+UPDATE destinations SET icone = '🍷' WHERE id = 49;  -- Porto
+UPDATE destinations SET icone = '🏯' WHERE id = 50;  -- Lisbonne Nord (Sintra)
+UPDATE destinations SET icone = '🎎' WHERE id = 51;  -- Séoul
+UPDATE destinations SET icone = '🌃' WHERE id = 52;  -- Hong Kong
+UPDATE destinations SET icone = '🏙️' WHERE id = 53;  -- Kuala Lumpur
+UPDATE destinations SET icone = '🏮' WHERE id = 54;  -- Hanoï
+UPDATE destinations SET icone = '🎬' WHERE id = 55;  -- Mumbai
+UPDATE destinations SET icone = '🍁' WHERE id = 56;  -- Montréal
+UPDATE destinations SET icone = '🌴' WHERE id = 57;  -- Los Angeles
+UPDATE destinations SET icone = '🌉' WHERE id = 58;  -- Sydney
+UPDATE destinations SET icone = '💃' WHERE id = 59;  -- Buenos Aires
+UPDATE destinations SET icone = '🎭' WHERE id = 60;  -- Rio de Janeiro
+UPDATE destinations SET icone = '🌴' WHERE id = 61;  -- Punta Cana
+UPDATE destinations SET icone = '🥥' WHERE id = 62;  -- Koh Samui
+UPDATE destinations SET icone = '🌊' WHERE id = 63;  -- Cap-Vert
+UPDATE destinations SET icone = '🌋' WHERE id = 64;  -- La Réunion
+UPDATE destinations SET icone = '🦭' WHERE id = 65;  -- Cape Town
 
 
 -- ============================================================

@@ -174,9 +174,10 @@ export default function Vote() {
                       background: d.image_url ? undefined : "#E6F1FB",
                     }}
                   >
-                    {!d.image_url && (
-                      <span style={s.cardEmoji}>{getDestIcon(d)}</span>
-                    )}
+                    {!d.image_url
+                      ? <span style={s.cardEmoji}>{getDestIcon(d)}</span>
+                      : <span style={s.cardIconBadge}>{getDestIcon(d)}</span>
+                    }
                     <span style={s.badge}>{d.categorie}</span>
                     {isMyVote && <span style={s.myVoteBadge}>✓ Mon vote</span>}
                   </div>
@@ -291,7 +292,8 @@ const s = {
     height: "150px", backgroundSize: "cover", backgroundPosition: "center",
     position: "relative", display: "flex", alignItems: "center", justifyContent: "center",
   },
-  cardEmoji: { fontSize: "56px" },
+  cardEmoji:     { fontSize: "56px" },
+  cardIconBadge: { position:"absolute", bottom:"10px", right:"10px", fontSize:"22px", background:"rgba(255,255,255,0.88)", borderRadius:"10px", padding:"4px 8px", lineHeight:1, backdropFilter:"blur(4px)" },
   badge: {
     position: "absolute", top: "10px", left: "10px",
     background: "rgba(0,0,0,0.5)", color: "white",
