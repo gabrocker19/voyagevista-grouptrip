@@ -8,15 +8,16 @@ export const DEST_ICONS = {
   "Bordeaux":            "🍷",
 
   // Europe Ouest
-  "Londres":             "🎡",
-  "Barcelone":           "🏟️",
-  "Madrid":              "💃",
-  "Lisbonne":            "⚓",
-  "Porto":               "🍷",
-  "Sintra":              "🏯",
-  "Amsterdam":           "🌷",
-  "Bruxelles":           "🍫",
-  "Dublin":              "🍀",
+  "Londres":                  "🎡",
+  "Barcelone":                "🏟️",
+  "Madrid":                   "💃",
+  "Lisbonne":                 "⚓",
+  "Lisbonne Nord (Sintra)":   "🏯",
+  "Porto":                    "🍷",
+  "Sintra":                   "🏯",
+  "Amsterdam":                "🌷",
+  "Bruxelles":                "🍫",
+  "Dublin":                   "🍀",
 
   // Europe Centre & Nord
   "Berlin":              "🧱",
@@ -28,6 +29,8 @@ export const DEST_ICONS = {
   "Oslo":                "🐋",
   "Helsinki":            "🌲",
   "Varsovie":            "🏛️",
+  "Reykjavik":           "🌋",
+  "Tromsø":              "🌌",
 
   // Europe Sud
   "Rome":                "🏛️",
@@ -44,6 +47,7 @@ export const DEST_ICONS = {
 
   // Moyen-Orient & Afrique Nord
   "Dubai":               "🌆",
+  "Dubaï":               "🌆",
   "Marrakech":           "🕌",
   "Le Caire":            "🐪",
   "Alger":               "🕌",
@@ -117,8 +121,19 @@ export const DEST_ICONS = {
   // Montagne & Nature
   "Chamonix":            "⛷️",
   "Interlaken":          "🏔️",
+  "Zermatt":             "⛷️",
+  "Aspen":               "🎿",
   "Fjords de Norvège":   "🛳️",
   "Dolomites":           "🏔️",
+
+  // Amériques (manquants)
+  "Miami Beach":         "🌊",
+  "San José":            "🌿",
+  "El Calafate":         "🧊",
+  "Cusco":               "🏯",
+
+  // Autres manquants
+  "Seychelles":          "🏝️",
 };
 
 export const CAT_ICONS = {

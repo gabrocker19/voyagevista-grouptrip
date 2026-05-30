@@ -137,14 +137,8 @@ export default function Catalogue() {
               ? <p style={s.empty}>Aucune destination trouvée.</p>
               : destsFiltrees.map(d => (
                 <div key={d.id} style={s.destCard}>
-                  <div
-                    style={{
-                      ...s.destImg,
-                      backgroundImage: d.image_url ? `url(${d.image_url})` : "none",
-                      background: d.image_url ? undefined : "#E6F1FB",
-                    }}
-                  >
-                    {!d.image_url && <span style={s.destEmoji}>{getDestIcon(d)}</span>}
+                  <div style={{ ...s.destImg, background: "#E6F1FB" }}>
+                    <span style={s.destEmoji}>{getDestIcon(d)}</span>
                     <span style={s.destBadge}>{d.categorie}</span>
                   </div>
                   <div style={s.destBody}>
@@ -341,7 +335,7 @@ const s = {
   destCard: { background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 2px 8px rgba(0,0,0,0.07)" },
   destImg:  { height:"150px", backgroundSize:"cover", backgroundPosition:"center", position:"relative", display:"flex", alignItems:"center", justifyContent:"center" },
   destEmoji:{ fontSize:"52px" },
-  destBadge:{ position:"absolute", top:"10px", left:"10px", background:"rgba(0,0,0,0.45)", color:"white", padding:"3px 10px", borderRadius:"12px", fontSize:"11px" },
+  destBadge:{ position:"absolute", top:"10px", left:"10px", background:"rgba(0,0,0,0.25)", color:"white", padding:"3px 10px", borderRadius:"12px", fontSize:"11px" },
   destBody: { padding:"14px 16px" },
   destTitle:{ fontSize:"17px", fontWeight:"bold", color:"#0C447C", marginBottom:"2px" },
   destPays: { fontSize:"12px", color:"#73726c", marginBottom:"4px" },

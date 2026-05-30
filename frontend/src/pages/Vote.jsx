@@ -167,16 +167,8 @@ export default function Vote() {
                   }}
                 >
                   {/* Image / icône */}
-                  <div
-                    style={{
-                      ...s.cardImg,
-                      backgroundImage: d.image_url ? `url(${d.image_url})` : "none",
-                      background: d.image_url ? undefined : "#E6F1FB",
-                    }}
-                  >
-                    {!d.image_url && (
-                      <span style={s.cardEmoji}>{getDestIcon(d)}</span>
-                    )}
+                  <div style={{ ...s.cardImg, background: "#E6F1FB" }}>
+                    <span style={s.cardEmoji}>{getDestIcon(d)}</span>
                     <span style={s.badge}>{d.categorie}</span>
                     {isMyVote && <span style={s.myVoteBadge}>✓ Mon vote</span>}
                   </div>
