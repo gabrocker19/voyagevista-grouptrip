@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
+import PageHeader from "../components/PageHeader";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -30,19 +31,15 @@ export default function Dashboard() {
 
   return (
     <div style={styles.page}>
-      {/* Header */}
-      <div style={styles.header}>
-        <div>
-          <h1 style={styles.title}>Bonjour, {user?.nom} 👋</h1>
-          <p style={styles.sub}>Bienvenue sur votre espace GroupTrip</p>
-        </div>
-        <button
-          onClick={() => navigate("/groupes/creer")}
-          style={styles.btnCreate}
-        >
-          + Nouveau GroupTrip
-        </button>
-      </div>
+      <PageHeader
+        title={`Bonjour, ${user?.nom} 👋`}
+        subtitle="Bienvenue sur votre espace GroupTrip"
+        right={
+          <button onClick={() => navigate("/groupes/creer")} style={styles.btnCreate}>
+            + Nouveau GroupTrip
+          </button>
+        }
+      />
 
       <div style={styles.body}>
         {/* Mes groupes */}
@@ -149,16 +146,6 @@ const styles = {
     minHeight: "100vh",
     background: "#F5F4F0",
   },
-  header: {
-    background: "#0C447C",
-    color: "white",
-    padding: "32px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  title: { fontSize: "26px", fontWeight: "bold", marginBottom: "6px" },
-  sub: { opacity: 0.8, fontSize: "14px" },
   btnCreate: {
     background: "white",
     color: "#0C447C",

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api } from "../services/api";
+import PageHeader from "../components/PageHeader";
 
 export default function Profil() {
-  const { user, setUser } = useAuth();
+  const { user, setUser, logout } = useAuth();
   const navigate = useNavigate();
 
   const [nom, setNom] = useState("");
@@ -70,12 +71,11 @@ export default function Profil() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.header}>
-        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-          ← Tableau de bord
-        </button>
-        <h1 style={styles.title}>👤 Mon profil</h1>
-      </div>
+      <PageHeader
+        title="👤 Mon profil"
+        backLabel="Tableau de bord"
+        backTo="/dashboard"
+      />
 
       <div style={styles.body}>
         {/* Carte identité */}
@@ -184,6 +184,20 @@ export default function Profil() {
             </button>
           </form>
         </div>
+
+        {/* Déconnexion */}
+        <div style={styles.card}>
+          <h2 style={styles.cardTitle}>Compte</h2>
+          <p style={styles.logoutHint}>
+            Vous êtes connecté en tant que <strong>{user?.email}</strong>
+          </p>
+          <button
+            onClick={async () => { await logout(); navigate("/login"); }}
+            style={styles.btnLogout}
+          >
+            Se déconnecter
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -191,12 +205,6 @@ export default function Profil() {
 
 const styles = {
   page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
-  header: { background: "#0C447C", color: "white", padding: "24px 32px" },
-  title: { fontSize: "24px", fontWeight: "bold", margin: "4px 0 0" },
-  btnBack: {
-    background: "none", border: "none", color: "rgba(255,255,255,0.8)",
-    cursor: "pointer", fontSize: "13px", padding: "0", marginBottom: "8px", display: "block",
-  },
   body: { padding: "24px 32px", display: "flex", flexDirection: "column", gap: "16px", maxWidth: "560px", margin: "0 auto" },
   card: { background: "white", borderRadius: "12px", padding: "24px", boxShadow: "0 2px 6px rgba(0,0,0,0.06)" },
   cardTitle: { fontSize: "16px", fontWeight: "bold", color: "#0C447C", marginBottom: "20px" },
@@ -240,5 +248,11 @@ const styles = {
   alertError: {
     background: "#FCEBEB", color: "#A32D2D", padding: "10px 14px",
     borderRadius: "8px", fontSize: "14px", marginBottom: "16px",
+  },
+  logoutHint: { fontSize: "13px", color: "#73726c", marginBottom: "14px" },
+  btnLogout: {
+    background: "#FCEBEB", color: "#A32D2D", border: "1px solid #F5C6C6",
+    padding: "10px 20px", borderRadius: "8px", cursor: "pointer",
+    fontSize: "14px", fontWeight: "600",
   },
 };

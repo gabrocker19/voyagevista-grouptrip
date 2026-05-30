@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import PageHeader from "../components/PageHeader";
 
 export default function Notifications() {
   const navigate = useNavigate();
@@ -60,24 +61,16 @@ export default function Notifications() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.header}>
-        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-          ← Tableau de bord
-        </button>
-        <div style={styles.headerRow}>
-          <h1 style={styles.title}>
-            🔔 Notifications
-            {nbNonLues > 0 && (
-              <span style={styles.badge}>{nbNonLues}</span>
-            )}
-          </h1>
-          {nbNonLues > 0 && (
-            <button onClick={marquerToutesLues} style={styles.btnToutLire}>
-              Tout marquer comme lu
-            </button>
-          )}
-        </div>
-      </div>
+      <PageHeader
+        title={<>🔔 Notifications {nbNonLues > 0 && <span style={styles.badge}>{nbNonLues}</span>}</>}
+        backLabel="Tableau de bord"
+        backTo="/dashboard"
+        right={nbNonLues > 0 && (
+          <button onClick={marquerToutesLues} style={styles.btnToutLire}>
+            Tout marquer comme lu
+          </button>
+        )}
+      />
 
       <div style={styles.body}>
         {notifications.length === 0 ? (
@@ -122,13 +115,6 @@ export default function Notifications() {
 const styles = {
   page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  header: { background: "#0C447C", color: "white", padding: "24px 32px" },
-  btnBack: {
-    background: "none", border: "none", color: "rgba(255,255,255,0.8)",
-    cursor: "pointer", fontSize: "13px", padding: "0", marginBottom: "8px", display: "block",
-  },
-  headerRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
-  title: { fontSize: "24px", fontWeight: "bold", margin: 0, display: "flex", alignItems: "center", gap: "10px" },
   badge: {
     background: "#E84848", color: "white", borderRadius: "50%",
     width: "24px", height: "24px", display: "inline-flex", alignItems: "center",

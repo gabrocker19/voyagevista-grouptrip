@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { groupService } from "../services/group.service";
+import PageHeader from "../components/PageHeader";
 
 export default function Panier() {
   const { id } = useParams();
@@ -87,19 +88,17 @@ export default function Panier() {
 
   return (
     <div style={styles.page}>
-      {/* Header */}
-      <div style={styles.header}>
-        <div>
-          <button onClick={() => navigate(`/groupes/${id}`)} style={styles.btnBack}>
-            ← Retour au groupe
-          </button>
-          <h1 style={styles.title}>🛒 Panier de voyage</h1>
-          <p style={styles.sub}>{groupe?.nom}</p>
-        </div>
-        <span style={styles.badge}>
-          {nbMembres} voyageur{nbMembres > 1 ? "s" : ""}
-        </span>
-      </div>
+      <PageHeader
+        title="🛒 Panier de voyage"
+        subtitle={groupe?.nom}
+        backLabel="Retour au groupe"
+        backTo={`/groupes/${id}`}
+        right={
+          <span style={styles.badge}>
+            {nbMembres} voyageur{nbMembres > 1 ? "s" : ""}
+          </span>
+        }
+      />
 
       <div style={styles.body}>
         {annulation && <div style={styles.alertOk}>{annulation}</div>}
@@ -276,25 +275,9 @@ export default function Panier() {
 const styles = {
   page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  header: {
-    background: "#0C447C", color: "white", padding: "28px 32px",
-    display: "flex", justifyContent: "space-between", alignItems: "center",
-  },
-  title: { fontSize: "24px", fontWeight: "bold", marginBottom: "4px" },
-  sub: { opacity: 0.8, fontSize: "13px" },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.8)",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "8px",
-    display: "block",
-  },
   badge: {
-    background: "rgba(255,255,255,0.15)", padding: "6px 14px",
-    borderRadius: "20px", fontSize: "13px", fontWeight: "600",
+    background: "rgba(255,255,255,0.18)", color: "white", padding: "6px 14px",
+    borderRadius: "20px", fontSize: "13px", fontWeight: "600", border: "1px solid rgba(255,255,255,0.3)",
   },
   body: { padding: "24px 32px", display: "flex", flexDirection: "column", gap: "16px", maxWidth: "760px", margin: "0 auto" },
   emptyBox: {

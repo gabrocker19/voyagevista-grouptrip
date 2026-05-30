@@ -5,6 +5,7 @@ import { groupService } from "../services/group.service";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { CAT_ICONS, getDestIcon } from "../utils/icons";
+import PageHeader from "../components/PageHeader";
 
 const CATEGORIES = ["plage", "montagne", "ville", "aventure", "culture"];
 
@@ -86,17 +87,17 @@ export default function Vote() {
 
   return (
     <div style={s.page}>
-      {/* Header */}
-      <div style={s.header}>
-        <button onClick={() => navigate(`/groupes/${id}`)} style={s.btnBack}>
-          ← Retour au groupe
-        </button>
-        <h1 style={s.title}>🗳️ Vote — Destination</h1>
-        <p style={s.sub}>{groupe?.nom}</p>
-        <div style={s.voteCount}>
-          {totalVotes} / {totalMembres} vote{totalMembres > 1 ? "s" : ""}
-        </div>
-      </div>
+      <PageHeader
+        title="🗳️ Vote — Destination"
+        subtitle={groupe?.nom}
+        backLabel="Retour au groupe"
+        backTo={`/groupes/${id}`}
+        right={
+          <span style={s.voteCount}>
+            {totalVotes} / {totalMembres} vote{totalMembres > 1 ? "s" : ""}
+          </span>
+        }
+      />
 
       {/* Filtres */}
       <div style={s.filtersBar}>
@@ -240,13 +241,6 @@ export default function Vote() {
 const s = {
   page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  btnBack: {
-    background: "none", border: "none", color: "rgba(255,255,255,0.8)",
-    cursor: "pointer", fontSize: "13px", padding: "0", marginBottom: "8px", display: "block",
-  },
-  header: { background: "#0C447C", color: "white", padding: "28px 32px" },
-  title: { fontSize: "24px", fontWeight: "bold", marginBottom: "4px" },
-  sub: { opacity: 0.8, fontSize: "14px", marginBottom: "6px" },
   voteCount: {
     display: "inline-block", background: "rgba(255,255,255,0.15)",
     padding: "4px 12px", borderRadius: "20px", fontSize: "13px",

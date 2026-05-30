@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
 import { useAuth } from "../context/AuthContext";
 import { api } from "../services/api";
+import PageHeader from "../components/PageHeader";
 
 export default function GroupDetail() {
   const { id } = useParams();
@@ -108,19 +109,40 @@ export default function GroupDetail() {
 
   return (
     <div style={styles.page}>
-      {/* Header */}
-      <div style={styles.header}>
-        <div>
-          <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-            ← Mes voyages
-          </button>
-          <h1 style={styles.title}>{groupe.nom}</h1>
-          <p style={styles.sub}>Organisé par {groupe.organisateur_nom}</p>
+      <PageHeader
+        title={groupe.nom}
+        subtitle={<>Organisé par <strong>{groupe.organisateur_nom}</strong></>}
+        backLabel="Mes voyages"
+        backTo="/dashboard"
+        right={
+          <span style={{ ...styles.statut, background: sc.bg, color: sc.color }}>
+            {groupe.statut.replace(/_/g, " ")}
+          </span>
+        }
+      >
+        {/* Barre stats en bas du gradient */}
+        <div style={styles.headerStats}>
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{groupe.membres?.length || 0}</span>
+            <span style={styles.headerStatLabel}>👥 Membres</span>
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{groupe.budget_max ? `${groupe.budget_max}€` : "—"}</span>
+            <span style={styles.headerStatLabel}>💶 Budget / pers.</span>
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{groupe.date_depart || "—"}</span>
+            <span style={styles.headerStatLabel}>📅 Départ</span>
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{destinationValidee ? "✓" : "À voter"}</span>
+            <span style={styles.headerStatLabel}>🌍 Destination</span>
+          </div>
         </div>
-        <span style={{ ...styles.statut, background: sc.bg, color: sc.color }}>
-          {groupe.statut.replace(/_/g, " ")}
-        </span>
-      </div>
+      </PageHeader>
 
       <div style={styles.body}>
         {/* Bannière invitation en attente */}
@@ -142,30 +164,6 @@ export default function GroupDetail() {
             </div>
           </div>
         )}
-
-        {/* Infos */}
-        <div style={styles.infoGrid}>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>👥</div>
-            <div style={styles.infoVal}>{groupe.membres?.length || 0}</div>
-            <div style={styles.infoLabel}>Membres</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>💶</div>
-            <div style={styles.infoVal}>{groupe.budget_max ? `${groupe.budget_max}€` : "Non défini"}</div>
-            <div style={styles.infoLabel}>Budget max / pers.</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>📅</div>
-            <div style={styles.infoVal}>{groupe.date_depart || "À définir"}</div>
-            <div style={styles.infoLabel}>Date de départ</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>🌍</div>
-            <div style={styles.infoVal}>{destinationValidee ? "✓ Validée" : "À voter"}</div>
-            <div style={styles.infoLabel}>Destination</div>
-          </div>
-        </div>
 
         {/* ── Étapes (cartes cliquables) ── */}
         <div style={styles.section}>
@@ -327,59 +325,39 @@ const styles = {
     padding: "10px 20px", borderRadius: "8px", cursor: "pointer",
     fontSize: "14px",
   },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.8)",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "8px",
-    display: "block",
-  },
-  header: {
-    background: "#0C447C",
-    color: "white",
-    padding: "32px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-  },
-  title: { fontSize: "26px", fontWeight: "bold", marginBottom: "6px" },
-  sub: { opacity: 0.8, fontSize: "14px" },
   statut: {
     padding: "6px 14px",
     borderRadius: "20px",
     fontSize: "12px",
     fontWeight: "600",
     whiteSpace: "nowrap",
+    flexShrink: 0,
   },
+  headerStats: {
+    display: "flex",
+    gap: "0",
+    background: "rgba(0,0,0,0.18)",
+    borderRadius: "12px 12px 0 0",
+    overflow: "hidden",
+    marginTop: "4px",
+  },
+  headerStat: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "14px 12px",
+    gap: "4px",
+  },
+  headerStatVal: { fontSize: "16px", fontWeight: "700", color: "white" },
+  headerStatLabel: { fontSize: "11px", color: "rgba(255,255,255,0.7)", whiteSpace: "nowrap" },
+  headerStatDivider: { width: "1px", background: "rgba(255,255,255,0.15)", margin: "10px 0" },
   body: {
     padding: "24px 32px",
     display: "flex",
     flexDirection: "column",
     gap: "20px",
   },
-  infoGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-    gap: "12px",
-  },
-  infoCard: {
-    background: "white",
-    borderRadius: "10px",
-    padding: "16px",
-    textAlign: "center",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
-  },
-  infoIcon: { fontSize: "24px", marginBottom: "6px" },
-  infoVal: {
-    fontSize: "18px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "4px",
-  },
-  infoLabel: { fontSize: "11px", color: "#73726c" },
   section: {
     background: "white",
     borderRadius: "12px",

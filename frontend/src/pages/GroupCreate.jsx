@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
-
+import PageHeader from "../components/PageHeader";
 
 export default function GroupCreate() {
   const [form, setForm] = useState({ nom: "", budget_max: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,124 +21,90 @@ export default function GroupCreate() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-          ← Mes voyages
-        </button>
-        <h2 style={styles.title}>✈ Créer un GroupTrip</h2>
-        <p style={styles.sub}>Organisez votre voyage en groupe</p>
+      <PageHeader
+        title="✈ Créer un GroupTrip"
+        subtitle="Organisez votre voyage en groupe"
+        backLabel="Mes voyages"
+        backTo="/dashboard"
+      />
 
-        {error && <div style={styles.error}>{error}</div>}
+      <div style={styles.body}>
+        <div style={styles.card}>
+          {error && <div style={styles.error}>{error}</div>}
 
-        <form onSubmit={handleSubmit}>
-          <label style={styles.label}>Nom du voyage</label>
-          <input
-            style={styles.input}
-            type="text"
-            placeholder='Ex: "Bali entre amis 2026"'
-            value={form.nom}
-            onChange={(e) => setForm({ ...form, nom: e.target.value })}
-            required
-          />
+          <form onSubmit={handleSubmit}>
+            <label style={styles.label}>Nom du voyage</label>
+            <input
+              style={styles.input}
+              type="text"
+              placeholder='Ex: "Bali entre amis 2026"'
+              value={form.nom}
+              onChange={(e) => setForm({ ...form, nom: e.target.value })}
+              required
+            />
 
-          <label style={styles.label}>Budget maximum par personne (€)</label>
-          <input
-            style={styles.input}
-            type="number"
-            placeholder="Ex: 1500"
-            value={form.budget_max}
-            onChange={(e) => setForm({ ...form, budget_max: e.target.value })}
-          />
+            <label style={styles.label}>Budget maximum par personne (€)</label>
+            <input
+              style={styles.input}
+              type="number"
+              placeholder="Ex: 1500"
+              value={form.budget_max}
+              onChange={(e) => setForm({ ...form, budget_max: e.target.value })}
+            />
 
-          <div style={styles.info}>
-            ℹ️ Vous deviendrez automatiquement l'organisateur du groupe. Vous
-            pourrez inviter vos amis après la création.
-          </div>
+            <div style={styles.info}>
+              ℹ️ Vous deviendrez automatiquement l'organisateur du groupe. Vous
+              pourrez inviter vos amis après la création.
+            </div>
 
-          <button type="submit" style={styles.btn}>
-            Créer le GroupTrip →
-          </button>
-        </form>
+            <button type="submit" style={styles.btn}>
+              Créer le GroupTrip →
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
 
 const styles = {
-  page: {
+  page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
+  body: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    minHeight: "calc(100vh - 56px)",
-    background: "#F5F4F0",
+    padding: "32px 16px",
   },
   card: {
     background: "white",
     borderRadius: "12px",
-    padding: "40px",
+    padding: "36px 40px",
     width: "100%",
     maxWidth: "480px",
-    boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
   },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "#185FA5",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "16px",
-    display: "block",
-  },
-  title: {
-    fontSize: "24px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "4px",
-  },
-  sub: { color: "#73726c", marginBottom: "24px", fontSize: "14px" },
   error: {
-    background: "#FCEBEB",
-    color: "#A32D2D",
-    padding: "10px 14px",
-    borderRadius: "6px",
-    marginBottom: "16px",
-    fontSize: "14px",
+    background: "#FCEBEB", color: "#A32D2D",
+    padding: "10px 14px", borderRadius: "6px",
+    marginBottom: "16px", fontSize: "14px",
   },
   label: {
-    display: "block",
-    fontSize: "13px",
-    fontWeight: "500",
-    marginBottom: "6px",
-    color: "#444",
+    display: "block", fontSize: "13px",
+    fontWeight: "600", marginBottom: "6px", color: "#2C2C2A",
   },
   input: {
-    width: "100%",
-    padding: "10px 12px",
-    borderRadius: "6px",
-    fontSize: "14px",
-    border: "1px solid #D1CFC5",
-    marginBottom: "16px",
-    boxSizing: "border-box",
+    width: "100%", padding: "10px 12px", borderRadius: "8px",
+    fontSize: "14px", border: "1px solid #D1CFC5",
+    marginBottom: "16px", boxSizing: "border-box",
   },
   info: {
-    background: "#E6F1FB",
-    color: "#0C447C",
-    padding: "12px 14px",
-    borderRadius: "6px",
-    fontSize: "13px",
-    marginBottom: "20px",
-    lineHeight: "1.5",
+    background: "#E6F1FB", color: "#0C447C",
+    padding: "12px 14px", borderRadius: "8px",
+    fontSize: "13px", marginBottom: "20px", lineHeight: "1.5",
   },
   btn: {
-    width: "100%",
-    padding: "12px",
-    background: "#185FA5",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    fontSize: "15px",
-    fontWeight: "bold",
-    cursor: "pointer",
+    width: "100%", padding: "12px",
+    background: "#185FA5", color: "white",
+    border: "none", borderRadius: "8px",
+    fontSize: "15px", fontWeight: "bold", cursor: "pointer",
   },
 };

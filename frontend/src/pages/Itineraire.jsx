@@ -277,9 +277,9 @@ const styles = {
     background: "#F5F4F0",
   },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  header: { background: "#0C447C", color: "white", padding: "24px 32px" },
-  title: { fontSize: "24px", fontWeight: "bold", marginBottom: "4px" },
-  sub: { opacity: 0.8, fontSize: "13px", marginBottom: "12px" },
+  header: { background: "linear-gradient(135deg, #0C447C 0%, #1A7FC4 100%)", color: "white", padding: "28px 32px", display: "flex", justifyContent: "space-between", alignItems: "flex-start" },
+  title: { fontSize: "26px", fontWeight: "800", marginBottom: "4px", letterSpacing: "-0.3px" },
+  sub: { opacity: 0.82, fontSize: "13px", marginBottom: "12px" },
   steps: {
     display: "flex",
     alignItems: "center",
@@ -289,11 +289,11 @@ const styles = {
   btnBack: {
     background: "none",
     border: "none",
-    color: "rgba(255,255,255,0.8)",
+    color: "rgba(255,255,255,0.7)",
     cursor: "pointer",
     fontSize: "13px",
     padding: "0",
-    marginBottom: "8px",
+    marginBottom: "14px",
     display: "block",
   },
   stepActive: {

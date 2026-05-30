@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { catalogueService } from "../services/catalogue.service";
 import { CAT_ICONS, getDestIcon, getActivityIcon } from "../utils/icons";
+import PageHeader from "../components/PageHeader";
 
 const HEBERG_ICO = { hotel:"🏨", airbnb:"🏠", hostel:"🛏️", villa:"🏡", resort:"🌴" };
 const TRANSP_ICO = { avion:"✈️", train:"🚆", bus:"🚌", bateau:"⛴️" };
@@ -92,12 +93,12 @@ export default function Catalogue() {
   return (
     <div style={s.page}>
 
-      {/* ── Header ── */}
-      <div style={s.header}>
-        <button onClick={() => navigate("/dashboard")} style={s.btnBack}>← Tableau de bord</button>
-        <h1 style={s.title}>🌍 Catalogue</h1>
-        <p style={s.sub}>Explorez toutes nos destinations, hébergements, transports et activités</p>
-      </div>
+      <PageHeader
+        title="🌍 Catalogue"
+        subtitle="Explorez toutes nos destinations, hébergements, transports et activités"
+        backLabel="Tableau de bord"
+        backTo="/dashboard"
+      />
 
       {/* ── Onglets ── */}
       <div style={s.tabBar}>
@@ -318,11 +319,6 @@ const s = {
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
   empty:   { textAlign: "center", padding: "40px", color: "#73726c", fontSize: "14px" },
 
-  // Header
-  btnBack: { background:"none", border:"none", color:"rgba(255,255,255,0.8)", cursor:"pointer", fontSize:"13px", padding:"0", marginBottom:"8px", display:"block" },
-  header: { background:"#0C447C", color:"white", padding:"28px 32px" },
-  title:  { fontSize:"26px", fontWeight:"bold", marginBottom:"4px" },
-  sub:    { opacity:0.85, fontSize:"14px" },
 
   // Tabs
   tabBar: { display:"flex", background:"white", borderBottom:"1px solid #E0DED6", padding:"0 24px", overflowX:"auto" },
