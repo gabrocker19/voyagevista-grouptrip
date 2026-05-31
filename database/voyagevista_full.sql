@@ -245,106 +245,112 @@ INSERT INTO utilisateurs (nom, email, mot_de_passe, role) VALUES
 
 -- Lot 1 : plage (nouvelles)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(7,'Maldives','Maldives','plage','Atolls de coraux turquoise, bungalows sur pilotis et eaux cristallines.',2200.00,'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80'),
-(8,'Phuket','Thaïlande','plage','Baies secrètes, plages de sable blanc, cuisine de rue et vie nocturne animée.',650.00,'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80'),
-(9,'Cancún','Mexique','plage','Mer des Caraïbes turquoise, zone hôtelière animée et ruines mayas à proximité.',720.00,'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80'),
-(10,'Seychelles','Seychelles','plage','Archipel préservé aux rochers de granit rose et biodiversité unique.',2500.00,'https://images.unsplash.com/photo-1573624337853-5e7d3e9e843e?w=800&q=80'),
-(11,'Zanzibar','Tanzanie','plage','Île épicée aux plages de sable blanc et vieille ville historique.',890.00,'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&q=80');
+(1,'Maldives','Maldives','plage','Atolls de coraux turquoise, bungalows sur pilotis et eaux cristallines.',2200.00,'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80'),
+(2,'Phuket','Thaïlande','plage','Baies secrètes, plages de sable blanc, cuisine de rue et vie nocturne animée.',650.00,'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80'),
+(3,'Cancún','Mexique','plage','Mer des Caraïbes turquoise, zone hôtelière animée et ruines mayas à proximité.',720.00,'https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80'),
+(4,'Seychelles','Seychelles','plage','Archipel préservé aux rochers de granit rose et biodiversité unique.',2500.00,'https://images.unsplash.com/photo-1573624337853-5e7d3e9e843e?w=800&q=80'),
+(5,'Zanzibar','Tanzanie','plage','Île épicée aux plages de sable blanc et vieille ville historique.',890.00,'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&q=80');
 
 -- Lot 2 : plage (suite)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(12,'Mykonos','Grèce','plage','Moulins à vent emblématiques, plages animées et gastronomie méditerranéenne.',950.00,'https://images.unsplash.com/photo-1601581987809-a874a81309c9?w=800&q=80'),
-(13,'Ibiza','Espagne','plage','Île festive aux clubs légendaires, calanques cachées et marchés hippies.',680.00,'https://images.unsplash.com/photo-1503912882839-cf1b57f1c0a4?w=800&q=80'),
-(14,'Bora Bora','Polynésie française','plage','Lagon turquoise mythique, monts volcaniques verdoyants et luxe discret.',3200.00,'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80'),
-(15,'Île Maurice','Maurice','plage','Plages de sable doux, lagons protégés par des récifs et culture métissée.',1100.00,'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?w=800&q=80'),
-(16,'Miami Beach','États-Unis','plage','Art déco pastel, South Beach animée, musées et gastronomie Floride-Caraïbes.',980.00,'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80');
+(6,'Mykonos','Grèce','plage','Moulins à vent emblématiques, plages animées et gastronomie méditerranéenne.',950.00,'https://images.unsplash.com/photo-1601581987809-a874a81309c9?w=800&q=80'),
+(7,'Ibiza','Espagne','plage','Île festive aux clubs légendaires, calanques cachées et marchés hippies.',680.00,'https://images.unsplash.com/photo-1503912882839-cf1b57f1c0a4?w=800&q=80'),
+(8,'Bora Bora','Polynésie française','plage','Lagon turquoise mythique, monts volcaniques verdoyants et luxe discret.',3200.00,'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80'),
+(9,'Île Maurice','Maurice','plage','Plages de sable doux, lagons protégés par des récifs et culture métissée.',1100.00,'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?w=800&q=80'),
+(10,'Miami Beach','États-Unis','plage','Art déco pastel, South Beach animée, musées et gastronomie Floride-Caraïbes.',980.00,'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80');
 
 -- Lot 3 : montagne
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(17,'Chamonix','France','montagne','Berceau de l\'alpinisme au pied du Mont-Blanc, ski hors-piste et randonnées.',890.00,'https://images.unsplash.com/photo-1551524163-a4fc34a25a3f?w=800&q=80'),
-(18,'Queenstown','Nouvelle-Zélande','montagne','Capitale mondiale de l\'aventure : bungy, ski, jet-boat et fjords de Milford Sound.',1600.00,'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80'),
-(19,'Zermatt','Suisse','montagne','Village sans voitures au pied du Cervin, ski de renommée mondiale.',1450.00,'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80'),
-(20,'Dolomites','Italie','montagne','Aiguilles calcaires rose-orangées, via ferrata épiques et refuges alpins.',780.00,'https://images.unsplash.com/photo-1551524163-a4fc34a25a3f?w=800&q=80'),
-(21,'Tromsø','Norvège','montagne','Cité arctique pour les aurores boréales, chiens de traîneau et baleines.',1300.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'),
-(22,'Aspen','États-Unis','montagne','Station de ski élégante du Colorado, gastronomie raffinée et festivals culturels.',1800.00,'https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&q=80');
+(11,'Chamonix','France','montagne','Berceau de l\'alpinisme au pied du Mont-Blanc, ski hors-piste et randonnées.',890.00,'https://images.unsplash.com/photo-1551524163-a4fc34a25a3f?w=800&q=80'),
+(12,'Queenstown','Nouvelle-Zélande','montagne','Capitale mondiale de l\'aventure : bungy, ski, jet-boat et fjords de Milford Sound.',1600.00,'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80'),
+(13,'Zermatt','Suisse','montagne','Village sans voitures au pied du Cervin, ski de renommée mondiale.',1450.00,'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80'),
+(14,'Dolomites','Italie','montagne','Aiguilles calcaires rose-orangées, via ferrata épiques et refuges alpins.',780.00,'https://images.unsplash.com/photo-1551524163-a4fc34a25a3f?w=800&q=80'),
+(15,'Tromsø','Norvège','montagne','Cité arctique pour les aurores boréales, chiens de traîneau et baleines.',1300.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'),
+(16,'Aspen','États-Unis','montagne','Station de ski élégante du Colorado, gastronomie raffinée et festivals culturels.',1800.00,'https://images.unsplash.com/photo-1548777123-e216912df7d8?w=800&q=80');
 
 -- Lot 4 : ville
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(23,'Barcelone','Espagne','ville','Gaudí, Ramblas, tapas, plage en ville et fête perpétuelle en Catalogne.',550.00,'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&q=80'),
-(24,'Amsterdam','Pays-Bas','ville','Canaux romantiques, musées world-class, vélos partout et maisons penchées.',600.00,'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80'),
-(25,'Singapour','Singapour','ville','Cité-état ultramoderne, Gardens by the Bay et street food pluriculturel primé.',1250.00,'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80'),
-(26,'Prague','République tchèque','ville','Château médiéval dominant 100 clochers, bière artisanale et ambiance bohème.',380.00,'https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&q=80'),
-(27,'Dubaï','Émirats arabes unis','ville','Gratte-ciel records, souks dorés, désert à 30 min et luxe absolu partout.',1350.00,'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80');
+(17,'Barcelone','Espagne','ville','Gaudí, Ramblas, tapas, plage en ville et fête perpétuelle en Catalogne.',550.00,'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&q=80'),
+(18,'Amsterdam','Pays-Bas','ville','Canaux romantiques, musées world-class, vélos partout et maisons penchées.',600.00,'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=800&q=80'),
+(19,'Singapour','Singapour','ville','Cité-état ultramoderne, Gardens by the Bay et street food pluriculturel primé.',1250.00,'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80'),
+(20,'Prague','République tchèque','ville','Château médiéval dominant 100 clochers, bière artisanale et ambiance bohème.',380.00,'https://images.unsplash.com/photo-1541849546-216549ae216d?w=800&q=80'),
+(21,'Dubaï','Émirats arabes unis','ville','Gratte-ciel records, souks dorés, désert à 30 min et luxe absolu partout.',1350.00,'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80');
 
 -- Lot 5 : ville (suite)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(28,'New York','États-Unis','ville','La ville qui ne dort jamais : Central Park, Broadway et skyline légendaire.',1200.00,'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80'),
-(29,'Bangkok','Thaïlande','ville','Temples bouddhistes dorés, tuk-tuks, marchés flottants et nuits électrisantes.',490.00,'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80');
+(22,'New York','États-Unis','ville','La ville qui ne dort jamais : Central Park, Broadway et skyline légendaire.',1200.00,'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80'),
+(23,'Bangkok','Thaïlande','ville','Temples bouddhistes dorés, tuk-tuks, marchés flottants et nuits électrisantes.',490.00,'https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80');
 
 -- Lot 6 : culture
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(30,'Marrakech','Maroc','culture','Médina millénaire, souks labyrinthiques, riads colorés et cuisine épicée.',420.00,'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80'),
-(31,'Rome','Italie','culture','Musée à ciel ouvert : Colisée, Vatican, fontaines baroques et pasta maison.',580.00,'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80'),
-(32,'Istanbul','Turquie','culture','Carrefour de deux continents, mosquées ottomanes et croisière sur le Bosphore.',490.00,'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80'),
-(33,'Kyoto','Japon','culture','Ancienne capitale impériale, jardins zen, geishas et temples de bambou.',980.00,'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80'),
-(34,'Le Caire','Égypte','culture','Pyramides de Gizeh, musée égyptien et croisière inoubliable sur le Nil.',560.00,'https://images.unsplash.com/photo-1539768942893-daf525e5d1e5?w=800&q=80');
+(24,'Marrakech','Maroc','culture','Médina millénaire, souks labyrinthiques, riads colorés et cuisine épicée.',420.00,'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80'),
+(25,'Rome','Italie','culture','Musée à ciel ouvert : Colisée, Vatican, fontaines baroques et pasta maison.',580.00,'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80'),
+(26,'Istanbul','Turquie','culture','Carrefour de deux continents, mosquées ottomanes et croisière sur le Bosphore.',490.00,'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80'),
+(27,'Kyoto','Japon','culture','Ancienne capitale impériale, jardins zen, geishas et temples de bambou.',980.00,'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80'),
+(28,'Le Caire','Égypte','culture','Pyramides de Gizeh, musée égyptien et croisière inoubliable sur le Nil.',560.00,'https://images.unsplash.com/photo-1539768942893-daf525e5d1e5?w=800&q=80');
 
 -- Lot 7 : aventure
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(35,'Reykjavik','Islande','aventure','Geysers, cascades mythiques, aurores boréales et paysages de feu et glace.',1100.00,'https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=800&q=80'),
-(36,'Nairobi','Kenya','aventure','Porte du safari africain : Masaï Mara, lions et couchers de soleil sur la savane.',1400.00,'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80'),
-(37,'San José','Costa Rica','aventure','Forêts tropicales, volcans actifs, surf sur deux océans et zip-line en canopée.',980.00,'https://images.unsplash.com/photo-1518259102261-b40117eabbc9?w=800&q=80'),
-(38,'El Calafate','Argentine','aventure','Glacier Perito Moreno imposant, condors des Andes et trekking à Torres del Paine.',1250.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80');
+(29,'Reykjavik','Islande','aventure','Geysers, cascades mythiques, aurores boréales et paysages de feu et glace.',1100.00,'https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=800&q=80'),
+(30,'Nairobi','Kenya','aventure','Porte du safari africain : Masaï Mara, lions et couchers de soleil sur la savane.',1400.00,'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80'),
+(31,'San José','Costa Rica','aventure','Forêts tropicales, volcans actifs, surf sur deux océans et zip-line en canopée.',980.00,'https://images.unsplash.com/photo-1518259102261-b40117eabbc9?w=800&q=80'),
+(32,'El Calafate','Argentine','aventure','Glacier Perito Moreno imposant, condors des Andes et trekking à Torres del Paine.',1250.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80');
 
 -- VILLE (Europe proche — avion + train + bus depuis Paris)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(39,'Londres','Royaume-Uni','ville','Big Ben, Buckingham Palace, pubs centenaires et scène culturelle mondiale dans la capitale britannique.',350.00,'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80'),
-(40,'Berlin','Allemagne','ville','Murs de l\'histoire, street art omniprésent, clubs légendaires et gastronomie multiculturelle.',420.00,'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800&q=80'),
-(41,'Vienne','Autriche','culture','Palais impériaux, cafés viennois centenaires, opéra mythique et valse sous les lustres de cristal.',520.00,'https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80'),
-(42,'Madrid','Espagne','ville','Prado, Reina Sofía, tapas au marché San Miguel et ambiance festive jusqu\'à l\'aube.',480.00,'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80'),
-(43,'Bruxelles','Belgique','ville','Manneken Pis, Grand-Place baroque, bières trappistes et chocolats fondants dans la capitale de l\'Europe.',290.00,'https://images.unsplash.com/photo-1559113202-c916b8e44373?w=800&q=80'),
-(44,'Copenhague','Danemark','ville','La Petite Sirène, Nyhavn coloré, gastronomie nordique et la ville la plus heureuse du monde.',680.00,'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80');
+(33,'Londres','Royaume-Uni','ville','Big Ben, Buckingham Palace, pubs centenaires et scène culturelle mondiale dans la capitale britannique.',350.00,'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80'),
+(34,'Berlin','Allemagne','ville','Murs de l\'histoire, street art omniprésent, clubs légendaires et gastronomie multiculturelle.',420.00,'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800&q=80'),
+(35,'Vienne','Autriche','culture','Palais impériaux, cafés viennois centenaires, opéra mythique et valse sous les lustres de cristal.',520.00,'https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80'),
+(36,'Madrid','Espagne','ville','Prado, Reina Sofía, tapas au marché San Miguel et ambiance festive jusqu\'à l\'aube.',480.00,'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=80'),
+(37,'Bruxelles','Belgique','ville','Manneken Pis, Grand-Place baroque, bières trappistes et chocolats fondants dans la capitale de l\'Europe.',290.00,'https://images.unsplash.com/photo-1559113202-c916b8e44373?w=800&q=80'),
+(38,'Copenhague','Danemark','ville','La Petite Sirène, Nyhavn coloré, gastronomie nordique et la ville la plus heureuse du monde.',680.00,'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=800&q=80');
 
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(45,'Stockholm','Suède','ville','Capitale sur 14 îles, musée Vasa, design scandinave et aurores boréales en hiver.',720.00,'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&q=80'),
-(46,'Budapest','Hongrie','culture','Bains thermaux ottomans, Parlement néogothique sur le Danube et ruin bars uniques au monde.',380.00,'https://images.unsplash.com/photo-1551867633-194f125bddfa?w=800&q=80'),
-(47,'Athènes','Grèce','culture','L\'Acropole surplombant 4000 ans d\'histoire, tavernes animées et musées exceptionnels.',420.00,'https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=800&q=80'),
-(48,'Florence','Italie','culture','Berceau de la Renaissance, David de Michel-Ange, Offices et les meilleurs bisteccas du monde.',550.00,'https://images.unsplash.com/photo-1543429258-60af90a01b7c?w=800&q=80'),
-(49,'Porto','Portugal','ville','Azulejos bleus, caves de porto millésimées, ponts de Gustave Eiffel et fado authentique.',380.00,'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80'),
-(50,'Lisbonne Nord (Sintra)','Portugal','culture','Palais de Sintra enchantés dans la forêt, falaises de Cabo da Roca et vignes de la côte d\'argent.',310.00,'https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=800&q=80');
+(39,'Stockholm','Suède','ville','Capitale sur 14 îles, musée Vasa, design scandinave et aurores boréales en hiver.',720.00,'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&q=80'),
+(40,'Budapest','Hongrie','culture','Bains thermaux ottomans, Parlement néogothique sur le Danube et ruin bars uniques au monde.',380.00,'https://images.unsplash.com/photo-1551867633-194f125bddfa?w=800&q=80'),
+(41,'Athènes','Grèce','culture','L\'Acropole surplombant 4000 ans d\'histoire, tavernes animées et musées exceptionnels.',420.00,'https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=800&q=80'),
+(42,'Florence','Italie','culture','Berceau de la Renaissance, David de Michel-Ange, Offices et les meilleurs bisteccas du monde.',550.00,'https://images.unsplash.com/photo-1543429258-60af90a01b7c?w=800&q=80'),
+(43,'Porto','Portugal','ville','Azulejos bleus, caves de porto millésimées, ponts de Gustave Eiffel et fado authentique.',380.00,'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80'),
+(44,'Lisbonne Nord (Sintra)','Portugal','culture','Palais de Sintra enchantés dans la forêt, falaises de Cabo da Roca et vignes de la côte d\'argent.',310.00,'https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=800&q=80');
 
 -- VILLE (monde — avion uniquement depuis Paris)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(51,'Séoul','Corée du Sud','ville','K-pop, palais Gyeongbokgung, cuisine de rue épicée et quartiers ultra-modernes comme Gangnam.',980.00,'https://images.unsplash.com/photo-1538485399081-7c8272b29579?w=800&q=80'),
-(52,'Hong Kong','Chine','ville','Skyline vertigineux, dim sum légendaires, marchés nocturnes et Star Ferry entre Kowloon et l\'île.',1050.00,'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80'),
-(53,'Kuala Lumpur','Malaisie','ville','Tours Petronas scintillantes, jungle tropicale à 20 min, street food multiculturel et shopping paradis.',620.00,'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80'),
-(54,'Hanoï','Vietnam','culture','Vieille ville aux 36 guildes, lac Hoan Kiem, pho au petit-déjeuner et baie d\'Along à portée de main.',540.00,'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80'),
-(55,'Mumbai','Inde','culture','Gateway of India, Bollywood, quartier Dharavi et la plus grande concentration d\'art déco hors Miami.',680.00,'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=800&q=80'),
-(56,'Montréal','Canada','ville','Festivals en tout genre, vieux port historique, gastronomie franco-québécoise et hivers festifs.',750.00,'https://images.unsplash.com/photo-1519178614-68673b201f36?w=800&q=80');
+(45,'Séoul','Corée du Sud','ville','K-pop, palais Gyeongbokgung, cuisine de rue épicée et quartiers ultra-modernes comme Gangnam.',980.00,'https://images.unsplash.com/photo-1538485399081-7c8272b29579?w=800&q=80'),
+(46,'Hong Kong','Chine','ville','Skyline vertigineux, dim sum légendaires, marchés nocturnes et Star Ferry entre Kowloon et l\'île.',1050.00,'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80'),
+(47,'Kuala Lumpur','Malaisie','ville','Tours Petronas scintillantes, jungle tropicale à 20 min, street food multiculturel et shopping paradis.',620.00,'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80'),
+(48,'Hanoï','Vietnam','culture','Vieille ville aux 36 guildes, lac Hoan Kiem, pho au petit-déjeuner et baie d\'Along à portée de main.',540.00,'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80'),
+(49,'Mumbai','Inde','culture','Gateway of India, Bollywood, quartier Dharavi et la plus grande concentration d\'art déco hors Miami.',680.00,'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=800&q=80'),
+(50,'Montréal','Canada','ville','Festivals en tout genre, vieux port historique, gastronomie franco-québécoise et hivers festifs.',750.00,'https://images.unsplash.com/photo-1519178614-68673b201f36?w=800&q=80');
 
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(57,'Los Angeles','États-Unis','ville','Hollywood, plages de Santa Monica, gastronomie de fusion mondiale et couchers de soleil sur le Pacifique.',950.00,'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80'),
-(58,'Sydney','Australie','ville','Opéra sur la baie, Bondi Beach, barbecue du dimanche et Blue Mountains à une heure.',1200.00,'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80'),
-(59,'Buenos Aires','Argentine','ville','Capitale du tango, biftecks de légende, architecture haussmannienne et vie nocturne jusqu\'au matin.',780.00,'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80'),
-(60,'Rio de Janeiro','Brésil','aventure','Corcovado, Copacabana, carnaval explosif, caïpirinhas et forêt tropicale dans la ville.',820.00,'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=80');
+(51,'Los Angeles','États-Unis','ville','Hollywood, plages de Santa Monica, gastronomie de fusion mondiale et couchers de soleil sur le Pacifique.',950.00,'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80'),
+(52,'Sydney','Australie','ville','Opéra sur la baie, Bondi Beach, barbecue du dimanche et Blue Mountains à une heure.',1200.00,'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80'),
+(53,'Buenos Aires','Argentine','ville','Capitale du tango, biftecks de légende, architecture haussmannienne et vie nocturne jusqu\'au matin.',780.00,'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80'),
+(54,'Rio de Janeiro','Brésil','aventure','Corcovado, Copacabana, carnaval explosif, caïpirinhas et forêt tropicale dans la ville.',820.00,'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=80');
 
 -- PLAGE (avion uniquement depuis Paris)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(61,'Punta Cana','République dominicaine','plage','Palmiers sur 45 km de plage blanche, eaux turquoise et all-inclusive de rêve aux Caraïbes.',680.00,'https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=800&q=80'),
-(62,'Koh Samui','Thaïlande','plage','Cocotiers géants, Full Moon Party de Koh Phangan, snorkeling à Ang Thong et spa luxueux.',560.00,'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80'),
-(63,'Cap-Vert','Cap-Vert','plage','Archipel atlantique aux plages de sable doré, kitesurf à Sal, musique morna et culture créole.',720.00,'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&q=80');
+(55,'Punta Cana','République dominicaine','plage','Palmiers sur 45 km de plage blanche, eaux turquoise et all-inclusive de rêve aux Caraïbes.',680.00,'https://images.unsplash.com/photo-1504615755583-2916b52192a3?w=800&q=80'),
+(56,'Koh Samui','Thaïlande','plage','Cocotiers géants, Full Moon Party de Koh Phangan, snorkeling à Ang Thong et spa luxueux.',560.00,'https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80'),
+(57,'Cap-Vert','Cap-Vert','plage','Archipel atlantique aux plages de sable doré, kitesurf à Sal, musique morna et culture créole.',720.00,'https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&q=80');
 
 -- AVENTURE (avion uniquement)
 INSERT IGNORE INTO destinations (id,nom,pays,categorie,description,prix_min,image_url) VALUES
-(64,'La Réunion','France','aventure','Volcan Piton de la Fournaise en activité, cirques de montagne, surf à Saint-Leu et canyoning mythique.',850.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'),
-(65,'Cape Town','Afrique du Sud','aventure','Table Mountain, Cape Point, plages de Camps Bay, vignobles de Stellenbosch et safaris proches.',1050.00,'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80');
+(58,'La Réunion','France','aventure','Volcan Piton de la Fournaise en activité, cirques de montagne, surf à Saint-Leu et canyoning mythique.',850.00,'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80'),
+(59,'Cape Town','Afrique du Sud','aventure','Table Mountain, Cape Point, plages de Camps Bay, vignobles de Stellenbosch et safaris proches.',1050.00,'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80');
 
 -- ============================================================
 -- IMAGES DES DESTINATIONS (fichiers locaux — frontend/public/images/destinations/)
 -- ============================================================
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/7.jpg'  WHERE id = 7;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/8.jpg'  WHERE id = 8;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/9.jpg'  WHERE id = 9;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/1.jpg' WHERE id = 1;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/2.jpg' WHERE id = 2;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/3.jpg' WHERE id = 3;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/4.jpg' WHERE id = 4;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/5.jpg' WHERE id = 5;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/6.jpg' WHERE id = 6;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/7.jpg' WHERE id = 7;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/8.jpg' WHERE id = 8;
+UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/9.jpg' WHERE id = 9;
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/10.jpg' WHERE id = 10;
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/11.jpg' WHERE id = 11;
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/12.jpg' WHERE id = 12;
@@ -395,75 +401,69 @@ UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/57.jpg' WHERE id = 57;
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/58.jpg' WHERE id = 58;
 UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/59.jpg' WHERE id = 59;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/60.jpg' WHERE id = 60;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/61.jpg' WHERE id = 61;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/62.jpg' WHERE id = 62;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/63.jpg' WHERE id = 63;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/64.jpg' WHERE id = 64;
-UPDATE destinations SET image_url = '/voyagevista-grouptrip/frontend/dist/images/destinations/65.jpg' WHERE id = 65;
 
 -- ============================================================
 -- ICÔNES DES DESTINATIONS (depuis icons.js)
 -- ============================================================
-UPDATE destinations SET icone = '🏝️' WHERE id = 7;   -- Maldives
-UPDATE destinations SET icone = '🏖️' WHERE id = 8;   -- Phuket
-UPDATE destinations SET icone = '🌴' WHERE id = 9;   -- Cancún
-UPDATE destinations SET icone = '🏖️' WHERE id = 10;  -- Seychelles
-UPDATE destinations SET icone = '🐠' WHERE id = 11;  -- Zanzibar
-UPDATE destinations SET icone = '⛵' WHERE id = 12;  -- Mykonos
-UPDATE destinations SET icone = '🎶' WHERE id = 13;  -- Ibiza
-UPDATE destinations SET icone = '🌺' WHERE id = 14;  -- Bora Bora
-UPDATE destinations SET icone = '🌺' WHERE id = 15;  -- Île Maurice
-UPDATE destinations SET icone = '🌊' WHERE id = 16;  -- Miami Beach
-UPDATE destinations SET icone = '⛷️' WHERE id = 17;  -- Chamonix
-UPDATE destinations SET icone = '🎿' WHERE id = 18;  -- Queenstown
-UPDATE destinations SET icone = '🏔️' WHERE id = 19;  -- Zermatt
-UPDATE destinations SET icone = '🏔️' WHERE id = 20;  -- Dolomites
-UPDATE destinations SET icone = '🏔️' WHERE id = 21;  -- Tromsø
-UPDATE destinations SET icone = '🏔️' WHERE id = 22;  -- Aspen
-UPDATE destinations SET icone = '🏟️' WHERE id = 23;  -- Barcelone
-UPDATE destinations SET icone = '🌷' WHERE id = 24;  -- Amsterdam
-UPDATE destinations SET icone = '🌇' WHERE id = 25;  -- Singapour
-UPDATE destinations SET icone = '🏰' WHERE id = 26;  -- Prague
-UPDATE destinations SET icone = '🌆' WHERE id = 27;  -- Dubaï
-UPDATE destinations SET icone = '🗽' WHERE id = 28;  -- New York
-UPDATE destinations SET icone = '🛕' WHERE id = 29;  -- Bangkok
-UPDATE destinations SET icone = '🕌' WHERE id = 30;  -- Marrakech
-UPDATE destinations SET icone = '🏛️' WHERE id = 31;  -- Rome
-UPDATE destinations SET icone = '🕌' WHERE id = 32;  -- Istanbul
-UPDATE destinations SET icone = '🎋' WHERE id = 33;  -- Kyoto
-UPDATE destinations SET icone = '🐪' WHERE id = 34;  -- Le Caire
-UPDATE destinations SET icone = '🧗' WHERE id = 35;  -- Reykjavik
-UPDATE destinations SET icone = '🦁' WHERE id = 36;  -- Nairobi
-UPDATE destinations SET icone = '🧗' WHERE id = 37;  -- San José
-UPDATE destinations SET icone = '🧗' WHERE id = 38;  -- El Calafate
-UPDATE destinations SET icone = '🎡' WHERE id = 39;  -- Londres
-UPDATE destinations SET icone = '🧱' WHERE id = 40;  -- Berlin
-UPDATE destinations SET icone = '🎼' WHERE id = 41;  -- Vienne
-UPDATE destinations SET icone = '💃' WHERE id = 42;  -- Madrid
-UPDATE destinations SET icone = '🍫' WHERE id = 43;  -- Bruxelles
-UPDATE destinations SET icone = '🧜' WHERE id = 44;  -- Copenhague
-UPDATE destinations SET icone = '👑' WHERE id = 45;  -- Stockholm
-UPDATE destinations SET icone = '🌉' WHERE id = 46;  -- Budapest
-UPDATE destinations SET icone = '🏛️' WHERE id = 47;  -- Athènes
-UPDATE destinations SET icone = '🎨' WHERE id = 48;  -- Florence
-UPDATE destinations SET icone = '🍷' WHERE id = 49;  -- Porto
-UPDATE destinations SET icone = '🏯' WHERE id = 50;  -- Lisbonne Nord (Sintra)
-UPDATE destinations SET icone = '🎎' WHERE id = 51;  -- Séoul
-UPDATE destinations SET icone = '🌃' WHERE id = 52;  -- Hong Kong
-UPDATE destinations SET icone = '🏙️' WHERE id = 53;  -- Kuala Lumpur
-UPDATE destinations SET icone = '🏮' WHERE id = 54;  -- Hanoï
-UPDATE destinations SET icone = '🎬' WHERE id = 55;  -- Mumbai
-UPDATE destinations SET icone = '🍁' WHERE id = 56;  -- Montréal
-UPDATE destinations SET icone = '🌴' WHERE id = 57;  -- Los Angeles
-UPDATE destinations SET icone = '🌉' WHERE id = 58;  -- Sydney
-UPDATE destinations SET icone = '💃' WHERE id = 59;  -- Buenos Aires
-UPDATE destinations SET icone = '🎭' WHERE id = 60;  -- Rio de Janeiro
-UPDATE destinations SET icone = '🌴' WHERE id = 61;  -- Punta Cana
-UPDATE destinations SET icone = '🥥' WHERE id = 62;  -- Koh Samui
-UPDATE destinations SET icone = '🌊' WHERE id = 63;  -- Cap-Vert
-UPDATE destinations SET icone = '🌋' WHERE id = 64;  -- La Réunion
-UPDATE destinations SET icone = '🦭' WHERE id = 65;  -- Cape Town
+UPDATE destinations SET icone = '🏝️' WHERE id = 1;   -- Maldives
+UPDATE destinations SET icone = '🏖️' WHERE id = 2;   -- Phuket
+UPDATE destinations SET icone = '🌴' WHERE id = 3;   -- Cancún
+UPDATE destinations SET icone = '🏖️' WHERE id = 4;  -- Seychelles
+UPDATE destinations SET icone = '🐠' WHERE id = 5;  -- Zanzibar
+UPDATE destinations SET icone = '⛵' WHERE id = 6;  -- Mykonos
+UPDATE destinations SET icone = '🎶' WHERE id = 7;  -- Ibiza
+UPDATE destinations SET icone = '🌺' WHERE id = 8;  -- Bora Bora
+UPDATE destinations SET icone = '🌺' WHERE id = 9;  -- Île Maurice
+UPDATE destinations SET icone = '🌊' WHERE id = 10;  -- Miami Beach
+UPDATE destinations SET icone = '⛷️' WHERE id = 11;  -- Chamonix
+UPDATE destinations SET icone = '🎿' WHERE id = 12;  -- Queenstown
+UPDATE destinations SET icone = '🏔️' WHERE id = 13;  -- Zermatt
+UPDATE destinations SET icone = '🏔️' WHERE id = 14;  -- Dolomites
+UPDATE destinations SET icone = '🏔️' WHERE id = 15;  -- Tromsø
+UPDATE destinations SET icone = '🏔️' WHERE id = 16;  -- Aspen
+UPDATE destinations SET icone = '🏟️' WHERE id = 17;  -- Barcelone
+UPDATE destinations SET icone = '🌷' WHERE id = 18;  -- Amsterdam
+UPDATE destinations SET icone = '🌇' WHERE id = 19;  -- Singapour
+UPDATE destinations SET icone = '🏰' WHERE id = 20;  -- Prague
+UPDATE destinations SET icone = '🌆' WHERE id = 21;  -- Dubaï
+UPDATE destinations SET icone = '🗽' WHERE id = 22;  -- New York
+UPDATE destinations SET icone = '🛕' WHERE id = 23;  -- Bangkok
+UPDATE destinations SET icone = '🕌' WHERE id = 24;  -- Marrakech
+UPDATE destinations SET icone = '🏛️' WHERE id = 25;  -- Rome
+UPDATE destinations SET icone = '🕌' WHERE id = 26;  -- Istanbul
+UPDATE destinations SET icone = '🎋' WHERE id = 27;  -- Kyoto
+UPDATE destinations SET icone = '🐪' WHERE id = 28;  -- Le Caire
+UPDATE destinations SET icone = '🧗' WHERE id = 29;  -- Reykjavik
+UPDATE destinations SET icone = '🦁' WHERE id = 30;  -- Nairobi
+UPDATE destinations SET icone = '🧗' WHERE id = 31;  -- San José
+UPDATE destinations SET icone = '🧗' WHERE id = 32;  -- El Calafate
+UPDATE destinations SET icone = '🎡' WHERE id = 33;  -- Londres
+UPDATE destinations SET icone = '🧱' WHERE id = 34;  -- Berlin
+UPDATE destinations SET icone = '🎼' WHERE id = 35;  -- Vienne
+UPDATE destinations SET icone = '💃' WHERE id = 36;  -- Madrid
+UPDATE destinations SET icone = '🍫' WHERE id = 37;  -- Bruxelles
+UPDATE destinations SET icone = '🧜' WHERE id = 38;  -- Copenhague
+UPDATE destinations SET icone = '👑' WHERE id = 39;  -- Stockholm
+UPDATE destinations SET icone = '🌉' WHERE id = 40;  -- Budapest
+UPDATE destinations SET icone = '🏛️' WHERE id = 41;  -- Athènes
+UPDATE destinations SET icone = '🎨' WHERE id = 42;  -- Florence
+UPDATE destinations SET icone = '🍷' WHERE id = 43;  -- Porto
+UPDATE destinations SET icone = '🏯' WHERE id = 44;  -- Lisbonne Nord (Sintra)
+UPDATE destinations SET icone = '🎎' WHERE id = 45;  -- Séoul
+UPDATE destinations SET icone = '🌃' WHERE id = 46;  -- Hong Kong
+UPDATE destinations SET icone = '🏙️' WHERE id = 47;  -- Kuala Lumpur
+UPDATE destinations SET icone = '🏮' WHERE id = 48;  -- Hanoï
+UPDATE destinations SET icone = '🎬' WHERE id = 49;  -- Mumbai
+UPDATE destinations SET icone = '🍁' WHERE id = 50;  -- Montréal
+UPDATE destinations SET icone = '🌴' WHERE id = 51;  -- Los Angeles
+UPDATE destinations SET icone = '🌉' WHERE id = 52;  -- Sydney
+UPDATE destinations SET icone = '💃' WHERE id = 53;  -- Buenos Aires
+UPDATE destinations SET icone = '🎭' WHERE id = 54;  -- Rio de Janeiro
+UPDATE destinations SET icone = '🌴' WHERE id = 55;  -- Punta Cana
+UPDATE destinations SET icone = '🥥' WHERE id = 56;  -- Koh Samui
+UPDATE destinations SET icone = '🌊' WHERE id = 57;  -- Cap-Vert
+UPDATE destinations SET icone = '🌋' WHERE id = 58;  -- La Réunion
+UPDATE destinations SET icone = '🦭' WHERE id = 59;  -- Cape Town
 
 
 -- ============================================================
