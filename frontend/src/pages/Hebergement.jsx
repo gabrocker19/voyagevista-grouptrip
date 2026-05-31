@@ -7,6 +7,8 @@ import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
 import BudgetBar from "../components/BudgetBar";
+import { EQUIPEMENTS_META, parseEquipements } from "../utils/equipements";
+import EquipementsModal from "../components/EquipementsModal";
 
 const TYPE_ICONS = { hotel:"🏨", airbnb:"🏠", hostel:"🛏️", villa:"🏡", resort:"🌴" };
 
@@ -25,6 +27,7 @@ export default function Hebergement() {
   const [totalMembres, setTotalMembres] = useState(0);
   const [message,      setMessage]      = useState("");
   const [error,        setError]        = useState("");
+  const [modalHeb,     setModalHeb]     = useState(null);
 
   const chargerVotes = async () => {
     try {
@@ -113,6 +116,7 @@ export default function Hebergement() {
 
   return (
     <div style={s.page}>
+      <EquipementsModal heb={modalHeb} onClose={() => setModalHeb(null)} />
       <style>{`@keyframes valPulse{0%{box-shadow:0 0 0 0 rgba(66,168,90,.55)}50%{box-shadow:0 0 0 8px rgba(66,168,90,0)}100%{box-shadow:0 0 0 4px rgba(66,168,90,.18)}}`}</style>
 
       <PageHeader
@@ -201,6 +205,28 @@ export default function Hebergement() {
                   </div>
                   <p style={s.cardDesc}>{h.description}</p>
                   <div style={s.cardInfo}>👥 Capacité : {h.capacite} pers.</div>
+                  {/* Équipements */}
+                  {(() => {
+                    const equips = parseEquipements(h.equipements);
+                    if (!equips.length) return null;
+                    return (
+                      <div style={s.equips}>
+                        {equips.slice(0, 4).map(e => {
+                          const m = EQUIPEMENTS_META[e] || { icon: "•", label: e };
+                          return <span key={e} style={s.equipChip}>{m.icon} {m.label}</span>;
+                        })}
+                        {equips.length > 4 && (
+                          <button onClick={() => setModalHeb(h)} style={s.equipToggle}>
+                            +{equips.length - 4} équipements
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })()}
+                  {/* Animaux */}
+                  <div style={s.animaux}>
+                    {h.animaux_acceptes ? "🐾 Animaux acceptés" : "🚫 Animaux non acceptés"}
+                  </div>
                   {/* Barre de vote */}
                   <div style={s.voteBarBg}><div style={{...s.voteBarFill, width:`${pct}%`}}/></div>
                   <div style={s.voteStats}>{nbVotes} vote{nbVotes!==1?"s":""} ({pct}%) {res?.votants && <span style={s.votants}>— {res.votants}</span>}</div>
@@ -283,6 +309,10 @@ const s = {
   infoBox:    { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
   dateBanner: { background:"#FFF8E6", color:"#854F0B", padding:"10px 16px", borderRadius:"8px", fontSize:"13px", border:"1px solid #F5DFA0" },
   prixSub:    { fontSize:"11px", color:"#73726c", marginTop:"1px" },
+  equips:     { display:"flex", flexWrap:"wrap", gap:"5px", margin:"6px 0" },
+  equipChip:  { fontSize:"11px", background:"#F0F4F8", color:"#444", padding:"3px 8px", borderRadius:"20px", whiteSpace:"nowrap" },
+  equipToggle:{ fontSize:"11px", background:"none", border:"none", color:"#185FA5", cursor:"pointer", padding:"3px 4px", fontWeight:"600", textDecoration:"underline" },
+  animaux:    { fontSize:"11px", color:"#73726c", marginTop:"4px" },
   blockCard:  { background:"white", borderRadius:"16px", padding:"48px 40px", maxWidth:"420px", margin:"0 auto", boxShadow:"0 4px 20px rgba(0,0,0,0.08)" },
   btnGoTransport: { padding:"12px 28px", background:"linear-gradient(135deg,#0C447C,#185FA5)", color:"white", border:"none", borderRadius:"10px", fontSize:"14px", fontWeight:"700", cursor:"pointer" },
 };

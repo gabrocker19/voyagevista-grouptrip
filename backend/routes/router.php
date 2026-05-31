@@ -160,6 +160,15 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/CatalogueController.php';
     (new CatalogueController())->deleteTransport($m[1]);
 
+// ── ADMIN UTILISATEURS ────────────────────────────────────────────────────────
+} elseif ($uri === '/api/admin/utilisateurs' && $method === 'GET') {
+    require_once 'controllers/AuthController.php';
+    (new AuthController())->listUsers();
+
+} elseif (preg_match('/^\/api\/admin\/utilisateurs\/(\d+)\/role$/', $uri, $m) && $method === 'PUT') {
+    require_once 'controllers/AuthController.php';
+    (new AuthController())->updateRole($m[1]);
+
 } elseif ($uri === '/api/notifications' && $method === 'GET') {
     require_once 'controllers/NotifController.php';
     (new NotifController())->index();

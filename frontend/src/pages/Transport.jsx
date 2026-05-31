@@ -210,7 +210,14 @@ export default function Transport() {
                       <span style={s.arrow}>→</span>
                       <span style={s.ville}>{t.destination}</span>
                     </div>
-                    <div style={s.dates}>🗓️ {new Date(t.date_depart).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</div>
+                    <div style={s.dates}>
+                      🛫 Départ : <strong>{new Date(t.date_depart).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</strong>
+                    </div>
+                    {t.date_arrivee && (
+                      <div style={s.dates}>
+                        🛬 Retour : <strong>{new Date(t.date_arrivee).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</strong>
+                      </div>
+                    )}
                     <div style={s.places}>💺 {t.places_dispo} places</div>
                     {/* Barre de vote */}
                     <div style={s.voteBarBg}><div style={{...s.voteBarFill, width:`${pct}%`}}/></div>

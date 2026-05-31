@@ -3,6 +3,8 @@ import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { catalogueService } from "../services/catalogue.service";
 import { api } from "../services/api";
 import { CAT_ICONS, getActivityIcon } from "../utils/icons";
+import { EQUIPEMENTS_META, parseEquipements } from "../utils/equipements";
+import EquipementsModal from "../components/EquipementsModal";
 
 const HEBERG_ICO = { hotel:"🏨", airbnb:"🏠", hostel:"🛏️", villa:"🏡", resort:"🌴" };
 const TRANSP_ICO = { avion:"✈️", train:"🚆", bus:"🚌", bateau:"⛴️" };
@@ -348,25 +350,45 @@ export default function DestinationDetail() {
 /* ── Sub-components ── */
 
 function HebCard({ h }) {
-  const pct = h.capacite > 0 ? Math.min(100, Math.round((h.places_restantes ?? h.capacite) / h.capacite * 100)) : 100;
+  const [modal, setModal] = useState(false);
+  const equips = parseEquipements(h.equipements);
   return (
-    <div style={sh.card}>
-      <div style={sh.imgBox}>{HEBERG_ICO[h.type] || "🏨"}</div>
-      <div style={sh.body}>
-        <div style={sh.top}>
-          <h3 style={sh.name}>{h.nom}</h3>
-          <span style={sh.typeBadge}>{h.type}</span>
+    <>
+      {modal && <EquipementsModal heb={h} onClose={() => setModal(false)} />}
+      <div style={sh.card}>
+        <div style={sh.imgBox}>{HEBERG_ICO[h.type] || "🏨"}</div>
+        <div style={sh.body}>
+          <div style={sh.top}>
+            <h3 style={sh.name}>{h.nom}</h3>
+            <span style={sh.typeBadge}>{h.type}</span>
+          </div>
+          <p style={sh.desc}>{h.description}</p>
+          <div style={sh.row}>
+            <span style={sh.info}>👥 {h.capacite} pers. max</span>
+            <span style={{ ...sh.info, background: h.animaux_acceptes ? "#EAF3DE" : "#FCEBEB", color: h.animaux_acceptes ? "#3B6D11" : "#A32D2D" }}>
+              {h.animaux_acceptes ? "🐾 Animaux ok" : "🚫 Sans animaux"}
+            </span>
+          </div>
+          {equips.length > 0 && (
+            <div style={sh.equips}>
+              {equips.slice(0, 4).map(e => {
+                const m = EQUIPEMENTS_META[e] || { icon: "•", label: e };
+                return <span key={e} style={sh.equipChip}>{m.icon} {m.label}</span>;
+              })}
+              {equips.length > 4 && (
+                <button onClick={() => setModal(true)} style={sh.equipToggle}>
+                  +{equips.length - 4} équipements
+                </button>
+              )}
+            </div>
+          )}
         </div>
-        <p style={sh.desc}>{h.description}</p>
-        <div style={sh.row}>
-          <span style={sh.info}>👥 {h.capacite} pers. max</span>
+        <div style={sh.right}>
+          <div style={sh.price}>{h.prix_nuit}€</div>
+          <div style={sh.priceSub}>/nuit</div>
         </div>
       </div>
-      <div style={sh.right}>
-        <div style={sh.price}>{h.prix_nuit}€</div>
-        <div style={sh.priceSub}>/nuit</div>
-      </div>
-    </div>
+    </>
   );
 }
 
@@ -610,8 +632,11 @@ const sh = {
   name:     { fontSize:"14px", fontWeight:"700", color:"#0C447C", margin:0 },
   typeBadge:{ background:"#E6F1FB", color:"#185FA5", padding:"2px 9px", borderRadius:"12px", fontSize:"10px", whiteSpace:"nowrap" },
   desc:     { fontSize:"12px", color:"#73726c", lineHeight:"1.4", marginBottom:"6px", display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" },
-  row:      { display:"flex", gap:"8px", flexWrap:"wrap" },
+  row:      { display:"flex", gap:"8px", flexWrap:"wrap", marginBottom:"6px" },
   info:     { fontSize:"11px", color:"#444", background:"#F5F4F0", padding:"2px 8px", borderRadius:"8px" },
+  equips:   { display:"flex", flexWrap:"wrap", gap:"5px", marginTop:"4px" },
+  equipChip:  { fontSize:"11px", background:"#F0F4F8", color:"#444", padding:"3px 8px", borderRadius:"20px", whiteSpace:"nowrap" },
+  equipToggle:{ fontSize:"11px", background:"none", border:"none", color:"#185FA5", cursor:"pointer", padding:"3px 4px", fontWeight:"600", textDecoration:"underline" },
   right:    { padding:"14px 16px", textAlign:"right", flexShrink:0, display:"flex", flexDirection:"column", justifyContent:"center" },
   price:    { fontSize:"20px", fontWeight:"800", color:"#0C447C" },
   priceSub: { fontSize:"11px", color:"#73726c" },

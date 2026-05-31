@@ -127,4 +127,41 @@ class AuthController {
         $stmt->execute([$userId]);
         echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
     }
+
+    public function listUsers() {
+        require_once 'middleware/auth.php';
+        requireAuth();
+        if ($_SESSION['user_role'] !== 'admin') {
+            http_response_code(403);
+            echo json_encode(["error" => "Accès refusé."]);
+            return;
+        }
+        $stmt = $this->db->query("SELECT id, nom, email, role, created_at FROM utilisateurs ORDER BY created_at DESC");
+        echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+    }
+
+    public function updateRole($userId) {
+        require_once 'middleware/auth.php';
+        requireAuth();
+        if ($_SESSION['user_role'] !== 'admin') {
+            http_response_code(403);
+            echo json_encode(["error" => "Accès refusé."]);
+            return;
+        }
+        if ((int)$userId === (int)$_SESSION['user_id']) {
+            http_response_code(400);
+            echo json_encode(["error" => "Vous ne pouvez pas modifier votre propre rôle."]);
+            return;
+        }
+        $data = json_decode(file_get_contents("php://input"), true);
+        $role = $data['role'] ?? null;
+        if (!in_array($role, ['membre', 'admin'])) {
+            http_response_code(400);
+            echo json_encode(["error" => "Rôle invalide."]);
+            return;
+        }
+        $stmt = $this->db->prepare("UPDATE utilisateurs SET role = ? WHERE id = ?");
+        $stmt->execute([$role, $userId]);
+        echo json_encode(["message" => "Rôle mis à jour."]);
+    }
 }

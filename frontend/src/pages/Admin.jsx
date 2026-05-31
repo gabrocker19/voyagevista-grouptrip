@@ -7,6 +7,7 @@ import PageHeader from "../components/PageHeader";
 const CATEGORIES   = ["plage", "montagne", "ville", "aventure", "culture"];
 const TYPES_HEB    = ["hotel", "airbnb", "hostel", "villa", "resort"];
 const TYPES_TRANS  = ["avion", "train", "bus", "bateau"];
+const ROLE_META    = { admin: { label:"Admin", color:"#A32D2D", bg:"#FCEBEB" }, membre: { label:"Membre", color:"#3B6D11", bg:"#EAF3DE" } };
 
 export default function Admin() {
   const { user } = useAuth();
@@ -17,6 +18,8 @@ export default function Admin() {
   const [hebergements, setHebergements] = useState([]);
   const [activites,    setActivites]    = useState([]);
   const [transports,   setTransports]   = useState([]);
+  const [utilisateurs, setUtilisateurs] = useState([]);
+  const [searchUser,   setSearchUser]   = useState("");
 
   // Barres de recherche
   const [searchDest,  setSearchDest]  = useState("");
@@ -41,6 +44,17 @@ export default function Admin() {
     api.get("/api/hebergements").then(setHebergements).catch(() => {});
     api.get("/api/activites").then(setActivites).catch(() => {});
     api.get("/api/admin/transports").then(setTransports).catch(() => {});
+    api.get("/api/admin/utilisateurs").then(setUtilisateurs).catch(() => {});
+  };
+
+  const handleUpdateRole = async (uid, nom, newRole) => {
+    const action = newRole === "admin" ? "promouvoir" : "rétrograder";
+    if (!confirm(`${action.charAt(0).toUpperCase()+action.slice(1)} "${nom}" en ${newRole} ?`)) return;
+    try {
+      await api.put(`/api/admin/utilisateurs/${uid}/role`, { role: newRole });
+      flash(true, `Rôle de "${nom}" mis à jour.`);
+      api.get("/api/admin/utilisateurs").then(setUtilisateurs);
+    } catch (er) { flash(false, er.message); }
   };
 
   const flash = (ok, texte) => {
@@ -149,6 +163,10 @@ export default function Admin() {
     !searchTrans || q(t.compagnie).includes(q(searchTrans)) || q(t.origine).includes(q(searchTrans)) || q(t.destination).includes(q(searchTrans))
   ), [transports, searchTrans]);
 
+  const userFiltered = useMemo(() => utilisateurs.filter(u =>
+    !searchUser || q(u.nom).includes(q(searchUser)) || q(u.email).includes(q(searchUser))
+  ), [utilisateurs, searchUser]);
+
   return (
     <div style={styles.page}>
       <PageHeader
@@ -165,6 +183,7 @@ export default function Admin() {
           ["hebergements", "🏨 Hébergements"],
           ["activites",    "🎯 Activités"],
           ["transports",   "✈️ Transports"],
+          ["utilisateurs", "👤 Utilisateurs"],
         ].map(([key, label]) => (
           <button key={key} onClick={() => setOnglet(key)}
             style={onglet === key ? styles.tabActive : styles.tab}>
@@ -329,6 +348,54 @@ export default function Admin() {
             </div>
           </div>
         )}
+        {/* ── UTILISATEURS ── */}
+        {onglet === "utilisateurs" && (
+          <div style={styles.listCard}>
+            <div style={styles.listHeader}>
+              <h2 style={styles.cardTitle}>
+                Utilisateurs ({userFiltered.length}/{utilisateurs.length})
+                <span style={{ fontWeight:"normal", fontSize:"12px", color:"#73726c", marginLeft:"8px" }}>
+                  — {utilisateurs.filter(u=>u.role==="admin").length} admin(s)
+                </span>
+              </h2>
+              <SearchBar value={searchUser} onChange={setSearchUser} placeholder="Rechercher nom, email…" />
+            </div>
+            <div style={styles.list}>
+              {userFiltered.map((u) => {
+                const rm = ROLE_META[u.role] || ROLE_META.membre;
+                const isMe = u.id === user?.id;
+                return (
+                  <div key={u.id} style={styles.listRow}>
+                    <div style={{ display:"flex", alignItems:"center", gap:"12px", flex:1, minWidth:0 }}>
+                      <div style={{ width:36, height:36, borderRadius:"50%", background:"linear-gradient(135deg, #0C447C, #185FA5)", color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"14px", fontWeight:"800", flexShrink:0 }}>
+                        {u.nom.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <div style={styles.listName}>
+                          {u.nom}
+                          {isMe && <span style={{ fontSize:"11px", color:"#73726c", marginLeft:"6px" }}>(vous)</span>}
+                        </div>
+                        <div style={styles.listMeta}>{u.email}</div>
+                        <div style={styles.listMeta}>Inscrit le {new Date(u.created_at).toLocaleDateString("fr-FR")}</div>
+                      </div>
+                    </div>
+                    <div style={{ display:"flex", alignItems:"center", gap:"10px", flexShrink:0 }}>
+                      <span style={{ background:rm.bg, color:rm.color, padding:"3px 10px", borderRadius:"20px", fontSize:"12px", fontWeight:"700" }}>
+                        {rm.label}
+                      </span>
+                      {!isMe && (
+                        u.role === "admin"
+                          ? <button onClick={() => handleUpdateRole(u.id, u.nom, "membre")} style={styles.btnDel}>Rétrograder</button>
+                          : <button onClick={() => handleUpdateRole(u.id, u.nom, "admin")} style={styles.btnPromote}>Promouvoir admin</button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
@@ -411,6 +478,7 @@ const styles = {
   listName: { fontSize:"14px", fontWeight:"500", color:"#2C2C2A" },
   listSub:  { fontWeight:"normal", color:"#73726c" },
   listMeta: { fontSize:"12px", color:"#73726c", marginTop:"2px" },
-  btnAdd:   { background:"#185FA5", color:"white", border:"none", padding:"10px 20px", borderRadius:"8px", cursor:"pointer", fontSize:"14px", fontWeight:"bold", width:"100%", marginTop:"4px" },
-  btnDel:   { background:"#FCEBEB", color:"#A32D2D", border:"1px solid #F09595", padding:"5px 12px", borderRadius:"6px", cursor:"pointer", fontSize:"12px", whiteSpace:"nowrap", flexShrink:0 },
+  btnAdd:     { background:"#185FA5", color:"white", border:"none", padding:"10px 20px", borderRadius:"8px", cursor:"pointer", fontSize:"14px", fontWeight:"bold", width:"100%", marginTop:"4px" },
+  btnDel:     { background:"#FCEBEB", color:"#A32D2D", border:"1px solid #F09595", padding:"5px 12px", borderRadius:"6px", cursor:"pointer", fontSize:"12px", whiteSpace:"nowrap", flexShrink:0 },
+  btnPromote: { background:"#EAF3DE", color:"#3B6D11", border:"1px solid #A8D880", padding:"5px 12px", borderRadius:"6px", cursor:"pointer", fontSize:"12px", whiteSpace:"nowrap", flexShrink:0 },
 };

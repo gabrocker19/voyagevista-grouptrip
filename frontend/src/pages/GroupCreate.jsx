@@ -235,7 +235,7 @@ export default function GroupCreate() {
 }
 
 const s = {
-  page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
+  page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", backgroundImage: "linear-gradient(rgba(245,244,240,0.50), rgba(245,244,240,0.56)), url('/voyagevista-grouptrip/frontend/dist/images/destinations/14.jpg')", backgroundSize: "cover", backgroundAttachment: "fixed", backgroundPosition: "center" },
   body: { padding: "28px 32px 48px", maxWidth: "1080px", margin: "0 auto" },
   layout: { display: "grid", gridTemplateColumns: "1fr 280px", gap: "20px", alignItems: "start" },
 
