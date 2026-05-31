@@ -16,6 +16,7 @@ export default function GroupDetail() {
   const [error, setError] = useState("");
   const [itineraire, setItineraire] = useState(null);
   const [destinationNom, setDestinationNom] = useState(null);
+  const [confirmRefus, setConfirmRefus] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -64,7 +65,12 @@ export default function GroupDetail() {
   const handleRepondreInvitation = async (statut) => {
     try {
       await groupService.rejoindre(id, statut);
-      groupService.getOne(id).then(setGroupe);
+      if (statut === "refuse") {
+        setMessage("Invitation refusée. Vous allez être redirigé...");
+        setTimeout(() => navigate("/dashboard"), 2000);
+      } else {
+        groupService.getOne(id).then(setGroupe);
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -115,6 +121,26 @@ export default function GroupDetail() {
 
   return (
     <div style={styles.page}>
+      {confirmRefus && (
+        <div style={styles.overlay} onClick={() => setConfirmRefus(false)}>
+          <div style={styles.modal} onClick={e => e.stopPropagation()}>
+            <h3 style={styles.modalTitle}>Refuser l'invitation ?</h3>
+            <p style={{ color: "#444", fontSize: "14px", marginBottom: "20px" }}>
+              Êtes-vous sûr de vouloir refuser l'invitation au voyage <strong>"{groupe.nom}"</strong> ?
+              Vous ne pourrez plus accéder à ce groupe.
+            </p>
+            <div style={styles.modalActions}>
+              <button style={styles.btnCancel} onClick={() => setConfirmRefus(false)}>
+                Annuler
+              </button>
+              <button style={styles.btnConfirmRefus} onClick={() => { setConfirmRefus(false); handleRepondreInvitation("refuse"); }}>
+                Refuser l'invitation
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <PageHeader
         title={groupe.nom}
         subtitle={<>Organisé par <strong>{groupe.organisateur_nom}</strong></>}
@@ -166,7 +192,7 @@ export default function GroupDetail() {
               <button onClick={() => handleRepondreInvitation("accepte")} style={styles.btnAccepter}>
                 ✓ Accepter
               </button>
-              <button onClick={() => handleRepondreInvitation("refuse")} style={styles.btnRefuser}>
+              <button onClick={() => setConfirmRefus(true)} style={styles.btnRefuser}>
                 ✗ Refuser
               </button>
             </div>
@@ -525,5 +551,24 @@ const styles = {
     marginTop: "auto",
     color: "#999",
     fontSize: "11px",
+  },
+  // Modale refus invitation
+  overlay: {
+    position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)",
+    display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
+  },
+  modal: {
+    background: "white", borderRadius: "14px", padding: "28px 32px",
+    width: "100%", maxWidth: "420px", boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+  },
+  modalTitle: { fontSize: "17px", fontWeight: "bold", color: "#0C447C", marginBottom: "16px" },
+  modalActions: { display: "flex", gap: "10px", justifyContent: "flex-end" },
+  btnCancel: {
+    padding: "9px 20px", borderRadius: "8px", border: "1px solid #D1CFC5",
+    background: "white", color: "#444", cursor: "pointer", fontSize: "14px",
+  },
+  btnConfirmRefus: {
+    padding: "9px 20px", borderRadius: "8px", border: "none",
+    background: "#C0392B", color: "white", cursor: "pointer", fontSize: "14px", fontWeight: "bold",
   },
 };

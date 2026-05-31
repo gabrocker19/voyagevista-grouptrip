@@ -141,8 +141,8 @@ export default function Catalogue() {
                   <div
                     style={{
                       ...s.destImg,
-                      backgroundImage: d.image_url ? `url(${d.image_url})` : "none",
-                      background: d.image_url ? undefined : "#E6F1FB",
+                      backgroundImage: d.image_url ? `url(${d.image_url})` : undefined,
+                      backgroundColor: d.image_url ? undefined : "#E6F1FB",
                     }}
                   >
                     {!d.image_url

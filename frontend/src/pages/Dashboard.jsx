@@ -10,6 +10,12 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  const [editModal, setEditModal] = useState(null); // groupe en cours d'édition
+  const [editNom, setEditNom] = useState("");
+  const [editBudget, setEditBudget] = useState("");
+  const [deleteConfirm, setDeleteConfirm] = useState(null); // groupe à supprimer
+  const [actionError, setActionError] = useState("");
+
   useEffect(() => {
     groupService
       .getAll()
@@ -17,6 +23,35 @@ export default function Dashboard() {
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
+
+  const openEdit = (e, g) => {
+    e.stopPropagation();
+    setEditModal(g);
+    setEditNom(g.nom);
+    setEditBudget(g.budget_max || "");
+    setActionError("");
+  };
+
+  const handleUpdate = async () => {
+    if (!editNom.trim()) { setActionError("Le nom est requis."); return; }
+    try {
+      await groupService.update(editModal.id, { nom: editNom.trim(), budget_max: editBudget || null });
+      setGroupes(groupes.map(g => g.id === editModal.id ? { ...g, nom: editNom.trim(), budget_max: editBudget || null } : g));
+      setEditModal(null);
+    } catch (err) {
+      setActionError(err.message);
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      await groupService.delete(deleteConfirm.id);
+      setGroupes(groupes.filter(g => g.id !== deleteConfirm.id));
+      setDeleteConfirm(null);
+    } catch (err) {
+      setActionError(err.message);
+    }
+  };
 
   const statutColors = {
     en_formation: { bg: "#FAEEDA", color: "#854F0B", label: "En formation" },
@@ -31,6 +66,53 @@ export default function Dashboard() {
 
   return (
     <div style={styles.page}>
+      {/* Modale modification */}
+      {editModal && (
+        <div style={styles.overlay} onClick={() => setEditModal(null)}>
+          <div style={styles.modal} onClick={e => e.stopPropagation()}>
+            <h3 style={styles.modalTitle}>Modifier le voyage</h3>
+            {actionError && <p style={styles.modalError}>{actionError}</p>}
+            <label style={styles.modalLabel}>Nom du voyage</label>
+            <input
+              style={styles.modalInput}
+              value={editNom}
+              onChange={e => setEditNom(e.target.value)}
+              placeholder="Nom du voyage"
+            />
+            <label style={styles.modalLabel}>Budget max (€/pers.)</label>
+            <input
+              style={styles.modalInput}
+              type="number"
+              value={editBudget}
+              onChange={e => setEditBudget(e.target.value)}
+              placeholder="Ex : 1500"
+            />
+            <div style={styles.modalActions}>
+              <button style={styles.btnCancel} onClick={() => setEditModal(null)}>Annuler</button>
+              <button style={styles.btnSave} onClick={handleUpdate}>Enregistrer</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modale confirmation suppression */}
+      {deleteConfirm && (
+        <div style={styles.overlay} onClick={() => setDeleteConfirm(null)}>
+          <div style={styles.modal} onClick={e => e.stopPropagation()}>
+            <h3 style={styles.modalTitle}>Supprimer le voyage ?</h3>
+            {actionError && <p style={styles.modalError}>{actionError}</p>}
+            <p style={{ color: "#444", fontSize: "14px", marginBottom: "20px" }}>
+              Êtes-vous sûr de vouloir supprimer <strong>"{deleteConfirm.nom}"</strong> ?
+              Cette action est irréversible et supprimera tous les votes associés.
+            </p>
+            <div style={styles.modalActions}>
+              <button style={styles.btnCancel} onClick={() => setDeleteConfirm(null)}>Annuler</button>
+              <button style={styles.btnDelete} onClick={handleDelete}>Supprimer</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <PageHeader
         title={`Bonjour, ${user?.nom} 👋`}
         subtitle="Bienvenue sur votre espace GroupTrip"
@@ -111,6 +193,23 @@ export default function Dashboard() {
                           : "👤 Membre"}
                       </span>
                     </div>
+
+                    {g.mon_role === "organisateur" && (
+                      <div style={styles.cardActions} onClick={e => e.stopPropagation()}>
+                        <button
+                          style={styles.btnEdit}
+                          onClick={e => openEdit(e, g)}
+                        >
+                          ✏️ Modifier
+                        </button>
+                        <button
+                          style={styles.btnDeleteSmall}
+                          onClick={e => { e.stopPropagation(); setActionError(""); setDeleteConfirm(g); }}
+                        >
+                          🗑️
+                        </button>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -244,5 +343,46 @@ const styles = {
     fontWeight: "500",
     boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
     fontSize: "14px",
+  },
+  cardActions: { display: "flex", gap: "6px", marginTop: "10px" },
+  btnEdit: {
+    flex: 1, padding: "6px 10px", borderRadius: "6px",
+    border: "1px solid #D1CFC5", background: "white",
+    color: "#0C447C", cursor: "pointer", fontSize: "12px", fontWeight: "500",
+  },
+  btnDeleteSmall: {
+    padding: "6px 10px", borderRadius: "6px",
+    border: "1px solid #F5C6C6", background: "#FFF5F5",
+    color: "#A32D2D", cursor: "pointer", fontSize: "12px",
+  },
+  // Modales
+  overlay: {
+    position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)",
+    display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
+  },
+  modal: {
+    background: "white", borderRadius: "14px", padding: "28px 32px",
+    width: "100%", maxWidth: "420px", boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+  },
+  modalTitle: { fontSize: "17px", fontWeight: "bold", color: "#0C447C", marginBottom: "18px" },
+  modalLabel: { display: "block", fontSize: "13px", fontWeight: "600", color: "#2C2C2A", marginBottom: "6px", marginTop: "12px" },
+  modalInput: {
+    width: "100%", padding: "10px 13px", borderRadius: "8px",
+    border: "1.5px solid #D1CFC5", fontSize: "14px",
+    boxSizing: "border-box", outline: "none",
+  },
+  modalError: { color: "#A32D2D", fontSize: "13px", marginBottom: "8px" },
+  modalActions: { display: "flex", gap: "10px", marginTop: "22px", justifyContent: "flex-end" },
+  btnCancel: {
+    padding: "9px 20px", borderRadius: "8px", border: "1px solid #D1CFC5",
+    background: "white", color: "#444", cursor: "pointer", fontSize: "14px",
+  },
+  btnSave: {
+    padding: "9px 20px", borderRadius: "8px", border: "none",
+    background: "#185FA5", color: "white", cursor: "pointer", fontSize: "14px", fontWeight: "bold",
+  },
+  btnDelete: {
+    padding: "9px 20px", borderRadius: "8px", border: "none",
+    background: "#C0392B", color: "white", cursor: "pointer", fontSize: "14px", fontWeight: "bold",
   },
 };

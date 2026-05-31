@@ -41,6 +41,14 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/GroupController.php';
     (new GroupController())->show($m[1]);
 
+} elseif (preg_match('/^\/api\/groupes\/(\d+)$/', $uri, $m) && $method === 'PUT') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->update($m[1]);
+
+} elseif (preg_match('/^\/api\/groupes\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->delete($m[1]);
+
 } elseif (preg_match('/^\/api\/groupes\/(\d+)\/inviter$/', $uri, $m) && $method === 'POST') {
     require_once 'controllers/GroupController.php';
     (new GroupController())->invite($m[1]);

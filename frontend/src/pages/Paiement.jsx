@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { groupService } from "../services/group.service";
+import PageHeader from "../components/PageHeader";
 
 export default function Paiement() {
   const { id } = useParams();
@@ -90,9 +91,7 @@ export default function Paiement() {
   if (confirmation) {
     return (
       <div style={styles.page}>
-        <div style={{ ...styles.header, background: "#2E7D32" }}>
-          <h1 style={styles.title}>✅ Réservation confirmée !</h1>
-        </div>
+        <PageHeader title="✅ Réservation confirmée !" subtitle={groupe?.nom} />
         <div style={styles.body}>
           <div style={styles.confirmBox}>
             <div style={styles.confirmIcon}>🎉</div>
@@ -141,12 +140,15 @@ export default function Paiement() {
   // ── Formulaire de paiement ───────────────────────────────────────────────────
   return (
     <div style={styles.page}>
-      <div style={styles.header}>
-        <div>
-          <h1 style={styles.title}>🔒 Paiement sécurisé</h1>
-          <p style={styles.sub}>{groupe?.nom}</p>
-        </div>
-      </div>
+      <PageHeader
+        title="🔒 Paiement sécurisé"
+        subtitle={groupe?.nom}
+        backLabel="Retour au panier"
+        backTo={`/groupes/${id}/panier`}
+        right={
+          <span style={styles.montantBadge}>{montantTotal}€ total</span>
+        }
+      />
 
       <div style={styles.body}>
         {error && <div style={styles.errorBox}>{error}</div>}
@@ -299,9 +301,10 @@ export default function Paiement() {
 const styles = {
   page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  header: { background: "#0C447C", color: "white", padding: "24px 32px" },
-  title: { fontSize: "22px", fontWeight: "bold", marginBottom: "4px" },
-  sub: { opacity: 0.8, fontSize: "13px" },
+  montantBadge: {
+    background: "rgba(255,255,255,0.15)", color: "white",
+    padding: "6px 14px", borderRadius: "20px", fontSize: "14px", fontWeight: "700",
+  },
   body: { padding: "24px 32px", maxWidth: "900px", margin: "0 auto" },
   errorBox: {
     background: "#FCEBEB", color: "#A32D2D", padding: "12px 16px",
