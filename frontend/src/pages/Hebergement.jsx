@@ -55,6 +55,21 @@ export default function Hebergement() {
   const isOrganisateur = groupe?.organisateur_id === user?.id;
   const hebValideId = itineraire?.hebergement_id ? String(itineraire.hebergement_id) : null;
 
+  // Nuits = durée du transport validé (priorité) ou dates du groupe (fallback)
+  // Déclaré ici pour être utilisable dans le useEffect ci-dessous
+  const nbNuits = itineraire?.transport_date_depart && itineraire?.transport_date_arrivee
+    ? Math.round((new Date(itineraire.transport_date_arrivee) - new Date(itineraire.transport_date_depart)) / 86400000)
+    : (groupe?.date_depart && groupe?.date_retour
+        ? Math.round((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)
+        : null);
+
+  // Persister le coût voté de cette page pour les autres pages
+  useEffect(() => {
+    const cost = hebValideId ? 0
+      : parseFloat(hebergements.find(h => String(h.id) === monVote)?.prix_nuit || 0) * (nbNuits || 7);
+    sessionStorage.setItem(`vv_v_h_${id}`, cost);
+  }, [monVote, hebergements, hebValideId, nbNuits, id]);
+
   const handleVoter = async (hebId) => {
     try {
       await voteService.voter({ groupe_id: id, type: "hebergement", valeur: String(hebId) });
@@ -73,6 +88,28 @@ export default function Hebergement() {
   };
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
+
+  // Blocage si transport non validé
+  if (!itineraire?.transport_id) {
+    return (
+      <div style={s.page}>
+        <PageHeader title="🏨 Hébergement" subtitle={groupe?.nom} backLabel="Retour au groupe" backTo={`/groupes/${id}`} />
+        <div style={{ padding:"48px 32px", textAlign:"center" }}>
+          <div style={s.blockCard}>
+            <div style={{ fontSize:"48px", marginBottom:"16px" }}>🔒</div>
+            <h2 style={{ color:"#0C447C", marginBottom:"8px", fontSize:"20px" }}>Transport requis</h2>
+            <p style={{ color:"#73726c", marginBottom:"24px", fontSize:"14px", lineHeight:1.6 }}>
+              Vous devez d'abord valider un transport avant de choisir l'hébergement.<br />
+              Le nombre de nuits sera calculé automatiquement depuis les dates du transport.
+            </p>
+            <button onClick={() => navigate(`/groupes/${id}/transport`)} style={s.btnGoTransport}>
+              Choisir le transport →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={s.page}>
@@ -104,19 +141,36 @@ export default function Hebergement() {
             ✓ Vous avez voté pour <strong>{hebergements.find(h=>String(h.id)===monVote)?.nom}</strong>
           </div>
         )}
+        {nbNuits !== null && (() => {
+          const dateDebut = itineraire?.transport_date_depart || groupe?.date_depart;
+          const dateFin   = itineraire?.transport_date_arrivee || groupe?.date_retour;
+          const source    = itineraire?.transport_date_depart ? "transport" : "voyage";
+          return (
+            <div style={s.dateBanner}>
+              🗓️ Séjour de <strong>{nbNuits} nuit{nbNuits > 1 ? "s" : ""}</strong>
+              {dateDebut && dateFin && (
+                <> · du {new Date(dateDebut).toLocaleDateString("fr-FR",{day:"numeric",month:"long"})} au {new Date(dateFin).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}</>
+              )}
+              {source === "transport"
+                ? " — durée basée sur votre transport validé."
+                : " — durée basée sur les dates du voyage."}
+            </div>
+          );
+        })()}
 
         {/* Barre de budget */}
         {(() => {
           const valide       = itineraire?.cout_total || 0;
           const hebVote      = hebergements.find(h => String(h.id) === monVote);
-          const monVoteExtra = hebValideId
-            ? 0
-            : parseFloat(hebVote?.prix_nuit || 0) * 7;
+          const myExtra    = hebValideId ? 0
+            : parseFloat(hebVote?.prix_nuit || 0) * (nbNuits || 7);
+          const votedTrans = parseFloat(sessionStorage.getItem(`vv_v_t_${id}`) || 0);
+          const votedAct   = parseFloat(sessionStorage.getItem(`vv_v_a_${id}`) || 0);
           return (
             <BudgetBar
               budget={groupe?.budget_max}
               valide={valide}
-              monVoteExtra={monVoteExtra}
+              monVoteExtra={myExtra + votedTrans + votedAct}
             />
           );
         })()}
@@ -151,7 +205,16 @@ export default function Hebergement() {
                   <div style={s.voteBarBg}><div style={{...s.voteBarFill, width:`${pct}%`}}/></div>
                   <div style={s.voteStats}>{nbVotes} vote{nbVotes!==1?"s":""} ({pct}%) {res?.votants && <span style={s.votants}>— {res.votants}</span>}</div>
                   <div style={s.cardFooter}>
-                    <div style={s.prix}>{h.prix_nuit}€<span style={s.perNuit}>/nuit</span></div>
+                    <div>
+                      {nbNuits ? (
+                        <>
+                          <div style={s.prix}>{(h.prix_nuit * nbNuits).toFixed(0)}€<span style={s.perNuit}>/séjour</span></div>
+                          <div style={s.prixSub}>{h.prix_nuit}€/nuit × {nbNuits} nuits</div>
+                        </>
+                      ) : (
+                        <div style={s.prix}>{h.prix_nuit}€<span style={s.perNuit}>/nuit</span></div>
+                      )}
+                    </div>
                     <div style={{ display:"flex", gap:"6px" }}>
                       <button
                         onClick={() => handleVoter(h.id)}
@@ -217,5 +280,9 @@ const s = {
   perNuit: { fontSize:"11px", fontWeight:"normal", color:"#73726c" },
   btnVote: { padding:"7px 14px", borderRadius:"6px", border:"1px solid #185FA5", cursor:"pointer", fontSize:"12px", fontWeight:"500" },
   btnValider:{ padding:"6px 10px", borderRadius:"6px", border:"none", background:"#EAF3DE", color:"#3B6D11", cursor:"pointer", fontSize:"11px", fontWeight:"500" },
-  infoBox: { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  infoBox:    { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  dateBanner: { background:"#FFF8E6", color:"#854F0B", padding:"10px 16px", borderRadius:"8px", fontSize:"13px", border:"1px solid #F5DFA0" },
+  prixSub:    { fontSize:"11px", color:"#73726c", marginTop:"1px" },
+  blockCard:  { background:"white", borderRadius:"16px", padding:"48px 40px", maxWidth:"420px", margin:"0 auto", boxShadow:"0 4px 20px rgba(0,0,0,0.08)" },
+  btnGoTransport: { padding:"12px 28px", background:"linear-gradient(135deg,#0C447C,#185FA5)", color:"white", border:"none", borderRadius:"10px", fontSize:"14px", fontWeight:"700", cursor:"pointer" },
 };

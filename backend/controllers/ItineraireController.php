@@ -154,7 +154,7 @@ class ItineraireController {
 
         // Recalculer le coût total
         $stmt = $this->db->prepare("
-            SELECT COALESCE(t.prix, 0) + COALESCE(h.prix_nuit, 0) * 7 +
+            SELECT COALESCE(t.prix, 0) + COALESCE(h.prix_nuit, 0) * COALESCE(DATEDIFF(t.date_arrivee, t.date_depart), 0) +
                    COALESCE((SELECT SUM(a.prix) FROM activites a JOIN itineraire_activites ia ON ia.activite_id = a.id WHERE ia.itineraire_id = ?), 0) as total
             FROM itineraires i
             LEFT JOIN transports t ON t.id = i.transport_id
@@ -174,8 +174,9 @@ class ItineraireController {
         requireAuth();
 
         $stmt = $this->db->prepare("
-            SELECT i.*, 
+            SELECT i.*,
                    t.compagnie, t.origine, t.destination as transport_dest, t.prix as transport_prix,
+                   t.date_depart as transport_date_depart, t.date_arrivee as transport_date_arrivee,
                    h.nom as heb_nom, h.prix_nuit, h.type as heb_type
             FROM itineraires i
             LEFT JOIN transports   t ON t.id = i.transport_id

@@ -201,7 +201,7 @@ class VoteController {
 
     private function recalculerCout($itineraire_id) {
         $stmt = $this->db->prepare("
-            SELECT COALESCE(t.prix,0) + COALESCE(h.prix_nuit,0)*7 +
+            SELECT COALESCE(t.prix,0) + COALESCE(h.prix_nuit,0) * COALESCE(DATEDIFF(t.date_arrivee, t.date_depart), 0) +
                    COALESCE((SELECT SUM(a.prix) FROM activites a
                              JOIN itineraire_activites ia ON ia.activite_id = a.id
                              WHERE ia.itineraire_id = ?),0) as total

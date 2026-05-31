@@ -37,14 +37,25 @@ class GroupController {
             return;
         }
 
+        // Valider les dates si fournies
+        $date_depart = !empty($data['date_depart']) ? $data['date_depart'] : null;
+        $date_retour = !empty($data['date_retour']) ? $data['date_retour'] : null;
+        if ($date_depart && $date_retour && $date_retour <= $date_depart) {
+            http_response_code(400);
+            echo json_encode(["error" => "La date de retour doit être après la date de départ."]);
+            return;
+        }
+
         // Créer le groupe
         $stmt = $this->db->prepare("
-            INSERT INTO groupes (nom, budget_max, organisateur_id, statut)
-            VALUES (?, ?, ?, 'en_formation')
+            INSERT INTO groupes (nom, budget_max, date_depart, date_retour, organisateur_id, statut)
+            VALUES (?, ?, ?, ?, ?, 'en_formation')
         ");
         $stmt->execute([
             $data['nom'],
             $data['budget_max'] ?? null,
+            $date_depart,
+            $date_retour,
             $_SESSION['user_id']
         ]);
         $groupe_id = $this->db->lastInsertId();
@@ -119,8 +130,11 @@ class GroupController {
             return;
         }
 
-        $stmt = $this->db->prepare("UPDATE groupes SET nom = ?, budget_max = ? WHERE id = ?");
-        $stmt->execute([$nom, $data['budget_max'] ?? null, $id]);
+        $date_depart = !empty($data['date_depart']) ? $data['date_depart'] : null;
+        $date_retour = !empty($data['date_retour']) ? $data['date_retour'] : null;
+
+        $stmt = $this->db->prepare("UPDATE groupes SET nom = ?, budget_max = ?, date_depart = ?, date_retour = ? WHERE id = ?");
+        $stmt->execute([$nom, $data['budget_max'] ?? null, $date_depart, $date_retour, $id]);
         echo json_encode(["message" => "Groupe mis à jour."]);
     }
 

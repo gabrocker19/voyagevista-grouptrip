@@ -35,6 +35,8 @@ class CatalogueController {
         $origine     = $_GET['origine']     ?? '';
         $destination = $_GET['destination'] ?? '';
         $type        = $_GET['type']        ?? '';
+        $date_debut  = $_GET['date_debut']  ?? '';
+        $date_fin    = $_GET['date_fin']    ?? '';
 
         $sql = "SELECT * FROM transports WHERE places_dispo > 0";
         $params = [];
@@ -51,6 +53,18 @@ class CatalogueController {
             $sql .= " AND type = ?";
             $params[] = $type;
         }
+        // Filtre par dates du voyage : le transport doit partir >= date_debut
+        // et arriver <= date_fin
+        if ($date_debut) {
+            $sql .= " AND date_depart >= ?";
+            $params[] = $date_debut;
+        }
+        if ($date_fin) {
+            $sql .= " AND date_arrivee <= ?";
+            $params[] = $date_fin;
+        }
+
+        $sql .= " ORDER BY date_depart ASC";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute($params);

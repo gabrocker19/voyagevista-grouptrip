@@ -47,16 +47,21 @@ export default function Transport() {
       // Votes
       chargerVotes(id);
 
+      const dateParams = {};
+      if (g.date_depart) dateParams.date_debut = g.date_depart;
+      if (g.date_retour) dateParams.date_fin   = g.date_retour;
+
       if (!g.destination_id) {
-        const all = await catalogueService.transports({});
+        const all = await catalogueService.transports(dateParams);
         setTransports(all);
         setLoading(false);
         return;
       }
       const dest = await api.get(`/api/destinations/${g.destination_id}`);
       setDestination(dest);
-      let results = await catalogueService.transports({ destination: dest.nom });
-      if (results.length === 0) results = await catalogueService.transports({ destination: dest.pays });
+      let results = await catalogueService.transports({ destination: dest.nom, ...dateParams });
+      if (results.length === 0) results = await catalogueService.transports({ destination: dest.pays, ...dateParams });
+      if (results.length === 0) results = await catalogueService.transports(dateParams);
       setTransports(results);
       if (results.length > 0) setFiltre(results[0].type);
       setLoading(false);
@@ -68,6 +73,15 @@ export default function Transport() {
 
   const totalVotes = resultats.reduce((a, r) => a + parseInt(r.nb_votes), 0);
   const isOrganisateur = groupe?.organisateur_id === user?.id;
+
+  const transportValideId = itineraire?.transport_id ? String(itineraire.transport_id) : null;
+
+  // Persister le coût voté de cette page pour les autres pages
+  useEffect(() => {
+    const prix = transportValideId ? 0
+      : parseFloat(transports.find(t => String(t.id) === monVote)?.prix || 0);
+    sessionStorage.setItem(`vv_v_t_${id}`, prix);
+  }, [monVote, transports, transportValideId, id]);
 
   const handleVoter = async (transportId) => {
     setError("");
@@ -91,8 +105,6 @@ export default function Transport() {
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
 
-  const transportValideId = itineraire?.transport_id ? String(itineraire.transport_id) : null;
-
   return (
     <div style={s.page}>
       <style>{`@keyframes valPulse{0%{box-shadow:0 0 0 0 rgba(66,168,90,.55)}50%{box-shadow:0 0 0 8px rgba(66,168,90,0)}100%{box-shadow:0 0 0 4px rgba(66,168,90,.18)}}`}</style>
@@ -106,10 +118,18 @@ export default function Transport() {
           <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
             <span style={s.voteCount}>{totalVotes}/{totalMembres} vote{totalMembres>1?"s":""}</span>
             <button
-              onClick={() => navigate(`/groupes/${id}/hebergement`)}
-              style={s.btnNext}
+              onClick={() => transportValideId
+                ? navigate(`/groupes/${id}/hebergement`)
+                : setError("Validez d'abord un transport avant de passer à l'hébergement.")
+              }
+              style={{
+                ...s.btnNext,
+                opacity: transportValideId ? 1 : 0.45,
+                cursor:  transportValideId ? "pointer" : "not-allowed",
+              }}
+              title={transportValideId ? "" : "Un transport doit être validé par l'organisateur"}
             >
-              Hébergement →
+              {transportValideId ? "Hébergement →" : "🔒 Hébergement"}
             </button>
           </div>
         }
@@ -126,6 +146,13 @@ export default function Transport() {
         {destination && (
           <div style={s.destBanner}>📍 Destination : <strong>{destination.nom}</strong>, {destination.pays}</div>
         )}
+        {(groupe?.date_depart || groupe?.date_retour) && (
+          <div style={s.dateBanner}>
+            🗓️ Transports filtrés pour votre voyage
+            {groupe.date_depart && <> · départ à partir du <strong>{new Date(groupe.date_depart).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}</strong></>}
+            {groupe.date_retour && <> · retour avant le <strong>{new Date(groupe.date_retour).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}</strong></>}
+          </div>
+        )}
 
         {/* Filtre type */}
         {typesDisponibles.length > 1 && (
@@ -140,15 +167,16 @@ export default function Transport() {
 
         {/* Barre de budget */}
         {(() => {
-          const valide       = itineraire?.cout_total || 0;
-          const monVoteExtra = transportValideId
-            ? 0
+          const valide      = itineraire?.cout_total || 0;
+          const myExtra     = transportValideId ? 0
             : parseFloat(transports.find(t => String(t.id) === monVote)?.prix || 0);
+          const votedHeb    = parseFloat(sessionStorage.getItem(`vv_v_h_${id}`) || 0);
+          const votedAct    = parseFloat(sessionStorage.getItem(`vv_v_a_${id}`) || 0);
           return (
             <BudgetBar
               budget={groupe?.budget_max}
               valide={valide}
-              monVoteExtra={monVoteExtra}
+              monVoteExtra={myExtra + votedHeb + votedAct}
             />
           );
         })()}
@@ -260,4 +288,5 @@ const s = {
   btnValider:{ padding:"7px 12px", borderRadius:"6px", border:"none", background:"#EAF3DE", color:"#3B6D11", cursor:"pointer", fontSize:"12px", fontWeight:"500" },
   empty:     { textAlign:"center", padding:"32px", color:"#73726c" },
   infoBox:   { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  dateBanner:{ background:"#FFF8E6", color:"#854F0B", padding:"10px 16px", borderRadius:"8px", fontSize:"13px", border:"1px solid #F5DFA0" },
 };
