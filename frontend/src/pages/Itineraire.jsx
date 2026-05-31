@@ -57,9 +57,12 @@ export default function Itineraire() {
   const hebPrixNuit = itineraire ? parseFloat(itineraire.prix_nuit || 0) : (heb ? parseFloat(heb.prix_nuit) : 0);
 
   const nbMembres = groupe?.membres?.filter(m => m.statut === "accepte").length || 1;
-  const nbNuits   = groupe?.date_depart && groupe?.date_retour
-    ? Math.ceil((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)
-    : 7;
+  // Nuits = durée du transport validé (priorité) > dates du groupe > fallback 7
+  const nbNuits = itineraire?.transport_date_depart && itineraire?.transport_date_arrivee
+    ? Math.round((new Date(itineraire.transport_date_arrivee) - new Date(itineraire.transport_date_depart)) / 86400000)
+    : (groupe?.date_depart && groupe?.date_retour
+        ? Math.ceil((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)
+        : 7);
 
   const coutTransport = transPrix;
   const coutHeb       = hebPrixNuit * nbNuits;

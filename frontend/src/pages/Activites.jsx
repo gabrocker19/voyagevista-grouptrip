@@ -75,6 +75,17 @@ export default function Activites() {
   const isOrganisateur = groupe?.organisateur_id === user?.id;
   const activitesValidees = itineraire?.activites?.map(a => a.id) || [];
 
+  // Déclaré avant les early returns pour respecter les règles des hooks
+  const totalActivitesPrix = activites
+    .filter(a => selection.includes(a.id))
+    .reduce((sum, a) => sum + parseFloat(a.prix), 0);
+
+  // Persister le coût voté de cette page pour les autres pages
+  useEffect(() => {
+    const cost = activitesValidees.length > 0 ? 0 : totalActivitesPrix;
+    sessionStorage.setItem(`vv_v_a_${id}`, cost);
+  }, [totalActivitesPrix, activitesValidees.length, id]);
+
   const handleToggle = (activite) => {
     if (activite.places_restantes === 0) return;
     setSelection(prev =>
@@ -105,9 +116,26 @@ export default function Activites() {
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
 
-  const totalActivitesPrix = activites
-    .filter(a => selection.includes(a.id))
-    .reduce((sum, a) => sum + parseFloat(a.prix), 0);
+  // Blocage si transport non validé
+  if (!itineraire?.transport_id) {
+    return (
+      <div style={s.page}>
+        <PageHeader title="🎯 Activités" subtitle={groupe?.nom} backLabel="Retour au groupe" backTo={`/groupes/${id}`} />
+        <div style={{ padding:"48px 32px", textAlign:"center" }}>
+          <div style={s.blockCard}>
+            <div style={{ fontSize:"48px", marginBottom:"16px" }}>🔒</div>
+            <h2 style={{ color:"#0C447C", marginBottom:"8px", fontSize:"20px" }}>Transport requis</h2>
+            <p style={{ color:"#73726c", marginBottom:"24px", fontSize:"14px", lineHeight:1.6 }}>
+              Vous devez d'abord valider un transport avant de sélectionner des activités.
+            </p>
+            <button onClick={() => navigate(`/groupes/${id}/transport`)} style={s.btnGoTransport}>
+              Choisir le transport →
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={s.page}>
@@ -138,6 +166,22 @@ export default function Activites() {
       <div style={s.body}>
         {error   && <div style={s.errorBox}>{error}</div>}
         {message && <div style={s.toast}>{message}</div>}
+
+        {(groupe?.date_depart || groupe?.date_retour) && (
+          <div style={s.dateBanner}>
+            🗓️ Voyage du{" "}
+            {groupe.date_depart
+              ? new Date(groupe.date_depart).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})
+              : "?"}
+            {" "}au{" "}
+            {groupe.date_retour
+              ? new Date(groupe.date_retour).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})
+              : "?"}
+            {groupe.date_depart && groupe.date_retour && (
+              <> · <strong>{Math.round((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)} nuits</strong></>
+            )}
+          </div>
+        )}
 
         <div style={s.infoBar}>
           <span>
@@ -171,15 +215,15 @@ export default function Activites() {
 
         {/* Barre de budget */}
         {(() => {
-          const valide       = itineraire?.cout_total || 0;
-          const monVoteExtra = activitesValidees.length > 0
-            ? 0
-            : totalActivitesPrix;
+          const valide     = itineraire?.cout_total || 0;
+          const myExtra    = activitesValidees.length > 0 ? 0 : totalActivitesPrix;
+          const votedTrans = parseFloat(sessionStorage.getItem(`vv_v_t_${id}`) || 0);
+          const votedHeb   = parseFloat(sessionStorage.getItem(`vv_v_h_${id}`) || 0);
           return (
             <BudgetBar
               budget={groupe?.budget_max}
               valide={valide}
-              monVoteExtra={monVoteExtra}
+              monVoteExtra={myExtra + votedTrans + votedHeb}
             />
           );
         })()}
@@ -263,5 +307,8 @@ const s = {
   cardInfo:   { fontSize:"12px", color:"#73726c" },
   prix:    { fontSize:"16px", fontWeight:"bold", color:"#0C447C" },
   perPers: { fontSize:"11px", fontWeight:"normal", color:"#73726c" },
-  infoBox: { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  infoBox:    { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  dateBanner: { background:"#FFF8E6", color:"#854F0B", padding:"10px 16px", borderRadius:"8px", fontSize:"13px", border:"1px solid #F5DFA0" },
+  blockCard:  { background:"white", borderRadius:"16px", padding:"48px 40px", maxWidth:"420px", margin:"0 auto", boxShadow:"0 4px 20px rgba(0,0,0,0.08)" },
+  btnGoTransport: { padding:"12px 28px", background:"linear-gradient(135deg,#0C447C,#185FA5)", color:"white", border:"none", borderRadius:"10px", fontSize:"14px", fontWeight:"700", cursor:"pointer" },
 };

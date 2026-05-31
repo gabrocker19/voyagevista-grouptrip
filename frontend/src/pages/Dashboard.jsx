@@ -10,9 +10,11 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const [editModal, setEditModal] = useState(null); // groupe en cours d'édition
-  const [editNom, setEditNom] = useState("");
-  const [editBudget, setEditBudget] = useState("");
+  const [editModal, setEditModal]             = useState(null);
+  const [editNom, setEditNom]                 = useState("");
+  const [editBudget, setEditBudget]           = useState("");
+  const [editDateDepart, setEditDateDepart]   = useState("");
+  const [editDateRetour, setEditDateRetour]   = useState("");
   const [deleteConfirm, setDeleteConfirm] = useState(null); // groupe à supprimer
   const [actionError, setActionError] = useState("");
 
@@ -29,14 +31,26 @@ export default function Dashboard() {
     setEditModal(g);
     setEditNom(g.nom);
     setEditBudget(g.budget_max || "");
+    setEditDateDepart(g.date_depart || "");
+    setEditDateRetour(g.date_retour || "");
     setActionError("");
   };
 
   const handleUpdate = async () => {
     if (!editNom.trim()) { setActionError("Le nom est requis."); return; }
+    if (editDateDepart && editDateRetour && editDateRetour <= editDateDepart) {
+      setActionError("La date de retour doit être après la date de départ.");
+      return;
+    }
     try {
-      await groupService.update(editModal.id, { nom: editNom.trim(), budget_max: editBudget || null });
-      setGroupes(groupes.map(g => g.id === editModal.id ? { ...g, nom: editNom.trim(), budget_max: editBudget || null } : g));
+      const payload = {
+        nom: editNom.trim(),
+        budget_max: editBudget || null,
+        date_depart: editDateDepart || null,
+        date_retour: editDateRetour || null,
+      };
+      await groupService.update(editModal.id, payload);
+      setGroupes(groupes.map(g => g.id === editModal.id ? { ...g, ...payload } : g));
       setEditModal(null);
     } catch (err) {
       setActionError(err.message);
@@ -87,6 +101,34 @@ export default function Dashboard() {
               onChange={e => setEditBudget(e.target.value)}
               placeholder="Ex : 1500"
             />
+            <div style={styles.datesRow}>
+              <div style={{ flex: 1 }}>
+                <label style={styles.modalLabel}>📅 Date de départ</label>
+                <input
+                  style={styles.modalInput}
+                  type="date"
+                  value={editDateDepart}
+                  onChange={e => { setEditDateDepart(e.target.value); setEditDateRetour(""); }}
+                />
+              </div>
+              <div style={styles.dateArrow}>→</div>
+              <div style={{ flex: 1 }}>
+                <label style={styles.modalLabel}>📅 Date de retour</label>
+                <input
+                  style={styles.modalInput}
+                  type="date"
+                  min={editDateDepart || undefined}
+                  value={editDateRetour}
+                  onChange={e => setEditDateRetour(e.target.value)}
+                  disabled={!editDateDepart}
+                />
+              </div>
+            </div>
+            {editDateDepart && editDateRetour && editDateRetour > editDateDepart && (
+              <div style={styles.nightsBadge}>
+                🌙 {Math.round((new Date(editDateRetour) - new Date(editDateDepart)) / 86400000)} nuit{Math.round((new Date(editDateRetour) - new Date(editDateDepart)) / 86400000) > 1 ? "s" : ""}
+              </div>
+            )}
             <div style={styles.modalActions}>
               <button style={styles.btnCancel} onClick={() => setEditModal(null)}>Annuler</button>
               <button style={styles.btnSave} onClick={handleUpdate}>Enregistrer</button>
@@ -170,8 +212,14 @@ export default function Dashboard() {
                       Organisé par {g.organisateur_nom}
                     </p>
                     {g.budget_max && (
-                      <p style={styles.groupBudget}>
-                        💶 Budget : {g.budget_max}€ / pers.
+                      <p style={styles.groupBudget}>💶 {g.budget_max}€ / pers.</p>
+                    )}
+                    {g.date_depart && (
+                      <p style={styles.groupDates}>
+                        📅 {new Date(g.date_depart).toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"})}
+                        {g.date_retour && (
+                          <> → {new Date(g.date_retour).toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"})}</>
+                        )}
                       </p>
                     )}
                     <div style={styles.groupRole}>
@@ -323,8 +371,9 @@ const styles = {
     color: "#0C447C",
     marginBottom: "4px",
   },
-  groupMeta: { fontSize: "12px", color: "#73726c", marginBottom: "4px" },
-  groupBudget: { fontSize: "12px", color: "#444", marginBottom: "8px" },
+  groupMeta:  { fontSize: "12px", color: "#73726c", marginBottom: "4px" },
+  groupBudget:{ fontSize: "12px", color: "#444", marginBottom: "2px" },
+  groupDates: { fontSize: "12px", color: "#444", marginBottom: "8px" },
   groupRole: { marginTop: "8px" },
   roleBadge: { fontSize: "11px", padding: "3px 8px", borderRadius: "12px" },
   cardActions: { display: "flex", gap: "6px", marginTop: "10px" },
@@ -354,7 +403,10 @@ const styles = {
     border: "1.5px solid #D1CFC5", fontSize: "14px",
     boxSizing: "border-box", outline: "none",
   },
-  modalError: { color: "#A32D2D", fontSize: "13px", marginBottom: "8px" },
+  modalError:  { color: "#A32D2D", fontSize: "13px", marginBottom: "8px" },
+  datesRow:    { display: "flex", gap: "10px", alignItems: "flex-end", marginTop: "4px" },
+  dateArrow:   { fontSize: "18px", color: "#C0BEB5", paddingBottom: "11px", flexShrink: 0 },
+  nightsBadge: { background: "linear-gradient(135deg,#E6F1FB,#D0E8F8)", color: "#0C447C", padding: "7px 14px", borderRadius: "8px", fontSize: "12px", fontWeight: "600", textAlign: "center", marginTop: "8px" },
   modalActions: { display: "flex", gap: "10px", marginTop: "22px", justifyContent: "flex-end" },
   btnCancel: {
     padding: "9px 20px", borderRadius: "8px", border: "1px solid #D1CFC5",

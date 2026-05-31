@@ -113,13 +113,15 @@ export default function GroupDetail() {
       emoji: "🏨",
       label: "Choisir l'hébergement",
       done: hebergementChoisi,
-      action: destinationValidee ? () => navigate(`/groupes/${id}/hebergement`) : null,
+      action: transportChoisi ? () => navigate(`/groupes/${id}/hebergement`) : null,
+      locked_reason: !transportChoisi ? "Transport requis" : null,
     },
     {
       emoji: "🎯",
       label: "Choisir les activités",
       done: activitesChoisies,
-      action: destinationValidee ? () => navigate(`/groupes/${id}/activites`) : null,
+      action: transportChoisi ? () => navigate(`/groupes/${id}/activites`) : null,
+      locked_reason: !transportChoisi ? "Transport requis" : null,
     },
     {
       emoji: "🗺️",
@@ -183,8 +185,30 @@ export default function GroupDetail() {
           </div>
           <div style={styles.headerStatDivider} />
           <div style={styles.headerStat}>
-            <span style={styles.headerStatVal}>{groupe.date_depart || "—"}</span>
-            <span style={styles.headerStatLabel}>📅 Départ</span>
+            {groupe.date_depart && groupe.date_retour ? (
+              <>
+                <span style={{ ...styles.headerStatVal, fontSize: "13px" }}>
+                  {new Date(groupe.date_depart).toLocaleDateString("fr-FR", { day:"numeric", month:"short" })}
+                  {" → "}
+                  {new Date(groupe.date_retour).toLocaleDateString("fr-FR", { day:"numeric", month:"short" })}
+                </span>
+                <span style={styles.headerStatLabel}>
+                  📅 {Math.round((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)} nuits
+                </span>
+              </>
+            ) : groupe.date_depart ? (
+              <>
+                <span style={{ ...styles.headerStatVal, fontSize: "13px" }}>
+                  {new Date(groupe.date_depart).toLocaleDateString("fr-FR", { day:"numeric", month:"short", year:"numeric" })}
+                </span>
+                <span style={styles.headerStatLabel}>📅 Départ</span>
+              </>
+            ) : (
+              <>
+                <span style={styles.headerStatVal}>—</span>
+                <span style={styles.headerStatLabel}>📅 Dates</span>
+              </>
+            )}
           </div>
           <div style={styles.headerStatDivider} />
           <div style={styles.headerStat}>
@@ -267,7 +291,9 @@ export default function GroupDetail() {
                     <div style={styles.stepCardEdit}>Modifier</div>
                   )}
                   {isLocked && (
-                    <div style={styles.stepCardLock}>🔒 En attente</div>
+                    <div style={styles.stepCardLock}>
+                      🔒 {step.locked_reason || "En attente"}
+                    </div>
                   )}
                 </div>
               );
