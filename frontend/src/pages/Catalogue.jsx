@@ -142,7 +142,11 @@ export default function Catalogue() {
             {destsFiltrees.length === 0
               ? <p style={s.empty}>Aucune destination trouvée.</p>
               : destsFiltrees.map(d => (
-                <div key={d.id} style={s.destCard}>
+                <div
+                  key={d.id}
+                  style={{ ...s.destCard, cursor:"pointer" }}
+                  onClick={() => navigate(`/catalogue/destinations/${d.id}`)}
+                >
                   <div
                     style={{
                       ...s.destImg,
@@ -160,7 +164,10 @@ export default function Catalogue() {
                     <div style={s.destTitle}>{d.nom}</div>
                     <div style={s.destPays}>📍 {d.pays}</div>
                     <div style={s.destDesc}>{d.description}</div>
-                    <div style={s.destPrice}>À partir de {d.prix_min}€</div>
+                    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                      <div style={s.destPrice}>À partir de {d.prix_min}€</div>
+                      <span style={s.destCta}>Voir →</span>
+                    </div>
                   </div>
                 </div>
               ))
@@ -360,6 +367,7 @@ const s = {
   destPays: { fontSize:"12px", color:"#73726c", marginBottom:"4px" },
   destDesc: { fontSize:"12px", color:"#555", lineHeight:"1.4", marginBottom:"8px", display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" },
   destPrice:{ fontSize:"14px", fontWeight:"bold", color:"#185FA5" },
+  destCta:  { fontSize:"12px", color:"#185FA5", fontWeight:"600", background:"#E6F1FB", padding:"3px 10px", borderRadius:"12px" },
 
   // List items (hébergements / transports / activités)
   listWrap: { padding:"16px 24px", display:"flex", flexDirection:"column", gap:"10px" },

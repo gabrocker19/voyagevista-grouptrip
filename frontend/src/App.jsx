@@ -18,6 +18,7 @@ import Paiement from "./pages/Paiement";
 import Profil from "./pages/Profil";
 import Notifications from "./pages/Notifications";
 import Admin from "./pages/Admin";
+import DestinationDetail from "./pages/DestinationDetail";
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
@@ -143,6 +144,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Admin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/catalogue/destinations/:id"
+            element={
+              <PrivateRoute>
+                <DestinationDetail />
               </PrivateRoute>
             }
           />

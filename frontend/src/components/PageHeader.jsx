@@ -23,7 +23,8 @@ export default function PageHeader({
     <div style={{ ...s.header, paddingBottom: hasBottom ? 0 : "28px" }}>
       {backLabel && (
         <button onClick={handleBack} style={s.btnBack}>
-          ← {backLabel}
+          <span style={s.btnBackArrow}>←</span>
+          {backLabel}
         </button>
       )}
       <div style={s.main}>
@@ -45,15 +46,32 @@ const s = {
     padding: "28px 32px 0",
   },
   btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.7)",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    marginBottom: "16px",
+    padding: "6px 14px 6px 10px",
+    borderRadius: "20px",
+    border: "1px solid rgba(255,255,255,0.25)",
+    background: "rgba(255,255,255,0.12)",
+    backdropFilter: "blur(6px)",
+    color: "rgba(255,255,255,0.9)",
     cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "14px",
-    display: "block",
+    fontSize: "12px",
+    fontWeight: "600",
     letterSpacing: "0.2px",
+    transition: "background 0.15s, border-color 0.15s",
+  },
+  btnBackArrow: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "18px",
+    height: "18px",
+    borderRadius: "50%",
+    background: "rgba(255,255,255,0.2)",
+    fontSize: "11px",
+    lineHeight: 1,
   },
   main: {
     display: "flex",
