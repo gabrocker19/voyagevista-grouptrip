@@ -192,11 +192,11 @@ class GroupController {
 
         // Notification
         $stmt = $this->db->prepare("
-            INSERT INTO notifications (utilisateur_id, type, message)
-            VALUES (?, 'invitation', ?)
+            INSERT INTO notifications (utilisateur_id, type, message, lien)
+            VALUES (?, 'invitation', ?, ?)
         ");
-        $msg = "Vous avez été invité à rejoindre le groupe : " . $data['groupe_nom'] ?? '';
-        $stmt->execute([$user['id'], $msg]);
+        $msg = "Vous avez été invité à rejoindre le groupe : " . ($data['groupe_nom'] ?? '');
+        $stmt->execute([$user['id'], $msg, "/groupes/{$id}"]);
 
         echo json_encode(["message" => "Invitation envoyée à " . $user['nom']]);
     }

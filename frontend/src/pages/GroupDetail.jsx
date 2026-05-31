@@ -60,7 +60,8 @@ export default function GroupDetail() {
   const monStatut = groupe.membres?.find((m) => m.id === user?.id)?.statut;
   const enAttente = monStatut === "en_attente";
   const destinationValidee = !!groupe.destination_id;
-  const itineraireValide = !!itineraire;
+  // itineraireValide = le groupe a été passé en plan_valide (bouton "Valider → Panier" cliqué)
+  const itineraireValide = groupe.statut === "plan_valide" || groupe.statut === "reservation_confirmee";
 
   const handleRepondreInvitation = async (statut) => {
     try {
@@ -84,35 +85,52 @@ export default function GroupDetail() {
   };
   const sc = statutColors[groupe.statut] || statutColors.en_formation;
 
+  const transportChoisi   = !!itineraire?.transport_id;
+  const hebergementChoisi = !!itineraire?.hebergement_id;
+  const activitesChoisies = (itineraire?.activites?.length ?? 0) > 0;
+
   // Étapes dynamiques
   const etapes = [
     {
+      emoji: "👥",
       label: "Former le groupe",
       done: true,
       action: null,
     },
     {
+      emoji: "🗳️",
       label: "Voter pour la destination",
       done: destinationValidee,
       action: () => navigate(`/groupes/${id}/vote`),
     },
     {
-      label: destinationValidee
-        ? `Planifier le voyage — ${destinationNom || "destination validée ✓"}`
-        : "Planifier le voyage (disponible après vote)",
-      done: itineraireValide,
-      action: destinationValidee
-        ? () => navigate(`/groupes/${id}/transport`)
-        : null,
+      emoji: "✈️",
+      label: "Choisir le transport",
+      done: transportChoisi,
+      action: destinationValidee ? () => navigate(`/groupes/${id}/transport`) : null,
     },
     {
+      emoji: "🏨",
+      label: "Choisir l'hébergement",
+      done: hebergementChoisi,
+      action: destinationValidee ? () => navigate(`/groupes/${id}/hebergement`) : null,
+    },
+    {
+      emoji: "🎯",
+      label: "Choisir les activités",
+      done: activitesChoisies,
+      action: destinationValidee ? () => navigate(`/groupes/${id}/activites`) : null,
+    },
+    {
+      emoji: "🗺️",
       label: "Valider l'itinéraire",
       done: itineraireValide,
-      action: itineraireValide
+      action: (transportChoisi && hebergementChoisi)
         ? () => navigate(`/groupes/${id}/itineraire`)
         : null,
     },
     {
+      emoji: "💳",
       label: "Valider et payer",
       done: groupe.statut === "reservation_confirmee",
       action: itineraireValide ? () => navigate(`/groupes/${id}/panier`) : null,
@@ -212,12 +230,13 @@ export default function GroupDetail() {
                   onClick={step.action || undefined}
                   style={{
                     ...styles.stepCard,
-                    ...(step.done   ? styles.stepCardDone   : {}),
-                    ...(isActive    ? styles.stepCardActive  : {}),
-                    ...(isLocked    ? styles.stepCardLocked  : {}),
+                    ...(step.done  ? styles.stepCardDone   : {}),
+                    ...(isActive   ? styles.stepCardActive  : {}),
+                    ...(isLocked   ? styles.stepCardLocked  : {}),
                     cursor: step.action ? "pointer" : "default",
                   }}
                 >
+                  <div style={{ fontSize: "26px", marginBottom: "2px" }}>{step.emoji}</div>
                   <div style={{
                     ...styles.stepNum,
                     background: step.done ? "#3B6D11" : isActive ? "#185FA5" : "#C8C6BC",
@@ -226,7 +245,9 @@ export default function GroupDetail() {
                   </div>
                   <div style={styles.stepCardLabel}>{step.label}</div>
                   {isActive && (
-                    <div style={styles.stepCardCta}>Commencer →</div>
+                    <div style={styles.stepCardCta}>
+                      {i === 0 ? "Voir" : "Commencer →"}
+                    </div>
                   )}
                   {step.done && step.action && (
                     <div style={styles.stepCardEdit}>Modifier</div>
@@ -482,7 +503,7 @@ const styles = {
   // Grille étapes
   stepsGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))",
     gap: "12px",
   },
   stepCard: {

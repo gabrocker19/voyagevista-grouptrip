@@ -216,6 +216,7 @@ CREATE TABLE notifications (
     type             VARCHAR(50)  NOT NULL,
     message          TEXT         NOT NULL,
     lu               BOOLEAN DEFAULT FALSE,
+    lien             VARCHAR(255) DEFAULT NULL,
     created_at       DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
 );

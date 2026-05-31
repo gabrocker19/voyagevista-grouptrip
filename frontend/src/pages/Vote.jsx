@@ -104,9 +104,21 @@ export default function Vote() {
         backLabel="Retour au groupe"
         backTo={`/groupes/${id}`}
         right={
-          <span style={s.voteCount}>
-            {totalVotes} / {totalMembres} vote{totalMembres > 1 ? "s" : ""}
-          </span>
+          <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+            <span style={s.voteCount}>
+              {totalVotes} / {totalMembres} vote{totalMembres > 1 ? "s" : ""}
+            </span>
+            <button
+              onClick={() => groupe?.destination_id
+                ? navigate(`/groupes/${id}/transport`)
+                : setMessage("Validez d'abord une destination avant de passer au transport.")
+              }
+              style={{ ...s.btnNext, opacity: groupe?.destination_id ? 1 : 0.45, cursor: groupe?.destination_id ? "pointer" : "not-allowed" }}
+              title={groupe?.destination_id ? "" : "Destination non validée"}
+            >
+              {groupe?.destination_id ? "Transport →" : "🔒 Transport"}
+            </button>
+          </div>
         }
       />
 
@@ -353,6 +365,11 @@ const s = {
     padding: "8px 12px", borderRadius: "6px", border: "none",
     background: "#EAF3DE", color: "#3B6D11", cursor: "pointer",
     fontSize: "13px", fontWeight: "500",
+  },
+  btnNext: {
+    background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.45)",
+    color: "white", padding: "6px 14px", borderRadius: "20px",
+    cursor: "pointer", fontSize: "13px", fontWeight: "600", whiteSpace: "nowrap",
   },
   infoBox: {
     margin: "0 24px 24px", background: "#E6F1FB", color: "#0C447C",

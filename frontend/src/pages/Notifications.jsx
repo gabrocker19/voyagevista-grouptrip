@@ -26,6 +26,11 @@ export default function Notifications() {
     }
   };
 
+  const handleClick = async (n) => {
+    if (n.lu !== "1" && n.lu !== 1) await marquerLue(n.id);
+    if (n.lien) navigate(n.lien);
+  };
+
   const marquerToutesLues = async () => {
     try {
       await api.put("/api/notifications/lire-tout", {});
@@ -89,8 +94,9 @@ export default function Notifications() {
                     ...styles.notif,
                     background: estLue ? "white" : "#EEF5FF",
                     borderLeft: estLue ? "3px solid transparent" : "3px solid #185FA5",
+                    cursor: n.lien ? "pointer" : (estLue ? "default" : "pointer"),
                   }}
-                  onClick={() => !estLue && marquerLue(n.id)}
+                  onClick={() => handleClick(n)}
                 >
                   <div style={styles.notifIcon}>
                     {typeIcon[n.type] || "📌"}
@@ -99,9 +105,8 @@ export default function Notifications() {
                     <p style={styles.notifMsg}>{n.message}</p>
                     <span style={styles.notifDate}>{formatDate(n.created_at)}</span>
                   </div>
-                  {!estLue && (
-                    <div style={styles.dot} title="Non lue" />
-                  )}
+                  {!estLue && <div style={styles.dot} title="Non lue" />}
+                  {n.lien && <span style={styles.arrow}>›</span>}
                 </div>
               );
             })}
@@ -143,5 +148,9 @@ const styles = {
   dot: {
     width: "10px", height: "10px", borderRadius: "50%",
     background: "#185FA5", flexShrink: 0, marginTop: "6px",
+  },
+  arrow: {
+    fontSize: "20px", color: "#B0AFA8", flexShrink: 0,
+    marginLeft: "4px", lineHeight: 1,
   },
 };

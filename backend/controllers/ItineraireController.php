@@ -99,10 +99,10 @@ class ItineraireController {
 
         foreach ($membres as $uid) {
             $stmt = $this->db->prepare("
-                INSERT INTO notifications (utilisateur_id, type, message)
-                VALUES (?, 'itineraire', ?)
+                INSERT INTO notifications (utilisateur_id, type, message, lien)
+                VALUES (?, 'itineraire', ?, ?)
             ");
-            $stmt->execute([$uid, "L'itinéraire du groupe a été mis à jour. Total : {$data['cout_total']}€/pers."]);
+            $stmt->execute([$uid, "L'itinéraire du groupe a été mis à jour. Total : {$data['cout_total']}€/pers.", "/groupes/{$data['groupe_id']}/itineraire"]);
         }
 
         http_response_code(201);
