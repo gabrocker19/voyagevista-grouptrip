@@ -304,7 +304,24 @@ export default function GroupDetail() {
         {/* Itinéraire résumé si existe */}
         {itineraire && (
           <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>🗺️ Itinéraire actuel</h2>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"16px" }}>
+              <h2 style={{ ...styles.sectionTitle, marginBottom:0 }}>🗺️ Itinéraire actuel</h2>
+              {isOrganisateur && groupe.statut !== "reservation_confirmee" && (
+                <button
+                  onClick={async () => {
+                    if (!confirm("Supprimer l'itinéraire complet ? Transport, hébergement et activités seront retirés.")) return;
+                    try {
+                      await api.delete(`/api/itineraires/groupe/${id}`);
+                      setItineraire(null);
+                      groupService.getOne(id).then(setGroupe);
+                    } catch (e) { setError(e.message); }
+                  }}
+                  style={styles.btnSupprimerItin}
+                >
+                  🗑️ Supprimer l'itinéraire
+                </button>
+              )}
+            </div>
             <div style={styles.itinRow}>
               <span>✈️ Transport</span>
               <span style={styles.itinVal}>
@@ -357,6 +374,20 @@ export default function GroupDetail() {
                 }}>
                   {m.statut}
                 </span>
+                {isOrganisateur && m.role !== "organisateur" && groupe.statut !== "reservation_confirmee" && (
+                  <button
+                    onClick={async () => {
+                      if (!confirm(`Retirer "${m.nom}" du groupe ?`)) return;
+                      try {
+                        await api.delete(`/api/groupes/${id}/membres/${m.id}`);
+                        groupService.getOne(id).then(setGroupe);
+                      } catch (e) { setError(e.message); }
+                    }}
+                    style={styles.btnRetirerMembre}
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -625,5 +656,15 @@ const styles = {
   btnConfirmRefus: {
     padding: "9px 20px", borderRadius: "8px", border: "none",
     background: "#C0392B", color: "white", cursor: "pointer", fontSize: "14px", fontWeight: "bold",
+  },
+  btnRetirerMembre: {
+    width:"26px", height:"26px", borderRadius:"50%", border:"1px solid #F09595",
+    background:"#FCEBEB", color:"#A32D2D", cursor:"pointer",
+    fontSize:"12px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0,
+  },
+  btnSupprimerItin: {
+    background: "#FCEBEB", color: "#A32D2D", border: "1px solid #F09595",
+    padding: "7px 14px", borderRadius: "8px", cursor: "pointer",
+    fontSize: "12px", fontWeight: "600", whiteSpace: "nowrap",
   },
 };

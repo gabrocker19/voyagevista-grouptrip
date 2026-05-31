@@ -218,7 +218,13 @@ export default function Transport() {
                         🛬 Retour : <strong>{new Date(t.date_arrivee).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</strong>
                       </div>
                     )}
-                    <div style={s.places}>💺 {t.places_dispo} places</div>
+                    <div style={{
+                      ...s.places,
+                      color: t.places_dispo <= 5 ? "#A32D2D" : t.places_dispo <= 20 ? "#854F0B" : "#73726c",
+                      fontWeight: t.places_dispo <= 5 ? "700" : "normal",
+                    }}>
+                      {t.places_dispo <= 5 ? "🔴" : t.places_dispo <= 20 ? "🟡" : "💺"} {t.places_dispo} place{t.places_dispo > 1 ? "s" : ""} restante{t.places_dispo > 1 ? "s" : ""}
+                    </div>
                     {/* Barre de vote */}
                     <div style={s.voteBarBg}><div style={{...s.voteBarFill, width:`${pct}%`}}/></div>
                     <div style={s.voteStats}>{nbVotes} vote{nbVotes!==1?"s":""} ({pct}%) {res?.votants && <span style={s.votants}>— {res.votants}</span>}</div>

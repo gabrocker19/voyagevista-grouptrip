@@ -215,6 +215,27 @@ class GroupController {
         echo json_encode(["message" => "Invitation envoyée à " . $user['nom']]);
     }
 
+    // DELETE /api/groupes/:id/membres/:userId — retirer un membre
+    public function retirerMembre($id, $userId) {
+        requireAuth();
+
+        $stmt = $this->db->prepare("SELECT id FROM groupes WHERE id = ? AND organisateur_id = ?");
+        $stmt->execute([$id, $_SESSION['user_id']]);
+        if (!$stmt->fetch()) {
+            http_response_code(403);
+            echo json_encode(["error" => "Seul l'organisateur peut retirer un membre."]);
+            return;
+        }
+        if ((int)$userId === (int)$_SESSION['user_id']) {
+            http_response_code(400);
+            echo json_encode(["error" => "Vous ne pouvez pas vous retirer vous-même."]);
+            return;
+        }
+        $this->db->prepare("DELETE FROM membres_groupe WHERE groupe_id = ? AND utilisateur_id = ?")->execute([$id, $userId]);
+        $this->db->prepare("DELETE FROM votes WHERE groupe_id = ? AND utilisateur_id = ?")->execute([$id, $userId]);
+        echo json_encode(["message" => "Membre retiré."]);
+    }
+
     // POST /api/groupes/:id/rejoindre
     public function rejoindre($id) {
         requireAuth();

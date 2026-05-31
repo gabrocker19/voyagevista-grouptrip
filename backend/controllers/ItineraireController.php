@@ -120,7 +120,13 @@ class ItineraireController {
         $itin = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$itin) { http_response_code(404); echo json_encode(["error" => "Itinéraire non trouvé."]); return; }
 
-        // Remettre les places du transport si besoin (facultatif car pas décrémenté à la sélection)
+        // Remettre les places du transport
+        $stmtMb = $this->db->prepare("SELECT COUNT(*) FROM membres_groupe WHERE groupe_id = ? AND statut = 'accepte'");
+        $stmtMb->execute([$groupe_id]);
+        $nb_membres = (int)$stmtMb->fetchColumn();
+        if ($itin['transport_id']) {
+            $this->db->prepare("UPDATE transports SET places_dispo = places_dispo + ? WHERE id = ?")->execute([$nb_membres, $itin['transport_id']]);
+        }
         $stmt = $this->db->prepare("
             UPDATE itineraires SET transport_id = NULL, cout_total = GREATEST(0, cout_total - COALESCE(
                 (SELECT prix FROM transports WHERE id = ?), 0
@@ -168,6 +174,57 @@ class ItineraireController {
         $stmt->execute([$row['total'], $itin['id']]);
 
         echo json_encode(["message" => "Activité retirée de l'itinéraire."]);
+    }
+
+    public function supprimer($groupe_id) {
+        requireAuth();
+
+        // Vérifier que l'utilisateur est organisateur
+        $stmt = $this->db->prepare("SELECT organisateur_id FROM groupes WHERE id = ?");
+        $stmt->execute([$groupe_id]);
+        $groupe = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$groupe || (int)$groupe['organisateur_id'] !== (int)$_SESSION['user_id']) {
+            http_response_code(403);
+            echo json_encode(["error" => "Seul l'organisateur peut supprimer l'itinéraire."]);
+            return;
+        }
+
+        $stmt = $this->db->prepare("SELECT id FROM itineraires WHERE groupe_id = ?");
+        $stmt->execute([$groupe_id]);
+        $itin = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$itin) { http_response_code(404); echo json_encode(["error" => "Itinéraire non trouvé."]); return; }
+
+        // Remettre les places des activités
+        $stmt = $this->db->prepare("SELECT activite_id FROM itineraire_activites WHERE itineraire_id = ?");
+        $stmt->execute([$itin['id']]);
+        foreach ($stmt->fetchAll(PDO::FETCH_COLUMN) as $aid) {
+            $this->db->prepare("UPDATE activites SET places_restantes = places_restantes + 1 WHERE id = ?")->execute([$aid]);
+        }
+
+        $this->db->prepare("DELETE FROM itineraire_activites WHERE itineraire_id = ?")->execute([$itin['id']]);
+        $this->db->prepare("DELETE FROM itineraires WHERE id = ?")->execute([$itin['id']]);
+        $this->db->prepare("UPDATE groupes SET statut = 'vote_en_cours' WHERE id = ?")->execute([$groupe_id]);
+
+        echo json_encode(["message" => "Itinéraire supprimé."]);
+    }
+
+    public function annulerHebergement($groupe_id) {
+        requireAuth();
+
+        $stmt = $this->db->prepare("SELECT id, hebergement_id FROM itineraires WHERE groupe_id = ?");
+        $stmt->execute([$groupe_id]);
+        $itin = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$itin) { http_response_code(404); echo json_encode(["error" => "Itinéraire non trouvé."]); return; }
+
+        $stmt = $this->db->prepare("
+            UPDATE itineraires SET hebergement_id = NULL,
+            cout_total = GREATEST(0, cout_total - COALESCE(
+                (SELECT prix_nuit FROM hebergements WHERE id = ?), 0
+            )) WHERE groupe_id = ?
+        ");
+        $stmt->execute([$itin['hebergement_id'], $groupe_id]);
+
+        echo json_encode(["message" => "Hébergement annulé."]);
     }
 
     public function getByGroupe($groupe_id) {

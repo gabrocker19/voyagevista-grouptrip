@@ -49,6 +49,10 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/GroupController.php';
     (new GroupController())->delete($m[1]);
 
+} elseif (preg_match('/^\/api\/groupes\/(\d+)\/membres\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/GroupController.php';
+    (new GroupController())->retirerMembre($m[1], $m[2]);
+
 } elseif (preg_match('/^\/api\/groupes\/(\d+)\/inviter$/', $uri, $m) && $method === 'POST') {
     require_once 'controllers/GroupController.php';
     (new GroupController())->invite($m[1]);
@@ -101,9 +105,17 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/ItineraireController.php';
     (new ItineraireController())->getByGroupe($m[1]);
 
+} elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/ItineraireController.php';
+    (new ItineraireController())->supprimer($m[1]);
+
 } elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)\/transport$/', $uri, $m) && $method === 'DELETE') {
     require_once 'controllers/ItineraireController.php';
     (new ItineraireController())->annulerTransport($m[1]);
+
+} elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)\/hebergement$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/ItineraireController.php';
+    (new ItineraireController())->annulerHebergement($m[1]);
 
 } elseif (preg_match('/^\/api\/itineraires\/groupe\/(\d+)\/activites\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
     require_once 'controllers/ItineraireController.php';

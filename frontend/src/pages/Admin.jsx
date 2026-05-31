@@ -126,6 +126,9 @@ export default function Admin() {
   // ── Transports ───────────────────────────────────────────────────────────────
   const handleCreateTrans = async (e) => {
     e.preventDefault();
+    if (formTrans.date_depart && formTrans.date_arrivee && formTrans.date_depart >= formTrans.date_arrivee) {
+      flash(false, "La date de départ doit être antérieure à la date d'arrivée."); return;
+    }
     try {
       await api.post("/api/admin/transports", formTrans);
       flash(true, "Transport créé !");

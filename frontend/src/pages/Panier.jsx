@@ -40,6 +40,15 @@ export default function Panier() {
     } catch (e) { setError(e.message); }
   };
 
+  const annulerHebergement = async () => {
+    if (!confirm("Annuler l'hébergement sélectionné ?")) return;
+    try {
+      await api.delete(`/api/itineraires/groupe/${id}/hebergement`);
+      showToast("Hébergement annulé.");
+      recharger();
+    } catch (e) { setError(e.message); }
+  };
+
   const retirerActivite = async (activiteId, nom) => {
     if (!confirm(`Retirer "${nom}" ?`)) return;
     try {
@@ -109,7 +118,8 @@ export default function Panier() {
       ok: !!itineraire.heb_nom,
       actions: [
         { label: "Modifier", onClick: () => navigate(`/groupes/${id}/hebergement`), variant: "edit" },
-      ],
+        itineraire.heb_nom && { label: "Annuler", onClick: annulerHebergement, variant: "cancel" },
+      ].filter(Boolean),
     },
   ];
 

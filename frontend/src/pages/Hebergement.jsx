@@ -28,6 +28,8 @@ export default function Hebergement() {
   const [message,      setMessage]      = useState("");
   const [error,        setError]        = useState("");
   const [modalHeb,     setModalHeb]     = useState(null);
+  const [filtreType,   setFiltreType]   = useState("");
+  const [filtrePrix,   setFiltrePrix]   = useState("");
 
   const chargerVotes = async () => {
     try {
@@ -179,8 +181,36 @@ export default function Hebergement() {
           );
         })()}
 
+        {/* Filtres */}
+        <div style={s.filterBar}>
+          <select value={filtreType} onChange={e => setFiltreType(e.target.value)} style={s.filterSelect}>
+            <option value="">Tous les types</option>
+            {[...new Set(hebergements.map(h => h.type))].map(t => (
+              <option key={t} value={t}>{t.charAt(0).toUpperCase()+t.slice(1)}</option>
+            ))}
+          </select>
+          <select value={filtrePrix} onChange={e => setFiltrePrix(e.target.value)} style={s.filterSelect}>
+            <option value="">Tous les prix</option>
+            <option value="0-100">Moins de 100€/nuit</option>
+            <option value="100-300">100€ – 300€/nuit</option>
+            <option value="300-999999">Plus de 300€/nuit</option>
+          </select>
+          {(filtreType || filtrePrix) && (
+            <button onClick={() => { setFiltreType(""); setFiltrePrix(""); }} style={s.filterReset}>
+              ✕ Réinitialiser
+            </button>
+          )}
+        </div>
+
         <div style={s.grid}>
-          {hebergements.map(h => {
+          {hebergements.filter(h => {
+            if (filtreType && h.type !== filtreType) return false;
+            if (filtrePrix) {
+              const [min, max] = filtrePrix.split("-").map(Number);
+              if (h.prix_nuit < min || h.prix_nuit > max) return false;
+            }
+            return true;
+          }).map(h => {
             const res = resultats.find(r => r.valeur === String(h.id));
             const nbVotes = res ? parseInt(res.nb_votes) : 0;
             const pct = totalMembres > 0 ? Math.round((nbVotes/totalMembres)*100) : 0;
@@ -315,4 +345,7 @@ const s = {
   animaux:    { fontSize:"11px", color:"#73726c", marginTop:"4px" },
   blockCard:  { background:"white", borderRadius:"16px", padding:"48px 40px", maxWidth:"420px", margin:"0 auto", boxShadow:"0 4px 20px rgba(0,0,0,0.08)" },
   btnGoTransport: { padding:"12px 28px", background:"linear-gradient(135deg,#0C447C,#185FA5)", color:"white", border:"none", borderRadius:"10px", fontSize:"14px", fontWeight:"700", cursor:"pointer" },
+  filterBar:    { display:"flex", gap:"10px", flexWrap:"wrap", alignItems:"center", background:"white", padding:"12px 16px", borderRadius:"10px", boxShadow:"0 1px 4px rgba(0,0,0,0.05)" },
+  filterSelect: { padding:"7px 10px", borderRadius:"8px", border:"1px solid #D1CFC5", fontSize:"13px", background:"white", cursor:"pointer" },
+  filterReset:  { padding:"6px 12px", borderRadius:"8px", border:"1px solid #F09595", background:"#FCEBEB", color:"#A32D2D", cursor:"pointer", fontSize:"12px", fontWeight:"600" },
 };

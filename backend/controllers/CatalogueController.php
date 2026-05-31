@@ -239,6 +239,17 @@ public function createTransport() {
     if (empty($data['compagnie']) || empty($data['type']) || empty($data['origine']) || empty($data['destination']) || empty($data['date_depart']) || empty($data['date_arrivee']) || !isset($data['prix'])) {
         http_response_code(400); echo json_encode(["error" => "Champs requis manquants."]); return;
     }
+    // Validation des dates : le départ doit être avant l'arrivée
+    if (strtotime($data['date_depart']) >= strtotime($data['date_arrivee'])) {
+        http_response_code(400);
+        echo json_encode(["error" => "La date de départ doit être antérieure à la date d'arrivée."]);
+        return;
+    }
+    if ((int)($data['places_dispo'] ?? 100) < 1) {
+        http_response_code(400);
+        echo json_encode(["error" => "Le nombre de places doit être supérieur à 0."]);
+        return;
+    }
     $stmt = $this->db->prepare("INSERT INTO transports (compagnie, type, origine, destination, date_depart, date_arrivee, prix, places_dispo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$data['compagnie'], $data['type'], $data['origine'], $data['destination'], $data['date_depart'], $data['date_arrivee'], $data['prix'], $data['places_dispo'] ?? 100]);
     http_response_code(201);

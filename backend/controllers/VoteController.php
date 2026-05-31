@@ -133,8 +133,17 @@ class VoteController {
                 echo json_encode(["error" => "Ce transport n'a pas assez de places ({$t['places_dispo']} disponibles, {$nb_membres} membres dans le groupe)."]);
                 return;
             }
+            // Remettre les places de l'ancien transport si existant
+            $stmt2 = $this->db->prepare("SELECT transport_id FROM itineraires WHERE groupe_id = ?");
+            $stmt2->execute([$data['groupe_id']]);
+            $ancien = $stmt2->fetchColumn();
+            if ($ancien && $ancien != $data['valeur']) {
+                $this->db->prepare("UPDATE transports SET places_dispo = places_dispo + ? WHERE id = ?")->execute([$nb_membres, $ancien]);
+            }
             $itin_id = $this->getOrCreateItineraire($data['groupe_id']);
             $this->db->prepare("UPDATE itineraires SET transport_id = ? WHERE id = ?")->execute([$data['valeur'], $itin_id]);
+            // Décrémenter les places disponibles
+            $this->db->prepare("UPDATE transports SET places_dispo = GREATEST(0, places_dispo - ?) WHERE id = ?")->execute([$nb_membres, $data['valeur']]);
             $this->recalculerCout($itin_id);
 
         } elseif ($data['type'] === 'hebergement') {
