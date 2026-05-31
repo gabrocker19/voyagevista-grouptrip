@@ -31,6 +31,7 @@ export default function Catalogue() {
 
   // Filtres transports
   const [typeTransport, setTypeTransport] = useState("");
+  const [destIdTrans,   setDestIdTrans]   = useState("");
 
   // Filtres activités
   const [destIdAct, setDestIdAct] = useState("");
@@ -55,8 +56,12 @@ export default function Catalogue() {
     setLoading(true);
     const params = {};
     if (typeTransport) params.type = typeTransport;
+    if (destIdTrans) {
+      const nomD = destinations.find(d => String(d.id) === String(destIdTrans))?.nom;
+      if (nomD) params.destination = nomD;
+    }
     catalogueService.transports(params).then(setTransports).catch(console.error).finally(() => setLoading(false));
-  }, [tab, typeTransport]);
+  }, [tab, typeTransport, destIdTrans, destinations]);
 
   // Charger activités quand l'onglet est actif ou que le filtre change
   useEffect(() => {
@@ -219,15 +224,23 @@ export default function Catalogue() {
       {tab === "transports" && (
         <>
           <div style={s.filtersBar}>
-            <div style={s.chips}>
-              <button style={typeTransport==="" ? s.chipOn : s.chip} onClick={() => setTypeTransport("")}>
-                Tous les moyens
-              </button>
-              {TYPES_TRANS.map(t => (
-                <button key={t} style={typeTransport===t ? s.chipOn : s.chip} onClick={() => setTypeTransport(t)}>
-                  {TRANSP_ICO[t]} {t.charAt(0).toUpperCase()+t.slice(1)}
+            <div style={s.filterRow}>
+              <select style={s.select} value={destIdTrans} onChange={e => setDestIdTrans(e.target.value)}>
+                <option value="">🌍 Toutes les destinations</option>
+                {destinations.map(d => (
+                  <option key={d.id} value={d.id}>{d.nom} — {d.pays}</option>
+                ))}
+              </select>
+              <div style={s.chips}>
+                <button style={typeTransport==="" ? s.chipOn : s.chip} onClick={() => setTypeTransport("")}>
+                  Tous les moyens
                 </button>
-              ))}
+                {TYPES_TRANS.map(t => (
+                  <button key={t} style={typeTransport===t ? s.chipOn : s.chip} onClick={() => setTypeTransport(t)}>
+                    {TRANSP_ICO[t]} {t.charAt(0).toUpperCase()+t.slice(1)}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

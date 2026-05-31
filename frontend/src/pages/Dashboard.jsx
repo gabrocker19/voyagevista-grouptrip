@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
 import PageHeader from "../components/PageHeader";
 
@@ -228,12 +228,6 @@ export default function Dashboard() {
           )}
         </div>
 
-        {/* Liens rapides */}
-        <div style={styles.quickLinks}>
-          <Link to="/catalogue" style={styles.quickLink}>
-            🌍 Explorer les destinations
-          </Link>
-        </div>
       </div>
     </div>
   );
@@ -333,17 +327,6 @@ const styles = {
   groupBudget: { fontSize: "12px", color: "#444", marginBottom: "8px" },
   groupRole: { marginTop: "8px" },
   roleBadge: { fontSize: "11px", padding: "3px 8px", borderRadius: "12px" },
-  quickLinks: { display: "flex", gap: "12px" },
-  quickLink: {
-    background: "white",
-    color: "#185FA5",
-    padding: "12px 20px",
-    borderRadius: "8px",
-    textDecoration: "none",
-    fontWeight: "500",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
-    fontSize: "14px",
-  },
   cardActions: { display: "flex", gap: "6px", marginTop: "10px" },
   btnEdit: {
     flex: 1, padding: "6px 10px", borderRadius: "6px",

@@ -196,6 +196,20 @@ export default function GroupDetail() {
         </div>
       </PageHeader>
 
+      <style>{`
+        .vv-steps {
+          display: grid;
+          gap: 12px;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        @media (max-width: 1050px) {
+          .vv-steps { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .vv-steps { grid-template-columns: repeat(2, 1fr); }
+        }
+      `}</style>
+
       <div style={styles.body}>
         {/* Bannière invitation en attente */}
         {enAttente && (
@@ -220,7 +234,7 @@ export default function GroupDetail() {
         {/* ── Étapes (cartes cliquables) ── */}
         <div style={styles.section}>
           <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
-          <div style={styles.stepsGrid}>
+          <div className="vv-steps">
             {etapes.map((step, i) => {
               const isActive = !step.done && !!step.action;
               const isLocked = !step.done && !step.action;
@@ -499,12 +513,6 @@ const styles = {
     borderRadius: "6px",
     marginBottom: "12px",
     fontSize: "14px",
-  },
-  // Grille étapes
-  stepsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))",
-    gap: "12px",
   },
   stepCard: {
     background: "#F5F4F0",

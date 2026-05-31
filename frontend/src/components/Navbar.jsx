@@ -38,7 +38,7 @@ export default function Navbar() {
               to="/catalogue"
               style={location.pathname === "/catalogue" ? { ...s.btnOutline, ...s.btnOutlineActive } : s.btnOutline}
             >
-              Destinations
+              Catalogue
             </Link>
 
             {user.role === "admin" && (
