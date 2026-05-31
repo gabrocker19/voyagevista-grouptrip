@@ -203,4 +203,38 @@ public function deleteActivite($id) {
     $stmt->execute([$id]);
     echo json_encode(["message" => "Activité supprimée."]);
 }
+
+public function getAllTransports() {
+    $this->requireAdmin();
+    $search = $_GET['search'] ?? '';
+    $sql = "SELECT * FROM transports WHERE 1=1";
+    $params = [];
+    if ($search) {
+        $sql .= " AND (compagnie LIKE ? OR origine LIKE ? OR destination LIKE ?)";
+        $params[] = "%$search%"; $params[] = "%$search%"; $params[] = "%$search%";
+    }
+    $sql .= " ORDER BY date_depart DESC";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($params);
+    echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+}
+
+public function createTransport() {
+    $this->requireAdmin();
+    $data = json_decode(file_get_contents("php://input"), true);
+    if (empty($data['compagnie']) || empty($data['type']) || empty($data['origine']) || empty($data['destination']) || empty($data['date_depart']) || empty($data['date_arrivee']) || !isset($data['prix'])) {
+        http_response_code(400); echo json_encode(["error" => "Champs requis manquants."]); return;
+    }
+    $stmt = $this->db->prepare("INSERT INTO transports (compagnie, type, origine, destination, date_depart, date_arrivee, prix, places_dispo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$data['compagnie'], $data['type'], $data['origine'], $data['destination'], $data['date_depart'], $data['date_arrivee'], $data['prix'], $data['places_dispo'] ?? 100]);
+    http_response_code(201);
+    echo json_encode(["message" => "Transport créé.", "id" => $this->db->lastInsertId()]);
+}
+
+public function deleteTransport($id) {
+    $this->requireAdmin();
+    $stmt = $this->db->prepare("DELETE FROM transports WHERE id = ?");
+    $stmt->execute([$id]);
+    echo json_encode(["message" => "Transport supprimé."]);
+}
 }

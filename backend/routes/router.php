@@ -148,6 +148,18 @@ if ($uri === '/api/auth/register' && $method === 'POST') {
     require_once 'controllers/CatalogueController.php';
     (new CatalogueController())->deleteActivite($m[1]);
 
+} elseif ($uri === '/api/admin/transports' && $method === 'GET') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->getAllTransports();
+
+} elseif ($uri === '/api/admin/transports' && $method === 'POST') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->createTransport();
+
+} elseif (preg_match('/^\/api\/admin\/transports\/(\d+)$/', $uri, $m) && $method === 'DELETE') {
+    require_once 'controllers/CatalogueController.php';
+    (new CatalogueController())->deleteTransport($m[1]);
+
 } elseif ($uri === '/api/notifications' && $method === 'GET') {
     require_once 'controllers/NotifController.php';
     (new NotifController())->index();
