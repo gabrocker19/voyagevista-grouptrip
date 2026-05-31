@@ -50,8 +50,10 @@ class AuthController {
             return;
         }
 
+        session_start(); // rouvre la session pour y écrire (verrou libéré dans index.php)
         $_SESSION['user_id']   = $user['id'];
         $_SESSION['user_role'] = $user['role'];
+        session_write_close();
 
         echo json_encode([
             "message" => "Connexion réussie.",
@@ -60,6 +62,7 @@ class AuthController {
     }
 
     public function logout() {
+        session_start(); // rouvre la session pour la détruire (verrou libéré dans index.php)
         session_destroy();
         echo json_encode(["message" => "Déconnexion réussie."]);
     }
@@ -121,7 +124,9 @@ class AuthController {
             $stmt->execute([$data['nom'], $data['email'], $userId]);
         }
 
+        session_start(); // rouvre la session pour y écrire (verrou libéré dans index.php)
         $_SESSION['user_email'] = $data['email'];
+        session_write_close();
 
         $stmt = $this->db->prepare("SELECT id, nom, email, role, created_at FROM utilisateurs WHERE id = ?");
         $stmt->execute([$userId]);

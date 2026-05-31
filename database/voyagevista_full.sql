@@ -1016,595 +1016,595 @@ INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,d
 (194,59,'Once in Cape Town Hostel','hostel',16.00,12,'Hostel design dans De Waterkant, organisation de safaris et excursions Cap.','https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&q=80');
 
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(196,1,'Skyline 1-1','hotel',84.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(196,1,'Ocean Grand Hôtel','hotel',84.00,2,'Hôtel chaleureux à quelques minutes des plages des Maldives, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(197,1,'Skyline 1-2','villa',114.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(197,1,'Casa Paradis Maldives','villa',114.00,6,'Villa privée avec piscine et terrasse aux Maldives, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(198,1,'Skyline 1-3','airbnb',144.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(198,1,'Loft Laguna Maldives','airbnb',144.00,4,'Appartement lumineux aux Maldives, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(199,1,'Skyline 1-4','resort',174.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(199,1,'Maldives Beach Resort','resort',174.00,2,'Resort tout confort en bord de mer aux Maldives : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(200,1,'Skyline 1-5','hostel',204.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(200,1,'Maldives Backpackers','hostel',204.00,12,'Auberge de jeunesse conviviale aux Maldives, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(201,2,'Skyline 2-1','hotel',88.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(201,2,'Hôtel Sunset Phuket','hotel',88.00,2,'Hôtel chaleureux à quelques minutes des plages de Phuket, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(202,2,'Skyline 2-2','villa',118.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(202,2,'Villa Phuket','villa',118.00,6,'Villa privée avec piscine et terrasse à Phuket, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(203,2,'Skyline 2-3','airbnb',148.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(203,2,'Studio Azur','airbnb',148.00,4,'Appartement lumineux à Phuket, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(204,2,'Skyline 2-4','resort',178.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(204,2,'Ocean Resort Phuket','resort',178.00,2,'Resort tout confort en bord de mer à Phuket : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(205,2,'Skyline 2-5','hostel',208.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(205,2,'Auberge Phuket','hostel',208.00,12,'Auberge de jeunesse conviviale à Phuket, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(206,3,'Skyline 3-1','hotel',92.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(206,3,'Hôtel Cancún Centre','hotel',92.00,2,'Hôtel chaleureux à quelques minutes des plages de Cancún, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(207,3,'Skyline 3-2','villa',122.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(207,3,'Villa Palm','villa',122.00,6,'Villa privée avec piscine et terrasse à Cancún, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(208,3,'Skyline 3-3','airbnb',152.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(208,3,'Appartement Cancún','airbnb',152.00,4,'Appartement lumineux à Cancún, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(209,3,'Skyline 3-4','resort',182.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(209,3,'Sunset Spa Resort','resort',182.00,2,'Resort tout confort en bord de mer à Cancún : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(210,3,'Skyline 3-5','hostel',212.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(210,3,'Coral Hostel Cancún','hostel',212.00,12,'Auberge de jeunesse conviviale à Cancún, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(211,4,'Skyline 4-1','hotel',96.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(211,4,'Azur Grand Hôtel','hotel',96.00,2,'Hôtel chaleureux à quelques minutes des plages des Seychelles, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(212,4,'Skyline 4-2','villa',126.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(212,4,'Casa Ocean Seychelles','villa',126.00,6,'Villa privée avec piscine et terrasse aux Seychelles, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(213,4,'Skyline 4-3','airbnb',156.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(213,4,'Loft Paradis Seychelles','airbnb',156.00,4,'Appartement lumineux aux Seychelles, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(214,4,'Skyline 4-4','resort',186.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(214,4,'Seychelles Beach Resort','resort',186.00,2,'Resort tout confort en bord de mer aux Seychelles : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(215,4,'Skyline 4-5','hostel',216.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(215,4,'Seychelles Backpackers','hostel',216.00,12,'Auberge de jeunesse conviviale aux Seychelles, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(216,5,'Skyline 5-1','hotel',100.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(216,5,'Hôtel Lagon Zanzibar','hotel',100.00,2,'Hôtel chaleureux à quelques minutes des plages de Zanzibar, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(217,5,'Skyline 5-2','villa',130.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(217,5,'Villa Zanzibar','villa',130.00,6,'Villa privée avec piscine et terrasse à Zanzibar, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(218,5,'Skyline 5-3','airbnb',160.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(218,5,'Studio Coral','airbnb',160.00,4,'Appartement lumineux à Zanzibar, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(219,5,'Skyline 5-4','resort',190.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(219,5,'Azur Resort Zanzibar','resort',190.00,2,'Resort tout confort en bord de mer à Zanzibar : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(220,5,'Skyline 5-5','hostel',220.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(220,5,'Auberge Zanzibar','hostel',220.00,12,'Auberge de jeunesse conviviale à Zanzibar, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(221,6,'Skyline 6-1','hotel',104.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(221,6,'Hôtel Mykonos Centre','hotel',104.00,2,'Hôtel chaleureux à quelques minutes des plages de Mykonos, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(222,6,'Skyline 6-2','villa',134.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(222,6,'Villa Laguna','villa',134.00,6,'Villa privée avec piscine et terrasse à Mykonos, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(223,6,'Skyline 6-3','airbnb',164.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(223,6,'Appartement Mykonos','airbnb',164.00,4,'Appartement lumineux à Mykonos, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(224,6,'Skyline 6-4','resort',194.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(224,6,'Lagon Spa Resort','resort',194.00,2,'Resort tout confort en bord de mer à Mykonos : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(225,6,'Skyline 6-5','hostel',224.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(225,6,'Sunset Hostel Mykonos','hostel',224.00,12,'Auberge de jeunesse conviviale à Mykonos, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(226,7,'Skyline 7-1','hotel',108.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(226,7,'Coral Grand Hôtel','hotel',108.00,2,'Hôtel chaleureux à quelques minutes des plages de Ibiza, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(227,7,'Skyline 7-2','villa',138.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(227,7,'Casa Azur Ibiza','villa',138.00,6,'Villa privée avec piscine et terrasse à Ibiza, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(228,7,'Skyline 7-3','airbnb',168.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(228,7,'Loft Ocean Ibiza','airbnb',168.00,4,'Appartement lumineux à Ibiza, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(229,7,'Skyline 7-4','resort',198.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(229,7,'Ibiza Beach Resort','resort',198.00,2,'Resort tout confort en bord de mer à Ibiza : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(230,7,'Skyline 7-5','hostel',228.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(230,7,'Ibiza Backpackers','hostel',228.00,12,'Auberge de jeunesse conviviale à Ibiza, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(231,8,'Skyline 8-1','hotel',112.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(231,8,'Hôtel Palm Bora Bora','hotel',112.00,2,'Hôtel chaleureux à quelques minutes des plages de Bora Bora, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(232,8,'Skyline 8-2','villa',142.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(232,8,'Villa Bora Bora','villa',142.00,6,'Villa privée avec piscine et terrasse à Bora Bora, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(233,8,'Skyline 8-3','airbnb',172.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(233,8,'Studio Sunset','airbnb',172.00,4,'Appartement lumineux à Bora Bora, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(234,8,'Skyline 8-4','resort',202.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(234,8,'Coral Resort Bora Bora','resort',202.00,2,'Resort tout confort en bord de mer à Bora Bora : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(235,8,'Skyline 8-5','hostel',232.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(235,8,'Auberge Bora Bora','hostel',232.00,12,'Auberge de jeunesse conviviale à Bora Bora, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(236,9,'Skyline 9-1','hotel',116.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(236,9,'Hôtel Île Maurice Centre','hotel',116.00,2,'Hôtel chaleureux à quelques minutes des plages de l\'île Maurice, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(237,9,'Skyline 9-2','villa',146.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(237,9,'Villa Paradis','villa',146.00,6,'Villa privée avec piscine et terrasse à l\'île Maurice, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(238,9,'Skyline 9-3','airbnb',176.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(238,9,'Appartement Île Maurice','airbnb',176.00,4,'Appartement lumineux à l\'île Maurice, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(239,9,'Skyline 9-4','resort',206.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(239,9,'Palm Spa Resort','resort',206.00,2,'Resort tout confort en bord de mer à l\'île Maurice : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(240,9,'Skyline 9-5','hostel',236.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(240,9,'Lagon Hostel Île Maurice','hostel',236.00,12,'Auberge de jeunesse conviviale à l\'île Maurice, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(241,10,'Skyline 10-1','hotel',120.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(241,10,'Sunset Grand Hôtel','hotel',120.00,2,'Hôtel chaleureux à quelques minutes des plages de Miami Beach, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(242,10,'Skyline 10-2','villa',150.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(242,10,'Casa Coral Miami Beach','villa',150.00,6,'Villa privée avec piscine et terrasse à Miami Beach, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(243,10,'Skyline 10-3','airbnb',180.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(243,10,'Loft Azur Miami Beach','airbnb',180.00,4,'Appartement lumineux à Miami Beach, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(244,10,'Skyline 10-4','resort',210.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(244,10,'Miami Beach Resort & Spa','resort',210.00,2,'Resort tout confort en bord de mer à Miami Beach : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(245,10,'Skyline 10-5','hostel',240.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(245,10,'Miami Beach Backpackers','hostel',240.00,12,'Auberge de jeunesse conviviale à Miami Beach, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(246,11,'Skyline 11-1','hotel',124.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(246,11,'Hôtel Summit Chamonix','hotel',124.00,2,'Hôtel confortable au cœur des montagnes de Chamonix, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(247,11,'Skyline 11-2','villa',154.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(247,11,'Villa Chamonix','villa',154.00,6,'Villa spacieuse avec vue sur les sommets de Chamonix, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(248,11,'Skyline 11-3','airbnb',184.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(248,11,'Studio Panorama','airbnb',184.00,4,'Appartement cosy à Chamonix, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(249,11,'Skyline 11-4','resort',214.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(249,11,'Cime Lodge Chamonix','resort',214.00,2,'Lodge de montagne à Chamonix avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(250,11,'Skyline 11-5','hostel',244.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(250,11,'Auberge Chamonix','hostel',244.00,12,'Auberge chaleureuse à Chamonix, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(251,12,'Skyline 12-1','hotel',128.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(251,12,'Hôtel Queenstown Centre','hotel',128.00,2,'Hôtel confortable au cœur des montagnes de Queenstown, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(252,12,'Skyline 12-2','villa',158.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(252,12,'Villa Alpin','villa',158.00,6,'Villa spacieuse avec vue sur les sommets de Queenstown, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(253,12,'Skyline 12-3','airbnb',188.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(253,12,'Appartement Queenstown','airbnb',188.00,4,'Appartement cosy à Queenstown, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(254,12,'Skyline 12-4','resort',218.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(254,12,'Edelweiss Spa Lodge','resort',218.00,2,'Lodge de montagne à Queenstown avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(255,12,'Skyline 12-5','hostel',248.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(255,12,'Panorama Hostel Queenstown','hostel',248.00,12,'Auberge chaleureuse à Queenstown, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(256,13,'Skyline 13-1','hotel',132.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(256,13,'Cime Grand Hôtel','hotel',132.00,2,'Hôtel confortable au cœur des montagnes de Zermatt, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(257,13,'Skyline 13-2','villa',162.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(257,13,'Casa Glacier Zermatt','villa',162.00,6,'Villa spacieuse avec vue sur les sommets de Zermatt, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(258,13,'Skyline 13-3','airbnb',192.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(258,13,'Loft Sommet Zermatt','airbnb',192.00,4,'Appartement cosy à Zermatt, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(259,13,'Skyline 13-4','resort',222.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(259,13,'Zermatt Mountain Resort','resort',222.00,2,'Lodge de montagne à Zermatt avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(260,13,'Skyline 13-5','hostel',252.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(260,13,'Zermatt Backpackers','hostel',252.00,12,'Auberge chaleureuse à Zermatt, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(261,14,'Skyline 14-1','hotel',136.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(261,14,'Hôtel Edelweiss Dolomites','hotel',136.00,2,'Hôtel confortable au cœur des montagnes des Dolomites, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(262,14,'Skyline 14-2','villa',166.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(262,14,'Villa Dolomites','villa',166.00,6,'Villa spacieuse avec vue sur les sommets des Dolomites, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(263,14,'Skyline 14-3','airbnb',196.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(263,14,'Studio Cime','airbnb',196.00,4,'Appartement cosy dans les Dolomites, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(264,14,'Skyline 14-4','resort',226.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(264,14,'Glacier Lodge Dolomites','resort',226.00,2,'Lodge de montagne dans les Dolomites avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(265,14,'Skyline 14-5','hostel',256.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(265,14,'Auberge Dolomites','hostel',256.00,12,'Auberge chaleureuse dans les Dolomites, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(266,15,'Skyline 15-1','hotel',140.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(266,15,'Hôtel Tromsø Centre','hotel',140.00,2,'Hôtel confortable au cœur des montagnes de Tromsø, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(267,15,'Skyline 15-2','villa',170.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(267,15,'Villa Summit','villa',170.00,6,'Villa spacieuse avec vue sur les sommets de Tromsø, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(268,15,'Skyline 15-3','airbnb',200.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(268,15,'Appartement Tromsø','airbnb',200.00,4,'Appartement cosy à Tromsø, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(269,15,'Skyline 15-4','resort',230.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(269,15,'Panorama Spa Lodge','resort',230.00,2,'Lodge de montagne à Tromsø avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(270,15,'Skyline 15-5','hostel',260.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(270,15,'Cime Hostel Tromsø','hostel',260.00,12,'Auberge chaleureuse à Tromsø, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(271,16,'Skyline 16-1','hotel',144.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(271,16,'Glacier Grand Hôtel','hotel',144.00,2,'Hôtel confortable au cœur des montagnes de Aspen, idéal après une journée de randonnée ou de ski.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(272,16,'Skyline 16-2','villa',174.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(272,16,'Casa Sommet Aspen','villa',174.00,6,'Villa spacieuse avec vue sur les sommets de Aspen, cheminée et grand séjour convivial.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(273,16,'Skyline 16-3','airbnb',204.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(273,16,'Loft Alpin Aspen','airbnb',204.00,4,'Appartement cosy à Aspen, parfait pour un séjour au grand air, skis aux pieds.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(274,16,'Skyline 16-4','resort',234.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(274,16,'Aspen Mountain Resort','resort',234.00,2,'Lodge de montagne à Aspen avec spa et sauna, accès direct aux pistes et aux sentiers.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(275,16,'Skyline 16-5','hostel',264.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(275,16,'Aspen Backpackers','hostel',264.00,12,'Auberge chaleureuse à Aspen, dortoirs confortables et espace commun avec vue sur les montagnes.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(276,17,'Skyline 17-1','hotel',148.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(276,17,'Hôtel Central Barcelone','hotel',148.00,2,'Hôtel moderne en plein centre de Barcelone, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(277,17,'Skyline 17-2','villa',178.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(277,17,'Villa Barcelone','villa',178.00,6,'Villa élégante dans un quartier résidentiel calme de Barcelone, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(278,17,'Skyline 17-3','airbnb',208.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(278,17,'Studio Plaza','airbnb',208.00,4,'Appartement bien situé en centre-ville de Barcelone, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(279,17,'Skyline 17-4','resort',238.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(279,17,'Métropole Resort Barcelone','resort',238.00,2,'Resort urbain à Barcelone avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(280,17,'Skyline 17-5','hostel',268.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(280,17,'Auberge Barcelone','hostel',268.00,12,'Auberge animée en plein cœur de Barcelone, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(281,18,'Skyline 18-1','hotel',152.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(281,18,'Hôtel Amsterdam Centre','hotel',152.00,2,'Hôtel moderne en plein centre de Amsterdam, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(282,18,'Skyline 18-2','villa',182.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(282,18,'Villa Central','villa',182.00,6,'Villa élégante dans un quartier résidentiel calme de Amsterdam, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(283,18,'Skyline 18-3','airbnb',212.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(283,18,'Appartement Amsterdam','airbnb',212.00,4,'Appartement bien situé en centre-ville de Amsterdam, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(284,18,'Skyline 18-4','resort',242.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(284,18,'Plaza Spa Resort','resort',242.00,2,'Resort urbain à Amsterdam avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(285,18,'Skyline 18-5','hostel',272.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(285,18,'Métropole Hostel Amsterdam','hostel',272.00,12,'Auberge animée en plein cœur de Amsterdam, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(286,19,'Skyline 19-1','hotel',156.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(286,19,'Downtown Grand Hôtel','hotel',156.00,2,'Hôtel moderne en plein centre de Singapour, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(287,19,'Skyline 19-2','villa',186.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(287,19,'Casa Rivoli Singapour','villa',186.00,6,'Villa élégante dans un quartier résidentiel calme de Singapour, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(288,19,'Skyline 19-3','airbnb',216.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(288,19,'Loft Central Singapour','airbnb',216.00,4,'Appartement bien situé en centre-ville de Singapour, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(289,19,'Skyline 19-4','resort',246.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(289,19,'Singapour Resort & Spa','resort',246.00,2,'Resort urbain à Singapour avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(290,19,'Skyline 19-5','hostel',276.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(290,19,'Singapour Backpackers','hostel',276.00,12,'Auberge animée en plein cœur de Singapour, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(291,20,'Skyline 20-1','hotel',160.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(291,20,'Hôtel Métropole Prague','hotel',160.00,2,'Hôtel moderne en plein centre de Prague, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(292,20,'Skyline 20-2','villa',190.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(292,20,'Villa Prague','villa',190.00,6,'Villa élégante dans un quartier résidentiel calme de Prague, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(293,20,'Skyline 20-3','airbnb',220.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(293,20,'Studio Rivoli','airbnb',220.00,4,'Appartement bien situé en centre-ville de Prague, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(294,20,'Skyline 20-4','resort',250.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(294,20,'Central Resort Prague','resort',250.00,2,'Resort urbain à Prague avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(295,20,'Skyline 20-5','hostel',280.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(295,20,'Auberge Prague','hostel',280.00,12,'Auberge animée en plein cœur de Prague, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(296,21,'Skyline 21-1','hotel',164.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(296,21,'Hôtel Dubaï Centre','hotel',164.00,2,'Hôtel moderne en plein centre de Dubaï, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(297,21,'Skyline 21-2','villa',194.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(297,21,'Villa Métropole','villa',194.00,6,'Villa élégante dans un quartier résidentiel calme de Dubaï, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(298,21,'Skyline 21-3','airbnb',224.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(298,21,'Appartement Dubaï','airbnb',224.00,4,'Appartement bien situé en centre-ville de Dubaï, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(299,21,'Skyline 21-4','resort',254.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(299,21,'Rivoli Spa Resort','resort',254.00,2,'Resort urbain à Dubaï avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(300,21,'Skyline 21-5','hostel',284.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(300,21,'Central Hostel Dubaï','hostel',284.00,12,'Auberge animée en plein cœur de Dubaï, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(301,22,'Skyline 22-1','hotel',168.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(301,22,'Urban Grand Hôtel','hotel',168.00,2,'Hôtel moderne en plein centre de New York, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(302,22,'Skyline 22-2','villa',198.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(302,22,'Casa Plaza New York','villa',198.00,6,'Villa élégante dans un quartier résidentiel calme de New York, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(303,22,'Skyline 22-3','airbnb',228.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(303,22,'Loft Métropole New York','airbnb',228.00,4,'Appartement bien situé en centre-ville de New York, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(304,22,'Skyline 22-4','resort',258.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(304,22,'New York Resort & Spa','resort',258.00,2,'Resort urbain à New York avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(305,22,'Skyline 22-5','hostel',288.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(305,22,'New York Backpackers','hostel',288.00,12,'Auberge animée en plein cœur de New York, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(306,23,'Skyline 23-1','hotel',172.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(306,23,'Hôtel Central Bangkok','hotel',172.00,2,'Hôtel moderne en plein centre de Bangkok, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(307,23,'Skyline 23-2','villa',202.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(307,23,'Villa Bangkok','villa',202.00,6,'Villa élégante dans un quartier résidentiel calme de Bangkok, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(308,23,'Skyline 23-3','airbnb',232.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(308,23,'Studio Plaza','airbnb',232.00,4,'Appartement bien situé en centre-ville de Bangkok, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(309,23,'Skyline 23-4','resort',262.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(309,23,'Métropole Resort Bangkok','resort',262.00,2,'Resort urbain à Bangkok avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(310,23,'Skyline 23-5','hostel',292.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(310,23,'Auberge Bangkok','hostel',292.00,12,'Auberge animée en plein cœur de Bangkok, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(311,24,'Skyline 24-1','hotel',176.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(311,24,'Hôtel Marrakech Centre','hotel',176.00,2,'Hôtel de charme proche des sites historiques de Marrakech, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(312,24,'Skyline 24-2','villa',206.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(312,24,'Villa Héritage','villa',206.00,6,'Villa de caractère à Marrakech, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(313,24,'Skyline 24-3','airbnb',236.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(313,24,'Appartement Marrakech','airbnb',236.00,4,'Appartement de charme dans la vieille ville de Marrakech, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(314,24,'Skyline 24-4','resort',266.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(314,24,'Royal Spa Resort','resort',266.00,2,'Resort raffiné proche des trésors culturels de Marrakech, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(315,24,'Skyline 24-5','hostel',296.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(315,24,'Médina Hostel Marrakech','hostel',296.00,12,'Auberge accueillante près du centre historique de Marrakech, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(316,25,'Skyline 25-1','hotel',180.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(316,25,'Antico Grand Hôtel','hotel',180.00,2,'Hôtel de charme proche des sites historiques de Rome, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(317,25,'Skyline 25-2','villa',210.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(317,25,'Casa Palacio Rome','villa',210.00,6,'Villa de caractère à Rome, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(318,25,'Skyline 25-3','airbnb',240.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(318,25,'Loft Héritage Rome','airbnb',240.00,4,'Appartement de charme dans la vieille ville de Rome, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(319,25,'Skyline 25-4','resort',270.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(319,25,'Rome Resort & Spa','resort',270.00,2,'Resort raffiné proche des trésors culturels de Rome, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(320,25,'Skyline 25-5','hostel',300.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(320,25,'Rome Backpackers','hostel',300.00,12,'Auberge accueillante près du centre historique de Rome, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(321,26,'Skyline 26-1','hotel',184.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(321,26,'Hôtel Médina Istanbul','hotel',184.00,2,'Hôtel de charme proche des sites historiques de Istanbul, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(322,26,'Skyline 26-2','villa',214.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(322,26,'Villa Istanbul','villa',214.00,6,'Villa de caractère à Istanbul, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(323,26,'Skyline 26-3','airbnb',244.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(323,26,'Studio Palacio','airbnb',244.00,4,'Appartement de charme dans la vieille ville de Istanbul, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(324,26,'Skyline 26-4','resort',274.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(324,26,'Héritage Resort Istanbul','resort',274.00,2,'Resort raffiné proche des trésors culturels de Istanbul, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(325,26,'Skyline 26-5','hostel',304.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(325,26,'Auberge Istanbul','hostel',304.00,12,'Auberge accueillante près du centre historique de Istanbul, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(326,27,'Skyline 27-1','hotel',188.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(326,27,'Hôtel Kyoto Centre','hotel',188.00,2,'Hôtel de charme proche des sites historiques de Kyoto, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(327,27,'Skyline 27-2','villa',218.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(327,27,'Villa Médina','villa',218.00,6,'Villa de caractère à Kyoto, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(328,27,'Skyline 27-3','airbnb',248.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(328,27,'Appartement Kyoto','airbnb',248.00,4,'Appartement de charme dans la vieille ville de Kyoto, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(329,27,'Skyline 27-4','resort',278.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(329,27,'Palacio Spa Resort','resort',278.00,2,'Resort raffiné proche des trésors culturels de Kyoto, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(330,27,'Skyline 27-5','hostel',308.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(330,27,'Héritage Hostel Kyoto','hostel',308.00,12,'Auberge accueillante près du centre historique de Kyoto, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(331,28,'Skyline 28-1','hotel',192.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(331,28,'Patrimoine Grand Hôtel','hotel',192.00,2,'Hôtel de charme proche des sites historiques du Caire, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(332,28,'Skyline 28-2','villa',222.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(332,28,'Casa Royal Le Caire','villa',222.00,6,'Villa de caractère au Caire, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(333,28,'Skyline 28-3','airbnb',252.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(333,28,'Loft Médina Le Caire','airbnb',252.00,4,'Appartement de charme dans la vieille ville du Caire, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(334,28,'Skyline 28-4','resort',282.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(334,28,'Le Caire Resort & Spa','resort',282.00,2,'Resort raffiné proche des trésors culturels du Caire, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(335,28,'Skyline 28-5','hostel',312.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(335,28,'Le Caire Backpackers','hostel',312.00,12,'Auberge accueillante près du centre historique du Caire, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(336,29,'Skyline 29-1','hotel',196.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(336,29,'Hôtel Explorer Reykjavik','hotel',196.00,2,'Hôtel pratique pour rayonner autour de Reykjavik et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(337,29,'Skyline 29-2','villa',226.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(337,29,'Villa Reykjavik','villa',226.00,6,'Villa au cœur de la nature, près de Reykjavik, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(338,29,'Skyline 29-3','airbnb',256.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(338,29,'Studio Nomad','airbnb',256.00,4,'Appartement fonctionnel à Reykjavik, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(339,29,'Skyline 29-4','resort',286.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(339,29,'Trek Resort Reykjavik','resort',286.00,2,'Resort nature à Reykjavik, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(340,29,'Skyline 29-5','hostel',316.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(340,29,'Auberge Reykjavik','hostel',316.00,12,'Auberge backpacker à Reykjavik, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(341,30,'Skyline 30-1','hotel',200.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(341,30,'Hôtel Nairobi Centre','hotel',200.00,2,'Hôtel pratique pour rayonner autour de Nairobi et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(342,30,'Skyline 30-2','villa',230.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(342,30,'Villa Explorer','villa',230.00,6,'Villa au cœur de la nature, près de Nairobi, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(343,30,'Skyline 30-3','airbnb',260.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(343,30,'Appartement Nairobi','airbnb',260.00,4,'Appartement fonctionnel à Nairobi, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(344,30,'Skyline 30-4','resort',290.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(344,30,'Nomad Spa Resort','resort',290.00,2,'Resort nature à Nairobi, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(345,30,'Skyline 30-5','hostel',320.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(345,30,'Trek Hostel Nairobi','hostel',320.00,12,'Auberge backpacker à Nairobi, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(346,31,'Skyline 31-1','hotel',204.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(346,31,'Wild Grand Hôtel','hotel',204.00,2,'Hôtel pratique pour rayonner autour de San José et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(347,31,'Skyline 31-2','villa',234.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(347,31,'Casa Horizon San José','villa',234.00,6,'Villa au cœur de la nature, près de San José, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(348,31,'Skyline 31-3','airbnb',264.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(348,31,'Loft Explorer San José','airbnb',264.00,4,'Appartement fonctionnel à San José, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(349,31,'Skyline 31-4','resort',294.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(349,31,'San José Resort & Spa','resort',294.00,2,'Resort nature à San José, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(350,31,'Skyline 31-5','hostel',324.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(350,31,'San José Backpackers','hostel',324.00,12,'Auberge backpacker à San José, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(351,32,'Skyline 32-1','hotel',208.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(351,32,'Hôtel Trek El Calafate','hotel',208.00,2,'Hôtel pratique pour rayonner autour de El Calafate et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(352,32,'Skyline 32-2','villa',238.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(352,32,'Villa El Calafate','villa',238.00,6,'Villa au cœur de la nature, près de El Calafate, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(353,32,'Skyline 32-3','airbnb',268.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(353,32,'Studio Horizon','airbnb',268.00,4,'Appartement fonctionnel à El Calafate, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(354,32,'Skyline 32-4','resort',298.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(354,32,'Explorer Resort El Calafate','resort',298.00,2,'Resort nature à El Calafate, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(355,32,'Skyline 32-5','hostel',328.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(355,32,'Auberge El Calafate','hostel',328.00,12,'Auberge backpacker à El Calafate, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(356,33,'Skyline 33-1','hotel',212.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(356,33,'Hôtel Londres Centre','hotel',212.00,2,'Hôtel moderne en plein centre de Londres, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(357,33,'Skyline 33-2','villa',242.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(357,33,'Villa Métropole','villa',242.00,6,'Villa élégante dans un quartier résidentiel calme de Londres, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(358,33,'Skyline 33-3','airbnb',272.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(358,33,'Appartement Londres','airbnb',272.00,4,'Appartement bien situé en centre-ville de Londres, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(359,33,'Skyline 33-4','resort',302.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(359,33,'Rivoli Spa Resort','resort',302.00,2,'Resort urbain à Londres avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(360,33,'Skyline 33-5','hostel',332.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(360,33,'Central Hostel Londres','hostel',332.00,12,'Auberge animée en plein cœur de Londres, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(361,34,'Skyline 34-1','hotel',216.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(361,34,'Urban Grand Hôtel','hotel',216.00,2,'Hôtel moderne en plein centre de Berlin, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(362,34,'Skyline 34-2','villa',246.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(362,34,'Casa Plaza Berlin','villa',246.00,6,'Villa élégante dans un quartier résidentiel calme de Berlin, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(363,34,'Skyline 34-3','airbnb',276.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(363,34,'Loft Métropole Berlin','airbnb',276.00,4,'Appartement bien situé en centre-ville de Berlin, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(364,34,'Skyline 34-4','resort',306.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(364,34,'Berlin Resort & Spa','resort',306.00,2,'Resort urbain à Berlin avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(365,34,'Skyline 34-5','hostel',336.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(365,34,'Berlin Backpackers','hostel',336.00,12,'Auberge animée en plein cœur de Berlin, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(366,35,'Skyline 35-1','hotel',220.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(366,35,'Hôtel Héritage Vienne','hotel',220.00,2,'Hôtel de charme proche des sites historiques de Vienne, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(367,35,'Skyline 35-2','villa',250.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(367,35,'Villa Vienne','villa',250.00,6,'Villa de caractère à Vienne, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(368,35,'Skyline 35-3','airbnb',280.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(368,35,'Studio Royal','airbnb',280.00,4,'Appartement de charme dans la vieille ville de Vienne, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(369,35,'Skyline 35-4','resort',310.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(369,35,'Médina Resort Vienne','resort',310.00,2,'Resort raffiné proche des trésors culturels de Vienne, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(370,35,'Skyline 35-5','hostel',340.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(370,35,'Auberge Vienne','hostel',340.00,12,'Auberge accueillante près du centre historique de Vienne, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(371,36,'Skyline 36-1','hotel',224.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(371,36,'Hôtel Madrid Centre','hotel',224.00,2,'Hôtel moderne en plein centre de Madrid, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(372,36,'Skyline 36-2','villa',254.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(372,36,'Villa Central','villa',254.00,6,'Villa élégante dans un quartier résidentiel calme de Madrid, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(373,36,'Skyline 36-3','airbnb',284.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(373,36,'Appartement Madrid','airbnb',284.00,4,'Appartement bien situé en centre-ville de Madrid, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(374,36,'Skyline 36-4','resort',314.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(374,36,'Plaza Spa Resort','resort',314.00,2,'Resort urbain à Madrid avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(375,36,'Skyline 36-5','hostel',344.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(375,36,'Métropole Hostel Madrid','hostel',344.00,12,'Auberge animée en plein cœur de Madrid, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(376,37,'Skyline 37-1','hotel',228.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(376,37,'Downtown Grand Hôtel','hotel',228.00,2,'Hôtel moderne en plein centre de Bruxelles, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(377,37,'Skyline 37-2','villa',258.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(377,37,'Casa Rivoli Bruxelles','villa',258.00,6,'Villa élégante dans un quartier résidentiel calme de Bruxelles, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(378,37,'Skyline 37-3','airbnb',288.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(378,37,'Loft Central Bruxelles','airbnb',288.00,4,'Appartement bien situé en centre-ville de Bruxelles, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(379,37,'Skyline 37-4','resort',318.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(379,37,'Bruxelles Resort & Spa','resort',318.00,2,'Resort urbain à Bruxelles avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(380,37,'Skyline 37-5','hostel',348.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(380,37,'Bruxelles Backpackers','hostel',348.00,12,'Auberge animée en plein cœur de Bruxelles, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(381,38,'Skyline 38-1','hotel',232.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(381,38,'Hôtel Métropole Copenhague','hotel',232.00,2,'Hôtel moderne en plein centre de Copenhague, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(382,38,'Skyline 38-2','villa',262.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(382,38,'Villa Copenhague','villa',262.00,6,'Villa élégante dans un quartier résidentiel calme de Copenhague, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(383,38,'Skyline 38-3','airbnb',292.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(383,38,'Studio Rivoli','airbnb',292.00,4,'Appartement bien situé en centre-ville de Copenhague, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(384,38,'Skyline 38-4','resort',322.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(384,38,'Central Resort Copenhague','resort',322.00,2,'Resort urbain à Copenhague avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(385,38,'Skyline 38-5','hostel',352.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(385,38,'Auberge Copenhague','hostel',352.00,12,'Auberge animée en plein cœur de Copenhague, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(386,39,'Skyline 39-1','hotel',236.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(386,39,'Hôtel Stockholm Centre','hotel',236.00,2,'Hôtel moderne en plein centre de Stockholm, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(387,39,'Skyline 39-2','villa',266.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(387,39,'Villa Métropole','villa',266.00,6,'Villa élégante dans un quartier résidentiel calme de Stockholm, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(388,39,'Skyline 39-3','airbnb',296.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(388,39,'Appartement Stockholm','airbnb',296.00,4,'Appartement bien situé en centre-ville de Stockholm, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(389,39,'Skyline 39-4','resort',326.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(389,39,'Rivoli Spa Resort','resort',326.00,2,'Resort urbain à Stockholm avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(390,39,'Skyline 39-5','hostel',356.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(390,39,'Central Hostel Stockholm','hostel',356.00,12,'Auberge animée en plein cœur de Stockholm, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(391,40,'Skyline 40-1','hotel',240.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(391,40,'Patrimoine Grand Hôtel','hotel',240.00,2,'Hôtel de charme proche des sites historiques de Budapest, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(392,40,'Skyline 40-2','villa',270.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(392,40,'Casa Royal Budapest','villa',270.00,6,'Villa de caractère à Budapest, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(393,40,'Skyline 40-3','airbnb',300.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(393,40,'Loft Médina Budapest','airbnb',300.00,4,'Appartement de charme dans la vieille ville de Budapest, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(394,40,'Skyline 40-4','resort',330.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(394,40,'Budapest Resort & Spa','resort',330.00,2,'Resort raffiné proche des trésors culturels de Budapest, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(395,40,'Skyline 40-5','hostel',360.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(395,40,'Budapest Backpackers','hostel',360.00,12,'Auberge accueillante près du centre historique de Budapest, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(396,41,'Skyline 41-1','hotel',244.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(396,41,'Hôtel Héritage Athènes','hotel',244.00,2,'Hôtel de charme proche des sites historiques de Athènes, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(397,41,'Skyline 41-2','villa',274.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(397,41,'Villa Athènes','villa',274.00,6,'Villa de caractère à Athènes, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(398,41,'Skyline 41-3','airbnb',304.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(398,41,'Studio Royal','airbnb',304.00,4,'Appartement de charme dans la vieille ville de Athènes, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(399,41,'Skyline 41-4','resort',334.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(399,41,'Médina Resort Athènes','resort',334.00,2,'Resort raffiné proche des trésors culturels de Athènes, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(400,41,'Skyline 41-5','hostel',364.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(400,41,'Auberge Athènes','hostel',364.00,12,'Auberge accueillante près du centre historique de Athènes, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(401,42,'Skyline 42-1','hotel',248.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(401,42,'Hôtel Florence Centre','hotel',248.00,2,'Hôtel de charme proche des sites historiques de Florence, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(402,42,'Skyline 42-2','villa',278.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(402,42,'Villa Héritage','villa',278.00,6,'Villa de caractère à Florence, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(403,42,'Skyline 42-3','airbnb',308.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(403,42,'Appartement Florence','airbnb',308.00,4,'Appartement de charme dans la vieille ville de Florence, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(404,42,'Skyline 42-4','resort',338.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(404,42,'Royal Spa Resort','resort',338.00,2,'Resort raffiné proche des trésors culturels de Florence, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(405,42,'Skyline 42-5','hostel',368.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(405,42,'Médina Hostel Florence','hostel',368.00,12,'Auberge accueillante près du centre historique de Florence, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(406,43,'Skyline 43-1','hotel',252.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(406,43,'Downtown Grand Hôtel','hotel',252.00,2,'Hôtel moderne en plein centre de Porto, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(407,43,'Skyline 43-2','villa',282.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(407,43,'Casa Rivoli Porto','villa',282.00,6,'Villa élégante dans un quartier résidentiel calme de Porto, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(408,43,'Skyline 43-3','airbnb',312.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(408,43,'Loft Central Porto','airbnb',312.00,4,'Appartement bien situé en centre-ville de Porto, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(409,43,'Skyline 43-4','resort',342.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(409,43,'Porto Resort & Spa','resort',342.00,2,'Resort urbain à Porto avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(410,43,'Skyline 43-5','hostel',372.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(410,43,'Porto Backpackers','hostel',372.00,12,'Auberge animée en plein cœur de Porto, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(411,44,'Skyline 44-1','hotel',256.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(411,44,'Hôtel Médina Lisbonne Nord (Sintra)','hotel',256.00,2,'Hôtel de charme proche des sites historiques de Lisbonne Nord (Sintra), alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(412,44,'Skyline 44-2','villa',286.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(412,44,'Villa Lisbonne Nord (Sintra)','villa',286.00,6,'Villa de caractère à Lisbonne Nord (Sintra), décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(413,44,'Skyline 44-3','airbnb',316.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(413,44,'Studio Palacio','airbnb',316.00,4,'Appartement de charme dans la vieille ville de Lisbonne Nord (Sintra), à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(414,44,'Skyline 44-4','resort',346.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(414,44,'Héritage Resort Lisbonne Nord (Sintra)','resort',346.00,2,'Resort raffiné proche des trésors culturels de Lisbonne Nord (Sintra), entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(415,44,'Skyline 44-5','hostel',376.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(415,44,'Auberge Lisbonne Nord (Sintra)','hostel',376.00,12,'Auberge accueillante près du centre historique de Lisbonne Nord (Sintra), idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(416,45,'Skyline 45-1','hotel',260.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(416,45,'Hôtel Séoul Centre','hotel',260.00,2,'Hôtel moderne en plein centre de Séoul, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(417,45,'Skyline 45-2','villa',290.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(417,45,'Villa Métropole','villa',290.00,6,'Villa élégante dans un quartier résidentiel calme de Séoul, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(418,45,'Skyline 45-3','airbnb',320.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(418,45,'Appartement Séoul','airbnb',320.00,4,'Appartement bien situé en centre-ville de Séoul, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(419,45,'Skyline 45-4','resort',350.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(419,45,'Rivoli Spa Resort','resort',350.00,2,'Resort urbain à Séoul avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(420,45,'Skyline 45-5','hostel',380.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(420,45,'Central Hostel Séoul','hostel',380.00,12,'Auberge animée en plein cœur de Séoul, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(421,46,'Skyline 46-1','hotel',264.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(421,46,'Urban Grand Hôtel','hotel',264.00,2,'Hôtel moderne en plein centre de Hong Kong, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(422,46,'Skyline 46-2','villa',294.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(422,46,'Casa Plaza Hong Kong','villa',294.00,6,'Villa élégante dans un quartier résidentiel calme de Hong Kong, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(423,46,'Skyline 46-3','airbnb',324.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(423,46,'Loft Métropole Hong Kong','airbnb',324.00,4,'Appartement bien situé en centre-ville de Hong Kong, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(424,46,'Skyline 46-4','resort',354.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(424,46,'Hong Kong Resort & Spa','resort',354.00,2,'Resort urbain à Hong Kong avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(425,46,'Skyline 46-5','hostel',384.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(425,46,'Hong Kong Backpackers','hostel',384.00,12,'Auberge animée en plein cœur de Hong Kong, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(426,47,'Skyline 47-1','hotel',268.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(426,47,'Hôtel Central Kuala Lumpur','hotel',268.00,2,'Hôtel moderne en plein centre de Kuala Lumpur, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(427,47,'Skyline 47-2','villa',298.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(427,47,'Villa Kuala Lumpur','villa',298.00,6,'Villa élégante dans un quartier résidentiel calme de Kuala Lumpur, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(428,47,'Skyline 47-3','airbnb',328.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(428,47,'Studio Plaza','airbnb',328.00,4,'Appartement bien situé en centre-ville de Kuala Lumpur, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(429,47,'Skyline 47-4','resort',358.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(429,47,'Métropole Resort Kuala Lumpur','resort',358.00,2,'Resort urbain à Kuala Lumpur avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(430,47,'Skyline 47-5','hostel',388.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(430,47,'Auberge Kuala Lumpur','hostel',388.00,12,'Auberge animée en plein cœur de Kuala Lumpur, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(431,48,'Skyline 48-1','hotel',272.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(431,48,'Hôtel Hanoï Centre','hotel',272.00,2,'Hôtel de charme proche des sites historiques de Hanoï, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(432,48,'Skyline 48-2','villa',302.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(432,48,'Villa Héritage','villa',302.00,6,'Villa de caractère à Hanoï, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(433,48,'Skyline 48-3','airbnb',332.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(433,48,'Appartement Hanoï','airbnb',332.00,4,'Appartement de charme dans la vieille ville de Hanoï, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(434,48,'Skyline 48-4','resort',362.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(434,48,'Royal Spa Resort','resort',362.00,2,'Resort raffiné proche des trésors culturels de Hanoï, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(435,48,'Skyline 48-5','hostel',392.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(435,48,'Médina Hostel Hanoï','hostel',392.00,12,'Auberge accueillante près du centre historique de Hanoï, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(436,49,'Skyline 49-1','hotel',276.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(436,49,'Antico Grand Hôtel','hotel',276.00,2,'Hôtel de charme proche des sites historiques de Mumbai, alliant confort et authenticité.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(437,49,'Skyline 49-2','villa',306.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(437,49,'Casa Palacio Mumbai','villa',306.00,6,'Villa de caractère à Mumbai, décor traditionnel et patio ombragé pour se ressourcer.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(438,49,'Skyline 49-3','airbnb',336.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(438,49,'Loft Héritage Mumbai','airbnb',336.00,4,'Appartement de charme dans la vieille ville de Mumbai, à deux pas des monuments.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(439,49,'Skyline 49-4','resort',366.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(439,49,'Mumbai Resort & Spa','resort',366.00,2,'Resort raffiné proche des trésors culturels de Mumbai, entre détente et découverte.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(440,49,'Skyline 49-5','hostel',396.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(440,49,'Mumbai Backpackers','hostel',396.00,12,'Auberge accueillante près du centre historique de Mumbai, idéale pour rencontrer d\'autres voyageurs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(441,50,'Skyline 50-1','hotel',280.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(441,50,'Hôtel Métropole Montréal','hotel',280.00,2,'Hôtel moderne en plein centre de Montréal, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(442,50,'Skyline 50-2','villa',310.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(442,50,'Villa Montréal','villa',310.00,6,'Villa élégante dans un quartier résidentiel calme de Montréal, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(443,50,'Skyline 50-3','airbnb',340.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(443,50,'Studio Rivoli','airbnb',340.00,4,'Appartement bien situé en centre-ville de Montréal, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(444,50,'Skyline 50-4','resort',370.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(444,50,'Central Resort Montréal','resort',370.00,2,'Resort urbain à Montréal avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(445,50,'Skyline 50-5','hostel',400.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(445,50,'Auberge Montréal','hostel',400.00,12,'Auberge animée en plein cœur de Montréal, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(446,51,'Skyline 51-1','hotel',284.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(446,51,'Hôtel Los Angeles Centre','hotel',284.00,2,'Hôtel moderne en plein centre de Los Angeles, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(447,51,'Skyline 51-2','villa',314.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(447,51,'Villa Métropole','villa',314.00,6,'Villa élégante dans un quartier résidentiel calme de Los Angeles, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(448,51,'Skyline 51-3','airbnb',344.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(448,51,'Appartement Los Angeles','airbnb',344.00,4,'Appartement bien situé en centre-ville de Los Angeles, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(449,51,'Skyline 51-4','resort',374.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(449,51,'Rivoli Spa Resort','resort',374.00,2,'Resort urbain à Los Angeles avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(450,51,'Skyline 51-5','hostel',404.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(450,51,'Central Hostel Los Angeles','hostel',404.00,12,'Auberge animée en plein cœur de Los Angeles, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(451,52,'Skyline 52-1','hotel',288.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(451,52,'Urban Grand Hôtel','hotel',288.00,2,'Hôtel moderne en plein centre de Sydney, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(452,52,'Skyline 52-2','villa',318.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(452,52,'Casa Plaza Sydney','villa',318.00,6,'Villa élégante dans un quartier résidentiel calme de Sydney, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(453,52,'Skyline 52-3','airbnb',348.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(453,52,'Loft Métropole Sydney','airbnb',348.00,4,'Appartement bien situé en centre-ville de Sydney, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(454,52,'Skyline 52-4','resort',378.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(454,52,'Sydney Resort & Spa','resort',378.00,2,'Resort urbain à Sydney avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(455,52,'Skyline 52-5','hostel',408.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(455,52,'Sydney Backpackers','hostel',408.00,12,'Auberge animée en plein cœur de Sydney, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(456,53,'Skyline 53-1','hotel',292.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(456,53,'Hôtel Central Buenos Aires','hotel',292.00,2,'Hôtel moderne en plein centre de Buenos Aires, à deux pas des principaux sites et des transports.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(457,53,'Skyline 53-2','villa',322.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(457,53,'Villa Buenos Aires','villa',322.00,6,'Villa élégante dans un quartier résidentiel calme de Buenos Aires, à proximité du centre.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(458,53,'Skyline 53-3','airbnb',352.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(458,53,'Studio Plaza','airbnb',352.00,4,'Appartement bien situé en centre-ville de Buenos Aires, idéal pour découvrir la ville à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(459,53,'Skyline 53-4','resort',382.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(459,53,'Métropole Resort Buenos Aires','resort',382.00,2,'Resort urbain à Buenos Aires avec spa, rooftop et prestations haut de gamme.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(460,53,'Skyline 53-5','hostel',412.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(460,53,'Auberge Buenos Aires','hostel',412.00,12,'Auberge animée en plein cœur de Buenos Aires, parfaite pour les voyageurs au budget malin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(461,54,'Skyline 54-1','hotel',296.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(461,54,'Hôtel Rio de Janeiro Centre','hotel',296.00,2,'Hôtel pratique pour rayonner autour de Rio de Janeiro et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(462,54,'Skyline 54-2','villa',326.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(462,54,'Villa Explorer','villa',326.00,6,'Villa au cœur de la nature, près de Rio de Janeiro, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(463,54,'Skyline 54-3','airbnb',356.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(463,54,'Appartement Rio de Janeiro','airbnb',356.00,4,'Appartement fonctionnel à Rio de Janeiro, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(464,54,'Skyline 54-4','resort',386.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(464,54,'Nomad Spa Resort','resort',386.00,2,'Resort nature à Rio de Janeiro, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(465,54,'Skyline 54-5','hostel',416.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(465,54,'Trek Hostel Rio de Janeiro','hostel',416.00,12,'Auberge backpacker à Rio de Janeiro, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(466,55,'Skyline 55-1','hotel',300.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(466,55,'Coral Grand Hôtel','hotel',300.00,2,'Hôtel chaleureux à quelques minutes des plages de Punta Cana, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(467,55,'Skyline 55-2','villa',330.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(467,55,'Casa Azur Punta Cana','villa',330.00,6,'Villa privée avec piscine et terrasse à Punta Cana, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(468,55,'Skyline 55-3','airbnb',360.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(468,55,'Loft Ocean Punta Cana','airbnb',360.00,4,'Appartement lumineux à Punta Cana, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(469,55,'Skyline 55-4','resort',390.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(469,55,'Punta Cana Beach Resort','resort',390.00,2,'Resort tout confort en bord de mer à Punta Cana : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(470,55,'Skyline 55-5','hostel',420.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(470,55,'Punta Cana Backpackers','hostel',420.00,12,'Auberge de jeunesse conviviale à Punta Cana, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(471,56,'Skyline 56-1','hotel',304.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(471,56,'Hôtel Palm Koh Samui','hotel',304.00,2,'Hôtel chaleureux à quelques minutes des plages de Koh Samui, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(472,56,'Skyline 56-2','villa',334.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(472,56,'Villa Koh Samui','villa',334.00,6,'Villa privée avec piscine et terrasse à Koh Samui, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(473,56,'Skyline 56-3','airbnb',364.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(473,56,'Studio Sunset','airbnb',364.00,4,'Appartement lumineux à Koh Samui, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(474,56,'Skyline 56-4','resort',394.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(474,56,'Coral Resort Koh Samui','resort',394.00,2,'Resort tout confort en bord de mer à Koh Samui : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(475,56,'Skyline 56-5','hostel',424.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(475,56,'Auberge Koh Samui','hostel',424.00,12,'Auberge de jeunesse conviviale à Koh Samui, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(476,57,'Skyline 57-1','hotel',308.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(476,57,'Hôtel Cap-Vert Centre','hotel',308.00,2,'Hôtel chaleureux à quelques minutes des plages du Cap-Vert, avec piscine extérieure et petit-déjeuner inclus.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(477,57,'Skyline 57-2','villa',338.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(477,57,'Villa Paradis','villa',338.00,6,'Villa privée avec piscine et terrasse au Cap-Vert, parfaite pour des vacances en famille au bord de l\'eau.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(478,57,'Skyline 57-3','airbnb',368.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(478,57,'Appartement Cap-Vert','airbnb',368.00,4,'Appartement lumineux au Cap-Vert, balcon avec vue mer et plage accessible à pied.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(479,57,'Skyline 57-4','resort',398.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(479,57,'Palm Spa Resort','resort',398.00,2,'Resort tout confort en bord de mer au Cap-Vert : piscines, spa et activités nautiques.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(480,57,'Skyline 57-5','hostel',428.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(480,57,'Lagon Hostel Cap-Vert','hostel',428.00,12,'Auberge de jeunesse conviviale au Cap-Vert, ambiance détendue et plage toute proche.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(481,58,'Skyline 58-1','hotel',312.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(481,58,'Safari Grand Hôtel','hotel',312.00,2,'Hôtel pratique pour rayonner autour de La Réunion et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(482,58,'Skyline 58-2','villa',342.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(482,58,'Casa Nomad La Réunion','villa',342.00,6,'Villa au cœur de la nature, près de La Réunion, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(483,58,'Skyline 58-3','airbnb',372.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(483,58,'Loft Trek La Réunion','airbnb',372.00,4,'Appartement fonctionnel à La Réunion, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(484,58,'Skyline 58-4','resort',402.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(484,58,'La Réunion Resort & Spa','resort',402.00,2,'Resort nature à La Réunion, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(485,58,'Skyline 58-5','hostel',432.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(485,58,'La Réunion Backpackers','hostel',432.00,12,'Auberge backpacker à La Réunion, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(486,59,'Skyline 59-1','hotel',316.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(486,59,'Hôtel Explorer Cape Town','hotel',316.00,2,'Hôtel pratique pour rayonner autour de Cape Town et partir à l\'aventure dès le matin.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(487,59,'Skyline 59-2','villa',346.00,6,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(487,59,'Villa Cape Town','villa',346.00,6,'Villa au cœur de la nature, près de Cape Town, point de départ idéal pour vos excursions.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(488,59,'Skyline 59-3','airbnb',376.00,4,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(488,59,'Studio Nomad','airbnb',376.00,4,'Appartement fonctionnel à Cape Town, base confortable entre deux aventures.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(489,59,'Skyline 59-4','resort',406.00,2,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(489,59,'Trek Resort Cape Town','resort',406.00,2,'Resort nature à Cape Town, confort moderne au plus près des grands espaces.',NULL);
 INSERT IGNORE INTO hebergements (id,destination_id,nom,type,prix_nuit,capacite,description,image_url) VALUES
-(490,59,'Skyline 59-5','hostel',436.00,12,'Hébergement fictif créé pour enrichir la base de données.',NULL);
+(490,59,'Auberge Cape Town','hostel',436.00,12,'Auberge backpacker à Cape Town, ambiance routarde et bons conseils pour explorer les environs.',NULL);
 
 -- ============================================================
 -- DONNÉES — ACTIVITÉS
@@ -2235,192 +2235,192 @@ INSERT IGNORE INTO activites (id,destination_id,nom,description,prix,capacite_ma
 
 -- Transports de base (IDs 1-6)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(1,'Air France',    'avion', 'Paris CDG', 'Bali DPS',   '2026-06-14 11:30:00', '2026-06-15 05:45:00', 789.00, 50);
+(1,'Air France','avion','Paris CDG','Bali DPS','2026-06-14 11:30:00','2026-06-27 11:30:00',789.00,50);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(2,'Qatar Airways', 'avion', 'Paris CDG', 'Bali DPS',   '2026-06-14 15:20:00', '2026-06-15 09:00:00', 672.00, 40);
+(2,'Qatar Airways','avion','Paris CDG','Bali DPS','2026-06-14 15:20:00','2026-06-28 15:20:00',672.00,40);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(4,'Eurostar',      'train', 'Paris',     'Londres',    '2026-07-01 08:00:00', '2026-07-01 10:00:00', 120.00, 80);
+(4,'Eurostar','train','Paris','Londres','2026-07-01 08:00:00','2026-07-09 08:00:00',120.00,80);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(5,'Air France',    'avion', 'Paris CDG', 'Tokyo HND',  '2026-08-01 10:00:00', '2026-08-02 08:00:00',1100.00, 30);
+(5,'Air France','avion','Paris CDG','Tokyo HND','2026-08-01 10:00:00','2026-08-15 10:00:00',1100.00,30);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(6,'TAP Portugal',  'avion', 'Paris CDG', 'Lisbonne',   '2026-09-15 07:30:00', '2026-09-15 09:45:00', 180.00, 60);
+(6,'TAP Portugal','avion','Paris CDG','Lisbonne','2026-09-15 07:30:00','2026-09-22 07:30:00',180.00,60);
 
 -- TRANSPORTS (nouveaux uniquement, IDs 7+)
 -- ============================================================
 
 -- Avion : Paris → destinations plage
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(7,'Emirates','avion','Paris CDG','Malé MLE','2026-07-10 21:30:00','2026-07-11 15:45:00',1350.00,250);
+(7,'Emirates','avion','Paris CDG','Malé MLE','2026-07-10 21:30:00','2026-07-23 21:30:00',1350.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(8,'Air Maldives','avion','Paris CDG','Malé MLE','2026-08-15 23:00:00','2026-08-16 17:00:00',1190.00,200);
+(8,'Air Maldives','avion','Paris CDG','Malé MLE','2026-08-15 23:00:00','2026-08-29 23:00:00',1190.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(9,'Thai Airways','avion','Paris CDG','Phuket HKT','2026-07-12 22:00:00','2026-07-13 16:30:00',720.00,300);
+(9,'Thai Airways','avion','Paris CDG','Phuket HKT','2026-07-12 22:00:00','2026-07-24 22:00:00',720.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(10,'Emirates','avion','Paris CDG','Phuket HKT','2026-08-05 08:30:00','2026-08-06 03:20:00',680.00,280);
+(10,'Emirates','avion','Paris CDG','Phuket HKT','2026-08-05 08:30:00','2026-08-18 08:30:00',680.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(11,'Air France','avion','Paris CDG','Cancún CUN','2026-07-18 10:00:00','2026-07-18 14:45:00',650.00,240);
+(11,'Air France','avion','Paris CDG','Cancún CUN','2026-07-18 10:00:00','2026-08-01 10:00:00',650.00,240);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(12,'Iberia','avion','Paris CDG','Cancún CUN','2026-08-10 12:30:00','2026-08-10 17:15:00',590.00,220);
+(12,'Iberia','avion','Paris CDG','Cancún CUN','2026-08-10 12:30:00','2026-08-22 12:30:00',590.00,220);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(13,'Air Seychelles','avion','Paris CDG','Mahé SEZ','2026-07-22 22:45:00','2026-07-23 11:20:00',980.00,180);
+(13,'Air Seychelles','avion','Paris CDG','Mahé SEZ','2026-07-22 22:45:00','2026-08-04 22:45:00',980.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(14,'Emirates','avion','Paris CDG','Mahé SEZ','2026-08-12 20:00:00','2026-08-13 09:00:00',1050.00,200);
+(14,'Emirates','avion','Paris CDG','Mahé SEZ','2026-08-12 20:00:00','2026-08-26 20:00:00',1050.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(15,'Ethiopian Air','avion','Paris CDG','Zanzibar ZNZ','2026-07-25 11:00:00','2026-07-26 01:30:00',620.00,240);
+(15,'Ethiopian Air','avion','Paris CDG','Zanzibar ZNZ','2026-07-25 11:00:00','2026-08-06 11:00:00',620.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(16,'Kenya Airways','avion','Paris CDG','Zanzibar ZNZ','2026-08-20 09:00:00','2026-08-20 23:45:00',580.00,220);
+(16,'Kenya Airways','avion','Paris CDG','Zanzibar ZNZ','2026-08-20 09:00:00','2026-08-29 09:00:00',580.00,220);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(17,'Aegean Airlines','avion','Paris CDG','Mykonos JMK','2026-06-20 07:30:00','2026-06-20 11:15:00',220.00,180);
+(17,'Aegean Airlines','avion','Paris CDG','Mykonos JMK','2026-06-20 07:30:00','2026-06-30 07:30:00',220.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(18,'Air France','avion','Paris CDG','Mykonos JMK','2026-07-28 14:00:00','2026-07-28 17:50:00',280.00,200);
+(18,'Air France','avion','Paris CDG','Mykonos JMK','2026-07-28 14:00:00','2026-08-08 14:00:00',280.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(19,'Vueling','avion','Paris ORY','Ibiza IBZ','2026-06-25 06:45:00','2026-06-25 09:15:00',110.00,180);
+(19,'Vueling','avion','Paris ORY','Ibiza IBZ','2026-06-25 06:45:00','2026-07-03 06:45:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(20,'easyJet','avion','Paris CDG','Ibiza IBZ','2026-07-04 11:00:00','2026-07-04 13:35:00',95.00,180);
+(20,'easyJet','avion','Paris CDG','Ibiza IBZ','2026-07-04 11:00:00','2026-07-13 11:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(21,'Air Tahiti Nui','avion','Paris CDG','Bora Bora BOB','2026-08-01 10:00:00','2026-08-02 07:30:00',1800.00,240);
+(21,'Air Tahiti Nui','avion','Paris CDG','Bora Bora BOB','2026-08-01 10:00:00','2026-08-13 10:00:00',1800.00,240);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(22,'Air Mauritius','avion','Paris CDG','Île Maurice MRU','2026-07-30 22:00:00','2026-07-31 11:30:00',750.00,280);
+(22,'Air Mauritius','avion','Paris CDG','Île Maurice MRU','2026-07-30 22:00:00','2026-08-12 22:00:00',750.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(23,'Air France','avion','Paris CDG','Île Maurice MRU','2026-08-25 21:00:00','2026-08-26 10:00:00',820.00,250);
+(23,'Air France','avion','Paris CDG','Île Maurice MRU','2026-08-25 21:00:00','2026-09-08 21:00:00',820.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(24,'Air France','avion','Paris CDG','Miami MIA','2026-07-08 10:30:00','2026-07-08 14:00:00',480.00,300);
+(24,'Air France','avion','Paris CDG','Miami MIA','2026-07-08 10:30:00','2026-07-20 10:30:00',480.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(25,'American Airlines','avion','Paris CDG','Miami MIA','2026-08-18 09:00:00','2026-08-18 12:30:00',420.00,280);
+(25,'American Airlines','avion','Paris CDG','Miami MIA','2026-08-18 09:00:00','2026-08-31 09:00:00',420.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(26,'Aegean Airlines','avion','Paris CDG','Santorini JTR','2026-06-15 06:00:00','2026-06-15 10:30:00',195.00,180);
+(26,'Aegean Airlines','avion','Paris CDG','Santorini JTR','2026-06-15 06:00:00','2026-06-26 06:00:00',195.00,180);
 
 -- Avion : Paris → destinations montagne/ville/culture/aventure
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(27,'Air France','avion','Paris CDG','Santorini JTR','2026-07-20 08:00:00','2026-07-20 12:00:00',245.00,200);
+(27,'Air France','avion','Paris CDG','Santorini JTR','2026-07-20 08:00:00','2026-08-01 08:00:00',245.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(28,'Vueling','avion','Paris ORY','Barcelone BCN','2026-07-01 07:00:00','2026-07-01 08:45:00',80.00,180);
+(28,'Vueling','avion','Paris ORY','Barcelone BCN','2026-07-01 07:00:00','2026-07-09 07:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(29,'Air France','avion','Paris CDG','Barcelone BCN','2026-08-05 18:00:00','2026-08-05 20:00:00',120.00,200);
+(29,'Air France','avion','Paris CDG','Barcelone BCN','2026-08-05 18:00:00','2026-08-14 18:00:00',120.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(30,'KLM','avion','Paris CDG','Amsterdam AMS','2026-07-05 08:00:00','2026-07-05 09:30:00',110.00,180);
+(30,'KLM','avion','Paris CDG','Amsterdam AMS','2026-07-05 08:00:00','2026-07-12 08:00:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(31,'Singapore Airlines','avion','Paris CDG','Singapour SIN','2026-07-15 23:30:00','2026-07-16 18:15:00',880.00,280);
+(31,'Singapore Airlines','avion','Paris CDG','Singapour SIN','2026-07-15 23:30:00','2026-07-28 23:30:00',880.00,280);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(32,'Air France','avion','Paris CDG','Singapour SIN','2026-08-10 22:00:00','2026-08-11 16:45:00',920.00,250);
+(32,'Air France','avion','Paris CDG','Singapour SIN','2026-08-10 22:00:00','2026-08-24 22:00:00',920.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(33,'Czech Airlines','avion','Paris CDG','Prague PRG','2026-06-10 07:00:00','2026-06-10 09:05:00',95.00,180);
+(33,'Czech Airlines','avion','Paris CDG','Prague PRG','2026-06-10 07:00:00','2026-06-17 07:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(34,'easyJet','avion','Paris CDG','Prague PRG','2026-07-22 10:30:00','2026-07-22 12:40:00',75.00,180);
+(34,'easyJet','avion','Paris CDG','Prague PRG','2026-07-22 10:30:00','2026-07-30 10:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(35,'Emirates','avion','Paris CDG','Dubaï DXB','2026-07-10 14:00:00','2026-07-10 23:00:00',420.00,300);
+(35,'Emirates','avion','Paris CDG','Dubaï DXB','2026-07-10 14:00:00','2026-07-22 14:00:00',420.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(36,'Air France','avion','Paris CDG','Dubaï DXB','2026-08-01 08:30:00','2026-08-01 17:45:00',380.00,280);
+(36,'Air France','avion','Paris CDG','Dubaï DXB','2026-08-01 08:30:00','2026-08-10 08:30:00',380.00,280);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(37,'Air France','avion','Paris CDG','New York JFK','2026-07-12 11:00:00','2026-07-12 13:30:00',520.00,300);
+(37,'Air France','avion','Paris CDG','New York JFK','2026-07-12 11:00:00','2026-07-22 11:00:00',520.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(38,'Delta Airlines','avion','Paris CDG','New York JFK','2026-08-15 14:00:00','2026-08-15 16:20:00',480.00,280);
+(38,'Delta Airlines','avion','Paris CDG','New York JFK','2026-08-15 14:00:00','2026-08-26 14:00:00',480.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(39,'Thai Airways','avion','Paris CDG','Bangkok BKK','2026-07-05 23:00:00','2026-07-06 16:30:00',610.00,300);
+(39,'Thai Airways','avion','Paris CDG','Bangkok BKK','2026-07-05 23:00:00','2026-07-17 23:00:00',610.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(40,'Air France','avion','Paris CDG','Bangkok BKK','2026-08-20 22:30:00','2026-08-21 15:45:00',650.00,260);
+(40,'Air France','avion','Paris CDG','Bangkok BKK','2026-08-20 22:30:00','2026-09-02 22:30:00',650.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(41,'Royal Air Maroc','avion','Paris CDG','Marrakech RAK','2026-07-03 08:00:00','2026-07-03 10:15:00',95.00,200);
+(41,'Royal Air Maroc','avion','Paris CDG','Marrakech RAK','2026-07-03 08:00:00','2026-07-13 08:00:00',95.00,200);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(42,'Transavia','avion','Paris ORY','Marrakech RAK','2026-08-14 06:30:00','2026-08-14 08:45:00',80.00,180);
+(42,'Transavia','avion','Paris ORY','Marrakech RAK','2026-08-14 06:30:00','2026-08-25 06:30:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(43,'ITA Airways','avion','Paris CDG','Rome FCO','2026-07-08 07:00:00','2026-07-08 09:15:00',90.00,180);
+(43,'ITA Airways','avion','Paris CDG','Rome FCO','2026-07-08 07:00:00','2026-07-16 07:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(44,'Vueling','avion','Paris ORY','Rome FCO','2026-08-22 14:00:00','2026-08-22 16:20:00',75.00,180);
+(44,'Vueling','avion','Paris ORY','Rome FCO','2026-08-22 14:00:00','2026-08-31 14:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(45,'Turkish Airlines','avion','Paris CDG','Istanbul IST','2026-07-10 07:30:00','2026-07-10 11:30:00',190.00,280);
+(45,'Turkish Airlines','avion','Paris CDG','Istanbul IST','2026-07-10 07:30:00','2026-07-20 07:30:00',190.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(46,'Pegasus','avion','Paris CDG','Istanbul SAW','2026-08-05 11:00:00','2026-08-05 15:10:00',145.00,220);
+(46,'Pegasus','avion','Paris CDG','Istanbul SAW','2026-08-05 11:00:00','2026-08-16 11:00:00',145.00,220);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(47,'Japan Airlines','avion','Paris CDG','Osaka KIX','2026-07-15 10:30:00','2026-07-16 07:00:00',1050.00,250);
+(47,'Japan Airlines','avion','Paris CDG','Osaka KIX','2026-07-15 10:30:00','2026-07-29 10:30:00',1050.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(48,'ANA','avion','Paris CDG','Osaka KIX','2026-08-10 21:00:00','2026-08-11 17:30:00',1120.00,240);
+(48,'ANA','avion','Paris CDG','Osaka KIX','2026-08-10 21:00:00','2026-08-22 21:00:00',1120.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(49,'EgyptAir','avion','Paris CDG','Le Caire CAI','2026-07-20 10:00:00','2026-07-20 15:00:00',280.00,220);
+(49,'EgyptAir','avion','Paris CDG','Le Caire CAI','2026-07-20 10:00:00','2026-07-30 10:00:00',280.00,220);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(50,'Air France','avion','Paris CDG','Le Caire CAI','2026-08-12 13:00:00','2026-08-12 18:15:00',320.00,200);
+(50,'Air France','avion','Paris CDG','Le Caire CAI','2026-08-12 13:00:00','2026-08-23 13:00:00',320.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(51,'Icelandair','avion','Paris CDG','Reykjavik KEF','2026-07-18 07:00:00','2026-07-18 09:30:00',290.00,180);
+(51,'Icelandair','avion','Paris CDG','Reykjavik KEF','2026-07-18 07:00:00','2026-07-30 07:00:00',290.00,180);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(52,'easyJet','avion','Paris CDG','Reykjavik KEF','2026-08-08 06:30:00','2026-08-08 09:05:00',220.00,180);
+(52,'easyJet','avion','Paris CDG','Reykjavik KEF','2026-08-08 06:30:00','2026-08-17 06:30:00',220.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(53,'Kenya Airways','avion','Paris CDG','Nairobi NBO','2026-07-14 23:45:00','2026-07-15 09:30:00',680.00,250);
+(53,'Kenya Airways','avion','Paris CDG','Nairobi NBO','2026-07-14 23:45:00','2026-07-24 23:45:00',680.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(54,'Ethiopian Air','avion','Paris CDG','Nairobi NBO','2026-08-20 10:00:00','2026-08-21 00:15:00',610.00,240);
+(54,'Ethiopian Air','avion','Paris CDG','Nairobi NBO','2026-08-20 10:00:00','2026-08-31 10:00:00',610.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(55,'Iberia','avion','Paris CDG','San José SJO','2026-07-22 10:30:00','2026-07-22 18:00:00',720.00,220);
+(55,'Iberia','avion','Paris CDG','San José SJO','2026-07-22 10:30:00','2026-08-04 10:30:00',720.00,220);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(56,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-08-05 11:00:00','2026-08-05 22:30:00',950.00,250);
+(56,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-08-05 11:00:00','2026-08-19 11:00:00',950.00,250);
 
 -- Train
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(57,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-01 07:20:00','2026-07-01 10:35:00',55.00,400);
+(57,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-01 07:20:00','2026-07-08 07:20:00',55.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(58,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-15 08:10:00','2026-08-15 11:25:00',65.00,400);
+(58,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-15 08:10:00','2026-08-23 08:10:00',65.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(59,'Thalys','train','Paris Gare du Nord','Amsterdam Centraal','2026-07-10 09:19:00','2026-07-10 12:43:00',85.00,300);
+(59,'Thalys','train','Paris Gare du Nord','Amsterdam Centraal','2026-07-10 09:19:00','2026-07-19 09:19:00',85.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(60,'Eurostar','train','Paris Gare du Nord','Amsterdam Centraal','2026-08-01 10:31:00','2026-08-01 13:52:00',95.00,300);
+(60,'Eurostar','train','Paris Gare du Nord','Amsterdam Centraal','2026-08-01 10:31:00','2026-08-08 10:31:00',95.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(61,'SNCF Renfe','train','Paris Gare de Lyon','Barcelone Sants','2026-07-05 06:25:00','2026-07-05 12:00:00',80.00,350);
+(61,'SNCF Renfe','train','Paris Gare de Lyon','Barcelone Sants','2026-07-05 06:25:00','2026-07-13 06:25:00',80.00,350);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(62,'SNCF Renfe','train','Paris Gare de Lyon','Barcelone Sants','2026-08-20 08:13:00','2026-08-20 13:47:00',95.00,350);
+(62,'SNCF Renfe','train','Paris Gare de Lyon','Barcelone Sants','2026-08-20 08:13:00','2026-08-29 08:13:00',95.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(63,'DB SNCF','train','Paris Est','Prague hl.n.','2026-07-18 07:08:00','2026-07-18 19:00:00',120.00,250);
+(63,'DB SNCF','train','Paris Est','Prague hl.n.','2026-07-18 07:08:00','2026-07-25 07:08:00',120.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(64,'Trenitalia','train','Paris Gare de Lyon','Rome Termini','2026-08-02 07:30:00','2026-08-02 19:15:00',130.00,300);
+(64,'Trenitalia','train','Paris Gare de Lyon','Rome Termini','2026-08-02 07:30:00','2026-08-10 07:30:00',130.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(65,'CP Portugal','train','Paris Gare de Lyon','Porto Campanha','2026-07-08 10:00:00','2026-07-08 13:00:00',28.00,250);
+(65,'CP Portugal','train','Paris Gare de Lyon','Porto Campanha','2026-07-08 10:00:00','2026-07-17 10:00:00',28.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(66,'SBB','train','Paris Gare de Lyon','Zermatt','2026-07-20 09:15:00','2026-07-20 12:48:00',62.00,200);
+(66,'SBB','train','Paris Gare de Lyon','Zermatt','2026-07-20 09:15:00','2026-07-27 09:15:00',62.00,200);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(67,'JR West','train','Paris Gare de Lyon','Kyoto','2026-07-16 08:00:00','2026-07-16 08:14:00',14.00,500);
+(67,'JR West','train','Paris Gare de Lyon','Kyoto','2026-07-16 08:00:00','2026-07-24 08:00:00',14.00,500);
 
 -- Bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(68,'Flixbus','bus','Paris Bercy','Bruxelles Midi','2026-07-02 07:00:00','2026-07-02 10:30:00',15.00,55);
+(68,'Flixbus','bus','Paris Bercy','Bruxelles Midi','2026-07-02 07:00:00','2026-07-11 07:00:00',15.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(69,'ALSA','bus','Paris Bercy Seine','Séville','2026-07-10 08:30:00','2026-07-10 15:00:00',25.00,50);
+(69,'ALSA','bus','Paris Bercy Seine','Séville','2026-07-10 08:30:00','2026-07-17 08:30:00',25.00,50);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(70,'Peru Hop','bus','Paris Bercy Seine','Puno','2026-07-22 08:00:00','2026-07-22 16:00:00',35.00,45);
+(70,'Peru Hop','bus','Paris Bercy Seine','Puno','2026-07-22 08:00:00','2026-07-30 08:00:00',35.00,45);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(71,'InterCity NZ','bus','Paris Bercy Seine','Te Anau','2026-08-10 08:00:00','2026-08-10 11:30:00',28.00,50);
+(71,'InterCity NZ','bus','Paris Bercy Seine','Te Anau','2026-08-10 08:00:00','2026-08-19 08:00:00',28.00,50);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(72,'Nakhon Chai Air','bus','Paris Bercy Seine','Chiang Mai','2026-07-15 21:00:00','2026-07-16 07:00:00',18.00,42);
+(72,'Nakhon Chai Air','bus','Paris Bercy Seine','Chiang Mai','2026-07-15 21:00:00','2026-07-22 21:00:00',18.00,42);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(73,'CTM Maroc','bus','Paris Bercy Seine','Essaouira','2026-07-20 09:00:00','2026-07-20 12:30:00',12.00,45);
+(73,'CTM Maroc','bus','Paris Bercy Seine','Essaouira','2026-07-20 09:00:00','2026-07-28 09:00:00',12.00,45);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(74,'Metro Turizm','bus','Paris Bercy Seine','Göreme Cappadoce','2026-07-12 19:00:00','2026-07-13 06:00:00',22.00,45);
+(74,'Metro Turizm','bus','Paris Bercy Seine','Göreme Cappadoce','2026-07-12 19:00:00','2026-07-21 19:00:00',22.00,45);
 
 -- Bateau
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(75,'Hellenic Seaways','bateau','Paris Port de Grenelle','Santorin','2026-07-15 07:30:00','2026-07-15 17:00:00',65.00,400);
+(75,'Hellenic Seaways','bateau','Paris Port de Grenelle','Santorin','2026-07-15 07:30:00','2026-07-22 07:30:00',65.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(76,'SeaJets','bateau','Paris Port de Grenelle','Santorin','2026-08-05 08:00:00','2026-08-05 13:30:00',90.00,200);
+(76,'SeaJets','bateau','Paris Port de Grenelle','Santorin','2026-08-05 08:00:00','2026-08-13 08:00:00',90.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(77,'Balearia','bateau','Paris Port de Grenelle','Ibiza','2026-06-30 23:30:00','2026-07-01 09:00:00',55.00,600);
+(77,'Balearia','bateau','Paris Port de Grenelle','Ibiza','2026-06-30 23:30:00','2026-07-09 23:30:00',55.00,600);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(78,'Trasmediterranea','bateau','Paris Port de Grenelle','Ibiza','2026-07-20 20:00:00','2026-07-21 05:30:00',50.00,500);
+(78,'Trasmediterranea','bateau','Paris Port de Grenelle','Ibiza','2026-07-20 20:00:00','2026-07-27 20:00:00',50.00,500);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(79,'Aranui Cruises','bateau','Paris Port de Grenelle','Bora Bora','2026-08-10 10:00:00','2026-08-10 16:30:00',55.00,200);
+(79,'Aranui Cruises','bateau','Paris Port de Grenelle','Bora Bora','2026-08-10 10:00:00','2026-08-18 10:00:00',55.00,200);
 
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(80,'DFDS Seaways','bateau','Paris Port de Grenelle','Newcastle','2026-07-25 17:00:00','2026-07-26 09:00:00',120.00,500);
+(80,'DFDS Seaways','bateau','Paris Port de Grenelle','Newcastle','2026-07-25 17:00:00','2026-08-03 17:00:00',120.00,500);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(81,'Island Aviation','bateau','Paris Port de Grenelle','Atoll Baa','2026-07-12 14:00:00','2026-07-12 15:30:00',80.00,20);
+(81,'Island Aviation','bateau','Paris Port de Grenelle','Atoll Baa','2026-07-12 14:00:00','2026-07-19 14:00:00',80.00,20);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(82,'Jadrolinija','bateau','Paris Port de Grenelle','Split','2026-08-01 16:00:00','2026-08-02 08:00:00',85.00,300);
+(82,'Jadrolinija','bateau','Paris Port de Grenelle','Split','2026-08-01 16:00:00','2026-08-09 16:00:00',85.00,300);
 
 -- TRANSPORTS DEPUIS PARIS (cohérents par destination)
 -- ============================================================
@@ -2431,107 +2431,107 @@ INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart
 
 -- Londres (dest 33) — Eurostar déjà en ID=3 dans schema.sql
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(84,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-07-08 09:01:00','2026-07-08 10:28:00',79.00,300);
+(84,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-07-08 09:01:00','2026-07-15 09:01:00',79.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(85,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-08-12 11:31:00','2026-08-12 12:58:00',95.00,300);
+(85,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-08-12 11:31:00','2026-08-20 11:31:00',95.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(86,'Air France','avion','Paris CDG','London Heathrow LHR','2026-07-15 07:00:00','2026-07-15 08:15:00',85.00,180);
+(86,'Air France','avion','Paris CDG','London Heathrow LHR','2026-07-15 07:00:00','2026-07-24 07:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(87,'easyJet','avion','Paris CDG','London Gatwick LGW','2026-08-20 06:30:00','2026-08-20 07:45:00',65.00,180);
+(87,'easyJet','avion','Paris CDG','London Gatwick LGW','2026-08-20 06:30:00','2026-08-27 06:30:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(88,'Flixbus','bus','Paris Bercy Seine','London Victoria','2026-07-10 07:00:00','2026-07-10 13:30:00',25.00,55);
+(88,'Flixbus','bus','Paris Bercy Seine','London Victoria','2026-07-10 07:00:00','2026-07-18 07:00:00',25.00,55);
 
 -- Berlin (dest 34) — avion + train (Nightjet) + bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(89,'Air France','avion','Paris CDG','Berlin BER','2026-07-05 07:30:00','2026-07-05 09:20:00',95.00,180);
+(89,'Air France','avion','Paris CDG','Berlin BER','2026-07-05 07:30:00','2026-07-14 07:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(90,'easyJet','avion','Paris CDG','Berlin BER','2026-08-10 06:00:00','2026-08-10 07:55:00',75.00,180);
+(90,'easyJet','avion','Paris CDG','Berlin BER','2026-08-10 06:00:00','2026-08-17 06:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(91,'DB Nightjet','train','Paris Est','Berlin Hbf','2026-07-20 22:17:00','2026-07-21 08:02:00',89.00,150);
+(91,'DB Nightjet','train','Paris Est','Berlin Hbf','2026-07-20 22:17:00','2026-07-28 22:17:00',89.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(92,'Flixbus','bus','Paris Bercy Seine','Berlin ZOB','2026-07-15 08:00:00','2026-07-16 04:30:00',35.00,55);
+(92,'Flixbus','bus','Paris Bercy Seine','Berlin ZOB','2026-07-15 08:00:00','2026-07-24 08:00:00',35.00,55);
 
 -- Vienne (dest 35) — avion + train (Nightjet)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(93,'Air France','avion','Paris CDG','Vienne VIE','2026-07-08 08:00:00','2026-07-08 10:00:00',110.00,180);
+(93,'Air France','avion','Paris CDG','Vienne VIE','2026-07-08 08:00:00','2026-07-15 08:00:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(94,'Austrian Airlines','avion','Paris CDG','Vienne VIE','2026-08-15 07:00:00','2026-08-15 09:05:00',95.00,180);
+(94,'Austrian Airlines','avion','Paris CDG','Vienne VIE','2026-08-15 07:00:00','2026-08-23 07:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(95,'DB Nightjet','train','Paris Est','Wien Hbf','2026-07-22 22:25:00','2026-07-23 09:00:00',99.00,150);
+(95,'DB Nightjet','train','Paris Est','Wien Hbf','2026-07-22 22:25:00','2026-07-31 22:25:00',99.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(96,'Flixbus','bus','Paris Bercy Seine','Wien Erdberg','2026-07-18 07:30:00','2026-07-19 05:00:00',45.00,55);
+(96,'Flixbus','bus','Paris Bercy Seine','Wien Erdberg','2026-07-18 07:30:00','2026-07-25 07:30:00',45.00,55);
 
 -- Madrid (dest 36) — avion + train TGV/Renfe + bus nuit
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(97,'Air France','avion','Paris CDG','Madrid MAD','2026-07-01 07:30:00','2026-07-01 09:30:00',90.00,180);
+(97,'Air France','avion','Paris CDG','Madrid MAD','2026-07-01 07:30:00','2026-07-09 07:30:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(98,'Iberia','avion','Paris CDG','Madrid MAD','2026-08-05 08:00:00','2026-08-05 10:00:00',75.00,180);
+(98,'Iberia','avion','Paris CDG','Madrid MAD','2026-08-05 08:00:00','2026-08-14 08:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(99,'SNCF Renfe','train','Paris Montparnasse','Madrid Chamartin','2026-07-10 09:30:00','2026-07-10 16:02:00',120.00,300);
+(99,'SNCF Renfe','train','Paris Montparnasse','Madrid Chamartin','2026-07-10 09:30:00','2026-07-17 09:30:00',120.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(100,'Flixbus','bus','Paris Bercy Seine','Madrid Sur','2026-07-20 19:00:00','2026-07-21 14:00:00',49.00,55);
+(100,'Flixbus','bus','Paris Bercy Seine','Madrid Sur','2026-07-20 19:00:00','2026-07-28 19:00:00',49.00,55);
 
 -- Bruxelles (dest 37) — avion + Thalys + bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(101,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-05 09:25:00','2026-07-05 10:55:00',45.00,300);
+(101,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-05 09:25:00','2026-07-14 09:25:00',45.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(102,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-08-12 12:55:00','2026-08-12 14:25:00',55.00,300);
+(102,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-08-12 12:55:00','2026-08-19 12:55:00',55.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(103,'Brussels Airlines','avion','Paris CDG','Bruxelles BRU','2026-07-15 07:30:00','2026-07-15 08:35:00',70.00,150);
+(103,'Brussels Airlines','avion','Paris CDG','Bruxelles BRU','2026-07-15 07:30:00','2026-07-23 07:30:00',70.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(104,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-07-08 08:00:00','2026-07-08 11:30:00',12.00,55);
+(104,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-07-08 08:00:00','2026-07-17 08:00:00',12.00,55);
 
 -- Copenhague (dest 38) — avion uniquement (train trop long)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(105,'Air France','avion','Paris CDG','Copenhague CPH','2026-07-10 07:30:00','2026-07-10 10:15:00',140.00,180);
+(105,'Air France','avion','Paris CDG','Copenhague CPH','2026-07-10 07:30:00','2026-07-17 07:30:00',140.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(106,'SAS','avion','Paris CDG','Copenhague CPH','2026-08-20 08:00:00','2026-08-20 10:45:00',120.00,180);
+(106,'SAS','avion','Paris CDG','Copenhague CPH','2026-08-20 08:00:00','2026-08-28 08:00:00',120.00,180);
 
 -- Stockholm (dest 39) — avion + bus très long
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(107,'Air France','avion','Paris CDG','Stockholm ARN','2026-07-12 08:30:00','2026-07-12 11:50:00',160.00,180);
+(107,'Air France','avion','Paris CDG','Stockholm ARN','2026-07-12 08:30:00','2026-07-21 08:30:00',160.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(108,'SAS','avion','Paris CDG','Stockholm ARN','2026-08-18 07:00:00','2026-08-18 10:20:00',140.00,180);
+(108,'SAS','avion','Paris CDG','Stockholm ARN','2026-08-18 07:00:00','2026-08-25 07:00:00',140.00,180);
 
 -- Budapest (dest 40) — avion + train (Nightjet) + bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(109,'Air France','avion','Paris CDG','Budapest BUD','2026-07-08 08:00:00','2026-07-08 10:15:00',105.00,180);
+(109,'Air France','avion','Paris CDG','Budapest BUD','2026-07-08 08:00:00','2026-07-16 08:00:00',105.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(110,'Wizz Air','avion','Paris ORY','Budapest BUD','2026-08-10 06:30:00','2026-08-10 08:45:00',65.00,180);
+(110,'Wizz Air','avion','Paris ORY','Budapest BUD','2026-08-10 06:30:00','2026-08-19 06:30:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(111,'DB Nightjet','train','Paris Est','Budapest Keleti','2026-07-20 21:33:00','2026-07-21 09:40:00',109.00,150);
+(111,'DB Nightjet','train','Paris Est','Budapest Keleti','2026-07-20 21:33:00','2026-07-27 21:33:00',109.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(112,'Flixbus','bus','Paris Bercy Seine','Budapest Nepliget','2026-07-15 08:00:00','2026-07-16 07:30:00',55.00,55);
+(112,'Flixbus','bus','Paris Bercy Seine','Budapest Nepliget','2026-07-15 08:00:00','2026-07-23 08:00:00',55.00,55);
 
 -- Athènes (dest 41) — avion uniquement depuis Paris
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(113,'Air France','avion','Paris CDG','Athènes ATH','2026-07-10 08:30:00','2026-07-10 12:30:00',145.00,180);
+(113,'Air France','avion','Paris CDG','Athènes ATH','2026-07-10 08:30:00','2026-07-20 08:30:00',145.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(114,'Aegean Airlines','avion','Paris CDG','Athènes ATH','2026-08-15 09:00:00','2026-08-15 13:05:00',120.00,180);
+(114,'Aegean Airlines','avion','Paris CDG','Athènes ATH','2026-08-15 09:00:00','2026-08-26 09:00:00',120.00,180);
 
 -- Florence (dest 42) — avion + train (TGV Paris-Florence)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(115,'Vueling','avion','Paris ORY','Florence FLR','2026-07-05 07:00:00','2026-07-05 09:15:00',85.00,180);
+(115,'Vueling','avion','Paris ORY','Florence FLR','2026-07-05 07:00:00','2026-07-13 07:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(116,'Air France','avion','Paris CDG','Pise PSA','2026-08-10 08:30:00','2026-08-10 10:45:00',95.00,180);
+(116,'Air France','avion','Paris CDG','Pise PSA','2026-08-10 08:30:00','2026-08-19 08:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(117,'Trenitalia','train','Paris Gare de Lyon','Florence SMN','2026-07-15 07:15:00','2026-07-15 14:50:00',110.00,300);
+(117,'Trenitalia','train','Paris Gare de Lyon','Florence SMN','2026-07-15 07:15:00','2026-07-22 07:15:00',110.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(118,'Flixbus','bus','Paris Bercy Seine','Florence SITA','2026-07-20 07:00:00','2026-07-20 20:00:00',45.00,55);
+(118,'Flixbus','bus','Paris Bercy Seine','Florence SITA','2026-07-20 07:00:00','2026-07-28 07:00:00',45.00,55);
 
 -- Porto (dest 43) — avion + bus nuit (pas de train direct Paris-Porto)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(119,'TAP Portugal','avion','Paris CDG','Porto OPO','2026-07-08 07:30:00','2026-07-08 09:40:00',95.00,180);
+(119,'TAP Portugal','avion','Paris CDG','Porto OPO','2026-07-08 07:30:00','2026-07-17 07:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(120,'Ryanair','avion','Paris Beauvais','Porto OPO','2026-08-12 06:30:00','2026-08-12 08:45:00',55.00,180);
+(120,'Ryanair','avion','Paris Beauvais','Porto OPO','2026-08-12 06:30:00','2026-08-19 06:30:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(121,'Flixbus','bus','Paris Bercy Seine','Porto Campo 24 Agosto','2026-07-20 09:00:00','2026-07-21 09:00:00',49.00,55);
+(121,'Flixbus','bus','Paris Bercy Seine','Porto Campo 24 Agosto','2026-07-20 09:00:00','2026-07-28 09:00:00',49.00,55);
 
 -- Sintra (dest 44) — via Lisbonne (avion + bus depuis Lisbonne)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(122,'TAP Portugal','avion','Paris CDG','Lisbonne LIS','2026-07-10 07:00:00','2026-07-10 09:15:00',90.00,180);
+(122,'TAP Portugal','avion','Paris CDG','Lisbonne LIS','2026-07-10 07:00:00','2026-07-19 07:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(123,'easyJet','avion','Paris CDG','Lisbonne LIS','2026-08-05 06:30:00','2026-08-05 08:45:00',75.00,180);
+(123,'easyJet','avion','Paris CDG','Lisbonne LIS','2026-08-05 06:30:00','2026-08-12 06:30:00',75.00,180);
 
 -- ============================================================
 -- INTERNATIONAUX LOINTAINS : avion uniquement depuis Paris
@@ -2539,98 +2539,98 @@ INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart
 
 -- Séoul (dest 45)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(124,'Korean Air','avion','Paris CDG','Séoul ICN','2026-07-10 13:30:00','2026-07-11 08:10:00',850.00,300);
+(124,'Korean Air','avion','Paris CDG','Séoul ICN','2026-07-10 13:30:00','2026-07-23 13:30:00',850.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(125,'Air France','avion','Paris CDG','Séoul ICN','2026-08-15 10:00:00','2026-08-16 05:40:00',920.00,280);
+(125,'Air France','avion','Paris CDG','Séoul ICN','2026-08-15 10:00:00','2026-08-29 10:00:00',920.00,280);
 
 -- Hong Kong (dest 46)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(126,'Cathay Pacific','avion','Paris CDG','Hong Kong HKG','2026-07-12 22:00:00','2026-07-13 17:30:00',780.00,300);
+(126,'Cathay Pacific','avion','Paris CDG','Hong Kong HKG','2026-07-12 22:00:00','2026-07-24 22:00:00',780.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(127,'Air France','avion','Paris CDG','Hong Kong HKG','2026-08-10 21:30:00','2026-08-11 17:00:00',850.00,280);
+(127,'Air France','avion','Paris CDG','Hong Kong HKG','2026-08-10 21:30:00','2026-08-23 21:30:00',850.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(160,'Air France','avion','Paris CDG','Hong Kong HKG','2026-07-10 13:30:00','2026-07-11 08:10:00',850.00,300);
+(160,'Air France','avion','Paris CDG','Hong Kong HKG','2026-07-10 13:30:00','2026-07-23 13:30:00',850.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(161,'Air France','avion','Paris CDG','Hong Kong HKG','2026-08-15 10:00:00','2026-08-16 05:40:00',920.00,280);
+(161,'Air France','avion','Paris CDG','Hong Kong HKG','2026-08-15 10:00:00','2026-08-29 10:00:00',920.00,280);
 
 -- Kuala Lumpur (dest 47)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(128,'Malaysia Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-07-15 21:00:00','2026-07-16 16:00:00',720.00,300);
+(128,'Malaysia Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-07-15 21:00:00','2026-07-29 21:00:00',720.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(129,'Qatar Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-08-20 23:00:00','2026-08-21 18:30:00',680.00,280);
+(129,'Qatar Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-08-20 23:00:00','2026-09-01 23:00:00',680.00,280);
 
 
 -- Hanoï (dest 48)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(130,'Vietnam Airlines','avion','Paris CDG','Hanoï HAN','2026-07-08 22:30:00','2026-07-09 15:30:00',680.00,280);
+(130,'Vietnam Airlines','avion','Paris CDG','Hanoï HAN','2026-07-08 22:30:00','2026-07-21 22:30:00',680.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(131,'Air France','avion','Paris CDG','Hanoï HAN','2026-08-12 21:00:00','2026-08-13 14:00:00',750.00,280);
+(131,'Air France','avion','Paris CDG','Hanoï HAN','2026-08-12 21:00:00','2026-08-26 21:00:00',750.00,280);
 
 -- Mumbai (dest 49)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(132,'Air India','avion','Paris CDG','Mumbai BOM','2026-07-10 21:30:00','2026-07-11 09:00:00',580.00,300);
+(132,'Air India','avion','Paris CDG','Mumbai BOM','2026-07-10 21:30:00','2026-07-19 21:30:00',580.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(133,'Air France','avion','Paris CDG','Mumbai BOM','2026-08-15 22:00:00','2026-08-16 09:30:00',620.00,280);
+(133,'Air France','avion','Paris CDG','Mumbai BOM','2026-08-15 22:00:00','2026-08-25 22:00:00',620.00,280);
 
 -- Montréal (dest 50)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(134,'Air Transat','avion','Paris CDG','Montréal YUL','2026-07-05 11:00:00','2026-07-05 13:00:00',420.00,300);
+(134,'Air Transat','avion','Paris CDG','Montréal YUL','2026-07-05 11:00:00','2026-07-16 11:00:00',420.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(135,'Air France','avion','Paris CDG','Montréal YUL','2026-08-10 10:30:00','2026-08-10 12:30:00',480.00,280);
+(135,'Air France','avion','Paris CDG','Montréal YUL','2026-08-10 10:30:00','2026-08-22 10:30:00',480.00,280);
 
 -- Los Angeles (dest 51)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(136,'Air France','avion','Paris CDG','Los Angeles LAX','2026-07-12 10:00:00','2026-07-12 13:30:00',580.00,300);
+(136,'Air France','avion','Paris CDG','Los Angeles LAX','2026-07-12 10:00:00','2026-07-25 10:00:00',580.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(137,'Delta Airlines','avion','Paris CDG','Los Angeles LAX','2026-08-18 11:00:00','2026-08-18 14:20:00',520.00,280);
+(137,'Delta Airlines','avion','Paris CDG','Los Angeles LAX','2026-08-18 11:00:00','2026-09-01 11:00:00',520.00,280);
 
 -- Sydney (dest 52)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(138,'Qantas','avion','Paris CDG','Sydney SYD','2026-07-15 22:00:00','2026-07-17 07:00:00',1350.00,300);
+(138,'Qantas','avion','Paris CDG','Sydney SYD','2026-07-15 22:00:00','2026-07-27 22:00:00',1350.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(139,'Air France','avion','Paris CDG','Sydney SYD','2026-08-20 21:30:00','2026-08-22 06:30:00',1450.00,280);
+(139,'Air France','avion','Paris CDG','Sydney SYD','2026-08-20 21:30:00','2026-09-02 21:30:00',1450.00,280);
 
 -- Buenos Aires (dest 53)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(140,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-07-10 11:00:00','2026-07-10 22:30:00',880.00,300);
+(140,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-07-10 11:00:00','2026-07-24 11:00:00',880.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(141,'Aerolíneas Argentinas','avion','Paris CDG','Buenos Aires EZE','2026-08-05 12:00:00','2026-08-05 23:30:00',820.00,280);
+(141,'Aerolíneas Argentinas','avion','Paris CDG','Buenos Aires EZE','2026-08-05 12:00:00','2026-08-17 12:00:00',820.00,280);
 
 -- Rio de Janeiro (dest 54)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(142,'Air France','avion','Paris CDG','Rio de Janeiro GIG','2026-07-08 10:30:00','2026-07-08 20:00:00',820.00,300);
+(142,'Air France','avion','Paris CDG','Rio de Janeiro GIG','2026-07-08 10:30:00','2026-07-21 10:30:00',820.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(143,'Latam Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-08-12 11:00:00','2026-08-12 20:30:00',780.00,280);
+(143,'Latam Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-08-12 11:00:00','2026-08-26 11:00:00',780.00,280);
 
 -- Punta Cana (dest 55)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(144,'Corsair','avion','Paris ORY','Punta Cana PUJ','2026-07-05 10:00:00','2026-07-05 14:30:00',580.00,300);
+(144,'Corsair','avion','Paris ORY','Punta Cana PUJ','2026-07-05 10:00:00','2026-07-17 10:00:00',580.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(145,'Air France','avion','Paris CDG','Punta Cana PUJ','2026-08-10 09:30:00','2026-08-10 14:00:00',650.00,280);
+(145,'Air France','avion','Paris CDG','Punta Cana PUJ','2026-08-10 09:30:00','2026-08-23 09:30:00',650.00,280);
 
 -- Koh Samui (dest 56) — via Bangkok
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(146,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-07-10 22:00:00','2026-07-11 19:00:00',780.00,200);
+(146,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-07-10 22:00:00','2026-07-24 22:00:00',780.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(147,'Thai Airways','avion','Paris CDG','Koh Samui USM','2026-08-15 21:00:00','2026-08-16 18:00:00',720.00,200);
+(147,'Thai Airways','avion','Paris CDG','Koh Samui USM','2026-08-15 21:00:00','2026-08-27 21:00:00',720.00,200);
 
 -- Cap-Vert (dest 57)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(148,'TACV / Cabo Verde Airlines','avion','Paris CDG','Sal SID','2026-07-12 22:00:00','2026-07-13 02:00:00',420.00,200);
+(148,'TACV / Cabo Verde Airlines','avion','Paris CDG','Sal SID','2026-07-12 22:00:00','2026-07-21 22:00:00',420.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(149,'Transavia','avion','Paris ORY','Sal SID','2026-08-08 21:30:00','2026-08-09 01:30:00',380.00,180);
+(149,'Transavia','avion','Paris ORY','Sal SID','2026-08-08 21:30:00','2026-08-18 21:30:00',380.00,180);
 
 -- La Réunion (dest 58)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(150,'Air France','avion','Paris CDG','Saint-Denis RUN','2026-07-15 22:30:00','2026-07-16 11:30:00',580.00,280);
+(150,'Air France','avion','Paris CDG','Saint-Denis RUN','2026-07-15 22:30:00','2026-07-27 22:30:00',580.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(151,'Corsair','avion','Paris ORY','Saint-Denis RUN','2026-08-20 21:00:00','2026-08-21 10:00:00',520.00,250);
+(151,'Corsair','avion','Paris ORY','Saint-Denis RUN','2026-08-20 21:00:00','2026-09-02 21:00:00',520.00,250);
 
 -- Cape Town (dest 59)
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(152,'Air France','avion','Paris CDG','Cape Town CPT','2026-07-10 22:00:00','2026-07-11 11:00:00',850.00,280);
+(152,'Air France','avion','Paris CDG','Cape Town CPT','2026-07-10 22:00:00','2026-07-24 22:00:00',850.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(153,'South African Airways','avion','Paris CDG','Cape Town CPT','2026-08-15 20:00:00','2026-08-16 09:00:00',780.00,280);
+(153,'South African Airways','avion','Paris CDG','Cape Town CPT','2026-08-15 20:00:00','2026-08-27 20:00:00',780.00,280);
 
 -- ============================================================
 -- TRANSPORTS MANQUANTS POUR DESTINATIONS EXISTANTES
@@ -2639,21 +2639,21 @@ INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart
 
 -- Lisbonne (dest 4) — ajout bus Flixbus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(154,'Flixbus','bus','Paris Bercy Seine','Lisbonne Sete Rios','2026-07-08 08:00:00','2026-07-09 08:00:00',45.00,55);
+(154,'Flixbus','bus','Paris Bercy Seine','Lisbonne Sete Rios','2026-07-08 08:00:00','2026-07-16 08:00:00',45.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(155,'ALSA','bus','Paris Bercy Seine','Lisbonne Oriente','2026-08-15 09:00:00','2026-08-16 09:00:00',55.00,55);
+(155,'ALSA','bus','Paris Bercy Seine','Lisbonne Oriente','2026-08-15 09:00:00','2026-08-24 09:00:00',55.00,55);
 
 -- Chamonix (dest 11) — ajout bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(156,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-07-05 07:30:00','2026-07-05 13:00:00',25.00,55);
+(156,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-07-05 07:30:00','2026-07-12 07:30:00',25.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(157,'Ouibus','bus','Paris Bercy Seine','Chamonix gare routière','2026-08-10 08:00:00','2026-08-10 13:30:00',22.00,55);
+(157,'Ouibus','bus','Paris Bercy Seine','Chamonix gare routière','2026-08-10 08:00:00','2026-08-18 08:00:00',22.00,55);
 
 -- Interlaken (dest 3) — ajout bus
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(158,'Flixbus','bus','Paris Bercy Seine','Interlaken gare','2026-07-10 07:00:00','2026-07-10 15:00:00',35.00,55);
+(158,'Flixbus','bus','Paris Bercy Seine','Interlaken gare','2026-07-10 07:00:00','2026-07-19 07:00:00',35.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(159,'Flixbus','bus','Paris Bercy Seine','Interlaken gare','2026-08-20 07:00:00','2026-08-20 15:00:00',40.00,55);
+(159,'Flixbus','bus','Paris Bercy Seine','Interlaken gare','2026-08-20 07:00:00','2026-08-27 07:00:00',40.00,55);
 
 -- ============================================================
 --  VoyageVista — Ajout de transports
@@ -2671,1074 +2671,1074 @@ USE voyagevista;
 -- Seul accès réaliste : avion long-courrier via hub (Dubai, Doha, Sri Lanka...)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(160,'Qatar Airways','avion','Paris CDG','Malé MLE','2026-07-05 20:30:00','2026-07-06 14:15:00',1180.00,300);
+(160,'Qatar Airways','avion','Paris CDG','Malé MLE','2026-07-05 20:30:00','2026-07-18 20:30:00',1180.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(161,'Turkish Airlines','avion','Paris CDG','Malé MLE','2026-07-20 22:00:00','2026-07-21 18:30:00',1090.00,280);
+(161,'Turkish Airlines','avion','Paris CDG','Malé MLE','2026-07-20 22:00:00','2026-08-03 22:00:00',1090.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(162,'Sri Lankan Airlines','avion','Paris CDG','Malé MLE','2026-08-01 21:00:00','2026-08-02 15:00:00',1050.00,250);
+(162,'Sri Lankan Airlines','avion','Paris CDG','Malé MLE','2026-08-01 21:00:00','2026-08-13 21:00:00',1050.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(163,'Etihad Airways','avion','Paris CDG','Malé MLE','2026-08-10 19:30:00','2026-08-11 13:00:00',1120.00,270);
+(163,'Etihad Airways','avion','Paris CDG','Malé MLE','2026-08-10 19:30:00','2026-08-23 19:30:00',1120.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(164,'Emirates','avion','Paris CDG','Malé MLE','2026-09-05 21:30:00','2026-09-06 15:45:00',1350.00,300);
+(164,'Emirates','avion','Paris CDG','Malé MLE','2026-09-05 21:30:00','2026-09-19 21:30:00',1350.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(165,'Air France','avion','Paris CDG','Malé MLE','2026-07-15 22:00:00','2026-07-16 16:30:00',1280.00,250);
+(165,'Air France','avion','Paris CDG','Malé MLE','2026-07-15 22:00:00','2026-07-27 22:00:00',1280.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(166,'Maldivian','avion','Paris CDG','Malé MLE (transfert Atoll Nord)','2026-07-11 10:00:00','2026-07-11 10:45:00',85.00,30);
+(166,'Maldivian','avion','Paris CDG','Malé MLE (transfert Atoll Nord)','2026-07-11 10:00:00','2026-07-24 10:00:00',85.00,30);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(167,'Trans Maldivian Airways','bateau','Paris Port de Grenelle','Atoll Ari','2026-07-12 14:00:00','2026-07-12 15:30:00',60.00,14);
+(167,'Trans Maldivian Airways','bateau','Paris Port de Grenelle','Atoll Ari','2026-07-12 14:00:00','2026-07-21 14:00:00',60.00,14);
 
 -- DEST 2 — Phuket (existant : 9, 10 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(168,'Qatar Airways','avion','Paris CDG','Phuket HKT','2026-07-08 20:00:00','2026-07-09 16:00:00',690.00,300);
+(168,'Qatar Airways','avion','Paris CDG','Phuket HKT','2026-07-08 20:00:00','2026-07-20 20:00:00',690.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(169,'Turkish Airlines','avion','Paris CDG','Phuket HKT','2026-07-18 22:15:00','2026-07-19 18:00:00',650.00,280);
+(169,'Turkish Airlines','avion','Paris CDG','Phuket HKT','2026-07-18 22:15:00','2026-07-31 22:15:00',650.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(170,'Malaysia Airlines','avion','Paris CDG','Phuket HKT','2026-08-12 23:00:00','2026-08-13 18:30:00',670.00,260);
+(170,'Malaysia Airlines','avion','Paris CDG','Phuket HKT','2026-08-12 23:00:00','2026-08-26 23:00:00',670.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(171,'Singapore Airlines','avion','Paris CDG','Phuket HKT','2026-08-20 22:30:00','2026-08-21 17:45:00',710.00,280);
+(171,'Singapore Airlines','avion','Paris CDG','Phuket HKT','2026-08-20 22:30:00','2026-09-01 22:30:00',710.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(172,'Air France','avion','Paris CDG','Phuket HKT','2026-09-01 21:00:00','2026-09-02 16:15:00',740.00,250);
+(172,'Air France','avion','Paris CDG','Phuket HKT','2026-09-01 21:00:00','2026-09-14 21:00:00',740.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(173,'Lufthansa','avion','Paris CDG','Phuket HKT','2026-07-25 19:00:00','2026-07-26 15:00:00',660.00,270);
+(173,'Lufthansa','avion','Paris CDG','Phuket HKT','2026-07-25 19:00:00','2026-08-08 19:00:00',660.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(174,'Bangkok Airways','avion','Paris CDG','Phuket HKT','2026-07-07 10:00:00','2026-07-07 11:25:00',65.00,120);
+(174,'Bangkok Airways','avion','Paris CDG','Phuket HKT','2026-07-07 10:00:00','2026-07-19 10:00:00',65.00,120);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(175,'Thai Lion Air','avion','Paris CDG','Phuket HKT','2026-08-15 14:30:00','2026-08-15 15:55:00',45.00,180);
+(175,'Thai Lion Air','avion','Paris CDG','Phuket HKT','2026-08-15 14:30:00','2026-08-28 14:30:00',45.00,180);
 
 -- DEST 3 — Cancún (existant : 11, 12 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(176,'Air Transat','avion','Paris CDG','Cancún CUN','2026-07-04 11:30:00','2026-07-04 16:00:00',610.00,300);
+(176,'Air Transat','avion','Paris CDG','Cancún CUN','2026-07-04 11:30:00','2026-07-18 11:30:00',610.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(177,'Corsair','avion','Paris ORY','Cancún CUN','2026-07-15 10:00:00','2026-07-15 14:30:00',580.00,280);
+(177,'Corsair','avion','Paris ORY','Cancún CUN','2026-07-15 10:00:00','2026-07-27 10:00:00',580.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(178,'Condor','avion','Paris CDG','Cancún CUN','2026-08-01 12:00:00','2026-08-01 16:20:00',560.00,260);
+(178,'Condor','avion','Paris CDG','Cancún CUN','2026-08-01 12:00:00','2026-08-14 12:00:00',560.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(179,'TUI Airways','avion','Paris CDG','Cancún CUN','2026-08-08 10:30:00','2026-08-08 14:45:00',600.00,250);
+(179,'TUI Airways','avion','Paris CDG','Cancún CUN','2026-08-08 10:30:00','2026-08-22 10:30:00',600.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(180,'Aeromexico','avion','Paris CDG','Cancún CUN','2026-08-25 12:00:00','2026-08-25 16:15:00',640.00,280);
+(180,'Aeromexico','avion','Paris CDG','Cancún CUN','2026-08-25 12:00:00','2026-09-06 12:00:00',640.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(181,'United Airlines','avion','Paris CDG','Cancún CUN','2026-09-05 11:00:00','2026-09-05 15:20:00',590.00,280);
+(181,'United Airlines','avion','Paris CDG','Cancún CUN','2026-09-05 11:00:00','2026-09-18 11:00:00',590.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(182,'Volaris','avion','Paris CDG','Cancún CUN','2026-07-19 08:00:00','2026-07-19 10:00:00',75.00,180);
+(182,'Volaris','avion','Paris CDG','Cancún CUN','2026-07-19 08:00:00','2026-08-02 08:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(183,'Vivaaerobus','avion','Paris CDG','Cancún CUN','2026-08-11 07:30:00','2026-08-11 09:30:00',60.00,180);
+(183,'Vivaaerobus','avion','Paris CDG','Cancún CUN','2026-08-11 07:30:00','2026-08-23 07:30:00',60.00,180);
 
 -- DEST 4 — Seychelles (existant : 13, 14 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(184,'Turkish Airlines','avion','Paris CDG','Mahé SEZ','2026-07-08 22:30:00','2026-07-09 13:00:00',920.00,280);
+(184,'Turkish Airlines','avion','Paris CDG','Mahé SEZ','2026-07-08 22:30:00','2026-07-21 22:30:00',920.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(185,'Condor','avion','Paris CDG','Mahé SEZ','2026-07-20 23:00:00','2026-07-21 12:30:00',890.00,250);
+(185,'Condor','avion','Paris CDG','Mahé SEZ','2026-07-20 23:00:00','2026-08-03 23:00:00',890.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(186,'Corsair','avion','Paris ORY','Mahé SEZ','2026-08-05 21:00:00','2026-08-06 10:30:00',850.00,270);
+(186,'Corsair','avion','Paris ORY','Mahé SEZ','2026-08-05 21:00:00','2026-08-17 21:00:00',850.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(187,'Qatar Airways','avion','Paris CDG','Mahé SEZ','2026-08-18 20:00:00','2026-08-19 10:15:00',960.00,280);
+(187,'Qatar Airways','avion','Paris CDG','Mahé SEZ','2026-08-18 20:00:00','2026-08-31 20:00:00',960.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(188,'Etihad Airways','avion','Paris CDG','Mahé SEZ','2026-09-01 19:30:00','2026-09-02 09:00:00',910.00,260);
+(188,'Etihad Airways','avion','Paris CDG','Mahé SEZ','2026-09-01 19:30:00','2026-09-15 19:30:00',910.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(189,'Kenya Airways','avion','Paris CDG','Mahé SEZ','2026-07-14 11:00:00','2026-07-15 01:30:00',870.00,250);
+(189,'Kenya Airways','avion','Paris CDG','Mahé SEZ','2026-07-14 11:00:00','2026-07-26 11:00:00',870.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(190,'Air Seychelles','avion','Paris CDG','Praslin PRI','2026-07-23 11:00:00','2026-07-23 11:15:00',55.00,30);
+(190,'Air Seychelles','avion','Paris CDG','Praslin PRI','2026-07-23 11:00:00','2026-08-05 11:00:00',55.00,30);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(191,'Cat Cocos','bateau','Paris Port de Grenelle','Praslin','2026-07-24 09:30:00','2026-07-24 11:00:00',40.00,200);
+(191,'Cat Cocos','bateau','Paris Port de Grenelle','Praslin','2026-07-24 09:30:00','2026-08-02 09:30:00',40.00,200);
 
 -- DEST 5 — Zanzibar (existant : 15, 16 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(192,'Turkish Airlines','avion','Paris CDG','Zanzibar ZNZ','2026-07-10 21:00:00','2026-07-11 12:00:00',600.00,280);
+(192,'Turkish Airlines','avion','Paris CDG','Zanzibar ZNZ','2026-07-10 21:00:00','2026-07-19 21:00:00',600.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(193,'Qatar Airways','avion','Paris CDG','Zanzibar ZNZ','2026-07-28 20:30:00','2026-07-29 11:30:00',630.00,300);
+(193,'Qatar Airways','avion','Paris CDG','Zanzibar ZNZ','2026-07-28 20:30:00','2026-08-07 20:30:00',630.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(194,'Air France','avion','Paris CDG','Dar es Salaam DAR','2026-08-05 11:00:00','2026-08-06 01:30:00',590.00,250);
+(194,'Air France','avion','Paris CDG','Dar es Salaam DAR','2026-08-05 11:00:00','2026-08-16 11:00:00',590.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(195,'Corsair','avion','Paris ORY','Zanzibar ZNZ','2026-08-14 22:00:00','2026-08-15 12:30:00',570.00,270);
+(195,'Corsair','avion','Paris ORY','Zanzibar ZNZ','2026-08-14 22:00:00','2026-08-26 22:00:00',570.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(196,'Condor','avion','Paris CDG','Zanzibar ZNZ','2026-08-28 21:30:00','2026-08-29 12:00:00',560.00,260);
+(196,'Condor','avion','Paris CDG','Zanzibar ZNZ','2026-08-28 21:30:00','2026-09-06 21:30:00',560.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(197,'Oman Air','avion','Paris CDG','Zanzibar ZNZ','2026-07-18 22:00:00','2026-07-19 13:00:00',610.00,240);
+(197,'Oman Air','avion','Paris CDG','Zanzibar ZNZ','2026-07-18 22:00:00','2026-07-28 22:00:00',610.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(198,'Precision Air','avion','Paris CDG','Zanzibar ZNZ','2026-08-06 09:00:00','2026-08-06 09:20:00',35.00,70);
+(198,'Precision Air','avion','Paris CDG','Zanzibar ZNZ','2026-08-06 09:00:00','2026-08-17 09:00:00',35.00,70);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(199,'Azam Marine','bateau','Paris Port de Grenelle','Zanzibar Town','2026-07-26 08:00:00','2026-07-26 10:00:00',15.00,250);
+(199,'Azam Marine','bateau','Paris Port de Grenelle','Zanzibar Town','2026-07-26 08:00:00','2026-08-03 08:00:00',15.00,250);
 
 -- DEST 6 — Mykonos (existant : 17, 18, 75, 76 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(200,'easyJet','avion','Paris CDG','Mykonos JMK','2026-07-05 07:00:00','2026-07-05 10:50:00',195.00,180);
+(200,'easyJet','avion','Paris CDG','Mykonos JMK','2026-07-05 07:00:00','2026-07-14 07:00:00',195.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(201,'Volotea','avion','Paris ORY','Mykonos JMK','2026-07-15 06:30:00','2026-07-15 10:20:00',175.00,150);
+(201,'Volotea','avion','Paris ORY','Mykonos JMK','2026-07-15 06:30:00','2026-07-25 06:30:00',175.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(202,'Ryanair','avion','Paris Beauvais','Mykonos JMK','2026-08-01 06:00:00','2026-08-01 09:55:00',145.00,180);
+(202,'Ryanair','avion','Paris Beauvais','Mykonos JMK','2026-08-01 06:00:00','2026-08-12 06:00:00',145.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(203,'Transavia','avion','Paris ORY','Mykonos JMK','2026-08-10 07:00:00','2026-08-10 10:55:00',180.00,180);
+(203,'Transavia','avion','Paris ORY','Mykonos JMK','2026-08-10 07:00:00','2026-08-22 07:00:00',180.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(204,'Golden Star Ferries','bateau','Paris Port de Grenelle','Mykonos','2026-07-16 07:00:00','2026-07-16 11:30:00',55.00,400);
+(204,'Golden Star Ferries','bateau','Paris Port de Grenelle','Mykonos','2026-07-16 07:00:00','2026-07-23 07:00:00',55.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(205,'SeaJets','bateau','Paris Port de Grenelle','Mykonos','2026-08-12 08:30:00','2026-08-12 12:00:00',70.00,250);
+(205,'SeaJets','bateau','Paris Port de Grenelle','Mykonos','2026-08-12 08:30:00','2026-08-20 08:30:00',70.00,250);
 
 -- DEST 7 — Ibiza (existant : 19, 20, 77, 78 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(206,'Ryanair','avion','Paris Beauvais','Ibiza IBZ','2026-07-02 06:00:00','2026-07-02 08:30:00',75.00,180);
+(206,'Ryanair','avion','Paris Beauvais','Ibiza IBZ','2026-07-02 06:00:00','2026-07-11 06:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(207,'Transavia','avion','Paris ORY','Ibiza IBZ','2026-07-10 07:30:00','2026-07-10 10:00:00',95.00,180);
+(207,'Transavia','avion','Paris ORY','Ibiza IBZ','2026-07-10 07:30:00','2026-07-17 07:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(208,'Jet2','avion','Paris CDG','Ibiza IBZ','2026-07-22 08:00:00','2026-07-22 10:35:00',110.00,160);
+(208,'Jet2','avion','Paris CDG','Ibiza IBZ','2026-07-22 08:00:00','2026-07-30 08:00:00',110.00,160);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(209,'Air France','avion','Paris CDG','Ibiza IBZ','2026-08-15 18:00:00','2026-08-15 20:30:00',130.00,180);
+(209,'Air France','avion','Paris CDG','Ibiza IBZ','2026-08-15 18:00:00','2026-08-24 18:00:00',130.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(210,'Balearia','bateau','Paris Port de Grenelle','Ibiza','2026-07-05 23:00:00','2026-07-06 06:30:00',45.00,600);
+(210,'Balearia','bateau','Paris Port de Grenelle','Ibiza','2026-07-05 23:00:00','2026-07-12 23:00:00',45.00,600);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(211,'Acciona Trasmediterranea','bateau','Paris Port de Grenelle','Ibiza','2026-08-08 21:30:00','2026-08-09 05:00:00',50.00,500);
+(211,'Acciona Trasmediterranea','bateau','Paris Port de Grenelle','Ibiza','2026-08-08 21:30:00','2026-08-16 21:30:00',50.00,500);
 
 -- DEST 8 — Bora Bora (existant : 21, 79 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(212,'Air Tahiti Nui','avion','Paris CDG','Bora Bora BOB','2026-07-05 10:30:00','2026-07-06 07:00:00',1750.00,240);
+(212,'Air Tahiti Nui','avion','Paris CDG','Bora Bora BOB','2026-07-05 10:30:00','2026-07-19 10:30:00',1750.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(213,'Air Tahiti Nui','avion','Paris CDG','Papeete FAA','2026-07-20 10:00:00','2026-07-21 06:30:00',1600.00,240);
+(213,'Air Tahiti Nui','avion','Paris CDG','Papeete FAA','2026-07-20 10:00:00','2026-08-01 10:00:00',1600.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(214,'French Bee','avion','Paris ORY','Papeete FAA','2026-08-05 11:00:00','2026-08-06 08:00:00',1400.00,350);
+(214,'French Bee','avion','Paris ORY','Papeete FAA','2026-08-05 11:00:00','2026-08-18 11:00:00',1400.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(215,'French Bee','avion','Paris ORY','Papeete FAA','2026-08-20 11:30:00','2026-08-21 08:30:00',1450.00,350);
+(215,'French Bee','avion','Paris ORY','Papeete FAA','2026-08-20 11:30:00','2026-09-03 11:30:00',1450.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(216,'Air France','avion','Paris CDG','Papeete FAA','2026-09-01 10:00:00','2026-09-02 06:30:00',1700.00,250);
+(216,'Air France','avion','Paris CDG','Papeete FAA','2026-09-01 10:00:00','2026-09-13 10:00:00',1700.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(217,'Air Tahiti','avion','Paris CDG','Bora Bora BOB','2026-07-22 14:00:00','2026-07-22 14:55:00',75.00,48);
+(217,'Air Tahiti','avion','Paris CDG','Bora Bora BOB','2026-07-22 14:00:00','2026-08-04 14:00:00',75.00,48);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(218,'Air Tahiti','avion','Paris CDG','Bora Bora BOB','2026-08-07 10:00:00','2026-08-07 10:55:00',75.00,48);
+(218,'Air Tahiti','avion','Paris CDG','Bora Bora BOB','2026-08-07 10:00:00','2026-08-21 10:00:00',75.00,48);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(219,'Aranui Cruises','bateau','Paris Port de Grenelle','Bora Bora','2026-07-15 10:00:00','2026-07-15 18:00:00',60.00,200);
+(219,'Aranui Cruises','bateau','Paris Port de Grenelle','Bora Bora','2026-07-15 10:00:00','2026-07-22 10:00:00',60.00,200);
 
 -- DEST 9 — Île Maurice (existant : 22, 23 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(220,'Emirates','avion','Paris CDG','Île Maurice MRU','2026-07-08 20:30:00','2026-07-09 12:00:00',780.00,300);
+(220,'Emirates','avion','Paris CDG','Île Maurice MRU','2026-07-08 20:30:00','2026-07-21 20:30:00',780.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(221,'Turkish Airlines','avion','Paris CDG','Île Maurice MRU','2026-07-22 22:00:00','2026-07-23 14:30:00',720.00,280);
+(221,'Turkish Airlines','avion','Paris CDG','Île Maurice MRU','2026-07-22 22:00:00','2026-08-05 22:00:00',720.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(222,'Qatar Airways','avion','Paris CDG','Île Maurice MRU','2026-08-05 20:00:00','2026-08-06 11:30:00',760.00,300);
+(222,'Qatar Airways','avion','Paris CDG','Île Maurice MRU','2026-08-05 20:00:00','2026-08-17 20:00:00',760.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(223,'Corsair','avion','Paris ORY','Île Maurice MRU','2026-08-18 21:30:00','2026-08-19 12:00:00',690.00,280);
+(223,'Corsair','avion','Paris ORY','Île Maurice MRU','2026-08-18 21:30:00','2026-08-31 21:30:00',690.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(224,'Condor','avion','Paris CDG','Île Maurice MRU','2026-08-29 22:00:00','2026-08-30 13:00:00',670.00,260);
+(224,'Condor','avion','Paris CDG','Île Maurice MRU','2026-08-29 22:00:00','2026-09-12 22:00:00',670.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(225,'Kenya Airways','avion','Paris CDG','Île Maurice MRU','2026-07-15 10:30:00','2026-07-16 03:00:00',700.00,250);
+(225,'Kenya Airways','avion','Paris CDG','Île Maurice MRU','2026-07-15 10:30:00','2026-07-27 10:30:00',700.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(226,'Ethiopian Airlines','avion','Paris CDG','Île Maurice MRU','2026-08-12 11:00:00','2026-08-13 03:30:00',680.00,240);
+(226,'Ethiopian Airlines','avion','Paris CDG','Île Maurice MRU','2026-08-12 11:00:00','2026-08-25 11:00:00',680.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(227,'Edelweiss Air','avion','Paris CDG','Île Maurice MRU','2026-09-02 21:00:00','2026-09-03 12:00:00',710.00,260);
+(227,'Edelweiss Air','avion','Paris CDG','Île Maurice MRU','2026-09-02 21:00:00','2026-09-16 21:00:00',710.00,260);
 
 -- DEST 10 — Miami Beach (existant : 24, 25 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(228,'United Airlines','avion','Paris CDG','Miami MIA','2026-07-05 11:30:00','2026-07-05 15:00:00',460.00,300);
+(228,'United Airlines','avion','Paris CDG','Miami MIA','2026-07-05 11:30:00','2026-07-17 11:30:00',460.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(229,'Norwegian','avion','Paris CDG','Miami MIA','2026-07-15 12:00:00','2026-07-15 15:30:00',430.00,280);
+(229,'Norwegian','avion','Paris CDG','Miami MIA','2026-07-15 12:00:00','2026-07-28 12:00:00',430.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(230,'British Airways','avion','Paris CDG','Miami MIA','2026-07-28 10:00:00','2026-07-28 14:00:00',490.00,280);
+(230,'British Airways','avion','Paris CDG','Miami MIA','2026-07-28 10:00:00','2026-08-11 10:00:00',490.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(231,'Iberia','avion','Paris CDG','Miami MIA','2026-08-10 11:00:00','2026-08-10 14:30:00',450.00,280);
+(231,'Iberia','avion','Paris CDG','Miami MIA','2026-08-10 11:00:00','2026-08-22 11:00:00',450.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(232,'Lufthansa','avion','Paris CDG','Miami MIA','2026-08-20 09:30:00','2026-08-20 13:00:00',470.00,270);
+(232,'Lufthansa','avion','Paris CDG','Miami MIA','2026-08-20 09:30:00','2026-09-02 09:30:00',470.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(233,'Air France','avion','Paris CDG','Fort Lauderdale FLL','2026-07-20 10:00:00','2026-07-20 13:30:00',440.00,300);
+(233,'Air France','avion','Paris CDG','Fort Lauderdale FLL','2026-07-20 10:00:00','2026-08-03 10:00:00',440.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(234,'American Airlines','avion','Paris CDG','Miami MIA','2026-09-01 10:00:00','2026-09-01 13:30:00',420.00,280);
+(234,'American Airlines','avion','Paris CDG','Miami MIA','2026-09-01 10:00:00','2026-09-13 10:00:00',420.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(235,'Corsair','avion','Paris ORY','Miami MIA','2026-08-05 11:30:00','2026-08-05 15:00:00',400.00,270);
+(235,'Corsair','avion','Paris ORY','Miami MIA','2026-08-05 11:30:00','2026-08-18 11:30:00',400.00,270);
 
 -- DEST 11 — Chamonix (existant : 57, 58, 156, 157 → +6 transports)
 -- Accès France : TGV Paris-Saint-Gervais + bus + voiture
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(236,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-15 09:07:00','2026-07-15 12:20:00',58.00,400);
+(236,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-15 09:07:00','2026-07-24 09:07:00',58.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(237,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-25 07:20:00','2026-07-25 10:35:00',62.00,400);
+(237,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-07-25 07:20:00','2026-08-01 07:20:00',62.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(238,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-01 08:00:00','2026-08-01 11:15:00',72.00,400);
+(238,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-01 08:00:00','2026-08-09 08:00:00',72.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(239,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-22 11:10:00','2026-08-22 14:25:00',55.00,400);
+(239,'SNCF','train','Paris Gare de Lyon','Saint-Gervais (Chamonix)','2026-08-22 11:10:00','2026-08-31 11:10:00',55.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(240,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-07-18 07:30:00','2026-07-18 13:00:00',28.00,55);
+(240,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-07-18 07:30:00','2026-07-25 07:30:00',28.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(241,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-08-05 07:30:00','2026-08-05 13:00:00',32.00,55);
+(241,'Flixbus','bus','Paris Bercy Seine','Chamonix gare routière','2026-08-05 07:30:00','2026-08-13 07:30:00',32.00,55);
 
 -- DEST 12 — Queenstown (existant : 71 bus local → +9 transports)
 -- Seul accès Paris : avion long-courrier (via Sydney, Auckland, Singapore)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(242,'Air New Zealand','avion','Paris CDG','Queenstown ZQN','2026-07-08 22:00:00','2026-07-10 08:00:00',1450.00,280);
+(242,'Air New Zealand','avion','Paris CDG','Queenstown ZQN','2026-07-08 22:00:00','2026-07-22 22:00:00',1450.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(243,'Qantas','avion','Paris CDG','Queenstown ZQN','2026-07-20 21:00:00','2026-07-22 07:30:00',1380.00,300);
+(243,'Qantas','avion','Paris CDG','Queenstown ZQN','2026-07-20 21:00:00','2026-08-01 21:00:00',1380.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(244,'Singapore Airlines','avion','Paris CDG','Queenstown ZQN','2026-08-01 22:30:00','2026-08-03 08:00:00',1420.00,280);
+(244,'Singapore Airlines','avion','Paris CDG','Queenstown ZQN','2026-08-01 22:30:00','2026-08-14 22:30:00',1420.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(245,'Emirates','avion','Paris CDG','Queenstown ZQN','2026-08-12 20:30:00','2026-08-14 06:30:00',1350.00,300);
+(245,'Emirates','avion','Paris CDG','Queenstown ZQN','2026-08-12 20:30:00','2026-08-26 20:30:00',1350.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(246,'Air France','avion','Paris CDG','Auckland AKL','2026-07-15 22:00:00','2026-07-17 07:30:00',1500.00,250);
+(246,'Air France','avion','Paris CDG','Auckland AKL','2026-07-15 22:00:00','2026-07-27 22:00:00',1500.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(247,'Cathay Pacific','avion','Paris CDG','Queenstown ZQN','2026-08-20 21:00:00','2026-08-22 07:00:00',1360.00,270);
+(247,'Cathay Pacific','avion','Paris CDG','Queenstown ZQN','2026-08-20 21:00:00','2026-09-02 21:00:00',1360.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(248,'Air New Zealand','avion','Paris CDG','Queenstown ZQN','2026-07-17 10:00:00','2026-07-17 12:00:00',95.00,120);
+(248,'Air New Zealand','avion','Paris CDG','Queenstown ZQN','2026-07-17 10:00:00','2026-07-31 10:00:00',95.00,120);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(249,'Jetstar','avion','Paris CDG','Queenstown ZQN','2026-08-14 11:00:00','2026-08-14 13:00:00',75.00,150);
+(249,'Jetstar','avion','Paris CDG','Queenstown ZQN','2026-08-14 11:00:00','2026-08-26 11:00:00',75.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(250,'InterCity NZ','bus','Paris Bercy Seine','Christchurch','2026-07-22 07:30:00','2026-07-22 14:30:00',45.00,50);
+(250,'InterCity NZ','bus','Paris Bercy Seine','Christchurch','2026-07-22 07:30:00','2026-07-30 07:30:00',45.00,50);
 
 -- DEST 13 — Zermatt (existant : 66 train local → +9 transports)
 -- Accès : TGV Paris-Lausanne ou Paris-Genève puis train ; aussi avion vers Genève
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(251,'SNCF TGV Lyria','train','Paris Gare de Lyon','Lausanne','2026-07-05 09:04:00','2026-07-05 11:54:00',75.00,350);
+(251,'SNCF TGV Lyria','train','Paris Gare de Lyon','Lausanne','2026-07-05 09:04:00','2026-07-14 09:04:00',75.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(252,'SNCF TGV Lyria','train','Paris Gare de Lyon','Genève','2026-07-12 07:06:00','2026-07-12 09:33:00',68.00,350);
+(252,'SNCF TGV Lyria','train','Paris Gare de Lyon','Genève','2026-07-12 07:06:00','2026-07-19 07:06:00',68.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(253,'SNCF TGV Lyria','train','Paris Gare de Lyon','Genève','2026-08-05 09:06:00','2026-08-05 11:33:00',72.00,350);
+(253,'SNCF TGV Lyria','train','Paris Gare de Lyon','Genève','2026-08-05 09:06:00','2026-08-13 09:06:00',72.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(254,'SNCF TGV Lyria','train','Paris Gare de Lyon','Lausanne','2026-08-18 11:04:00','2026-08-18 13:54:00',80.00,350);
+(254,'SNCF TGV Lyria','train','Paris Gare de Lyon','Lausanne','2026-08-18 11:04:00','2026-08-27 11:04:00',80.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(255,'SBB','train','Paris Gare de Lyon','Viège (Visp)','2026-07-13 10:00:00','2026-07-13 11:30:00',35.00,250);
+(255,'SBB','train','Paris Gare de Lyon','Viège (Visp)','2026-07-13 10:00:00','2026-07-20 10:00:00',35.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(256,'SBB','train','Paris Gare de Lyon','Zermatt','2026-07-13 12:02:00','2026-07-13 12:55:00',22.00,200);
+(256,'SBB','train','Paris Gare de Lyon','Zermatt','2026-07-13 12:02:00','2026-07-21 12:02:00',22.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(257,'Air France','avion','Paris CDG','Genève GVA','2026-07-10 07:00:00','2026-07-10 08:30:00',80.00,180);
+(257,'Air France','avion','Paris CDG','Genève GVA','2026-07-10 07:00:00','2026-07-19 07:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(258,'easyJet','avion','Paris CDG','Genève GVA','2026-08-08 06:30:00','2026-08-08 08:00:00',65.00,180);
+(258,'easyJet','avion','Paris CDG','Genève GVA','2026-08-08 06:30:00','2026-08-15 06:30:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(259,'Swiss','avion','Paris CDG','Genève GVA','2026-08-22 07:30:00','2026-08-22 09:00:00',95.00,180);
+(259,'Swiss','avion','Paris CDG','Genève GVA','2026-08-22 07:30:00','2026-08-30 07:30:00',95.00,180);
 
 -- DEST 14 — Dolomites (existant : aucun → +10 transports)
 -- Accès : avion Paris-Venise ou Paris-Vérone, puis train/bus vers Cortina
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(260,'Air France','avion','Paris CDG','Venise VCE','2026-07-05 07:30:00','2026-07-05 09:30:00',95.00,180);
+(260,'Air France','avion','Paris CDG','Venise VCE','2026-07-05 07:30:00','2026-07-14 07:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(261,'easyJet','avion','Paris CDG','Venise VCE','2026-07-15 06:45:00','2026-07-15 08:45:00',75.00,180);
+(261,'easyJet','avion','Paris CDG','Venise VCE','2026-07-15 06:45:00','2026-07-22 06:45:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(262,'Vueling','avion','Paris ORY','Venise VCE','2026-08-05 07:00:00','2026-08-05 09:05:00',80.00,180);
+(262,'Vueling','avion','Paris ORY','Venise VCE','2026-08-05 07:00:00','2026-08-13 07:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(263,'Transavia','avion','Paris ORY','Venise VCE','2026-08-18 08:00:00','2026-08-18 10:10:00',85.00,180);
+(263,'Transavia','avion','Paris ORY','Venise VCE','2026-08-18 08:00:00','2026-08-27 08:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(264,'Ryanair','avion','Paris Beauvais','Venise Trévise TSF','2026-07-20 06:00:00','2026-07-20 08:10:00',55.00,180);
+(264,'Ryanair','avion','Paris Beauvais','Venise Trévise TSF','2026-07-20 06:00:00','2026-07-27 06:00:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(265,'Ryanair','avion','Paris Beauvais','Vérone VRN','2026-08-10 06:30:00','2026-08-10 08:30:00',60.00,180);
+(265,'Ryanair','avion','Paris Beauvais','Vérone VRN','2026-08-10 06:30:00','2026-08-18 06:30:00',60.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(266,'Trenitalia','train','Paris Gare de Lyon','Venise Santa Lucia','2026-07-08 07:30:00','2026-07-08 16:45:00',120.00,300);
+(266,'Trenitalia','train','Paris Gare de Lyon','Venise Santa Lucia','2026-07-08 07:30:00','2026-07-17 07:30:00',120.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(267,'Flixbus','bus','Paris Bercy Seine','Venise Tronchetto','2026-07-22 07:00:00','2026-07-22 19:30:00',40.00,55);
+(267,'Flixbus','bus','Paris Bercy Seine','Venise Tronchetto','2026-07-22 07:00:00','2026-07-29 07:00:00',40.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(268,'SAD','bus','Paris Bercy Seine','Cortina d\'Ampezzo','2026-07-06 09:30:00','2026-07-06 12:30:00',18.00,60);
+(268,'SAD','bus','Paris Bercy Seine','Cortina d\'Ampezzo','2026-07-06 09:30:00','2026-07-14 09:30:00',18.00,60);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(269,'SAD','bus','Paris Bercy Seine','Cortina d\'Ampezzo','2026-08-06 09:30:00','2026-08-06 12:30:00',18.00,60);
+(269,'SAD','bus','Paris Bercy Seine','Cortina d\'Ampezzo','2026-08-06 09:30:00','2026-08-15 09:30:00',18.00,60);
 
 -- DEST 15 — Tromsø (existant : aucun → +10 transports)
 -- Accès : avion Paris-Tromsø (escale Oslo/Copenhagen/Stockholm)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(270,'SAS','avion','Paris CDG','Tromsø TOS','2026-07-08 07:30:00','2026-07-08 12:45:00',280.00,180);
+(270,'SAS','avion','Paris CDG','Tromsø TOS','2026-07-08 07:30:00','2026-07-19 07:30:00',280.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(271,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-20 06:00:00','2026-07-20 11:15:00',240.00,180);
+(271,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-20 06:00:00','2026-08-01 06:00:00',240.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(272,'Air France','avion','Paris CDG','Tromsø TOS','2026-08-05 07:00:00','2026-08-05 12:30:00',310.00,180);
+(272,'Air France','avion','Paris CDG','Tromsø TOS','2026-08-05 07:00:00','2026-08-14 07:00:00',310.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(273,'SAS','avion','Paris CDG','Tromsø TOS','2026-08-15 08:30:00','2026-08-15 13:45:00',265.00,180);
+(273,'SAS','avion','Paris CDG','Tromsø TOS','2026-08-15 08:30:00','2026-08-25 08:30:00',265.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(274,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-09-01 06:30:00','2026-09-01 11:45:00',230.00,180);
+(274,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-09-01 06:30:00','2026-09-12 06:30:00',230.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(275,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-09 09:00:00','2026-07-09 10:30:00',75.00,150);
+(275,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-09 09:00:00','2026-07-21 09:00:00',75.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(276,'SAS','avion','Paris CDG','Tromsø TOS','2026-08-06 10:00:00','2026-08-06 11:35:00',85.00,150);
+(276,'SAS','avion','Paris CDG','Tromsø TOS','2026-08-06 10:00:00','2026-08-15 10:00:00',85.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(277,'Widerøe','avion','Paris CDG','Tromsø TOS','2026-08-20 08:30:00','2026-08-20 10:05:00',90.00,70);
+(277,'Widerøe','avion','Paris CDG','Tromsø TOS','2026-08-20 08:30:00','2026-08-30 08:30:00',90.00,70);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(278,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-15 09:00:00','2026-07-15 11:00:00',95.00,150);
+(278,'Norwegian','avion','Paris CDG','Tromsø TOS','2026-07-15 09:00:00','2026-07-26 09:00:00',95.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(279,'Widerøe','avion','Paris CDG','Tromsø TOS','2026-08-10 09:30:00','2026-08-10 11:00:00',85.00,70);
+(279,'Widerøe','avion','Paris CDG','Tromsø TOS','2026-08-10 09:30:00','2026-08-22 09:30:00',85.00,70);
 
 -- DEST 16 — Aspen (existant : aucun → +10 transports)
 -- Accès : avion Paris-Denver ou Paris-Chicago puis correspondance Aspen (ASE)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(280,'Air France','avion','Paris CDG','Denver DEN','2026-07-08 10:00:00','2026-07-08 13:30:00',560.00,300);
+(280,'Air France','avion','Paris CDG','Denver DEN','2026-07-08 10:00:00','2026-07-21 10:00:00',560.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(281,'United Airlines','avion','Paris CDG','Denver DEN','2026-07-20 11:00:00','2026-07-20 14:30:00',530.00,280);
+(281,'United Airlines','avion','Paris CDG','Denver DEN','2026-07-20 11:00:00','2026-08-03 11:00:00',530.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(282,'Delta Airlines','avion','Paris CDG','Chicago ORD','2026-08-05 10:30:00','2026-08-05 13:00:00',510.00,280);
+(282,'Delta Airlines','avion','Paris CDG','Chicago ORD','2026-08-05 10:30:00','2026-08-16 10:30:00',510.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(283,'American Airlines','avion','Paris CDG','Denver DEN','2026-08-15 12:00:00','2026-08-15 15:30:00',540.00,280);
+(283,'American Airlines','avion','Paris CDG','Denver DEN','2026-08-15 12:00:00','2026-08-28 12:00:00',540.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(284,'Air France','avion','Paris CDG','Denver DEN','2026-09-01 10:00:00','2026-09-01 13:30:00',570.00,300);
+(284,'Air France','avion','Paris CDG','Denver DEN','2026-09-01 10:00:00','2026-09-15 10:00:00',570.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(285,'United Airlines','avion','Paris CDG','Aspen ASE','2026-07-09 08:00:00','2026-07-09 09:05:00',120.00,38);
+(285,'United Airlines','avion','Paris CDG','Aspen ASE','2026-07-09 08:00:00','2026-07-21 08:00:00',120.00,38);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(286,'United Express','avion','Paris CDG','Aspen ASE','2026-07-21 09:00:00','2026-07-21 10:05:00',130.00,38);
+(286,'United Express','avion','Paris CDG','Aspen ASE','2026-07-21 09:00:00','2026-08-03 09:00:00',130.00,38);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(287,'American Eagle','avion','Paris CDG','Aspen ASE','2026-08-06 08:30:00','2026-08-06 11:00:00',150.00,44);
+(287,'American Eagle','avion','Paris CDG','Aspen ASE','2026-08-06 08:30:00','2026-08-20 08:30:00',150.00,44);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(288,'Epic Mountain Express','bus','Paris Bercy Seine','Aspen','2026-07-09 14:00:00','2026-07-09 18:30:00',65.00,55);
+(288,'Epic Mountain Express','bus','Paris Bercy Seine','Aspen','2026-07-09 14:00:00','2026-07-16 14:00:00',65.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(289,'RFTA','bus','Paris Bercy Seine','Aspen','2026-07-22 09:00:00','2026-07-22 10:15:00',8.00,55);
+(289,'RFTA','bus','Paris Bercy Seine','Aspen','2026-07-22 09:00:00','2026-07-30 09:00:00',8.00,55);
 
 -- DEST 17 — Barcelone (existant : 28, 29, 61, 62 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(290,'Ryanair','avion','Paris Beauvais','Barcelone BCN','2026-07-08 06:00:00','2026-07-08 07:55:00',60.00,180);
+(290,'Ryanair','avion','Paris Beauvais','Barcelone BCN','2026-07-08 06:00:00','2026-07-17 06:00:00',60.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(291,'Transavia','avion','Paris ORY','Barcelone BCN','2026-07-18 07:30:00','2026-07-18 09:30:00',85.00,180);
+(291,'Transavia','avion','Paris ORY','Barcelone BCN','2026-07-18 07:30:00','2026-07-25 07:30:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(292,'easyJet','avion','Paris CDG','Barcelone BCN','2026-08-12 06:30:00','2026-08-12 08:30:00',75.00,180);
+(292,'easyJet','avion','Paris CDG','Barcelone BCN','2026-08-12 06:30:00','2026-08-20 06:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(293,'Iberia','avion','Paris CDG','Barcelone BCN','2026-08-25 09:00:00','2026-08-25 11:00:00',95.00,180);
+(293,'Iberia','avion','Paris CDG','Barcelone BCN','2026-08-25 09:00:00','2026-09-03 09:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(294,'Balearia','bateau','Paris Port de Grenelle','Mahon Minorque','2026-07-10 09:00:00','2026-07-10 14:00:00',50.00,500);
+(294,'Balearia','bateau','Paris Port de Grenelle','Mahon Minorque','2026-07-10 09:00:00','2026-07-17 09:00:00',50.00,500);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(295,'Flixbus','bus','Paris Bercy Seine','Barcelone Nord','2026-07-12 08:30:00','2026-07-12 19:30:00',30.00,55);
+(295,'Flixbus','bus','Paris Bercy Seine','Barcelone Nord','2026-07-12 08:30:00','2026-07-20 08:30:00',30.00,55);
 
 -- DEST 18 — Amsterdam (existant : 30, 59, 60, 80 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(296,'easyJet','avion','Paris CDG','Amsterdam AMS','2026-07-08 07:30:00','2026-07-08 09:00:00',80.00,180);
+(296,'easyJet','avion','Paris CDG','Amsterdam AMS','2026-07-08 07:30:00','2026-07-17 07:30:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(297,'Transavia','avion','Paris ORY','Amsterdam AMS','2026-07-20 08:00:00','2026-07-20 09:30:00',85.00,180);
+(297,'Transavia','avion','Paris ORY','Amsterdam AMS','2026-07-20 08:00:00','2026-07-27 08:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(298,'Air France','avion','Paris CDG','Amsterdam AMS','2026-08-10 18:00:00','2026-08-10 19:30:00',100.00,180);
+(298,'Air France','avion','Paris CDG','Amsterdam AMS','2026-08-10 18:00:00','2026-08-18 18:00:00',100.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(299,'Eurostar','train','Paris Gare du Nord','Amsterdam Centraal','2026-08-22 09:31:00','2026-08-22 12:52:00',95.00,300);
+(299,'Eurostar','train','Paris Gare du Nord','Amsterdam Centraal','2026-08-22 09:31:00','2026-08-31 09:31:00',95.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(300,'Flixbus','bus','Paris Gallieni','Amsterdam Sloterdijk','2026-07-15 07:00:00','2026-07-15 13:30:00',22.00,55);
+(300,'Flixbus','bus','Paris Gallieni','Amsterdam Sloterdijk','2026-07-15 07:00:00','2026-07-22 07:00:00',22.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(301,'DFDS Seaways','bateau','Paris (Calais)','Amsterdam (IJmuiden)','2026-07-25 15:30:00','2026-07-26 08:30:00',95.00,500);
+(301,'DFDS Seaways','bateau','Paris (Calais)','Amsterdam (IJmuiden)','2026-07-25 15:30:00','2026-08-02 15:30:00',95.00,500);
 
 -- DEST 19 — Singapour (existant : 31, 32 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(302,'Qatar Airways','avion','Paris CDG','Singapour SIN','2026-07-08 21:00:00','2026-07-09 16:00:00',850.00,300);
+(302,'Qatar Airways','avion','Paris CDG','Singapour SIN','2026-07-08 21:00:00','2026-07-22 21:00:00',850.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(303,'Emirates','avion','Paris CDG','Singapour SIN','2026-07-20 22:30:00','2026-07-21 17:45:00',880.00,300);
+(303,'Emirates','avion','Paris CDG','Singapour SIN','2026-07-20 22:30:00','2026-08-01 22:30:00',880.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(304,'Lufthansa','avion','Paris CDG','Singapour SIN','2026-08-05 21:30:00','2026-08-06 17:00:00',860.00,280);
+(304,'Lufthansa','avion','Paris CDG','Singapour SIN','2026-08-05 21:30:00','2026-08-18 21:30:00',860.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(305,'Turkish Airlines','avion','Paris CDG','Singapour SIN','2026-08-15 22:00:00','2026-08-16 18:30:00',820.00,280);
+(305,'Turkish Airlines','avion','Paris CDG','Singapour SIN','2026-08-15 22:00:00','2026-08-29 22:00:00',820.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(306,'British Airways','avion','Paris CDG','Singapour SIN','2026-08-28 21:00:00','2026-08-29 17:30:00',840.00,280);
+(306,'British Airways','avion','Paris CDG','Singapour SIN','2026-08-28 21:00:00','2026-09-09 21:00:00',840.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(307,'Cathay Pacific','avion','Paris CDG','Singapour SIN','2026-07-15 22:30:00','2026-07-16 18:00:00',810.00,280);
+(307,'Cathay Pacific','avion','Paris CDG','Singapour SIN','2026-07-15 22:30:00','2026-07-28 22:30:00',810.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(308,'Malaysia Airlines','avion','Paris CDG','Singapour SIN','2026-09-05 23:00:00','2026-09-06 18:30:00',800.00,270);
+(308,'Malaysia Airlines','avion','Paris CDG','Singapour SIN','2026-09-05 23:00:00','2026-09-19 23:00:00',800.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(309,'Scoot','avion','Paris CDG','Singapour SIN','2026-07-07 06:00:00','2026-07-07 09:30:00',80.00,180);
+(309,'Scoot','avion','Paris CDG','Singapour SIN','2026-07-07 06:00:00','2026-07-19 06:00:00',80.00,180);
 
 -- DEST 20 — Prague (existant : 33, 34, 63 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(310,'Ryanair','avion','Paris Beauvais','Prague PRG','2026-07-05 06:00:00','2026-07-05 08:10:00',65.00,180);
+(310,'Ryanair','avion','Paris Beauvais','Prague PRG','2026-07-05 06:00:00','2026-07-13 06:00:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(311,'Transavia','avion','Paris ORY','Prague PRG','2026-07-18 07:30:00','2026-07-18 09:40:00',80.00,180);
+(311,'Transavia','avion','Paris ORY','Prague PRG','2026-07-18 07:30:00','2026-07-27 07:30:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(312,'Vueling','avion','Paris CDG','Prague PRG','2026-08-08 08:00:00','2026-08-08 10:15:00',85.00,180);
+(312,'Vueling','avion','Paris CDG','Prague PRG','2026-08-08 08:00:00','2026-08-15 08:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(313,'Air France','avion','Paris CDG','Prague PRG','2026-08-25 09:00:00','2026-08-25 11:10:00',105.00,180);
+(313,'Air France','avion','Paris CDG','Prague PRG','2026-08-25 09:00:00','2026-09-02 09:00:00',105.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(314,'DB SNCF','train','Paris Est','Prague hl.n.','2026-08-10 07:08:00','2026-08-10 19:00:00',115.00,250);
+(314,'DB SNCF','train','Paris Est','Prague hl.n.','2026-08-10 07:08:00','2026-08-19 07:08:00',115.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(315,'Flixbus','bus','Paris Bercy Seine','Prague ÚAN Florenc','2026-07-10 08:00:00','2026-07-11 05:00:00',35.00,55);
+(315,'Flixbus','bus','Paris Bercy Seine','Prague ÚAN Florenc','2026-07-10 08:00:00','2026-07-17 08:00:00',35.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(316,'RegioJet','bus','Paris Bercy Seine','Prague ÚAN Florenc','2026-08-01 07:30:00','2026-08-02 04:30:00',40.00,55);
+(316,'RegioJet','bus','Paris Bercy Seine','Prague ÚAN Florenc','2026-08-01 07:30:00','2026-08-09 07:30:00',40.00,55);
 
 -- DEST 21 — Dubaï (existant : 35, 36 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(317,'flydubai','avion','Paris CDG','Dubaï DXB','2026-07-05 06:00:00','2026-07-05 14:45:00',290.00,200);
+(317,'flydubai','avion','Paris CDG','Dubaï DXB','2026-07-05 06:00:00','2026-07-15 06:00:00',290.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(318,'Etihad Airways','avion','Paris CDG','Dubaï DXB','2026-07-15 13:00:00','2026-07-15 22:00:00',360.00,280);
+(318,'Etihad Airways','avion','Paris CDG','Dubaï DXB','2026-07-15 13:00:00','2026-07-26 13:00:00',360.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(319,'Turkish Airlines','avion','Paris CDG','Dubaï DXB','2026-07-25 07:30:00','2026-07-25 16:30:00',340.00,280);
+(319,'Turkish Airlines','avion','Paris CDG','Dubaï DXB','2026-07-25 07:30:00','2026-08-06 07:30:00',340.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(320,'Qatar Airways','avion','Paris CDG','Dubaï DXB','2026-08-08 20:30:00','2026-08-09 05:30:00',350.00,300);
+(320,'Qatar Airways','avion','Paris CDG','Dubaï DXB','2026-08-08 20:30:00','2026-08-17 20:30:00',350.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(321,'British Airways','avion','Paris CDG','Dubaï DXB','2026-08-18 14:00:00','2026-08-18 23:00:00',380.00,280);
+(321,'British Airways','avion','Paris CDG','Dubaï DXB','2026-08-18 14:00:00','2026-08-28 14:00:00',380.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(322,'Lufthansa','avion','Paris CDG','Dubaï DXB','2026-08-28 08:00:00','2026-08-28 17:15:00',360.00,270);
+(322,'Lufthansa','avion','Paris CDG','Dubaï DXB','2026-08-28 08:00:00','2026-09-08 08:00:00',360.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(323,'flydubai','avion','Paris CDG','Dubaï DXB','2026-09-05 06:30:00','2026-09-05 15:15:00',285.00,200);
+(323,'flydubai','avion','Paris CDG','Dubaï DXB','2026-09-05 06:30:00','2026-09-17 06:30:00',285.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(324,'Air Arabia','avion','Paris CDG','Dubaï SHJ','2026-07-20 07:00:00','2026-07-20 15:45:00',260.00,180);
+(324,'Air Arabia','avion','Paris CDG','Dubaï SHJ','2026-07-20 07:00:00','2026-07-29 07:00:00',260.00,180);
 
 -- DEST 22 — New York (existant : 37, 38 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(325,'Norwegian','avion','Paris CDG','New York JFK','2026-07-05 10:00:00','2026-07-05 12:30:00',420.00,300);
+(325,'Norwegian','avion','Paris CDG','New York JFK','2026-07-05 10:00:00','2026-07-15 10:00:00',420.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(326,'United Airlines','avion','Paris CDG','New York EWR','2026-07-15 09:30:00','2026-07-15 12:00:00',460.00,300);
+(326,'United Airlines','avion','Paris CDG','New York EWR','2026-07-15 09:30:00','2026-07-26 09:30:00',460.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(327,'British Airways','avion','Paris CDG','New York JFK','2026-07-28 11:00:00','2026-07-28 13:30:00',490.00,280);
+(327,'British Airways','avion','Paris CDG','New York JFK','2026-07-28 11:00:00','2026-08-09 11:00:00',490.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(328,'Corsair','avion','Paris ORY','New York JFK','2026-08-08 10:30:00','2026-08-08 13:00:00',400.00,280);
+(328,'Corsair','avion','Paris ORY','New York JFK','2026-08-08 10:30:00','2026-08-17 10:30:00',400.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(329,'Iberia','avion','Paris CDG','New York JFK','2026-08-20 10:00:00','2026-08-20 12:30:00',480.00,280);
+(329,'Iberia','avion','Paris CDG','New York JFK','2026-08-20 10:00:00','2026-08-30 10:00:00',480.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(330,'American Airlines','avion','Paris CDG','New York JFK','2026-08-28 11:30:00','2026-08-28 14:00:00',470.00,280);
+(330,'American Airlines','avion','Paris CDG','New York JFK','2026-08-28 11:30:00','2026-09-08 11:30:00',470.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(331,'Lufthansa','avion','Paris CDG','New York JFK','2026-09-05 09:00:00','2026-09-05 11:30:00',500.00,270);
+(331,'Lufthansa','avion','Paris CDG','New York JFK','2026-09-05 09:00:00','2026-09-17 09:00:00',500.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(332,'La Compagnie','avion','Paris ORY','New York EWR','2026-07-10 10:00:00','2026-07-10 12:30:00',850.00,76);
+(332,'La Compagnie','avion','Paris ORY','New York EWR','2026-07-10 10:00:00','2026-07-19 10:00:00',850.00,76);
 
 -- DEST 23 — Bangkok (existant : 39, 40, 72 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(333,'Qatar Airways','avion','Paris CDG','Bangkok BKK','2026-07-10 20:00:00','2026-07-11 14:00:00',590.00,300);
+(333,'Qatar Airways','avion','Paris CDG','Bangkok BKK','2026-07-10 20:00:00','2026-07-22 20:00:00',590.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(334,'Emirates','avion','Paris CDG','Bangkok BKK','2026-07-22 21:00:00','2026-07-23 15:30:00',620.00,300);
+(334,'Emirates','avion','Paris CDG','Bangkok BKK','2026-07-22 21:00:00','2026-08-04 21:00:00',620.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(335,'Singapore Airlines','avion','Paris CDG','Bangkok BKK','2026-08-08 22:30:00','2026-08-09 16:00:00',640.00,280);
+(335,'Singapore Airlines','avion','Paris CDG','Bangkok BKK','2026-08-08 22:30:00','2026-08-22 22:30:00',640.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(336,'Turkish Airlines','avion','Paris CDG','Bangkok BKK','2026-08-18 22:00:00','2026-08-19 16:30:00',600.00,280);
+(336,'Turkish Airlines','avion','Paris CDG','Bangkok BKK','2026-08-18 22:00:00','2026-08-30 22:00:00',600.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(337,'Malaysia Airlines','avion','Paris CDG','Bangkok BKK','2026-08-28 23:00:00','2026-08-29 17:30:00',580.00,270);
+(337,'Malaysia Airlines','avion','Paris CDG','Bangkok BKK','2026-08-28 23:00:00','2026-09-10 23:00:00',580.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(338,'Nakhon Chai Air','bus','Paris Bercy Seine','Chiang Rai','2026-07-07 21:00:00','2026-07-08 07:00:00',20.00,42);
+(338,'Nakhon Chai Air','bus','Paris Bercy Seine','Chiang Rai','2026-07-07 21:00:00','2026-07-16 21:00:00',20.00,42);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(339,'Thai Railways','train','Paris Gare de Lyon','Chiang Mai','2026-08-21 18:00:00','2026-08-22 07:30:00',18.00,240);
+(339,'Thai Railways','train','Paris Gare de Lyon','Chiang Mai','2026-08-21 18:00:00','2026-08-28 18:00:00',18.00,240);
 
 -- DEST 24 — Marrakech (existant : 41, 42, 73 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(340,'easyJet','avion','Paris CDG','Marrakech RAK','2026-07-05 06:30:00','2026-07-05 08:45:00',70.00,180);
+(340,'easyJet','avion','Paris CDG','Marrakech RAK','2026-07-05 06:30:00','2026-07-14 06:30:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(341,'Ryanair','avion','Paris Beauvais','Marrakech RAK','2026-07-15 05:45:00','2026-07-15 08:00:00',55.00,180);
+(341,'Ryanair','avion','Paris Beauvais','Marrakech RAK','2026-07-15 05:45:00','2026-07-25 05:45:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(342,'Vueling','avion','Paris ORY','Marrakech RAK','2026-07-28 07:00:00','2026-07-28 09:20:00',80.00,180);
+(342,'Vueling','avion','Paris ORY','Marrakech RAK','2026-07-28 07:00:00','2026-08-08 07:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(343,'Air Arabia Maroc','avion','Paris CDG','Marrakech RAK','2026-08-10 08:00:00','2026-08-10 10:15:00',65.00,180);
+(343,'Air Arabia Maroc','avion','Paris CDG','Marrakech RAK','2026-08-10 08:00:00','2026-08-22 08:00:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(344,'Transavia','avion','Paris ORY','Marrakech RAK','2026-08-22 06:30:00','2026-08-22 08:45:00',75.00,180);
+(344,'Transavia','avion','Paris ORY','Marrakech RAK','2026-08-22 06:30:00','2026-08-31 06:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(345,'Flixbus','bus','Paris Bercy Seine','Marrakech Gueliz','2026-07-08 07:00:00','2026-07-09 14:00:00',50.00,55);
+(345,'Flixbus','bus','Paris Bercy Seine','Marrakech Gueliz','2026-07-08 07:00:00','2026-07-15 07:00:00',50.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(346,'CTM Maroc','bus','Paris Bercy Seine','Marrakech','2026-07-20 10:00:00','2026-07-20 14:00:00',14.00,45);
+(346,'CTM Maroc','bus','Paris Bercy Seine','Marrakech','2026-07-20 10:00:00','2026-07-28 10:00:00',14.00,45);
 
 -- DEST 25 — Rome (existant : 43, 44, 64 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(347,'Ryanair','avion','Paris Beauvais','Rome Ciampino CIA','2026-07-05 06:00:00','2026-07-05 08:20:00',50.00,180);
+(347,'Ryanair','avion','Paris Beauvais','Rome Ciampino CIA','2026-07-05 06:00:00','2026-07-14 06:00:00',50.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(348,'easyJet','avion','Paris CDG','Rome FCO','2026-07-18 07:00:00','2026-07-18 09:15:00',70.00,180);
+(348,'easyJet','avion','Paris CDG','Rome FCO','2026-07-18 07:00:00','2026-07-25 07:00:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(349,'Transavia','avion','Paris ORY','Rome FCO','2026-07-28 07:30:00','2026-07-28 09:45:00',75.00,180);
+(349,'Transavia','avion','Paris ORY','Rome FCO','2026-07-28 07:30:00','2026-08-05 07:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(350,'Air France','avion','Paris CDG','Rome FCO','2026-08-10 08:00:00','2026-08-10 10:15:00',95.00,180);
+(350,'Air France','avion','Paris CDG','Rome FCO','2026-08-10 08:00:00','2026-08-19 08:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(351,'Ryanair','avion','Paris Beauvais','Rome Ciampino CIA','2026-08-18 06:30:00','2026-08-18 08:50:00',55.00,180);
+(351,'Ryanair','avion','Paris Beauvais','Rome Ciampino CIA','2026-08-18 06:30:00','2026-08-25 06:30:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(352,'Trenitalia','train','Paris Gare de Lyon','Rome Termini','2026-07-15 07:30:00','2026-07-15 19:15:00',135.00,300);
+(352,'Trenitalia','train','Paris Gare de Lyon','Rome Termini','2026-07-15 07:30:00','2026-07-23 07:30:00',135.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(353,'Flixbus','bus','Paris Bercy Seine','Rome Tiburtina','2026-07-22 07:00:00','2026-07-22 22:30:00',40.00,55);
+(353,'Flixbus','bus','Paris Bercy Seine','Rome Tiburtina','2026-07-22 07:00:00','2026-07-31 07:00:00',40.00,55);
 
 -- DEST 26 — Istanbul (existant : 45, 46, 74 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(354,'Air France','avion','Paris CDG','Istanbul IST','2026-07-05 09:00:00','2026-07-05 13:00:00',200.00,180);
+(354,'Air France','avion','Paris CDG','Istanbul IST','2026-07-05 09:00:00','2026-07-16 09:00:00',200.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(355,'easyJet','avion','Paris CDG','Istanbul IST','2026-07-18 07:30:00','2026-07-18 11:30:00',155.00,180);
+(355,'easyJet','avion','Paris CDG','Istanbul IST','2026-07-18 07:30:00','2026-07-30 07:30:00',155.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(356,'Transavia','avion','Paris ORY','Istanbul SAW','2026-07-28 08:00:00','2026-07-28 12:15:00',140.00,180);
+(356,'Transavia','avion','Paris ORY','Istanbul SAW','2026-07-28 08:00:00','2026-08-06 08:00:00',140.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(357,'Vueling','avion','Paris CDG','Istanbul IST','2026-08-08 07:00:00','2026-08-08 11:15:00',165.00,180);
+(357,'Vueling','avion','Paris CDG','Istanbul IST','2026-08-08 07:00:00','2026-08-18 07:00:00',165.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(358,'SunExpress','avion','Paris CDG','Istanbul SAW','2026-08-20 08:30:00','2026-08-20 12:45:00',130.00,180);
+(358,'SunExpress','avion','Paris CDG','Istanbul SAW','2026-08-20 08:30:00','2026-08-31 08:30:00',130.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(359,'Flixbus','bus','Paris Bercy Seine','Istanbul Esenler','2026-07-10 07:30:00','2026-07-12 08:00:00',65.00,55);
+(359,'Flixbus','bus','Paris Bercy Seine','Istanbul Esenler','2026-07-10 07:30:00','2026-07-19 07:30:00',65.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(360,'Metro Turizm','bus','Paris Bercy Seine','Ankara','2026-07-13 22:00:00','2026-07-14 05:30:00',15.00,45);
+(360,'Metro Turizm','bus','Paris Bercy Seine','Ankara','2026-07-13 22:00:00','2026-07-20 22:00:00',15.00,45);
 
 -- DEST 27 — Kyoto (existant : 47, 48, 67 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(361,'Air France','avion','Paris CDG','Osaka KIX','2026-07-05 11:00:00','2026-07-06 07:30:00',1020.00,250);
+(361,'Air France','avion','Paris CDG','Osaka KIX','2026-07-05 11:00:00','2026-07-18 11:00:00',1020.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(362,'Singapore Airlines','avion','Paris CDG','Osaka KIX','2026-07-20 22:00:00','2026-07-21 17:30:00',1080.00,270);
+(362,'Singapore Airlines','avion','Paris CDG','Osaka KIX','2026-07-20 22:00:00','2026-08-03 22:00:00',1080.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(363,'Qatar Airways','avion','Paris CDG','Osaka KIX','2026-08-05 20:00:00','2026-08-06 16:00:00',1000.00,300);
+(363,'Qatar Airways','avion','Paris CDG','Osaka KIX','2026-08-05 20:00:00','2026-08-17 20:00:00',1000.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(364,'Cathay Pacific','avion','Paris CDG','Osaka KIX','2026-08-18 21:00:00','2026-08-19 17:30:00',1040.00,280);
+(364,'Cathay Pacific','avion','Paris CDG','Osaka KIX','2026-08-18 21:00:00','2026-08-31 21:00:00',1040.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(365,'Korean Air','avion','Paris CDG','Osaka KIX','2026-08-28 20:30:00','2026-08-29 16:30:00',1060.00,270);
+(365,'Korean Air','avion','Paris CDG','Osaka KIX','2026-08-28 20:30:00','2026-09-11 20:30:00',1060.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(366,'JR West','train','Paris Gare de Lyon','Kyoto','2026-07-17 09:00:00','2026-07-17 09:14:00',14.00,500);
+(366,'JR West','train','Paris Gare de Lyon','Kyoto','2026-07-17 09:00:00','2026-07-24 09:00:00',14.00,500);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(367,'Hankyu','train','Paris Gare de Lyon','Kyoto Kawaramachi','2026-08-07 10:30:00','2026-08-07 11:10:00',8.00,400);
+(367,'Hankyu','train','Paris Gare de Lyon','Kyoto Kawaramachi','2026-08-07 10:30:00','2026-08-15 10:30:00',8.00,400);
 
 -- DEST 28 — Le Caire (existant : 49, 50 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(368,'Transavia','avion','Paris ORY','Le Caire CAI','2026-07-05 07:00:00','2026-07-05 12:00:00',240.00,180);
+(368,'Transavia','avion','Paris ORY','Le Caire CAI','2026-07-05 07:00:00','2026-07-14 07:00:00',240.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(369,'Turkish Airlines','avion','Paris CDG','Le Caire CAI','2026-07-15 07:30:00','2026-07-15 12:45:00',260.00,280);
+(369,'Turkish Airlines','avion','Paris CDG','Le Caire CAI','2026-07-15 07:30:00','2026-07-25 07:30:00',260.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(370,'Royal Air Maroc','avion','Paris CDG','Le Caire CAI','2026-07-28 09:00:00','2026-07-28 14:30:00',270.00,220);
+(370,'Royal Air Maroc','avion','Paris CDG','Le Caire CAI','2026-07-28 09:00:00','2026-08-08 09:00:00',270.00,220);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(371,'easyJet','avion','Paris CDG','Le Caire CAI','2026-08-05 07:00:00','2026-08-05 12:10:00',220.00,180);
+(371,'easyJet','avion','Paris CDG','Le Caire CAI','2026-08-05 07:00:00','2026-08-17 07:00:00',220.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(372,'Vueling','avion','Paris ORY','Le Caire CAI','2026-08-15 06:30:00','2026-08-15 11:45:00',230.00,180);
+(372,'Vueling','avion','Paris ORY','Le Caire CAI','2026-08-15 06:30:00','2026-08-24 06:30:00',230.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(373,'Ryanair','avion','Paris Beauvais','Le Caire CAI','2026-08-28 06:00:00','2026-08-28 11:15:00',200.00,180);
+(373,'Ryanair','avion','Paris Beauvais','Le Caire CAI','2026-08-28 06:00:00','2026-09-07 06:00:00',200.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(374,'Air Sinai','avion','Paris CDG','Louxor LXR','2026-07-21 08:00:00','2026-07-21 09:00:00',45.00,120);
+(374,'Air Sinai','avion','Paris CDG','Louxor LXR','2026-07-21 08:00:00','2026-08-01 08:00:00',45.00,120);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(375,'Nile River Cruises','bateau','Paris Port de Grenelle','Assouan','2026-07-22 18:00:00','2026-07-25 09:00:00',180.00,50);
+(375,'Nile River Cruises','bateau','Paris Port de Grenelle','Assouan','2026-07-22 18:00:00','2026-07-29 18:00:00',180.00,50);
 
 -- DEST 29 — Reykjavik (existant : 51, 52 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(376,'WOW Air','avion','Paris CDG','Reykjavik KEF','2026-07-05 07:00:00','2026-07-05 09:35:00',210.00,180);
+(376,'WOW Air','avion','Paris CDG','Reykjavik KEF','2026-07-05 07:00:00','2026-07-14 07:00:00',210.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(377,'TUI fly','avion','Paris CDG','Reykjavik KEF','2026-07-15 07:30:00','2026-07-15 10:05:00',240.00,180);
+(377,'TUI fly','avion','Paris CDG','Reykjavik KEF','2026-07-15 07:30:00','2026-07-25 07:30:00',240.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(378,'Transavia','avion','Paris ORY','Reykjavik KEF','2026-07-25 08:00:00','2026-07-25 10:35:00',225.00,180);
+(378,'Transavia','avion','Paris ORY','Reykjavik KEF','2026-07-25 08:00:00','2026-08-05 08:00:00',225.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(379,'easyJet','avion','Paris CDG','Reykjavik KEF','2026-08-05 06:30:00','2026-08-05 09:05:00',215.00,180);
+(379,'easyJet','avion','Paris CDG','Reykjavik KEF','2026-08-05 06:30:00','2026-08-17 06:30:00',215.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(380,'Air France','avion','Paris CDG','Reykjavik KEF','2026-08-18 07:00:00','2026-08-18 09:35:00',280.00,180);
+(380,'Air France','avion','Paris CDG','Reykjavik KEF','2026-08-18 07:00:00','2026-08-27 07:00:00',280.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(381,'Icelandair','avion','Paris CDG','Reykjavik KEF','2026-08-28 07:30:00','2026-08-28 10:05:00',300.00,180);
+(381,'Icelandair','avion','Paris CDG','Reykjavik KEF','2026-08-28 07:30:00','2026-09-07 07:30:00',300.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(382,'Strætó','bus','Paris Bercy Seine','Akureyri','2026-07-06 08:00:00','2026-07-06 13:00:00',35.00,55);
+(382,'Strætó','bus','Paris Bercy Seine','Akureyri','2026-07-06 08:00:00','2026-07-14 08:00:00',35.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(383,'Sterna Travel','bateau','Paris Port de Grenelle','Whale Watching','2026-07-16 09:00:00','2026-07-16 11:30:00',65.00,60);
+(383,'Sterna Travel','bateau','Paris Port de Grenelle','Whale Watching','2026-07-16 09:00:00','2026-07-25 09:00:00',65.00,60);
 
 -- DEST 30 — Nairobi (existant : 53, 54 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(384,'Turkish Airlines','avion','Paris CDG','Nairobi NBO','2026-07-08 07:30:00','2026-07-08 19:30:00',620.00,280);
+(384,'Turkish Airlines','avion','Paris CDG','Nairobi NBO','2026-07-08 07:30:00','2026-07-17 07:30:00',620.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(385,'Qatar Airways','avion','Paris CDG','Nairobi NBO','2026-07-20 20:00:00','2026-07-21 08:00:00',650.00,300);
+(385,'Qatar Airways','avion','Paris CDG','Nairobi NBO','2026-07-20 20:00:00','2026-07-30 20:00:00',650.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(386,'Emirates','avion','Paris CDG','Nairobi NBO','2026-08-05 21:00:00','2026-08-06 08:30:00',680.00,300);
+(386,'Emirates','avion','Paris CDG','Nairobi NBO','2026-08-05 21:00:00','2026-08-16 21:00:00',680.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(387,'Air France','avion','Paris CDG','Nairobi NBO','2026-08-15 10:00:00','2026-08-16 01:15:00',710.00,250);
+(387,'Air France','avion','Paris CDG','Nairobi NBO','2026-08-15 10:00:00','2026-08-27 10:00:00',710.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(388,'Rwandair','avion','Paris CDG','Nairobi NBO','2026-08-28 10:30:00','2026-08-29 00:30:00',640.00,240);
+(388,'Rwandair','avion','Paris CDG','Nairobi NBO','2026-08-28 10:30:00','2026-09-06 10:30:00',640.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(389,'Jambojet','avion','Paris CDG','Mombasa MBA','2026-07-09 07:00:00','2026-07-09 08:00:00',55.00,150);
+(389,'Jambojet','avion','Paris CDG','Mombasa MBA','2026-07-09 07:00:00','2026-07-19 07:00:00',55.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(390,'Kenya Railways','train','Paris Gare de Lyon','Mombasa','2026-07-15 07:00:00','2026-07-15 12:00:00',40.00,600);
+(390,'Kenya Railways','train','Paris Gare de Lyon','Mombasa','2026-07-15 07:00:00','2026-07-22 07:00:00',40.00,600);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(391,'Easy Coach','bus','Paris Bercy Seine','Arusha (Tanzanie)','2026-08-06 07:00:00','2026-08-06 13:00:00',25.00,55);
+(391,'Easy Coach','bus','Paris Bercy Seine','Arusha (Tanzanie)','2026-08-06 07:00:00','2026-08-14 07:00:00',25.00,55);
 
 -- DEST 31 — San José, Costa Rica (existant : 55 → +9 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(392,'Air France','avion','Paris CDG','San José SJO','2026-07-05 10:00:00','2026-07-05 18:00:00',700.00,250);
+(392,'Air France','avion','Paris CDG','San José SJO','2026-07-05 10:00:00','2026-07-19 10:00:00',700.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(393,'Condor','avion','Paris CDG','San José SJO','2026-07-18 11:30:00','2026-07-18 18:00:00',660.00,250);
+(393,'Condor','avion','Paris CDG','San José SJO','2026-07-18 11:30:00','2026-07-30 11:30:00',660.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(394,'Air Transat','avion','Paris CDG','San José SJO','2026-08-01 10:00:00','2026-08-01 17:30:00',650.00,300);
+(394,'Air Transat','avion','Paris CDG','San José SJO','2026-08-01 10:00:00','2026-08-14 10:00:00',650.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(395,'TUI fly','avion','Paris CDG','San José SJO','2026-08-12 11:00:00','2026-08-12 18:30:00',670.00,260);
+(395,'TUI fly','avion','Paris CDG','San José SJO','2026-08-12 11:00:00','2026-08-26 11:00:00',670.00,260);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(396,'American Airlines','avion','Paris CDG','San José SJO','2026-08-25 11:30:00','2026-08-25 18:00:00',680.00,280);
+(396,'American Airlines','avion','Paris CDG','San José SJO','2026-08-25 11:30:00','2026-09-06 11:30:00',680.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(397,'Aeromexico','avion','Paris CDG','San José SJO','2026-09-05 12:00:00','2026-09-05 19:00:00',640.00,270);
+(397,'Aeromexico','avion','Paris CDG','San José SJO','2026-09-05 12:00:00','2026-09-18 12:00:00',640.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(398,'SANSA Airlines','avion','Paris CDG','Liberia LIR','2026-07-06 07:30:00','2026-07-06 08:00:00',55.00,14);
+(398,'SANSA Airlines','avion','Paris CDG','Liberia LIR','2026-07-06 07:30:00','2026-07-20 07:30:00',55.00,14);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(399,'Tica Bus','bus','Paris Bercy Seine','Liberia','2026-07-19 07:00:00','2026-07-19 11:30:00',12.00,50);
+(399,'Tica Bus','bus','Paris Bercy Seine','Liberia','2026-07-19 07:00:00','2026-07-26 07:00:00',12.00,50);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(400,'Interbus','bus','Paris Bercy Seine','La Fortuna (Arenal)','2026-08-02 07:30:00','2026-08-02 10:30:00',15.00,20);
+(400,'Interbus','bus','Paris Bercy Seine','La Fortuna (Arenal)','2026-08-02 07:30:00','2026-08-10 07:30:00',15.00,20);
 
 -- DEST 32 — El Calafate (existant : 56 → +9 transports)
 -- Accès : avion Paris-Buenos Aires puis vol interne ou bus vers Calafate
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(401,'Aerolíneas Argentinas','avion','Paris CDG','Buenos Aires EZE','2026-07-05 12:00:00','2026-07-05 22:30:00',820.00,280);
+(401,'Aerolíneas Argentinas','avion','Paris CDG','Buenos Aires EZE','2026-07-05 12:00:00','2026-07-19 12:00:00',820.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(402,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-07-18 11:00:00','2026-07-18 22:30:00',880.00,300);
+(402,'Air France','avion','Paris CDG','Buenos Aires EZE','2026-07-18 11:00:00','2026-07-30 11:00:00',880.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(403,'Latam Airlines','avion','Paris CDG','Buenos Aires EZE','2026-08-01 10:30:00','2026-08-01 22:00:00',850.00,280);
+(403,'Latam Airlines','avion','Paris CDG','Buenos Aires EZE','2026-08-01 10:30:00','2026-08-14 10:30:00',850.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(404,'Iberia','avion','Paris CDG','Buenos Aires EZE','2026-08-15 11:00:00','2026-08-15 22:30:00',840.00,280);
+(404,'Iberia','avion','Paris CDG','Buenos Aires EZE','2026-08-15 11:00:00','2026-08-29 11:00:00',840.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(405,'Air Europa','avion','Paris CDG','Buenos Aires EZE','2026-08-28 12:00:00','2026-08-28 23:30:00',810.00,270);
+(405,'Air Europa','avion','Paris CDG','Buenos Aires EZE','2026-08-28 12:00:00','2026-09-09 12:00:00',810.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(406,'Aerolíneas Argentinas','avion','Paris CDG','El Calafate FTE','2026-07-06 08:00:00','2026-07-06 11:15:00',180.00,150);
+(406,'Aerolíneas Argentinas','avion','Paris CDG','El Calafate FTE','2026-07-06 08:00:00','2026-07-19 08:00:00',180.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(407,'Latam','avion','Paris CDG','El Calafate FTE','2026-07-19 09:00:00','2026-07-19 12:15:00',170.00,150);
+(407,'Latam','avion','Paris CDG','El Calafate FTE','2026-07-19 09:00:00','2026-08-02 09:00:00',170.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(408,'Aerolíneas Argentinas','avion','Paris CDG','El Calafate FTE','2026-08-02 08:30:00','2026-08-02 11:45:00',175.00,150);
+(408,'Aerolíneas Argentinas','avion','Paris CDG','El Calafate FTE','2026-08-02 08:30:00','2026-08-14 08:30:00',175.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(409,'TAQSA/Marga','bus','Paris Bercy Seine','El Calafate','2026-07-20 08:00:00','2026-07-21 10:00:00',45.00,45);
+(409,'TAQSA/Marga','bus','Paris Bercy Seine','El Calafate','2026-07-20 08:00:00','2026-07-28 08:00:00',45.00,45);
 
 -- DEST 33 — Londres (existant : 4, 84, 85, 86, 87, 88 → +4 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(410,'British Airways','avion','Paris CDG','London Heathrow LHR','2026-07-05 07:00:00','2026-07-05 08:15:00',90.00,180);
+(410,'British Airways','avion','Paris CDG','London Heathrow LHR','2026-07-05 07:00:00','2026-07-14 07:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(411,'Ryanair','avion','Paris Beauvais','London Stansted STN','2026-07-20 06:00:00','2026-07-20 07:15:00',55.00,180);
+(411,'Ryanair','avion','Paris Beauvais','London Stansted STN','2026-07-20 06:00:00','2026-07-27 06:00:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(412,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-07-25 15:31:00','2026-07-25 16:58:00',89.00,300);
+(412,'Eurostar','train','Paris Gare du Nord','London St Pancras','2026-07-25 15:31:00','2026-08-02 15:31:00',89.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(413,'Flixbus','bus','Paris Bercy Seine','London Victoria','2026-08-05 08:00:00','2026-08-05 14:30:00',28.00,55);
+(413,'Flixbus','bus','Paris Bercy Seine','London Victoria','2026-08-05 08:00:00','2026-08-14 08:00:00',28.00,55);
 
 -- DEST 34 — Berlin (existant : 89, 90, 91, 92 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(414,'Ryanair','avion','Paris Beauvais','Berlin BER','2026-07-12 06:00:00','2026-07-12 07:55:00',60.00,180);
+(414,'Ryanair','avion','Paris Beauvais','Berlin BER','2026-07-12 06:00:00','2026-07-19 06:00:00',60.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(415,'Transavia','avion','Paris ORY','Berlin BER','2026-07-25 07:30:00','2026-07-25 09:25:00',80.00,180);
+(415,'Transavia','avion','Paris ORY','Berlin BER','2026-07-25 07:30:00','2026-08-02 07:30:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(416,'Vueling','avion','Paris CDG','Berlin BER','2026-08-15 08:00:00','2026-08-15 09:55:00',85.00,180);
+(416,'Vueling','avion','Paris CDG','Berlin BER','2026-08-15 08:00:00','2026-08-24 08:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(417,'Wizz Air','avion','Paris CDG','Berlin BER','2026-08-28 06:30:00','2026-08-28 08:25:00',65.00,180);
+(417,'Wizz Air','avion','Paris CDG','Berlin BER','2026-08-28 06:30:00','2026-09-04 06:30:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(418,'DB SNCF','train','Paris Est','Berlin Hbf','2026-08-05 07:08:00','2026-08-05 18:55:00',95.00,250);
+(418,'DB SNCF','train','Paris Est','Berlin Hbf','2026-08-05 07:08:00','2026-08-13 07:08:00',95.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(419,'Flixbus','bus','Paris Bercy Seine','Berlin ZOB','2026-08-18 08:00:00','2026-08-19 04:30:00',38.00,55);
+(419,'Flixbus','bus','Paris Bercy Seine','Berlin ZOB','2026-08-18 08:00:00','2026-08-27 08:00:00',38.00,55);
 
 -- DEST 35 — Vienne (existant : 93, 94, 95, 96 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(420,'easyJet','avion','Paris CDG','Vienne VIE','2026-07-05 07:00:00','2026-07-05 09:05:00',80.00,180);
+(420,'easyJet','avion','Paris CDG','Vienne VIE','2026-07-05 07:00:00','2026-07-12 07:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(421,'Ryanair','avion','Paris Beauvais','Vienne VIE','2026-07-18 06:00:00','2026-07-18 08:10:00',65.00,180);
+(421,'Ryanair','avion','Paris Beauvais','Vienne VIE','2026-07-18 06:00:00','2026-07-26 06:00:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(422,'Transavia','avion','Paris ORY','Vienne VIE','2026-08-01 07:30:00','2026-08-01 09:35:00',75.00,180);
+(422,'Transavia','avion','Paris ORY','Vienne VIE','2026-08-01 07:30:00','2026-08-10 07:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(423,'Wizz Air','avion','Paris CDG','Vienne VIE','2026-08-20 06:30:00','2026-08-20 08:40:00',60.00,180);
+(423,'Wizz Air','avion','Paris CDG','Vienne VIE','2026-08-20 06:30:00','2026-08-27 06:30:00',60.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(424,'DB Nightjet','train','Paris Est','Wien Hbf','2026-08-10 22:25:00','2026-08-11 09:00:00',99.00,150);
+(424,'DB Nightjet','train','Paris Est','Wien Hbf','2026-08-10 22:25:00','2026-08-18 22:25:00',99.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(425,'Flixbus','bus','Paris Bercy Seine','Wien Erdberg','2026-08-25 07:30:00','2026-08-26 05:00:00',48.00,55);
+(425,'Flixbus','bus','Paris Bercy Seine','Wien Erdberg','2026-08-25 07:30:00','2026-09-03 07:30:00',48.00,55);
 
 -- DEST 36 — Madrid (existant : 97, 98, 99, 100 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(426,'Vueling','avion','Paris ORY','Madrid MAD','2026-07-08 07:00:00','2026-07-08 09:00:00',70.00,180);
+(426,'Vueling','avion','Paris ORY','Madrid MAD','2026-07-08 07:00:00','2026-07-15 07:00:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(427,'Ryanair','avion','Paris Beauvais','Madrid MAD','2026-07-20 06:00:00','2026-07-20 08:00:00',55.00,180);
+(427,'Ryanair','avion','Paris Beauvais','Madrid MAD','2026-07-20 06:00:00','2026-07-28 06:00:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(428,'easyJet','avion','Paris CDG','Madrid MAD','2026-08-08 07:30:00','2026-08-08 09:30:00',75.00,180);
+(428,'easyJet','avion','Paris CDG','Madrid MAD','2026-08-08 07:30:00','2026-08-17 07:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(429,'Transavia','avion','Paris ORY','Madrid MAD','2026-08-22 08:00:00','2026-08-22 10:00:00',80.00,180);
+(429,'Transavia','avion','Paris ORY','Madrid MAD','2026-08-22 08:00:00','2026-08-29 08:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(430,'SNCF Renfe','train','Paris Montparnasse','Madrid Chamartin','2026-08-05 09:30:00','2026-08-05 16:02:00',115.00,300);
+(430,'SNCF Renfe','train','Paris Montparnasse','Madrid Chamartin','2026-08-05 09:30:00','2026-08-13 09:30:00',115.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(431,'Flixbus','bus','Paris Bercy Seine','Madrid Sur','2026-08-12 19:00:00','2026-08-13 14:00:00',52.00,55);
+(431,'Flixbus','bus','Paris Bercy Seine','Madrid Sur','2026-08-12 19:00:00','2026-08-21 19:00:00',52.00,55);
 
 -- DEST 37 — Bruxelles (existant : 101, 102, 103, 104 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(432,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-12 11:25:00','2026-07-12 12:55:00',45.00,300);
+(432,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-12 11:25:00','2026-07-19 11:25:00',45.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(433,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-22 14:55:00','2026-07-22 16:25:00',50.00,300);
+(433,'Thalys','train','Paris Gare du Nord','Bruxelles Midi','2026-07-22 14:55:00','2026-07-30 14:55:00',50.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(434,'Eurostar','train','Paris Gare du Nord','Bruxelles Midi','2026-08-05 09:52:00','2026-08-05 11:22:00',55.00,300);
+(434,'Eurostar','train','Paris Gare du Nord','Bruxelles Midi','2026-08-05 09:52:00','2026-08-14 09:52:00',55.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(435,'easyJet','avion','Paris CDG','Bruxelles BRU','2026-07-18 07:00:00','2026-07-18 08:10:00',65.00,150);
+(435,'easyJet','avion','Paris CDG','Bruxelles BRU','2026-07-18 07:00:00','2026-07-25 07:00:00',65.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(436,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-08-15 09:00:00','2026-08-15 12:30:00',12.00,55);
+(436,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-08-15 09:00:00','2026-08-23 09:00:00',12.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(437,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-08-28 08:00:00','2026-08-28 11:30:00',14.00,55);
+(437,'Flixbus','bus','Paris Gallieni','Bruxelles Nord','2026-08-28 08:00:00','2026-09-06 08:00:00',14.00,55);
 
 -- DEST 38 — Copenhague (existant : 105, 106 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(438,'easyJet','avion','Paris CDG','Copenhague CPH','2026-07-05 07:00:00','2026-07-05 09:45:00',110.00,180);
+(438,'easyJet','avion','Paris CDG','Copenhague CPH','2026-07-05 07:00:00','2026-07-12 07:00:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(439,'Transavia','avion','Paris ORY','Copenhague CPH','2026-07-18 07:30:00','2026-07-18 10:15:00',125.00,180);
+(439,'Transavia','avion','Paris ORY','Copenhague CPH','2026-07-18 07:30:00','2026-07-26 07:30:00',125.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(440,'Norwegian','avion','Paris CDG','Copenhague CPH','2026-07-28 06:30:00','2026-07-28 09:15:00',105.00,180);
+(440,'Norwegian','avion','Paris CDG','Copenhague CPH','2026-07-28 06:30:00','2026-08-06 06:30:00',105.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(441,'Ryanair','avion','Paris Beauvais','Copenhague CPH','2026-08-08 06:00:00','2026-08-08 08:45:00',90.00,180);
+(441,'Ryanair','avion','Paris Beauvais','Copenhague CPH','2026-08-08 06:00:00','2026-08-15 06:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(442,'Vueling','avion','Paris CDG','Copenhague CPH','2026-08-18 07:30:00','2026-08-18 10:20:00',115.00,180);
+(442,'Vueling','avion','Paris CDG','Copenhague CPH','2026-08-18 07:30:00','2026-08-26 07:30:00',115.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(443,'Wizz Air','avion','Paris CDG','Copenhague CPH','2026-08-28 06:30:00','2026-08-28 09:15:00',95.00,180);
+(443,'Wizz Air','avion','Paris CDG','Copenhague CPH','2026-08-28 06:30:00','2026-09-06 06:30:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(444,'DSB','train','Paris Gare de Lyon','Malmö','2026-07-11 10:00:00','2026-07-11 10:35:00',12.00,200);
+(444,'DSB','train','Paris Gare de Lyon','Malmö','2026-07-11 10:00:00','2026-07-18 10:00:00',12.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(445,'Flixbus','bus','Paris Bercy Seine','Copenhague Ingerslevsgade','2026-07-15 07:00:00','2026-07-16 14:00:00',55.00,55);
+(445,'Flixbus','bus','Paris Bercy Seine','Copenhague Ingerslevsgade','2026-07-15 07:00:00','2026-07-23 07:00:00',55.00,55);
 
 -- DEST 39 — Stockholm (existant : 107, 108 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(446,'easyJet','avion','Paris CDG','Stockholm ARN','2026-07-05 07:00:00','2026-07-05 10:20:00',120.00,180);
+(446,'easyJet','avion','Paris CDG','Stockholm ARN','2026-07-05 07:00:00','2026-07-14 07:00:00',120.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(447,'Norwegian','avion','Paris CDG','Stockholm ARN','2026-07-15 06:30:00','2026-07-15 09:50:00',110.00,180);
+(447,'Norwegian','avion','Paris CDG','Stockholm ARN','2026-07-15 06:30:00','2026-07-22 06:30:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(448,'Transavia','avion','Paris ORY','Stockholm ARN','2026-07-25 07:30:00','2026-07-25 10:50:00',115.00,180);
+(448,'Transavia','avion','Paris ORY','Stockholm ARN','2026-07-25 07:30:00','2026-08-02 07:30:00',115.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(449,'Ryanair','avion','Paris Beauvais','Stockholm ARN','2026-08-05 06:00:00','2026-08-05 09:20:00',90.00,180);
+(449,'Ryanair','avion','Paris Beauvais','Stockholm ARN','2026-08-05 06:00:00','2026-08-14 06:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(450,'Wizz Air','avion','Paris CDG','Stockholm ARN','2026-08-15 06:30:00','2026-08-15 09:50:00',100.00,180);
+(450,'Wizz Air','avion','Paris CDG','Stockholm ARN','2026-08-15 06:30:00','2026-08-22 06:30:00',100.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(451,'Vueling','avion','Paris CDG','Stockholm ARN','2026-08-28 07:00:00','2026-08-28 10:20:00',125.00,180);
+(451,'Vueling','avion','Paris CDG','Stockholm ARN','2026-08-28 07:00:00','2026-09-05 07:00:00',125.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(452,'SJ (SJ AB)','train','Paris Gare de Lyon','Stockholm Centralstation','2026-07-12 07:00:00','2026-07-12 10:30:00',45.00,300);
+(452,'SJ (SJ AB)','train','Paris Gare de Lyon','Stockholm Centralstation','2026-07-12 07:00:00','2026-07-21 07:00:00',45.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(453,'Flixbus','bus','Paris Bercy Seine','Stockholm Cityterminalen','2026-07-20 07:00:00','2026-07-21 22:00:00',70.00,55);
+(453,'Flixbus','bus','Paris Bercy Seine','Stockholm Cityterminalen','2026-07-20 07:00:00','2026-07-27 07:00:00',70.00,55);
 
 -- DEST 40 — Budapest (existant : 109, 110, 111, 112 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(454,'easyJet','avion','Paris CDG','Budapest BUD','2026-07-12 07:00:00','2026-07-12 09:15:00',85.00,180);
+(454,'easyJet','avion','Paris CDG','Budapest BUD','2026-07-12 07:00:00','2026-07-20 07:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(455,'Ryanair','avion','Paris Beauvais','Budapest BUD','2026-07-25 06:00:00','2026-07-25 08:15:00',70.00,180);
+(455,'Ryanair','avion','Paris Beauvais','Budapest BUD','2026-07-25 06:00:00','2026-08-03 06:00:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(456,'Transavia','avion','Paris ORY','Budapest BUD','2026-08-05 07:30:00','2026-08-05 09:45:00',80.00,180);
+(456,'Transavia','avion','Paris ORY','Budapest BUD','2026-08-05 07:30:00','2026-08-12 07:30:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(457,'Vueling','avion','Paris CDG','Budapest BUD','2026-08-20 08:00:00','2026-08-20 10:15:00',90.00,180);
+(457,'Vueling','avion','Paris CDG','Budapest BUD','2026-08-20 08:00:00','2026-08-28 08:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(458,'DB Nightjet','train','Paris Est','Budapest Keleti','2026-08-12 21:33:00','2026-08-13 09:40:00',109.00,150);
+(458,'DB Nightjet','train','Paris Est','Budapest Keleti','2026-08-12 21:33:00','2026-08-21 21:33:00',109.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(459,'Flixbus','bus','Paris Bercy Seine','Budapest Nepliget','2026-08-22 08:00:00','2026-08-23 07:30:00',55.00,55);
+(459,'Flixbus','bus','Paris Bercy Seine','Budapest Nepliget','2026-08-22 08:00:00','2026-08-29 08:00:00',55.00,55);
 
 -- DEST 41 — Athènes (existant : 113, 114, 75, 76 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(460,'easyJet','avion','Paris CDG','Athènes ATH','2026-07-05 07:30:00','2026-07-05 11:30:00',110.00,180);
+(460,'easyJet','avion','Paris CDG','Athènes ATH','2026-07-05 07:30:00','2026-07-14 07:30:00',110.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(461,'Ryanair','avion','Paris Beauvais','Athènes ATH','2026-07-18 06:00:00','2026-07-18 10:05:00',90.00,180);
+(461,'Ryanair','avion','Paris Beauvais','Athènes ATH','2026-07-18 06:00:00','2026-07-28 06:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(462,'Transavia','avion','Paris ORY','Athènes ATH','2026-08-01 07:00:00','2026-08-01 11:05:00',105.00,180);
+(462,'Transavia','avion','Paris ORY','Athènes ATH','2026-08-01 07:00:00','2026-08-12 07:00:00',105.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(463,'Vueling','avion','Paris CDG','Athènes ATH','2026-08-20 08:00:00','2026-08-20 12:05:00',115.00,180);
+(463,'Vueling','avion','Paris CDG','Athènes ATH','2026-08-20 08:00:00','2026-09-01 08:00:00',115.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(464,'Hellenic Seaways','bateau','Paris Port de Grenelle','Crète Héraklion','2026-07-16 21:00:00','2026-07-17 06:30:00',55.00,500);
+(464,'Hellenic Seaways','bateau','Paris Port de Grenelle','Crète Héraklion','2026-07-16 21:00:00','2026-07-25 21:00:00',55.00,500);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(465,'Blue Star Ferries','bateau','Paris Port de Grenelle','Rhodes RHO','2026-08-02 20:00:00','2026-08-03 13:00:00',75.00,400);
+(465,'Blue Star Ferries','bateau','Paris Port de Grenelle','Rhodes RHO','2026-08-02 20:00:00','2026-08-09 20:00:00',75.00,400);
 
 -- DEST 42 — Florence (existant : 115, 116, 117, 118 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(466,'Ryanair','avion','Paris Beauvais','Florence FLR','2026-07-08 06:00:00','2026-07-08 08:15:00',60.00,180);
+(466,'Ryanair','avion','Paris Beauvais','Florence FLR','2026-07-08 06:00:00','2026-07-16 06:00:00',60.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(467,'easyJet','avion','Paris CDG','Florence FLR','2026-07-20 07:00:00','2026-07-20 09:15:00',70.00,180);
+(467,'easyJet','avion','Paris CDG','Florence FLR','2026-07-20 07:00:00','2026-07-29 07:00:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(468,'Transavia','avion','Paris ORY','Florence FLR','2026-08-08 07:30:00','2026-08-08 09:45:00',75.00,180);
+(468,'Transavia','avion','Paris ORY','Florence FLR','2026-08-08 07:30:00','2026-08-15 07:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(469,'Air France','avion','Paris CDG','Florence FLR','2026-08-22 09:00:00','2026-08-22 11:15:00',95.00,180);
+(469,'Air France','avion','Paris CDG','Florence FLR','2026-08-22 09:00:00','2026-08-30 09:00:00',95.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(470,'Trenitalia','train','Paris Gare de Lyon','Florence SMN','2026-08-05 07:15:00','2026-08-05 14:50:00',115.00,300);
+(470,'Trenitalia','train','Paris Gare de Lyon','Florence SMN','2026-08-05 07:15:00','2026-08-14 07:15:00',115.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(471,'Flixbus','bus','Paris Bercy Seine','Florence SITA','2026-08-18 07:00:00','2026-08-18 20:00:00',42.00,55);
+(471,'Flixbus','bus','Paris Bercy Seine','Florence SITA','2026-08-18 07:00:00','2026-08-25 07:00:00',42.00,55);
 
 -- DEST 43 — Porto (existant : 65, 119, 120, 121 → +6 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(472,'easyJet','avion','Paris CDG','Porto OPO','2026-07-12 07:30:00','2026-07-12 09:40:00',75.00,180);
+(472,'easyJet','avion','Paris CDG','Porto OPO','2026-07-12 07:30:00','2026-07-20 07:30:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(473,'Transavia','avion','Paris ORY','Porto OPO','2026-07-25 08:00:00','2026-07-25 10:10:00',80.00,180);
+(473,'Transavia','avion','Paris ORY','Porto OPO','2026-07-25 08:00:00','2026-08-03 08:00:00',80.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(474,'Vueling','avion','Paris CDG','Porto OPO','2026-08-08 07:00:00','2026-08-08 09:15:00',85.00,180);
+(474,'Vueling','avion','Paris CDG','Porto OPO','2026-08-08 07:00:00','2026-08-15 07:00:00',85.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(475,'Air France','avion','Paris CDG','Porto OPO','2026-08-22 09:30:00','2026-08-22 11:40:00',100.00,180);
+(475,'Air France','avion','Paris CDG','Porto OPO','2026-08-22 09:30:00','2026-08-30 09:30:00',100.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(476,'CP Portugal','train','Paris Gare de Lyon','Porto Campanha','2026-08-06 10:00:00','2026-08-06 13:00:00',28.00,250);
+(476,'CP Portugal','train','Paris Gare de Lyon','Porto Campanha','2026-08-06 10:00:00','2026-08-15 10:00:00',28.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(477,'Flixbus','bus','Paris Bercy Seine','Porto Campo 24 Agosto','2026-08-15 09:00:00','2026-08-16 09:00:00',52.00,55);
+(477,'Flixbus','bus','Paris Bercy Seine','Porto Campo 24 Agosto','2026-08-15 09:00:00','2026-08-22 09:00:00',52.00,55);
 
 -- DEST 44 — Sintra/Lisbonne (existant : 6, 122, 123 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(478,'Ryanair','avion','Paris Beauvais','Lisbonne LIS','2026-07-05 06:00:00','2026-07-05 08:15:00',55.00,180);
+(478,'Ryanair','avion','Paris Beauvais','Lisbonne LIS','2026-07-05 06:00:00','2026-07-13 06:00:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(479,'Transavia','avion','Paris ORY','Lisbonne LIS','2026-07-18 07:30:00','2026-07-18 09:45:00',70.00,180);
+(479,'Transavia','avion','Paris ORY','Lisbonne LIS','2026-07-18 07:30:00','2026-07-27 07:30:00',70.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(480,'Vueling','avion','Paris ORY','Lisbonne LIS','2026-08-01 07:00:00','2026-08-01 09:15:00',75.00,180);
+(480,'Vueling','avion','Paris ORY','Lisbonne LIS','2026-08-01 07:00:00','2026-08-08 07:00:00',75.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(481,'Air France','avion','Paris CDG','Lisbonne LIS','2026-08-12 09:00:00','2026-08-12 11:15:00',90.00,180);
+(481,'Air France','avion','Paris CDG','Lisbonne LIS','2026-08-12 09:00:00','2026-08-20 09:00:00',90.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(482,'Flixbus','bus','Paris Bercy Seine','Lisbonne Sete Rios','2026-07-12 08:00:00','2026-07-13 08:00:00',48.00,55);
+(482,'Flixbus','bus','Paris Bercy Seine','Lisbonne Sete Rios','2026-07-12 08:00:00','2026-07-21 08:00:00',48.00,55);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(483,'Comboios de Portugal','train','Paris Gare de Lyon','Sintra','2026-07-11 09:30:00','2026-07-11 10:00:00',2.50,200);
+(483,'Comboios de Portugal','train','Paris Gare de Lyon','Sintra','2026-07-11 09:30:00','2026-07-18 09:30:00',2.50,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(484,'Comboios de Portugal','train','Paris Gare de Lyon','Sintra','2026-08-06 10:00:00','2026-08-06 10:30:00',2.50,200);
+(484,'Comboios de Portugal','train','Paris Gare de Lyon','Sintra','2026-08-06 10:00:00','2026-08-14 10:00:00',2.50,200);
 
 -- DEST 45 — Séoul (existant : 124, 125 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(485,'Asiana Airlines','avion','Paris CDG','Séoul ICN','2026-07-05 12:00:00','2026-07-06 07:30:00',880.00,280);
+(485,'Asiana Airlines','avion','Paris CDG','Séoul ICN','2026-07-05 12:00:00','2026-07-19 12:00:00',880.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(486,'Qatar Airways','avion','Paris CDG','Séoul ICN','2026-07-18 20:00:00','2026-07-19 16:30:00',820.00,300);
+(486,'Qatar Airways','avion','Paris CDG','Séoul ICN','2026-07-18 20:00:00','2026-07-30 20:00:00',820.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(487,'Cathay Pacific','avion','Paris CDG','Séoul ICN','2026-08-01 21:30:00','2026-08-02 17:00:00',840.00,280);
+(487,'Cathay Pacific','avion','Paris CDG','Séoul ICN','2026-08-01 21:30:00','2026-08-14 21:30:00',840.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(488,'Emirates','avion','Paris CDG','Séoul ICN','2026-08-12 20:00:00','2026-08-13 16:30:00',860.00,300);
+(488,'Emirates','avion','Paris CDG','Séoul ICN','2026-08-12 20:00:00','2026-08-26 20:00:00',860.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(489,'Turkish Airlines','avion','Paris CDG','Séoul ICN','2026-08-22 22:00:00','2026-08-23 17:30:00',800.00,280);
+(489,'Turkish Airlines','avion','Paris CDG','Séoul ICN','2026-08-22 22:00:00','2026-09-03 22:00:00',800.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(490,'Singapore Airlines','avion','Paris CDG','Séoul ICN','2026-09-01 22:30:00','2026-09-02 18:00:00',830.00,280);
+(490,'Singapore Airlines','avion','Paris CDG','Séoul ICN','2026-09-01 22:30:00','2026-09-14 22:30:00',830.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(491,'Korail','train','Paris Gare de Lyon','Busan','2026-07-07 07:00:00','2026-07-07 09:30:00',55.00,400);
+(491,'Korail','train','Paris Gare de Lyon','Busan','2026-07-07 07:00:00','2026-07-16 07:00:00',55.00,400);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(492,'T-express','bus','Paris Bercy Seine','Gyeongju','2026-08-14 09:00:00','2026-08-14 12:00:00',18.00,45);
+(492,'T-express','bus','Paris Bercy Seine','Gyeongju','2026-08-14 09:00:00','2026-08-21 09:00:00',18.00,45);
 
 -- DEST 46 — Hong Kong (existant : 126, 127 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(493,'Emirates','avion','Paris CDG','Hong Kong HKG','2026-07-05 21:00:00','2026-07-06 17:00:00',800.00,300);
+(493,'Emirates','avion','Paris CDG','Hong Kong HKG','2026-07-05 21:00:00','2026-07-18 21:00:00',800.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(494,'Qatar Airways','avion','Paris CDG','Hong Kong HKG','2026-07-18 20:30:00','2026-07-19 16:30:00',760.00,300);
+(494,'Qatar Airways','avion','Paris CDG','Hong Kong HKG','2026-07-18 20:30:00','2026-08-01 20:30:00',760.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(495,'Singapore Airlines','avion','Paris CDG','Hong Kong HKG','2026-08-01 22:30:00','2026-08-02 18:30:00',790.00,280);
+(495,'Singapore Airlines','avion','Paris CDG','Hong Kong HKG','2026-08-01 22:30:00','2026-08-13 22:30:00',790.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(496,'Turkish Airlines','avion','Paris CDG','Hong Kong HKG','2026-08-12 22:00:00','2026-08-13 18:00:00',750.00,280);
+(496,'Turkish Airlines','avion','Paris CDG','Hong Kong HKG','2026-08-12 22:00:00','2026-08-25 22:00:00',750.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(497,'Finnair','avion','Paris CDG','Hong Kong HKG','2026-08-22 21:00:00','2026-08-23 17:00:00',770.00,270);
+(497,'Finnair','avion','Paris CDG','Hong Kong HKG','2026-08-22 21:00:00','2026-09-05 21:00:00',770.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(498,'Korean Air','avion','Paris CDG','Hong Kong HKG','2026-09-01 20:00:00','2026-09-02 16:30:00',780.00,280);
+(498,'Korean Air','avion','Paris CDG','Hong Kong HKG','2026-09-01 20:00:00','2026-09-13 20:00:00',780.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(499,'MTR','train','Paris Gare de Lyon','Guangzhou','2026-07-13 09:00:00','2026-07-13 10:35:00',25.00,1000);
+(499,'MTR','train','Paris Gare de Lyon','Guangzhou','2026-07-13 09:00:00','2026-07-21 09:00:00',25.00,1000);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(500,'TurboJET','bateau','Paris Port de Grenelle','Macao','2026-07-14 10:00:00','2026-07-14 11:00:00',40.00,350);
+(500,'TurboJET','bateau','Paris Port de Grenelle','Macao','2026-07-14 10:00:00','2026-07-23 10:00:00',40.00,350);
 
 -- DEST 47 — Kuala Lumpur (existant : 128, 129 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(501,'Qatar Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-07-05 20:30:00','2026-07-06 15:30:00',660.00,300);
+(501,'Qatar Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-07-05 20:30:00','2026-07-17 20:30:00',660.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(502,'Turkish Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-07-18 22:30:00','2026-07-19 18:00:00',640.00,280);
+(502,'Turkish Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-07-18 22:30:00','2026-07-31 22:30:00',640.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(503,'Emirates','avion','Paris CDG','Kuala Lumpur KUL','2026-08-01 20:00:00','2026-08-02 15:30:00',680.00,300);
+(503,'Emirates','avion','Paris CDG','Kuala Lumpur KUL','2026-08-01 20:00:00','2026-08-15 20:00:00',680.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(504,'Singapore Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-08-12 22:30:00','2026-08-13 17:30:00',700.00,280);
+(504,'Singapore Airlines','avion','Paris CDG','Kuala Lumpur KUL','2026-08-12 22:30:00','2026-08-24 22:30:00',700.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(505,'Thai Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-08-22 21:00:00','2026-08-23 16:30:00',650.00,270);
+(505,'Thai Airways','avion','Paris CDG','Kuala Lumpur KUL','2026-08-22 21:00:00','2026-09-04 21:00:00',650.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(506,'Air Asia X','avion','Paris CDG','Kuala Lumpur KUL','2026-09-01 23:00:00','2026-09-02 18:00:00',580.00,300);
+(506,'Air Asia X','avion','Paris CDG','Kuala Lumpur KUL','2026-09-01 23:00:00','2026-09-15 23:00:00',580.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(507,'KTM Berhad','train','Paris Gare de Lyon','Penang Butterworth','2026-07-17 08:30:00','2026-07-17 13:00:00',22.00,200);
+(507,'KTM Berhad','train','Paris Gare de Lyon','Penang Butterworth','2026-07-17 08:30:00','2026-07-24 08:30:00',22.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(508,'Aeroline','bus','Paris Bercy Seine','Singapour Golden Mile','2026-08-03 08:00:00','2026-08-03 13:30:00',18.00,45);
+(508,'Aeroline','bus','Paris Bercy Seine','Singapour Golden Mile','2026-08-03 08:00:00','2026-08-11 08:00:00',18.00,45);
 
 -- DEST 48 — Hanoï (existant : 130, 131 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(509,'Qatar Airways','avion','Paris CDG','Hanoï HAN','2026-07-05 20:00:00','2026-07-06 14:00:00',650.00,300);
+(509,'Qatar Airways','avion','Paris CDG','Hanoï HAN','2026-07-05 20:00:00','2026-07-19 20:00:00',650.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(510,'Turkish Airlines','avion','Paris CDG','Hanoï HAN','2026-07-18 22:00:00','2026-07-19 17:00:00',630.00,280);
+(510,'Turkish Airlines','avion','Paris CDG','Hanoï HAN','2026-07-18 22:00:00','2026-07-30 22:00:00',630.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(511,'Emirates','avion','Paris CDG','Hanoï HAN','2026-08-01 21:00:00','2026-08-02 15:30:00',670.00,300);
+(511,'Emirates','avion','Paris CDG','Hanoï HAN','2026-08-01 21:00:00','2026-08-14 21:00:00',670.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(512,'Cathay Pacific','avion','Paris CDG','Hanoï HAN','2026-08-12 22:30:00','2026-08-13 17:30:00',660.00,280);
+(512,'Cathay Pacific','avion','Paris CDG','Hanoï HAN','2026-08-12 22:30:00','2026-08-26 22:30:00',660.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(513,'China Eastern','avion','Paris CDG','Hanoï HAN','2026-08-22 20:00:00','2026-08-23 14:30:00',620.00,270);
+(513,'China Eastern','avion','Paris CDG','Hanoï HAN','2026-08-22 20:00:00','2026-09-03 20:00:00',620.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(514,'Korean Air','avion','Paris CDG','Hanoï HAN','2026-09-01 21:30:00','2026-09-02 16:00:00',640.00,280);
+(514,'Korean Air','avion','Paris CDG','Hanoï HAN','2026-09-01 21:30:00','2026-09-14 21:30:00',640.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(515,'VietJet Air','avion','Paris CDG','Ho Chi Minh SGN','2026-07-10 07:00:00','2026-07-10 09:15:00',45.00,180);
+(515,'VietJet Air','avion','Paris CDG','Ho Chi Minh SGN','2026-07-10 07:00:00','2026-07-24 07:00:00',45.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(516,'Reunification Express','train','Paris Gare de Lyon','Da Nang','2026-08-14 07:00:00','2026-08-14 19:00:00',22.00,200);
+(516,'Reunification Express','train','Paris Gare de Lyon','Da Nang','2026-08-14 07:00:00','2026-08-21 07:00:00',22.00,200);
 
 -- DEST 49 — Mumbai (existant : 132, 133 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(517,'Qatar Airways','avion','Paris CDG','Mumbai BOM','2026-07-05 20:00:00','2026-07-06 06:30:00',560.00,300);
+(517,'Qatar Airways','avion','Paris CDG','Mumbai BOM','2026-07-05 20:00:00','2026-07-15 20:00:00',560.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(518,'Emirates','avion','Paris CDG','Mumbai BOM','2026-07-18 19:30:00','2026-07-19 06:00:00',590.00,300);
+(518,'Emirates','avion','Paris CDG','Mumbai BOM','2026-07-18 19:30:00','2026-07-29 19:30:00',590.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(519,'Turkish Airlines','avion','Paris CDG','Mumbai BOM','2026-08-01 22:00:00','2026-08-02 09:30:00',550.00,280);
+(519,'Turkish Airlines','avion','Paris CDG','Mumbai BOM','2026-08-01 22:00:00','2026-08-13 22:00:00',550.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(520,'Etihad Airways','avion','Paris CDG','Mumbai BOM','2026-08-12 20:30:00','2026-08-13 07:00:00',570.00,280);
+(520,'Etihad Airways','avion','Paris CDG','Mumbai BOM','2026-08-12 20:30:00','2026-08-21 20:30:00',570.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(521,'British Airways','avion','Paris CDG','Mumbai BOM','2026-08-22 22:00:00','2026-08-23 09:30:00',600.00,280);
+(521,'British Airways','avion','Paris CDG','Mumbai BOM','2026-08-22 22:00:00','2026-09-01 22:00:00',600.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(522,'Lufthansa','avion','Paris CDG','Mumbai BOM','2026-09-01 21:00:00','2026-09-02 08:30:00',580.00,270);
+(522,'Lufthansa','avion','Paris CDG','Mumbai BOM','2026-09-01 21:00:00','2026-09-12 21:00:00',580.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(523,'IndiGo','avion','Paris CDG','Goa GOX','2026-07-23 08:00:00','2026-07-23 09:10:00',40.00,180);
+(523,'IndiGo','avion','Paris CDG','Goa GOX','2026-07-23 08:00:00','2026-08-05 08:00:00',40.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(524,'Indian Railways','train','Paris Gare de Lyon','Goa Madgaon','2026-08-16 07:00:00','2026-08-16 17:30:00',20.00,300);
+(524,'Indian Railways','train','Paris Gare de Lyon','Goa Madgaon','2026-08-16 07:00:00','2026-08-25 07:00:00',20.00,300);
 
 -- DEST 50 — Montréal (existant : 134, 135 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(525,'Corsair','avion','Paris ORY','Montréal YUL','2026-07-08 11:30:00','2026-07-08 13:30:00',400.00,280);
+(525,'Corsair','avion','Paris ORY','Montréal YUL','2026-07-08 11:30:00','2026-07-18 11:30:00',400.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(526,'Canadian Airlines','avion','Paris CDG','Montréal YUL','2026-07-20 10:00:00','2026-07-20 12:00:00',440.00,280);
+(526,'Canadian Airlines','avion','Paris CDG','Montréal YUL','2026-07-20 10:00:00','2026-07-31 10:00:00',440.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(527,'Corsair','avion','Paris ORY','Montréal YUL','2026-08-05 12:00:00','2026-08-05 14:00:00',410.00,280);
+(527,'Corsair','avion','Paris ORY','Montréal YUL','2026-08-05 12:00:00','2026-08-17 12:00:00',410.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(528,'British Airways','avion','Paris CDG','Montréal YUL','2026-08-15 10:30:00','2026-08-15 12:30:00',460.00,280);
+(528,'British Airways','avion','Paris CDG','Montréal YUL','2026-08-15 10:30:00','2026-08-24 10:30:00',460.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(529,'Lufthansa','avion','Paris CDG','Montréal YUL','2026-08-28 09:00:00','2026-08-28 11:00:00',450.00,270);
+(529,'Lufthansa','avion','Paris CDG','Montréal YUL','2026-08-28 09:00:00','2026-09-07 09:00:00',450.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(530,'United Airlines','avion','Paris CDG','Montréal YUL','2026-09-05 10:00:00','2026-09-05 12:00:00',430.00,280);
+(530,'United Airlines','avion','Paris CDG','Montréal YUL','2026-09-05 10:00:00','2026-09-16 10:00:00',430.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(531,'VIA Rail','train','Paris Gare de Lyon','Québec City','2026-07-06 07:10:00','2026-07-06 10:05:00',55.00,900);
+(531,'VIA Rail','train','Paris Gare de Lyon','Québec City','2026-07-06 07:10:00','2026-07-13 07:10:00',55.00,900);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(532,'Flixbus','bus','Paris Bercy Seine','Toronto','2026-08-16 08:00:00','2026-08-16 14:30:00',35.00,55);
+(532,'Flixbus','bus','Paris Bercy Seine','Toronto','2026-08-16 08:00:00','2026-08-24 08:00:00',35.00,55);
 
 -- DEST 51 — Los Angeles (existant : 136, 137 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(533,'United Airlines','avion','Paris CDG','Los Angeles LAX','2026-07-05 10:30:00','2026-07-05 14:00:00',550.00,300);
+(533,'United Airlines','avion','Paris CDG','Los Angeles LAX','2026-07-05 10:30:00','2026-07-19 10:30:00',550.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(534,'Norwegian','avion','Paris CDG','Los Angeles LAX','2026-07-18 11:00:00','2026-07-18 14:30:00',500.00,300);
+(534,'Norwegian','avion','Paris CDG','Los Angeles LAX','2026-07-18 11:00:00','2026-07-30 11:00:00',500.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(535,'British Airways','avion','Paris CDG','Los Angeles LAX','2026-08-01 10:00:00','2026-08-01 13:30:00',570.00,280);
+(535,'British Airways','avion','Paris CDG','Los Angeles LAX','2026-08-01 10:00:00','2026-08-14 10:00:00',570.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(536,'Corsair','avion','Paris ORY','Los Angeles LAX','2026-08-12 11:30:00','2026-08-12 15:00:00',490.00,280);
+(536,'Corsair','avion','Paris ORY','Los Angeles LAX','2026-08-12 11:30:00','2026-08-26 11:30:00',490.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(537,'Lufthansa','avion','Paris CDG','Los Angeles LAX','2026-08-22 09:30:00','2026-08-22 13:00:00',560.00,270);
+(537,'Lufthansa','avion','Paris CDG','Los Angeles LAX','2026-08-22 09:30:00','2026-09-03 09:30:00',560.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(538,'Iberia','avion','Paris CDG','Los Angeles LAX','2026-09-05 10:00:00','2026-09-05 13:30:00',540.00,280);
+(538,'Iberia','avion','Paris CDG','Los Angeles LAX','2026-09-05 10:00:00','2026-09-18 10:00:00',540.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(539,'Southwest Airlines','avion','Paris CDG','Las Vegas LAS','2026-07-06 08:00:00','2026-07-06 09:00:00',65.00,175);
+(539,'Southwest Airlines','avion','Paris CDG','Las Vegas LAS','2026-07-06 08:00:00','2026-07-20 08:00:00',65.00,175);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(540,'Amtrak','train','Paris Gare de Lyon','San Francisco Emeryville','2026-08-13 09:10:00','2026-08-13 18:10:00',55.00,200);
+(540,'Amtrak','train','Paris Gare de Lyon','San Francisco Emeryville','2026-08-13 09:10:00','2026-08-20 09:10:00',55.00,200);
 
 -- DEST 52 — Sydney (existant : 138, 139 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(541,'Singapore Airlines','avion','Paris CDG','Sydney SYD','2026-07-08 22:30:00','2026-07-10 07:30:00',1300.00,280);
+(541,'Singapore Airlines','avion','Paris CDG','Sydney SYD','2026-07-08 22:30:00','2026-07-21 22:30:00',1300.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(542,'Emirates','avion','Paris CDG','Sydney SYD','2026-07-20 21:00:00','2026-07-22 06:00:00',1280.00,300);
+(542,'Emirates','avion','Paris CDG','Sydney SYD','2026-07-20 21:00:00','2026-08-03 21:00:00',1280.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(543,'Etihad Airways','avion','Paris CDG','Sydney SYD','2026-08-01 20:00:00','2026-08-03 05:30:00',1320.00,280);
+(543,'Etihad Airways','avion','Paris CDG','Sydney SYD','2026-08-01 20:00:00','2026-08-13 20:00:00',1320.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(544,'Cathay Pacific','avion','Paris CDG','Sydney SYD','2026-08-12 21:30:00','2026-08-14 06:30:00',1300.00,280);
+(544,'Cathay Pacific','avion','Paris CDG','Sydney SYD','2026-08-12 21:30:00','2026-08-25 21:30:00',1300.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(545,'Turkish Airlines','avion','Paris CDG','Sydney SYD','2026-08-22 22:00:00','2026-08-24 07:00:00',1260.00,280);
+(545,'Turkish Airlines','avion','Paris CDG','Sydney SYD','2026-08-22 22:00:00','2026-09-05 22:00:00',1260.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(546,'Malaysian Airlines','avion','Paris CDG','Sydney SYD','2026-09-01 22:30:00','2026-09-03 07:30:00',1280.00,270);
+(546,'Malaysian Airlines','avion','Paris CDG','Sydney SYD','2026-09-01 22:30:00','2026-09-13 22:30:00',1280.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(547,'Jetstar','avion','Paris CDG','Melbourne MEL','2026-07-11 07:00:00','2026-07-11 08:30:00',55.00,200);
+(547,'Jetstar','avion','Paris CDG','Melbourne MEL','2026-07-11 07:00:00','2026-07-24 07:00:00',55.00,200);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(548,'NSW TrainLink','train','Paris Gare de Lyon','Brisbane Roma Street','2026-08-15 07:25:00','2026-08-15 23:00:00',65.00,500);
+(548,'NSW TrainLink','train','Paris Gare de Lyon','Brisbane Roma Street','2026-08-15 07:25:00','2026-08-24 07:25:00',65.00,500);
 
 -- DEST 53 — Buenos Aires (existant : 56, 140, 141 → +7 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(549,'Latam Airlines','avion','Paris CDG','Buenos Aires EZE','2026-07-08 10:00:00','2026-07-08 21:30:00',810.00,280);
+(549,'Latam Airlines','avion','Paris CDG','Buenos Aires EZE','2026-07-08 10:00:00','2026-07-20 10:00:00',810.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(550,'Iberia','avion','Paris CDG','Buenos Aires EZE','2026-07-22 11:00:00','2026-07-22 22:30:00',840.00,280);
+(550,'Iberia','avion','Paris CDG','Buenos Aires EZE','2026-07-22 11:00:00','2026-08-04 11:00:00',840.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(551,'Air Europa','avion','Paris CDG','Buenos Aires EZE','2026-08-05 12:00:00','2026-08-05 23:30:00',800.00,270);
+(551,'Air Europa','avion','Paris CDG','Buenos Aires EZE','2026-08-05 12:00:00','2026-08-19 12:00:00',800.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(552,'Turkish Airlines','avion','Paris CDG','Buenos Aires EZE','2026-08-18 22:00:00','2026-08-19 14:00:00',860.00,280);
+(552,'Turkish Airlines','avion','Paris CDG','Buenos Aires EZE','2026-08-18 22:00:00','2026-08-30 22:00:00',860.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(553,'Corsair','avion','Paris ORY','Buenos Aires EZE','2026-08-28 11:00:00','2026-08-28 22:30:00',790.00,270);
+(553,'Corsair','avion','Paris ORY','Buenos Aires EZE','2026-08-28 11:00:00','2026-09-10 11:00:00',790.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(554,'Aerolíneas Argentinas','avion','Paris CDG','Bariloche BRC','2026-07-09 09:00:00','2026-07-09 11:30:00',120.00,150);
+(554,'Aerolíneas Argentinas','avion','Paris CDG','Bariloche BRC','2026-07-09 09:00:00','2026-07-23 09:00:00',120.00,150);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(555,'Buquebus','bateau','Paris Port de Grenelle','Colonia (Uruguay)','2026-07-20 09:00:00','2026-07-20 10:00:00',30.00,300);
+(555,'Buquebus','bateau','Paris Port de Grenelle','Colonia (Uruguay)','2026-07-20 09:00:00','2026-07-27 09:00:00',30.00,300);
 
 -- DEST 54 — Rio de Janeiro (existant : 142, 143 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(556,'Latam Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-07-05 10:00:00','2026-07-05 20:00:00',760.00,280);
+(556,'Latam Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-07-05 10:00:00','2026-07-18 10:00:00',760.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(557,'Iberia','avion','Paris CDG','Rio de Janeiro GIG','2026-07-18 11:30:00','2026-07-18 21:30:00',790.00,280);
+(557,'Iberia','avion','Paris CDG','Rio de Janeiro GIG','2026-07-18 11:30:00','2026-08-01 11:30:00',790.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(558,'TAP Portugal','avion','Paris CDG','Rio de Janeiro GIG','2026-08-01 11:00:00','2026-08-01 21:00:00',750.00,280);
+(558,'TAP Portugal','avion','Paris CDG','Rio de Janeiro GIG','2026-08-01 11:00:00','2026-08-13 11:00:00',750.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(559,'Aerolíneas Argentinas','avion','Paris CDG','Rio de Janeiro GIG','2026-08-12 12:00:00','2026-08-12 22:00:00',780.00,270);
+(559,'Aerolíneas Argentinas','avion','Paris CDG','Rio de Janeiro GIG','2026-08-12 12:00:00','2026-08-25 12:00:00',780.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(560,'Air Europa','avion','Paris CDG','Rio de Janeiro GIG','2026-08-22 11:00:00','2026-08-22 21:30:00',760.00,270);
+(560,'Air Europa','avion','Paris CDG','Rio de Janeiro GIG','2026-08-22 11:00:00','2026-09-05 11:00:00',760.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(561,'Turkish Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-09-01 23:00:00','2026-09-02 13:00:00',800.00,280);
+(561,'Turkish Airlines','avion','Paris CDG','Rio de Janeiro GIG','2026-09-01 23:00:00','2026-09-13 23:00:00',800.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(562,'GOL Airlines','avion','Paris CDG','São Paulo GRU','2026-07-06 08:00:00','2026-07-06 09:15:00',55.00,180);
+(562,'GOL Airlines','avion','Paris CDG','São Paulo GRU','2026-07-06 08:00:00','2026-07-19 08:00:00',55.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(563,'Azul','avion','Paris CDG','Salvador SSA','2026-08-14 07:30:00','2026-08-14 09:30:00',65.00,150);
+(563,'Azul','avion','Paris CDG','Salvador SSA','2026-08-14 07:30:00','2026-08-28 07:30:00',65.00,150);
 
 -- DEST 55 — Punta Cana (existant : 144, 145 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(564,'Air Transat','avion','Paris CDG','Punta Cana PUJ','2026-07-08 11:00:00','2026-07-08 15:30:00',560.00,300);
+(564,'Air Transat','avion','Paris CDG','Punta Cana PUJ','2026-07-08 11:00:00','2026-07-20 11:00:00',560.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(565,'TUI fly','avion','Paris CDG','Punta Cana PUJ','2026-07-20 10:30:00','2026-07-20 15:00:00',580.00,280);
+(565,'TUI fly','avion','Paris CDG','Punta Cana PUJ','2026-07-20 10:30:00','2026-08-02 10:30:00',580.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(566,'Condor','avion','Paris CDG','Punta Cana PUJ','2026-08-01 11:00:00','2026-08-01 15:30:00',550.00,270);
+(566,'Condor','avion','Paris CDG','Punta Cana PUJ','2026-08-01 11:00:00','2026-08-15 11:00:00',550.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(567,'Norwegian','avion','Paris CDG','Punta Cana PUJ','2026-08-12 10:00:00','2026-08-12 14:30:00',540.00,280);
+(567,'Norwegian','avion','Paris CDG','Punta Cana PUJ','2026-08-12 10:00:00','2026-08-24 10:00:00',540.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(568,'Iberia','avion','Paris CDG','Punta Cana PUJ','2026-08-22 12:00:00','2026-08-22 16:30:00',570.00,280);
+(568,'Iberia','avion','Paris CDG','Punta Cana PUJ','2026-08-22 12:00:00','2026-09-04 12:00:00',570.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(569,'American Airlines','avion','Paris CDG','Punta Cana PUJ','2026-09-01 11:30:00','2026-09-01 16:00:00',555.00,280);
+(569,'American Airlines','avion','Paris CDG','Punta Cana PUJ','2026-09-01 11:30:00','2026-09-15 11:30:00',555.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(570,'Caribe Tours','bus','Paris Bercy Seine','Punta Cana','2026-07-09 08:00:00','2026-07-09 11:30:00',12.00,50);
+(570,'Caribe Tours','bus','Paris Bercy Seine','Punta Cana','2026-07-09 08:00:00','2026-07-16 08:00:00',12.00,50);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(571,'Sky Cana','avion','Paris CDG','Punta Cana PUJ','2026-08-02 09:00:00','2026-08-02 09:45:00',40.00,70);
+(571,'Sky Cana','avion','Paris CDG','Punta Cana PUJ','2026-08-02 09:00:00','2026-08-15 09:00:00',40.00,70);
 
 -- DEST 56 — Koh Samui (existant : 146, 147 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(572,'Qatar Airways','avion','Paris CDG','Koh Samui USM','2026-07-05 20:00:00','2026-07-06 18:30:00',740.00,300);
+(572,'Qatar Airways','avion','Paris CDG','Koh Samui USM','2026-07-05 20:00:00','2026-07-19 20:00:00',740.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(573,'Emirates','avion','Paris CDG','Koh Samui USM','2026-07-18 21:00:00','2026-07-19 19:00:00',760.00,300);
+(573,'Emirates','avion','Paris CDG','Koh Samui USM','2026-07-18 21:00:00','2026-07-30 21:00:00',760.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(574,'Turkish Airlines','avion','Paris CDG','Bangkok BKK','2026-08-01 22:00:00','2026-08-02 16:00:00',600.00,280);
+(574,'Turkish Airlines','avion','Paris CDG','Bangkok BKK','2026-08-01 22:00:00','2026-08-14 22:00:00',600.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(575,'Malaysia Airlines','avion','Paris CDG','Bangkok BKK','2026-08-12 23:00:00','2026-08-13 17:30:00',590.00,270);
+(575,'Malaysia Airlines','avion','Paris CDG','Bangkok BKK','2026-08-12 23:00:00','2026-08-26 23:00:00',590.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(576,'Singapore Airlines','avion','Paris CDG','Bangkok BKK','2026-08-22 22:30:00','2026-08-23 17:00:00',620.00,280);
+(576,'Singapore Airlines','avion','Paris CDG','Bangkok BKK','2026-08-22 22:30:00','2026-09-03 22:30:00',620.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(577,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-08-02 13:00:00','2026-08-02 14:20:00',70.00,70);
+(577,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-08-02 13:00:00','2026-08-15 13:00:00',70.00,70);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(578,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-08-13 14:00:00','2026-08-13 15:20:00',70.00,70);
+(578,'Bangkok Airways','avion','Paris CDG','Koh Samui USM','2026-08-13 14:00:00','2026-08-27 14:00:00',70.00,70);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(579,'Raja Ferry','bateau','Paris Port de Grenelle','Koh Samui','2026-07-07 09:00:00','2026-07-07 11:30:00',10.00,300);
+(579,'Raja Ferry','bateau','Paris Port de Grenelle','Koh Samui','2026-07-07 09:00:00','2026-07-14 09:00:00',10.00,300);
 
 -- DEST 57 — Cap-Vert (existant : 148, 149 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(580,'Vueling','avion','Paris CDG','Sal SID','2026-07-05 21:30:00','2026-07-06 01:30:00',360.00,180);
+(580,'Vueling','avion','Paris CDG','Sal SID','2026-07-05 21:30:00','2026-07-14 21:30:00',360.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(581,'TUI fly','avion','Paris CDG','Sal SID','2026-07-18 22:00:00','2026-07-19 02:00:00',380.00,180);
+(581,'TUI fly','avion','Paris CDG','Sal SID','2026-07-18 22:00:00','2026-07-28 22:00:00',380.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(582,'Condor','avion','Paris CDG','Sal SID','2026-08-01 21:00:00','2026-08-02 01:00:00',370.00,180);
+(582,'Condor','avion','Paris CDG','Sal SID','2026-08-01 21:00:00','2026-08-12 21:00:00',370.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(583,'Corsair','avion','Paris ORY','Sal SID','2026-08-12 22:30:00','2026-08-13 02:30:00',350.00,180);
+(583,'Corsair','avion','Paris ORY','Sal SID','2026-08-12 22:30:00','2026-08-24 22:30:00',350.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(584,'Luxair','avion','Paris CDG','Sal SID','2026-08-22 21:00:00','2026-08-23 01:00:00',390.00,180);
+(584,'Luxair','avion','Paris CDG','Sal SID','2026-08-22 21:00:00','2026-08-31 21:00:00',390.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(585,'easyJet','avion','Paris CDG','Sal SID','2026-09-01 22:00:00','2026-09-02 02:00:00',340.00,180);
+(585,'easyJet','avion','Paris CDG','Sal SID','2026-09-01 22:00:00','2026-09-11 22:00:00',340.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(586,'TACV Cabo Verde Airlines','avion','Paris CDG','Santiago SDG','2026-07-13 10:00:00','2026-07-13 10:45:00',45.00,70);
+(586,'TACV Cabo Verde Airlines','avion','Paris CDG','Santiago SDG','2026-07-13 10:00:00','2026-07-26 10:00:00',45.00,70);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(587,'Mar d\'Canal','bateau','Paris Port de Grenelle','Boavista','2026-07-19 09:00:00','2026-07-19 12:00:00',15.00,80);
+(587,'Mar d\'Canal','bateau','Paris Port de Grenelle','Boavista','2026-07-19 09:00:00','2026-07-28 09:00:00',15.00,80);
 
 -- DEST 58 — La Réunion (existant : 150, 151 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(588,'Air Austral','avion','Paris CDG','Saint-Denis RUN','2026-07-05 21:30:00','2026-07-06 11:30:00',560.00,280);
+(588,'Air Austral','avion','Paris CDG','Saint-Denis RUN','2026-07-05 21:30:00','2026-07-17 21:30:00',560.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(589,'Air Mauritius','avion','Paris CDG','Saint-Denis RUN','2026-07-18 22:00:00','2026-07-19 12:00:00',540.00,270);
+(589,'Air Mauritius','avion','Paris CDG','Saint-Denis RUN','2026-07-18 22:00:00','2026-07-31 22:00:00',540.00,270);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(590,'French Bee','avion','Paris ORY','Saint-Denis RUN','2026-08-01 22:30:00','2026-08-02 11:30:00',490.00,350);
+(590,'French Bee','avion','Paris ORY','Saint-Denis RUN','2026-08-01 22:30:00','2026-08-15 22:30:00',490.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(591,'Air Austral','avion','Paris CDG','Saint-Denis RUN','2026-08-12 21:00:00','2026-08-13 11:00:00',550.00,280);
+(591,'Air Austral','avion','Paris CDG','Saint-Denis RUN','2026-08-12 21:00:00','2026-08-24 21:00:00',550.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(592,'French Bee','avion','Paris ORY','Saint-Denis RUN','2026-08-22 23:00:00','2026-08-23 12:00:00',500.00,350);
+(592,'French Bee','avion','Paris ORY','Saint-Denis RUN','2026-08-22 23:00:00','2026-09-04 23:00:00',500.00,350);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(593,'Air France','avion','Paris CDG','Saint-Denis RUN','2026-09-01 22:30:00','2026-09-02 11:30:00',580.00,250);
+(593,'Air France','avion','Paris CDG','Saint-Denis RUN','2026-09-01 22:30:00','2026-09-15 22:30:00',580.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(594,'Air Austral','avion','Paris CDG','Mayotte DZAO','2026-07-07 08:00:00','2026-07-07 09:10:00',65.00,100);
+(594,'Air Austral','avion','Paris CDG','Mayotte DZAO','2026-07-07 08:00:00','2026-07-18 08:00:00',65.00,100);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(595,'Air Corsica','avion','Paris CDG','Île Maurice MRU','2026-08-14 08:00:00','2026-08-14 08:45:00',55.00,120);
+(595,'Air Corsica','avion','Paris CDG','Île Maurice MRU','2026-08-14 08:00:00','2026-08-27 08:00:00',55.00,120);
 
 -- DEST 59 — Cape Town (existant : 152, 153 → +8 transports)
 -- ============================================================
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(596,'Ethiopian Airlines','avion','Paris CDG','Cape Town CPT','2026-07-05 10:30:00','2026-07-06 01:30:00',820.00,280);
+(596,'Ethiopian Airlines','avion','Paris CDG','Cape Town CPT','2026-07-05 10:30:00','2026-07-19 10:30:00',820.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(597,'Turkish Airlines','avion','Paris CDG','Cape Town CPT','2026-07-18 22:00:00','2026-07-19 11:30:00',800.00,280);
+(597,'Turkish Airlines','avion','Paris CDG','Cape Town CPT','2026-07-18 22:00:00','2026-07-30 22:00:00',800.00,280);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(598,'Emirates','avion','Paris CDG','Cape Town CPT','2026-08-01 21:30:00','2026-08-02 11:00:00',840.00,300);
+(598,'Emirates','avion','Paris CDG','Cape Town CPT','2026-08-01 21:30:00','2026-08-14 21:30:00',840.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(599,'Qatar Airways','avion','Paris CDG','Cape Town CPT','2026-08-12 20:00:00','2026-08-13 09:30:00',820.00,300);
+(599,'Qatar Airways','avion','Paris CDG','Cape Town CPT','2026-08-12 20:00:00','2026-08-26 20:00:00',820.00,300);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(600,'Kenya Airways','avion','Paris CDG','Cape Town CPT','2026-08-22 10:00:00','2026-08-23 02:00:00',790.00,250);
+(600,'Kenya Airways','avion','Paris CDG','Cape Town CPT','2026-08-22 10:00:00','2026-09-03 10:00:00',790.00,250);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(601,'Rwandair','avion','Paris CDG','Cape Town CPT','2026-09-01 10:30:00','2026-09-02 01:30:00',810.00,240);
+(601,'Rwandair','avion','Paris CDG','Cape Town CPT','2026-09-01 10:30:00','2026-09-14 10:30:00',810.00,240);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(602,'Kulula','avion','Paris CDG','Johannesburg JHB','2026-07-07 07:00:00','2026-07-07 09:00:00',65.00,180);
+(602,'Kulula','avion','Paris CDG','Johannesburg JHB','2026-07-07 07:00:00','2026-07-21 07:00:00',65.00,180);
 INSERT IGNORE INTO transports (id,compagnie,type,origine,destination,date_depart,date_arrivee,prix,places_dispo) VALUES
-(603,'Intercape','bus','Paris Bercy Seine','Knysna (Garden Route)','2026-07-20 08:00:00','2026-07-20 15:00:00',25.00,55);
+(603,'Intercape','bus','Paris Bercy Seine','Knysna (Garden Route)','2026-07-20 08:00:00','2026-07-27 08:00:00',25.00,55);
 
 SET foreign_key_checks = 1;
 

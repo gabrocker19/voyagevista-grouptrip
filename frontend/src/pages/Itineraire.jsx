@@ -91,7 +91,7 @@ export default function Itineraire() {
         });
       }
       setToast({ message: "Itinéraire validé !", type: "success" });
-      setTimeout(() => navigate(`/groupes/${id}/panier`), 900);
+      setTimeout(() => navigate(`/groupes/${id}/panier`), 400);
     } catch (err) {
       setToast({ message: err.message, type: "error" });
     } finally {
