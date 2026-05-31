@@ -109,6 +109,11 @@ class VoteController {
             return;
         }
 
+        // Nombre de membres acceptés dans le groupe
+        $stmtMb = $this->db->prepare("SELECT COUNT(*) FROM membres_groupe WHERE groupe_id = ? AND statut = 'accepte'");
+        $stmtMb->execute([$data['groupe_id']]);
+        $nb_membres = (int)$stmtMb->fetchColumn();
+
         // Mettre à jour le groupe selon le type
         if ($data['type'] === 'destination') {
             $stmt = $this->db->prepare("UPDATE groupes SET destination_id = ? WHERE id = ?");
@@ -120,24 +125,49 @@ class VoteController {
             $stmt->execute([$dates[0], $dates[1], $data['groupe_id']]);
 
         } elseif ($data['type'] === 'transport') {
+            $stmt = $this->db->prepare("SELECT places_dispo FROM transports WHERE id = ?");
+            $stmt->execute([$data['valeur']]);
+            $t = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$t || (int)$t['places_dispo'] < $nb_membres) {
+                http_response_code(400);
+                echo json_encode(["error" => "Ce transport n'a pas assez de places ({$t['places_dispo']} disponibles, {$nb_membres} membres dans le groupe)."]);
+                return;
+            }
             $itin_id = $this->getOrCreateItineraire($data['groupe_id']);
             $this->db->prepare("UPDATE itineraires SET transport_id = ? WHERE id = ?")->execute([$data['valeur'], $itin_id]);
             $this->recalculerCout($itin_id);
 
         } elseif ($data['type'] === 'hebergement') {
+            $stmt = $this->db->prepare("SELECT capacite FROM hebergements WHERE id = ?");
+            $stmt->execute([$data['valeur']]);
+            $h = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$h || (int)$h['capacite'] < $nb_membres) {
+                http_response_code(400);
+                echo json_encode(["error" => "Cet hébergement n'a pas assez de capacité ({$h['capacite']} places, {$nb_membres} membres dans le groupe)."]);
+                return;
+            }
             $itin_id = $this->getOrCreateItineraire($data['groupe_id']);
             $this->db->prepare("UPDATE itineraires SET hebergement_id = ? WHERE id = ?")->execute([$data['valeur'], $itin_id]);
             $this->recalculerCout($itin_id);
 
         } elseif ($data['type'] === 'activite') {
-            $itin_id = $this->getOrCreateItineraire($data['groupe_id']);
             $activite_ids = array_filter(array_map('intval', explode(',', $data['valeur'])));
+            foreach ($activite_ids as $act_id) {
+                $stmt = $this->db->prepare("SELECT nom, places_restantes FROM activites WHERE id = ?");
+                $stmt->execute([$act_id]);
+                $a = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($a && (int)$a['places_restantes'] < $nb_membres) {
+                    http_response_code(400);
+                    echo json_encode(["error" => "L'activité \"{$a['nom']}\" n'a pas assez de places ({$a['places_restantes']} disponibles, {$nb_membres} membres dans le groupe)."]);
+                    return;
+                }
+            }
+            $itin_id = $this->getOrCreateItineraire($data['groupe_id']);
             $this->db->prepare("DELETE FROM itineraire_activites WHERE itineraire_id = ?")->execute([$itin_id]);
             foreach ($activite_ids as $act_id) {
                 $this->db->prepare("INSERT IGNORE INTO itineraire_activites (itineraire_id, activite_id) VALUES (?, ?)")->execute([$itin_id, $act_id]);
             }
             $this->recalculerCout($itin_id);
-            $this->db->prepare("UPDATE groupes SET statut = 'plan_valide' WHERE id = ?")->execute([$data['groupe_id']]);
         }
 
         // Notifier tous les membres

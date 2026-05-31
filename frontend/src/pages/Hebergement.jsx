@@ -6,6 +6,7 @@ import { voteService } from "../services/vote.service";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
+import BudgetBar from "../components/BudgetBar";
 
 const TYPE_ICONS = { hotel:"🏨", airbnb:"🏠", hostel:"🛏️", villa:"🏡", resort:"🌴" };
 
@@ -86,14 +87,10 @@ export default function Hebergement() {
           <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
             <span style={s.voteCount}>{totalVotes}/{totalMembres} vote{totalMembres>1?"s":""}</span>
             <button
-              onClick={() => itineraire?.hebergement_id
-                ? navigate(`/groupes/${id}/activites`)
-                : setError("Validez d'abord un hébergement avant de passer aux activités.")
-              }
-              style={{ ...s.btnNext, opacity: itineraire?.hebergement_id ? 1 : 0.45, cursor: itineraire?.hebergement_id ? "pointer" : "not-allowed" }}
-              title={itineraire?.hebergement_id ? "" : "Hébergement non validé"}
+              onClick={() => navigate(`/groupes/${id}/activites`)}
+              style={s.btnNext}
             >
-              {itineraire?.hebergement_id ? "Activités →" : "🔒 Activités"}
+              Activités →
             </button>
           </div>
         }
@@ -107,6 +104,22 @@ export default function Hebergement() {
             ✓ Vous avez voté pour <strong>{hebergements.find(h=>String(h.id)===monVote)?.nom}</strong>
           </div>
         )}
+
+        {/* Barre de budget */}
+        {(() => {
+          const valide       = itineraire?.cout_total || 0;
+          const hebVote      = hebergements.find(h => String(h.id) === monVote);
+          const monVoteExtra = hebValideId
+            ? 0
+            : parseFloat(hebVote?.prix_nuit || 0) * 7;
+          return (
+            <BudgetBar
+              budget={groupe?.budget_max}
+              valide={valide}
+              monVoteExtra={monVoteExtra}
+            />
+          );
+        })()}
 
         <div style={s.grid}>
           {hebergements.map(h => {
@@ -146,11 +159,18 @@ export default function Hebergement() {
                       >
                         {isMyVote ? "✓ Voté" : "Voter"}
                       </button>
-                      {isOrganisateur && nbVotes > 0 && !isValidated && (
-                        <button onClick={() => handleValider(String(h.id))} style={s.btnValider}>
-                          👑 Valider
-                        </button>
-                      )}
+                      {isOrganisateur && nbVotes > 0 && !isValidated && (() => {
+                        const placesInsuff = h.capacite < totalMembres;
+                        return (
+                          <button
+                            onClick={() => placesInsuff ? setError(`Capacité insuffisante : ${h.capacite} place(s), ${totalMembres} membres.`) : handleValider(String(h.id))}
+                            style={{ ...s.btnValider, opacity: placesInsuff ? 0.5 : 1, cursor: placesInsuff ? "not-allowed" : "pointer" }}
+                            title={placesInsuff ? `Seulement ${h.capacite} place(s) pour ${totalMembres} membres` : ""}
+                          >
+                            {placesInsuff ? "⚠️ Capacité insuffisante" : "👑 Valider"}
+                          </button>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>

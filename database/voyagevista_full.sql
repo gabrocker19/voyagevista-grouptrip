@@ -128,7 +128,7 @@ CREATE TABLE votes (
     id               INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id   INT NOT NULL,
     groupe_id        INT NOT NULL,
-    type             ENUM('destination', 'dates', 'hebergement', 'activite') NOT NULL,
+    type             ENUM('destination', 'dates', 'transport', 'hebergement', 'activite') NOT NULL,
     valeur           VARCHAR(255) NOT NULL,
     created_at       DATETIME DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY unique_vote (utilisateur_id, groupe_id, type),

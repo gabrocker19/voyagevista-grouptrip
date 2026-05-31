@@ -6,6 +6,7 @@ import { voteService } from "../services/vote.service";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
+import BudgetBar from "../components/BudgetBar";
 
 export default function Activites() {
   const { id } = useParams();
@@ -148,13 +149,40 @@ export default function Activites() {
             <button onClick={handleVoter} style={s.btnVoter}>
               {voted ? "✓ Mettre à jour mon vote" : "Enregistrer mon vote"}
             </button>
-            {isOrganisateur && (
-              <button onClick={handleValider} style={s.btnValider}>
-                👑 Valider la sélection
-              </button>
-            )}
+            {isOrganisateur && (() => {
+              const activiteInsuff = activites
+                .filter(a => selection.includes(a.id))
+                .find(a => a.places_restantes < totalMembres);
+              return (
+                <button
+                  onClick={() => activiteInsuff
+                    ? setError(`"${activiteInsuff.nom}" : seulement ${activiteInsuff.places_restantes} place(s) pour ${totalMembres} membres.`)
+                    : handleValider()
+                  }
+                  style={{ ...s.btnValider, opacity: activiteInsuff ? 0.5 : 1, cursor: activiteInsuff ? "not-allowed" : "pointer" }}
+                  title={activiteInsuff ? `Places insuffisantes pour "${activiteInsuff.nom}"` : ""}
+                >
+                  {activiteInsuff ? "⚠️ Places insuffisantes" : "👑 Valider la sélection"}
+                </button>
+              );
+            })()}
           </div>
         </div>
+
+        {/* Barre de budget */}
+        {(() => {
+          const valide       = itineraire?.cout_total || 0;
+          const monVoteExtra = activitesValidees.length > 0
+            ? 0
+            : totalActivitesPrix;
+          return (
+            <BudgetBar
+              budget={groupe?.budget_max}
+              valide={valide}
+              monVoteExtra={monVoteExtra}
+            />
+          );
+        })()}
 
         <div style={s.grid}>
           {activites.map(a => {

@@ -6,6 +6,7 @@ import { voteService } from "../services/vote.service";
 import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
+import BudgetBar from "../components/BudgetBar";
 
 const TRANSP_ICONS = { avion:"✈️", train:"🚆", bus:"🚌", bateau:"⛴️" };
 
@@ -105,14 +106,10 @@ export default function Transport() {
           <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
             <span style={s.voteCount}>{totalVotes}/{totalMembres} vote{totalMembres>1?"s":""}</span>
             <button
-              onClick={() => itineraire?.transport_id
-                ? navigate(`/groupes/${id}/hebergement`)
-                : setError("Validez d'abord un transport avant de passer à l'hébergement.")
-              }
-              style={{ ...s.btnNext, opacity: itineraire?.transport_id ? 1 : 0.45, cursor: itineraire?.transport_id ? "pointer" : "not-allowed" }}
-              title={itineraire?.transport_id ? "" : "Transport non validé"}
+              onClick={() => navigate(`/groupes/${id}/hebergement`)}
+              style={s.btnNext}
             >
-              {itineraire?.transport_id ? "Hébergement →" : "🔒 Hébergement"}
+              Hébergement →
             </button>
           </div>
         }
@@ -140,6 +137,21 @@ export default function Transport() {
             ))}
           </div>
         )}
+
+        {/* Barre de budget */}
+        {(() => {
+          const valide       = itineraire?.cout_total || 0;
+          const monVoteExtra = transportValideId
+            ? 0
+            : parseFloat(transports.find(t => String(t.id) === monVote)?.prix || 0);
+          return (
+            <BudgetBar
+              budget={groupe?.budget_max}
+              valide={valide}
+              monVoteExtra={monVoteExtra}
+            />
+          );
+        })()}
 
         {/* Liste transports */}
         <div style={s.list}>
@@ -184,11 +196,18 @@ export default function Transport() {
                     >
                       {isMyVote ? "✓ Voté" : "Voter"}
                     </button>
-                    {isOrganisateur && nbVotes > 0 && !isValidated && (
-                      <button onClick={() => handleValider(String(t.id))} style={s.btnValider}>
-                        👑 Valider
-                      </button>
-                    )}
+                    {isOrganisateur && nbVotes > 0 && !isValidated && (() => {
+                      const placesInsuff = t.places_dispo < totalMembres;
+                      return (
+                        <button
+                          onClick={() => placesInsuff ? setError(`Places insuffisantes : ${t.places_dispo} dispo, ${totalMembres} membres.`) : handleValider(String(t.id))}
+                          style={{ ...s.btnValider, opacity: placesInsuff ? 0.5 : 1, cursor: placesInsuff ? "not-allowed" : "pointer" }}
+                          title={placesInsuff ? `Seulement ${t.places_dispo} place(s) pour ${totalMembres} membres` : ""}
+                        >
+                          {placesInsuff ? "⚠️ Places insuffisantes" : "👑 Valider"}
+                        </button>
+                      );
+                    })()}
                   </div>
                 </div>
               );
