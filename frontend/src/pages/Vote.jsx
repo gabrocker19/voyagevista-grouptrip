@@ -243,6 +243,12 @@ export default function Vote() {
                       >
                         {isMyVote ? "✓ Voté" : "Voter pour cette destination"}
                       </button>
+                      <button
+                        onClick={() => navigate(`/catalogue/destinations/${d.id}?from=/groupes/${id}/vote`)}
+                        style={s.btnDetail}
+                      >
+                        Voir →
+                      </button>
                       {isOrganisateur && nbVotes > 0 && !isValidated && (
                         <button
                           onClick={() => handleValider(String(d.id))}
@@ -339,10 +345,8 @@ const s = {
   cardTitle: { fontSize: "16px", fontWeight: "bold", color: "#0C447C", marginBottom: "2px" },
   cardPays: { fontSize: "12px", color: "#73726c", marginBottom: "4px" },
   cardDesc: {
-    fontSize: "12px", color: "#555", lineHeight: "1.4",
-    marginBottom: "6px",
-    display: "-webkit-box", WebkitLineClamp: 2,
-    WebkitBoxOrient: "vertical", overflow: "hidden",
+    fontSize: "12px", color: "#555", lineHeight: "1.5",
+    marginBottom: "8px",
   },
   cardPrice: { fontSize: "13px", fontWeight: "bold", color: "#185FA5", marginBottom: "8px" },
   voteBarBg: {
@@ -360,6 +364,11 @@ const s = {
     flex: 1, padding: "8px 12px", borderRadius: "6px",
     border: "1px solid #185FA5", cursor: "pointer",
     fontSize: "13px", fontWeight: "500",
+  },
+  btnDetail: {
+    padding: "8px 12px", borderRadius: "6px", border: "1px solid #D1CFC5",
+    background: "white", color: "#73726c", cursor: "pointer",
+    fontSize: "13px", fontWeight: "500", whiteSpace: "nowrap",
   },
   btnValider: {
     padding: "8px 12px", borderRadius: "6px", border: "none",

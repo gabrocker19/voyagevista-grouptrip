@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { catalogueService } from "../services/catalogue.service";
 import { api } from "../services/api";
 import { CAT_ICONS, getActivityIcon } from "../utils/icons";
@@ -15,6 +15,9 @@ const TYPES_TRANS = ["avion","train","bus","bateau"];
 export default function DestinationDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const backTo = searchParams.get("from") || "/catalogue";
+  const backLabel = searchParams.get("from") ? "← Vote destination" : "← Catalogue";
 
   const [dest,         setDest]         = useState(null);
   const [hebergements, setHebergements] = useState([]);
@@ -99,7 +102,7 @@ export default function DestinationDetail() {
   if (!dest) return (
     <div style={s.pageLoading}>
       <p style={{ color:"#A32D2D" }}>Destination introuvable.</p>
-      <button onClick={() => navigate("/catalogue")} style={s.btnBack}>← Retour au catalogue</button>
+      <button onClick={() => navigate(backTo)} style={s.btnBack}>{backLabel}</button>
     </div>
   );
 
@@ -123,9 +126,9 @@ export default function DestinationDetail() {
         backgroundColor: dest.image_url ? undefined : "#E6F1FB",
       }}>
         <div style={s.heroOverlay} />
-        <button onClick={() => navigate("/catalogue")} style={s.btnBackHero}>
+        <button onClick={() => navigate(backTo)} style={s.btnBackHero}>
           <span style={s.btnBackArrow}>←</span>
-          Catalogue
+          {searchParams.get("from") ? "Vote destination" : "Catalogue"}
         </button>
         <div style={s.heroContent}>
           <div style={s.heroBadge} data-cat={dest.categorie}>

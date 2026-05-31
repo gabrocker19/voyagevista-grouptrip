@@ -11,40 +11,57 @@ export default function Panier() {
   const [groupe, setGroupe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [annulation, setAnnulation] = useState("");
+  const [toast, setToast] = useState("");
 
   useEffect(() => {
     Promise.all([
       api.get(`/api/itineraires/groupe/${id}`),
       groupService.getOne(id),
     ])
-      .then(([itin, g]) => {
-        setItineraire(itin);
-        setGroupe(g);
-      })
+      .then(([itin, g]) => { setItineraire(itin); setGroupe(g); })
       .catch(() => setError("Impossible de charger le panier."))
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <div style={styles.loading}>Chargement...</div>;
+  const recharger = () =>
+    api.get(`/api/itineraires/groupe/${id}`).then(setItineraire).catch(() => setItineraire(null));
 
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(""), 3000);
+  };
+
+  const annulerTransport = async () => {
+    if (!confirm("Annuler le transport sélectionné ?")) return;
+    try {
+      await api.delete(`/api/itineraires/groupe/${id}/transport`);
+      showToast("Transport annulé.");
+      recharger();
+    } catch (e) { setError(e.message); }
+  };
+
+  const retirerActivite = async (activiteId, nom) => {
+    if (!confirm(`Retirer "${nom}" ?`)) return;
+    try {
+      await api.delete(`/api/itineraires/groupe/${id}/activites/${activiteId}`);
+      showToast(`"${nom}" retirée.`);
+      recharger();
+    } catch (e) { setError(e.message); }
+  };
+
+  if (loading) return <div style={s.loading}>Chargement...</div>;
+
+  // Panier vide
   if (error || !itineraire) {
     return (
-      <div style={styles.page}>
-        <div style={styles.header}>
-          <h1 style={styles.title}>🛒 Panier</h1>
-        </div>
-        <div style={styles.body}>
-          <div style={styles.emptyBox}>
-            <div style={styles.emptyIcon}>🧳</div>
-            <h2 style={styles.emptyTitle}>Aucun itinéraire trouvé</h2>
-            <p style={styles.emptyText}>
-              Composez d'abord votre voyage avant d'accéder au panier.
-            </p>
-            <button
-              onClick={() => navigate(`/groupes/${id}/transport`)}
-              style={styles.btnPrimary}
-            >
+      <div style={s.page}>
+        <PageHeader title="🛒 Panier" subtitle={groupe?.nom} backLabel="Retour au groupe" backTo={`/groupes/${id}`} />
+        <div style={s.bodyCenter}>
+          <div style={s.emptyCard}>
+            <div style={s.emptyIllus}>🧳</div>
+            <h2 style={s.emptyTitle}>Votre panier est vide</h2>
+            <p style={s.emptyText}>Composez d'abord votre voyage : transport, hébergement et activités.</p>
+            <button onClick={() => navigate(`/groupes/${id}/transport`)} style={s.btnEmpty}>
               Composer mon voyage →
             </button>
           </div>
@@ -53,296 +70,416 @@ export default function Panier() {
     );
   }
 
-  const recharger = () => {
-    api.get(`/api/itineraires/groupe/${id}`).then(setItineraire).catch(() => setItineraire(null));
-  };
+  const nbMembres = groupe?.membres?.filter(m => m.statut === "accepte").length || 1;
 
-  const annulerTransport = async () => {
-    if (!confirm("Annuler le transport sélectionné ?")) return;
-    try {
-      await api.delete(`/api/itineraires/groupe/${id}/transport`);
-      setAnnulation("Transport annulé.");
-      recharger();
-    } catch (e) { setError(e.message); }
-  };
+  // Nuits depuis le transport validé (priorité) ou dates du groupe
+  const nbNuits = itineraire?.transport_date_depart && itineraire?.transport_date_arrivee
+    ? Math.round((new Date(itineraire.transport_date_arrivee) - new Date(itineraire.transport_date_depart)) / 86400000)
+    : (groupe?.date_depart && groupe?.date_retour
+        ? Math.ceil((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)
+        : 7);
 
-  const retirerActivite = async (activiteId, nom) => {
-    if (!confirm(`Retirer "${nom}" de l'itinéraire ?`)) return;
-    try {
-      await api.delete(`/api/itineraires/groupe/${id}/activites/${activiteId}`);
-      setAnnulation(`"${nom}" retirée.`);
-      recharger();
-    } catch (e) { setError(e.message); }
-  };
+  const coutParPers  = parseFloat(itineraire.cout_total || 0);
+  const totalGroupe  = (coutParPers * nbMembres).toFixed(0);
+  const budgetMax    = groupe?.budget_max ? parseFloat(groupe.budget_max) : null;
+  const budgetDepasse= budgetMax && coutParPers > budgetMax;
+  const budgetPct    = budgetMax ? Math.min((coutParPers / budgetMax) * 100, 100) : 0;
 
-  const nbMembres =
-    groupe?.membres?.filter((m) => m.statut === "accepte").length || 1;
-  const nbNuits =
-    groupe?.date_depart && groupe?.date_retour
-      ? Math.ceil(
-          (new Date(groupe.date_retour) - new Date(groupe.date_depart)) /
-            (1000 * 60 * 60 * 24),
-        )
-      : 7;
-  const totalGroupe = (parseFloat(itineraire.cout_total) * nbMembres).toFixed(0);
+  const coutTransport = parseFloat(itineraire.transport_prix || 0);
+  const coutHeb       = itineraire.prix_nuit ? parseFloat(itineraire.prix_nuit) * nbNuits : 0;
+  const coutActivites = itineraire.activites?.reduce((s, a) => s + parseFloat(a.prix), 0) || 0;
+
+  const breakdownItems = [
+    {
+      icon: "✈️", key: "transport",
+      label: itineraire.compagnie ? `${itineraire.compagnie}` : "Aucun transport",
+      sub: itineraire.compagnie ? `${itineraire.origine || ""} → ${itineraire.transport_dest || ""}` : null,
+      prix: coutTransport,
+      ok: !!itineraire.compagnie,
+      actions: [
+        { label: "Modifier", onClick: () => navigate(`/groupes/${id}/transport`), variant: "edit" },
+        itineraire.compagnie && { label: "Annuler", onClick: annulerTransport, variant: "cancel" },
+      ].filter(Boolean),
+    },
+    {
+      icon: "🏨", key: "heb",
+      label: itineraire.heb_nom || "Aucun hébergement",
+      sub: itineraire.heb_nom ? `${itineraire.prix_nuit}€/nuit × ${nbNuits} nuits` : null,
+      prix: coutHeb,
+      ok: !!itineraire.heb_nom,
+      actions: [
+        { label: "Modifier", onClick: () => navigate(`/groupes/${id}/hebergement`), variant: "edit" },
+      ],
+    },
+  ];
 
   return (
-    <div style={styles.page}>
+    <div style={s.page}>
       <PageHeader
         title="🛒 Panier de voyage"
         subtitle={groupe?.nom}
         backLabel="Retour au groupe"
         backTo={`/groupes/${id}`}
         right={
-          <span style={styles.badge}>
-            {nbMembres} voyageur{nbMembres > 1 ? "s" : ""}
-          </span>
+          <div style={s.headerRight}>
+            <span style={s.membresCount}>{nbMembres} voyageur{nbMembres > 1 ? "s" : ""}</span>
+            <span style={s.totalBadge}>{totalGroupe}€ total</span>
+          </div>
         }
       />
 
-      <div style={styles.body}>
-        {annulation && <div style={styles.alertOk}>{annulation}</div>}
-        {error && <div style={styles.alertErr}>{error}</div>}
+      <div style={s.body}>
+        {/* Toast */}
+        {toast && <div style={s.toast}>✓ {toast}</div>}
+        {error && <div style={s.errorBox}>⚠️ {error}</div>}
 
-        {/* Récapitulatif */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Récapitulatif du voyage</h2>
+        <div style={s.layout}>
+          {/* Colonne principale */}
+          <div style={s.left}>
 
-          {/* Transport */}
-          <div style={styles.item}>
-            <div style={styles.itemLeft}>
-              <span style={styles.itemIcon}>✈️</span>
-              <div style={styles.itemInfo}>
-                <div style={styles.itemName}>
-                  {itineraire.compagnie
-                    ? `${itineraire.compagnie} — ${itineraire.transport_dest}`
-                    : "Aucun transport"}
-                </div>
-                {itineraire.compagnie && (
-                  <div style={styles.itemSub}>Transport aller-retour · /pers</div>
-                )}
+            {/* Section articles */}
+            <div style={s.card}>
+              <div style={s.cardHeader}>
+                <h2 style={s.cardTitle}>Récapitulatif</h2>
+                <span style={s.articleCount}>
+                  {[itineraire.compagnie, itineraire.heb_nom, ...(itineraire.activites || [])].filter(Boolean).length} article{itineraire.activites?.length > 1 ? "s" : ""}
+                </span>
               </div>
-            </div>
-            <div style={styles.itemRight}>
-              <span style={styles.itemPrice}>
-                {itineraire.transport_prix
-                  ? `${itineraire.transport_prix}€`
-                  : "—"}
-              </span>
-              <button
-                onClick={() => navigate(`/groupes/${id}/transport`)}
-                style={styles.btnModif}
-              >
-                Modifier
-              </button>
-              {itineraire.compagnie && (
-                <button onClick={annulerTransport} style={styles.btnAnnuler}>
-                  Annuler
-                </button>
-              )}
-            </div>
-          </div>
 
-          {/* Hébergement */}
-          <div style={styles.item}>
-            <div style={styles.itemLeft}>
-              <span style={styles.itemIcon}>🏨</span>
-              <div style={styles.itemInfo}>
-                <div style={styles.itemName}>
-                  {itineraire.heb_nom || "Aucun hébergement"}
-                </div>
-                {itineraire.heb_nom && (
-                  <div style={styles.itemSub}>
-                    {itineraire.prix_nuit}€/nuit × {nbNuits} nuits
+              {/* Transport + Hébergement */}
+              {breakdownItems.map((item) => (
+                <div key={item.key} style={s.lineItem}>
+                  <div style={{ ...s.lineIconWrap, background: item.ok ? "#E6F1FB" : "#F5F4F0" }}>
+                    <span style={s.lineIcon}>{item.icon}</span>
                   </div>
-                )}
-              </div>
-            </div>
-            <div style={styles.itemRight}>
-              <span style={styles.itemPrice}>
-                {itineraire.prix_nuit
-                  ? `${(parseFloat(itineraire.prix_nuit) * nbNuits).toFixed(0)}€`
-                  : "—"}
-              </span>
-              <button
-                onClick={() => navigate(`/groupes/${id}/hebergement`)}
-                style={styles.btnModif}
-              >
-                Modifier
-              </button>
-            </div>
-          </div>
-
-          {/* Activités */}
-          {itineraire.activites?.length > 0 ? (
-            itineraire.activites.map((a) => (
-              <div key={a.id} style={styles.item}>
-                <div style={styles.itemLeft}>
-                  <span style={styles.itemIcon}>🎯</span>
-                  <div style={styles.itemInfo}>
-                    <div style={styles.itemName}>{a.nom}</div>
-                    <div style={styles.itemSub}>{a.duree_heures}h · activité</div>
+                  <div style={s.lineBody}>
+                    <div style={s.lineName}>{item.label}</div>
+                    {item.sub && <div style={s.lineSub}>{item.sub}</div>}
                   </div>
-                </div>
-                <div style={styles.itemRight}>
-                  <span style={styles.itemPrice}>{a.prix}€</span>
-                  <button onClick={() => retirerActivite(a.id, a.nom)} style={styles.btnAnnuler}>
-                    Retirer
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div style={styles.item}>
-              <div style={styles.itemLeft}>
-                <span style={styles.itemIcon}>🎯</span>
-                <div style={styles.itemInfo}>
-                  <div style={styles.itemName}>Aucune activité</div>
-                </div>
-              </div>
-              <div style={styles.itemRight}>
-                <button
-                  onClick={() => navigate(`/groupes/${id}/activites`)}
-                  style={styles.btnModif}
-                >
-                  Ajouter
-                </button>
-              </div>
-            </div>
-          )}
-
-          {itineraire.activites?.length > 0 && (
-            <div style={{ textAlign: "right", marginTop: "4px" }}>
-              <button
-                onClick={() => navigate(`/groupes/${id}/activites`)}
-                style={styles.btnModif}
-              >
-                Modifier les activités
-              </button>
-            </div>
-          )}
-
-          {/* Séparateur + Total */}
-          <div style={styles.sep} />
-          <div style={styles.totalRow}>
-            <span style={styles.totalLabel}>Total par personne</span>
-            <span style={styles.totalPrice}>
-              {parseFloat(itineraire.cout_total).toFixed(0)}€
-            </span>
-          </div>
-        </div>
-
-        {/* Membres + total groupe */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>👥 Voyageurs ({nbMembres})</h2>
-          <div style={styles.memberList}>
-            {groupe?.membres
-              ?.filter((m) => m.statut === "accepte")
-              .map((m) => (
-                <div key={m.id} style={styles.memberRow}>
-                  <div style={styles.avatar}>{m.nom.charAt(0).toUpperCase()}</div>
-                  <span style={styles.memberName}>{m.nom}</span>
-                  <span style={styles.memberPrice}>
-                    {parseFloat(itineraire.cout_total).toFixed(0)}€
-                  </span>
+                  <div style={s.lineRight}>
+                    <div style={s.linePrix}>{item.prix > 0 ? `${item.prix.toFixed(0)}€` : "—"}</div>
+                    <div style={s.lineActions}>
+                      {item.actions.map((a, i) => (
+                        <button key={i} onClick={a.onClick} style={a.variant === "cancel" ? s.btnCancel : s.btnEdit}>
+                          {a.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ))}
+
+              {/* Activités */}
+              <div style={s.activitesSection}>
+                <div style={s.activitesSectionHead}>
+                  <span style={s.activitesSectionTitle}>🎯 Activités</span>
+                  <button onClick={() => navigate(`/groupes/${id}/activites`)} style={s.btnEditSmall}>
+                    {itineraire.activites?.length > 0 ? "Modifier" : "+ Ajouter"}
+                  </button>
+                </div>
+
+                {itineraire.activites?.length > 0 ? (
+                  itineraire.activites.map(a => (
+                    <div key={a.id} style={s.activiteRow}>
+                      <div style={s.activiteLeft}>
+                        <span style={s.activiteDot} />
+                        <div>
+                          <div style={s.activiteName}>{a.nom}</div>
+                          {a.duree_heures && <div style={s.activiteSub}>{a.duree_heures}h</div>}
+                        </div>
+                      </div>
+                      <div style={s.activiteRight}>
+                        <span style={s.activitePrix}>{a.prix}€</span>
+                        <button onClick={() => retirerActivite(a.id, a.nom)} style={s.btnRetirer}>
+                          ✕
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div style={s.activitesEmpty}>
+                    Aucune activité — optionnel
+                  </div>
+                )}
+              </div>
+
+              {/* Total */}
+              <div style={s.sepDash} />
+              <div style={s.totalRow}>
+                <div>
+                  <div style={s.totalLabel}>Total par personne</div>
+                  {budgetMax && (
+                    <div style={{ fontSize: "11px", color: budgetDepasse ? "#A32D2D" : "#3B6D11", marginTop: "2px" }}>
+                      {budgetDepasse
+                        ? `⚠️ Dépasse le budget de ${(coutParPers - budgetMax).toFixed(0)}€`
+                        : `✓ Dans le budget (max ${budgetMax}€)`}
+                    </div>
+                  )}
+                </div>
+                <div style={{ ...s.totalPrix, color: budgetDepasse ? "#A32D2D" : "#0C447C" }}>
+                  {coutParPers.toFixed(0)}€
+                </div>
+              </div>
+
+              {/* Barre budget */}
+              {budgetMax && (
+                <div style={s.budgetBarWrap}>
+                  <div style={s.budgetBarTrack}>
+                    <div style={{
+                      ...s.budgetBarFill,
+                      width: `${budgetPct}%`,
+                      background: budgetDepasse ? "#E84848" : budgetPct > 85 ? "#F0A500" : "#42A85A",
+                    }} />
+                  </div>
+                  <div style={s.budgetBarLabels}>
+                    <span style={{ fontSize: "11px", color: "#73726c" }}>0€</span>
+                    <span style={{ fontSize: "11px", color: "#73726c" }}>{budgetMax}€</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Décomposition des coûts */}
+            <div style={s.card}>
+              <h2 style={s.cardTitle}>Décomposition des coûts</h2>
+              <div style={s.breakdownGrid}>
+                {[
+                  { label: "Transport", prix: coutTransport, icon: "✈️", pct: coutParPers > 0 ? Math.round(coutTransport / coutParPers * 100) : 0 },
+                  { label: "Hébergement", prix: coutHeb, icon: "🏨", pct: coutParPers > 0 ? Math.round(coutHeb / coutParPers * 100) : 0 },
+                  { label: "Activités", prix: coutActivites, icon: "🎯", pct: coutParPers > 0 ? Math.round(coutActivites / coutParPers * 100) : 0 },
+                ].map((b, i) => (
+                  <div key={i} style={s.breakdownItem}>
+                    <div style={s.breakdownTop}>
+                      <span style={s.breakdownIcon}>{b.icon}</span>
+                      <span style={s.breakdownPrix}>{b.prix.toFixed(0)}€</span>
+                    </div>
+                    <div style={s.breakdownTrack}>
+                      <div style={{ ...s.breakdownFill, width: `${b.pct}%` }} />
+                    </div>
+                    <div style={s.breakdownLabel}>{b.label} · {b.pct}%</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div style={styles.totalGroupe}>
-            <span>Total groupe</span>
-            <strong style={{ color: "#0C447C", fontSize: "20px" }}>
-              {totalGroupe}€
-            </strong>
+
+          {/* Colonne droite — récap + CTA */}
+          <div style={s.right}>
+            <div style={s.summaryCard}>
+              <h2 style={s.summaryTitle}>Récap groupe</h2>
+
+              <div style={s.memberList}>
+                {groupe?.membres?.filter(m => m.statut === "accepte").map(m => (
+                  <div key={m.id} style={s.memberRow}>
+                    <div style={s.avatar}>{m.nom.charAt(0).toUpperCase()}</div>
+                    <div style={s.memberInfo}>
+                      <div style={s.memberName}>{m.nom}</div>
+                      <div style={s.memberRole}>{m.role === "organisateur" ? "👑" : "👤"}</div>
+                    </div>
+                    <div style={s.memberPrix}>{coutParPers.toFixed(0)}€</div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={s.summaryTotal}>
+                <div style={s.summaryTotalLabel}>Total groupe</div>
+                <div style={s.summaryTotalPrix}>{totalGroupe}€</div>
+                <div style={s.summaryTotalSub}>{nbMembres} × {coutParPers.toFixed(0)}€</div>
+              </div>
+
+              <button
+                onClick={() => navigate(`/groupes/${id}/paiement`)}
+                style={{
+                  ...s.btnPay,
+                  opacity: budgetDepasse ? 0.6 : 1,
+                  cursor: budgetDepasse ? "not-allowed" : "pointer",
+                  background: budgetDepasse
+                    ? "#9AA5AE"
+                    : "linear-gradient(135deg, #0C447C, #185FA5)",
+                }}
+                disabled={budgetDepasse}
+                title={budgetDepasse ? "Budget dépassé — ajustez l'itinéraire" : ""}
+              >
+                {budgetDepasse ? "⚠️ Budget dépassé" : `🔒 Payer ${totalGroupe}€`}
+              </button>
+
+              <div style={s.secBadges}>
+                <span style={s.secBadge}>🔐 SSL</span>
+                <span style={s.secBadge}>✅ 3D Secure</span>
+              </div>
+              <p style={s.simNote}>🎓 Simulation pédagogique — aucun paiement réel</p>
+            </div>
           </div>
         </div>
-
-        {/* CTA */}
-        <button
-          onClick={() => navigate(`/groupes/${id}/paiement`)}
-          style={styles.btnPay}
-        >
-          🔒 Procéder au paiement — {totalGroupe}€
-        </button>
-
-        <p style={styles.securityNote}>
-          🔐 Paiement 100% sécurisé · Simulation pédagogique
-        </p>
       </div>
     </div>
   );
 }
 
-const styles = {
-  page: { fontFamily: "Arial, sans-serif", minHeight: "100vh", background: "#F5F4F0" },
+const s = {
+  page:    { fontFamily: "Arial, sans-serif", minHeight: "100vh", backgroundImage: "linear-gradient(rgba(245,244,240,0.50), rgba(245,244,240,0.56)), url('/voyagevista-grouptrip/frontend/dist/images/destinations/22.jpg')", backgroundSize: "cover", backgroundAttachment: "fixed", backgroundPosition: "center" },
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  badge: {
-    background: "rgba(255,255,255,0.18)", color: "white", padding: "6px 14px",
-    borderRadius: "20px", fontSize: "13px", fontWeight: "600", border: "1px solid rgba(255,255,255,0.3)",
+
+  headerRight: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px" },
+  membresCount: { fontSize: "12px", color: "rgba(255,255,255,0.75)" },
+  totalBadge: {
+    background: "rgba(255,255,255,0.18)", color: "white",
+    border: "1px solid rgba(255,255,255,0.35)",
+    padding: "5px 14px", borderRadius: "20px",
+    fontSize: "15px", fontWeight: "800",
   },
-  body: { padding: "24px 32px", display: "flex", flexDirection: "column", gap: "16px", maxWidth: "760px", margin: "0 auto" },
-  emptyBox: {
-    background: "white", borderRadius: "12px", padding: "48px 24px",
-    textAlign: "center", boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
+
+  bodyCenter: { display: "flex", justifyContent: "center", padding: "48px 24px" },
+  emptyCard: {
+    background: "white", borderRadius: "20px",
+    padding: "56px 40px", textAlign: "center",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.08)", maxWidth: "440px",
   },
-  emptyIcon: { fontSize: "48px", marginBottom: "16px" },
-  emptyTitle: { fontSize: "20px", color: "#0C447C", marginBottom: "8px" },
-  emptyText: { color: "#73726c", fontSize: "14px", marginBottom: "24px" },
-  section: {
-    background: "white", borderRadius: "12px", padding: "20px 24px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
+  emptyIllus: { fontSize: "56px", marginBottom: "16px" },
+  emptyTitle: { fontSize: "22px", fontWeight: "800", color: "#0C447C", marginBottom: "10px" },
+  emptyText: { fontSize: "14px", color: "#73726c", lineHeight: 1.6, marginBottom: "24px" },
+  btnEmpty: {
+    background: "linear-gradient(135deg, #0C447C, #185FA5)", color: "white",
+    border: "none", padding: "13px 28px", borderRadius: "10px",
+    cursor: "pointer", fontSize: "15px", fontWeight: "700",
+    boxShadow: "0 4px 14px rgba(12,68,124,0.25)",
   },
-  sectionTitle: { fontSize: "15px", fontWeight: "bold", color: "#0C447C", marginBottom: "16px" },
-  item: {
-    display: "flex", justifyContent: "space-between", alignItems: "center",
-    padding: "12px 0", borderBottom: "1px solid #F5F4F0", gap: "12px",
+
+  body:   { padding: "24px 32px 48px", maxWidth: "1020px", margin: "0 auto" },
+  layout: { display: "grid", gridTemplateColumns: "1fr 300px", gap: "20px", alignItems: "start" },
+  left:   { display: "flex", flexDirection: "column", gap: "16px" },
+
+  toast:    { background: "#EAF3DE", color: "#3B6D11", padding: "11px 16px", borderRadius: "10px", fontSize: "13px", fontWeight: "600" },
+  errorBox: { background: "#FCEBEB", color: "#A32D2D", padding: "11px 16px", borderRadius: "10px", fontSize: "13px" },
+
+  card: {
+    background: "white", borderRadius: "16px",
+    padding: "22px 24px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
   },
-  itemLeft: { display: "flex", alignItems: "center", gap: "12px", flex: 1 },
-  itemIcon: { fontSize: "22px", flexShrink: 0 },
-  itemInfo: { flex: 1 },
-  itemName: { fontSize: "14px", fontWeight: "500", color: "#2C2C2A" },
-  itemSub: { fontSize: "12px", color: "#73726c", marginTop: "2px" },
-  itemRight: { display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 },
-  itemPrice: { fontSize: "15px", fontWeight: "bold", color: "#0C447C" },
-  alertOk: { background: "#EAF3DE", color: "#3B6D11", padding: "10px 14px", borderRadius: "8px", fontSize: "14px" },
-  alertErr: { background: "#FCEBEB", color: "#A32D2D", padding: "10px 14px", borderRadius: "8px", fontSize: "14px" },
-  btnAnnuler: {
-    background: "#FCEBEB", color: "#A32D2D", border: "1px solid #F09595",
-    padding: "5px 10px", borderRadius: "6px", cursor: "pointer",
-    fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap",
+  cardHeader: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "18px" },
+  cardTitle: { fontSize: "14px", fontWeight: "700", color: "#0C447C", textTransform: "uppercase", letterSpacing: "0.4px", margin: 0 },
+  articleCount: { fontSize: "12px", color: "#73726c", background: "#F5F4F0", padding: "3px 10px", borderRadius: "20px" },
+
+  // Ligne produit
+  lineItem: {
+    display: "flex", alignItems: "center", gap: "14px",
+    padding: "14px 0", borderBottom: "1px solid #F5F4F0",
   },
-  btnModif: {
-    background: "white", color: "#185FA5", border: "1px solid #185FA5",
-    padding: "5px 12px", borderRadius: "6px", cursor: "pointer",
-    fontSize: "12px", fontWeight: "500", whiteSpace: "nowrap",
+  lineIconWrap: {
+    width: 44, height: 44, borderRadius: "12px",
+    display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
   },
-  sep: { borderTop: "2px solid #E0DED6", margin: "14px 0" },
-  totalRow: { display: "flex", justifyContent: "space-between", alignItems: "center" },
-  totalLabel: { fontSize: "16px", fontWeight: "bold", color: "#2C2C2A" },
-  totalPrice: { fontSize: "26px", fontWeight: "bold", color: "#0C447C" },
-  memberList: { display: "flex", flexDirection: "column", gap: "10px", marginBottom: "14px" },
+  lineIcon: { fontSize: "20px" },
+  lineBody: { flex: 1, minWidth: 0 },
+  lineName: { fontSize: "14px", fontWeight: "600", color: "#2C2C2A", marginBottom: "2px" },
+  lineSub:  { fontSize: "12px", color: "#73726c" },
+  lineRight: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "6px", flexShrink: 0 },
+  linePrix: { fontSize: "16px", fontWeight: "700", color: "#0C447C" },
+  lineActions: { display: "flex", gap: "6px" },
+
+  btnEdit: {
+    padding: "4px 10px", borderRadius: "6px",
+    border: "1px solid #185FA5", background: "white",
+    color: "#185FA5", cursor: "pointer", fontSize: "11px", fontWeight: "600",
+  },
+  btnCancel: {
+    padding: "4px 10px", borderRadius: "6px",
+    border: "1px solid #F09595", background: "#FFF5F5",
+    color: "#A32D2D", cursor: "pointer", fontSize: "11px", fontWeight: "600",
+  },
+
+  // Activités
+  activitesSection: { paddingTop: "14px" },
+  activitesSectionHead: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" },
+  activitesSectionTitle: { fontSize: "13px", fontWeight: "700", color: "#444" },
+  btnEditSmall: {
+    padding: "4px 10px", borderRadius: "6px",
+    border: "1px solid #185FA5", background: "white",
+    color: "#185FA5", cursor: "pointer", fontSize: "11px", fontWeight: "600",
+  },
+  activiteRow: {
+    display: "flex", alignItems: "center", justifyContent: "space-between",
+    padding: "8px 0", borderBottom: "1px solid #F5F4F0",
+  },
+  activiteLeft: { display: "flex", alignItems: "center", gap: "10px", flex: 1 },
+  activiteDot: { width: 7, height: 7, borderRadius: "50%", background: "#185FA5", flexShrink: 0 },
+  activiteName: { fontSize: "13px", fontWeight: "500", color: "#2C2C2A" },
+  activiteSub: { fontSize: "11px", color: "#73726c" },
+  activiteRight: { display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 },
+  activitePrix: { fontSize: "13px", fontWeight: "700", color: "#0C447C" },
+  btnRetirer: {
+    width: 22, height: 22, borderRadius: "50%",
+    border: "1px solid #D1CFC5", background: "#F5F4F0",
+    color: "#73726c", cursor: "pointer", fontSize: "11px",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    flexShrink: 0,
+  },
+  activitesEmpty: { fontSize: "13px", color: "#B0AFA8", padding: "8px 0", fontStyle: "italic" },
+
+  // Total
+  sepDash: { borderTop: "2px dashed #E0DED6", margin: "16px 0" },
+  totalRow: { display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "14px" },
+  totalLabel: { fontSize: "15px", fontWeight: "700", color: "#2C2C2A" },
+  totalPrix: { fontSize: "32px", fontWeight: "800", lineHeight: 1 },
+
+  // Barre budget
+  budgetBarWrap: { marginTop: "4px" },
+  budgetBarTrack: { height: 8, background: "#E0DED6", borderRadius: 4, overflow: "hidden", marginBottom: "4px" },
+  budgetBarFill: { height: "100%", borderRadius: 4, transition: "width 0.4s" },
+  budgetBarLabels: { display: "flex", justifyContent: "space-between" },
+
+  // Décomposition
+  breakdownGrid: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "14px", marginTop: "14px" },
+  breakdownItem: { display: "flex", flexDirection: "column", gap: "6px" },
+  breakdownTop: { display: "flex", justifyContent: "space-between", alignItems: "center" },
+  breakdownIcon: { fontSize: "18px" },
+  breakdownPrix: { fontSize: "15px", fontWeight: "700", color: "#0C447C" },
+  breakdownTrack: { height: 6, background: "#E0DED6", borderRadius: 3, overflow: "hidden" },
+  breakdownFill: { height: "100%", background: "#185FA5", borderRadius: 3 },
+  breakdownLabel: { fontSize: "11px", color: "#73726c" },
+
+  // Colonne droite
+  right: { position: "sticky", top: "20px" },
+  summaryCard: {
+    background: "white", borderRadius: "16px",
+    padding: "22px 22px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+  },
+  summaryTitle: { fontSize: "14px", fontWeight: "700", color: "#0C447C", textTransform: "uppercase", letterSpacing: "0.4px", marginBottom: "18px" },
+
+  memberList: { display: "flex", flexDirection: "column", gap: "10px", marginBottom: "18px" },
   memberRow: { display: "flex", alignItems: "center", gap: "10px" },
   avatar: {
-    width: "32px", height: "32px", borderRadius: "50%", background: "#185FA5",
-    color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-    fontSize: "13px", fontWeight: "bold", flexShrink: 0,
+    width: 34, height: 34, borderRadius: "50%",
+    background: "linear-gradient(135deg, #0C447C, #185FA5)",
+    color: "white", display: "flex",
+    alignItems: "center", justifyContent: "center",
+    fontSize: "13px", fontWeight: "800", flexShrink: 0,
   },
-  memberName: { flex: 1, fontSize: "14px", color: "#2C2C2A" },
-  memberPrice: { fontSize: "14px", fontWeight: "bold", color: "#0C447C" },
-  totalGroupe: {
-    display: "flex", justifyContent: "space-between", alignItems: "center",
-    borderTop: "2px solid #E0DED6", paddingTop: "12px",
-    fontSize: "15px", color: "#73726c",
+  memberInfo: { flex: 1 },
+  memberName: { fontSize: "13px", fontWeight: "600", color: "#2C2C2A" },
+  memberRole: { fontSize: "11px" },
+  memberPrix: { fontSize: "13px", fontWeight: "700", color: "#0C447C" },
+
+  summaryTotal: {
+    background: "linear-gradient(135deg, #E6F1FB, #D4E8F5)",
+    borderRadius: "12px", padding: "16px",
+    textAlign: "center", marginBottom: "16px",
   },
+  summaryTotalLabel: { fontSize: "11px", fontWeight: "700", color: "#185FA5", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "4px" },
+  summaryTotalPrix: { fontSize: "34px", fontWeight: "800", color: "#0C447C", lineHeight: 1 },
+  summaryTotalSub: { fontSize: "12px", color: "#185FA5", marginTop: "4px" },
+
   btnPay: {
-    background: "#185FA5", color: "white", border: "none",
-    padding: "16px", borderRadius: "10px", cursor: "pointer",
-    fontSize: "16px", fontWeight: "bold", width: "100%",
-    boxShadow: "0 4px 12px rgba(24,95,165,0.3)",
+    width: "100%", padding: "14px",
+    color: "white", border: "none",
+    borderRadius: "12px", fontSize: "15px",
+    fontWeight: "700", boxShadow: "0 4px 14px rgba(12,68,124,0.25)",
+    marginBottom: "12px", transition: "opacity 0.2s",
   },
-  btnPrimary: {
-    background: "#185FA5", color: "white", border: "none",
-    padding: "12px 24px", borderRadius: "8px", cursor: "pointer",
-    fontSize: "14px", fontWeight: "bold",
+  secBadges: { display: "flex", justifyContent: "center", gap: "8px", marginBottom: "8px" },
+  secBadge: {
+    background: "#F5F4F0", padding: "4px 10px",
+    borderRadius: "20px", fontSize: "11px", color: "#73726c",
   },
-  securityNote: { textAlign: "center", fontSize: "12px", color: "#999", margin: "0" },
+  simNote: { textAlign: "center", fontSize: "11px", color: "#B0AFA8", margin: 0 },
 };
