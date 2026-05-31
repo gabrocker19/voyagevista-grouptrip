@@ -7,6 +7,7 @@ import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
 import BudgetBar from "../components/BudgetBar";
+import Toast from "../components/Toast";
 import { EQUIPEMENTS_META, parseEquipements } from "../utils/equipements";
 import EquipementsModal from "../components/EquipementsModal";
 
@@ -25,8 +26,7 @@ export default function Hebergement() {
   const [resultats,    setResultats]    = useState([]);
   const [monVote,      setMonVote]      = useState(null);
   const [totalMembres, setTotalMembres] = useState(0);
-  const [message,      setMessage]      = useState("");
-  const [error,        setError]        = useState("");
+  const [toast,        setToast]        = useState(null);
   const [modalHeb,     setModalHeb]     = useState(null);
   const [filtreType,   setFiltreType]   = useState("");
   const [filtrePrix,   setFiltrePrix]   = useState("");
@@ -79,8 +79,9 @@ export default function Hebergement() {
     try {
       await voteService.voter({ groupe_id: id, type: "hebergement", valeur: String(hebId) });
       setMonVote(String(hebId));
+      setToast({ message: "Vote enregistré !", type: "success" });
       await chargerVotes();
-    } catch (err) { setMessage(err.message); }
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   const handleValider = async (valeur) => {
@@ -88,8 +89,8 @@ export default function Hebergement() {
       await voteService.valider({ groupe_id: id, type: "hebergement", valeur });
       const itin = await api.get(`/api/itineraires/groupe/${id}`).catch(() => null);
       setItineraire(itin);
-      setMessage("✓ Hébergement validé !");
-    } catch (err) { setMessage(err.message); }
+      setToast({ message: "Hébergement validé !", type: "success" });
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
@@ -139,9 +140,8 @@ export default function Hebergement() {
         }
       />
 
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
       <div style={s.body}>
-        {error   && <div style={s.errorBox}>{error}</div>}
-        {message && <div style={s.toast}>{message}</div>}
         {monVote && (
           <div style={s.banner}>
             ✓ Vous avez voté pour <strong>{hebergements.find(h=>String(h.id)===monVote)?.nom}</strong>
@@ -282,7 +282,7 @@ export default function Hebergement() {
                         const placesInsuff = h.capacite < totalMembres;
                         return (
                           <button
-                            onClick={() => placesInsuff ? setError(`Capacité insuffisante : ${h.capacite} place(s), ${totalMembres} membres.`) : handleValider(String(h.id))}
+                            onClick={() => placesInsuff ? setToast({ message: `Capacité insuffisante : ${h.capacite} place(s), ${totalMembres} membres.`, type: "error" }) : handleValider(String(h.id))}
                             style={{ ...s.btnValider, opacity: placesInsuff ? 0.5 : 1, cursor: placesInsuff ? "not-allowed" : "pointer" }}
                             title={placesInsuff ? `Seulement ${h.capacite} place(s) pour ${totalMembres} membres` : ""}
                           >
@@ -312,11 +312,9 @@ const s = {
   page:    { fontFamily:"Arial, sans-serif", minHeight:"100vh", background:"#F5F4F0" },
   loading: { textAlign:"center", padding:"60px", color:"#73726c" },
   body:    { padding:"20px 24px 32px", display:"flex", flexDirection:"column", gap:"14px" },
-  toast:   { background:"#EAF3DE", color:"#3B6D11", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   banner:  { background:"#E6F1FB", color:"#0C447C", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   voteCount: { background:"rgba(255,255,255,0.15)", padding:"4px 12px", borderRadius:"20px", fontSize:"13px" },
   btnNext:  { background:"rgba(255,255,255,0.18)", border:"1px solid rgba(255,255,255,0.45)", color:"white", padding:"6px 14px", borderRadius:"20px", cursor:"pointer", fontSize:"13px", fontWeight:"600", whiteSpace:"nowrap" },
-  errorBox: { background:"#FCEBEB", color:"#A32D2D", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   grid:    { display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))", gap:"14px" },
   card:    { borderRadius:"12px", background:"white", overflow:"hidden", transition:"box-shadow 0.15s" },
   cardImg: { height:"70px", background:"#E6F1FB", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"36px" },

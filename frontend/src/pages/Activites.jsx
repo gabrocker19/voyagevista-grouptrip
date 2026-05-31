@@ -7,6 +7,7 @@ import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
 import BudgetBar from "../components/BudgetBar";
+import Toast from "../components/Toast";
 
 export default function Activites() {
   const { id } = useParams();
@@ -22,8 +23,7 @@ export default function Activites() {
   const [selection,    setSelection]    = useState([]);
   const [resultats,    setResultats]    = useState([]);
   const [totalMembres, setTotalMembres] = useState(0);
-  const [message,      setMessage]      = useState("");
-  const [error,        setError]        = useState("");
+  const [toast,        setToast]        = useState(null);
   const [voted,        setVoted]        = useState(false);
 
   const chargerVotes = async () => {
@@ -98,9 +98,9 @@ export default function Activites() {
       const valeur = selection.join(",") || "0";
       await voteService.voter({ groupe_id: id, type: "activite", valeur });
       setVoted(true);
-      setMessage("✓ Votes enregistrés !");
+      setToast({ message: "Votes enregistrés !", type: "success" });
       await chargerVotes();
-    } catch (err) { setMessage(err.message); }
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   const handleValider = async () => {
@@ -110,8 +110,8 @@ export default function Activites() {
       await voteService.valider({ groupe_id: id, type: "activite", valeur });
       const itin = await api.get(`/api/itineraires/groupe/${id}`).catch(() => null);
       setItineraire(itin);
-      setMessage("✓ Activités validées !");
-    } catch (err) { setMessage(err.message); }
+      setToast({ message: "Activités validées !", type: "success" });
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
@@ -151,7 +151,7 @@ export default function Activites() {
               <button
                 onClick={() => pret
                   ? navigate(`/groupes/${id}/itineraire`)
-                  : setError("Transport et hébergement doivent être validés avant de passer à l'itinéraire.")
+                  : setToast({ message: "Transport et hébergement doivent être validés avant de passer à l'itinéraire.", type: "info" })
                 }
                 style={{ ...s.btnNext, opacity: pret ? 1 : 0.45, cursor: pret ? "pointer" : "not-allowed" }}
                 title={pret ? "" : "Transport et hébergement requis"}
@@ -163,10 +163,8 @@ export default function Activites() {
         }
       />
 
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
       <div style={s.body}>
-        {error   && <div style={s.errorBox}>{error}</div>}
-        {message && <div style={s.toast}>{message}</div>}
-
         {(groupe?.date_depart || groupe?.date_retour) && (
           <div style={s.dateBanner}>
             🗓️ Voyage du{" "}
@@ -285,9 +283,7 @@ const s = {
   page:    { fontFamily:"Arial, sans-serif", minHeight:"100vh", background:"#F5F4F0" },
   loading: { textAlign:"center", padding:"60px", color:"#73726c" },
   body:    { padding:"20px 24px 32px", display:"flex", flexDirection:"column", gap:"14px" },
-  toast:   { background:"#EAF3DE", color:"#3B6D11", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   btnNext:  { background:"rgba(255,255,255,0.18)", border:"1px solid rgba(255,255,255,0.45)", color:"white", padding:"6px 14px", borderRadius:"20px", cursor:"pointer", fontSize:"13px", fontWeight:"600", whiteSpace:"nowrap" },
-  errorBox: { background:"#FCEBEB", color:"#A32D2D", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   infoBar: { background:"white", borderRadius:"10px", padding:"14px 18px", display:"flex", justifyContent:"space-between", alignItems:"center", boxShadow:"0 2px 6px rgba(0,0,0,0.06)", flexWrap:"wrap", gap:"10px" },
   btnVoter:  { padding:"8px 16px", borderRadius:"8px", background:"#185FA5", color:"white", border:"none", cursor:"pointer", fontSize:"13px", fontWeight:"600" },
   btnValider:{ padding:"8px 16px", borderRadius:"8px", background:"#EAF3DE", color:"#3B6D11", border:"none", cursor:"pointer", fontSize:"13px", fontWeight:"600" },

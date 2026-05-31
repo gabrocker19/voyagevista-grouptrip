@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { groupService } from "../services/group.service";
 import PageHeader from "../components/PageHeader";
+import Toast from "../components/Toast";
 
 export default function Panier() {
   const { id } = useParams();
@@ -10,8 +11,7 @@ export default function Panier() {
   const [itineraire, setItineraire] = useState(null);
   const [groupe, setGroupe] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [toast, setToast] = useState("");
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     Promise.all([
@@ -19,49 +19,44 @@ export default function Panier() {
       groupService.getOne(id),
     ])
       .then(([itin, g]) => { setItineraire(itin); setGroupe(g); })
-      .catch(() => setError("Impossible de charger le panier."))
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, [id]);
 
   const recharger = () =>
     api.get(`/api/itineraires/groupe/${id}`).then(setItineraire).catch(() => setItineraire(null));
 
-  const showToast = (msg) => {
-    setToast(msg);
-    setTimeout(() => setToast(""), 3000);
-  };
-
   const annulerTransport = async () => {
     if (!confirm("Annuler le transport sélectionné ?")) return;
     try {
       await api.delete(`/api/itineraires/groupe/${id}/transport`);
-      showToast("Transport annulé.");
+      setToast({ message: "Transport annulé.", type: "success" });
       recharger();
-    } catch (e) { setError(e.message); }
+    } catch (e) { setToast({ message: e.message, type: "error" }); }
   };
 
   const annulerHebergement = async () => {
     if (!confirm("Annuler l'hébergement sélectionné ?")) return;
     try {
       await api.delete(`/api/itineraires/groupe/${id}/hebergement`);
-      showToast("Hébergement annulé.");
+      setToast({ message: "Hébergement annulé.", type: "success" });
       recharger();
-    } catch (e) { setError(e.message); }
+    } catch (e) { setToast({ message: e.message, type: "error" }); }
   };
 
   const retirerActivite = async (activiteId, nom) => {
     if (!confirm(`Retirer "${nom}" ?`)) return;
     try {
       await api.delete(`/api/itineraires/groupe/${id}/activites/${activiteId}`);
-      showToast(`"${nom}" retirée.`);
+      setToast({ message: `"${nom}" retirée.`, type: "success" });
       recharger();
-    } catch (e) { setError(e.message); }
+    } catch (e) { setToast({ message: e.message, type: "error" }); }
   };
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
 
   // Panier vide
-  if (error || !itineraire) {
+  if (!itineraire) {
     return (
       <div style={s.page}>
         <PageHeader title="🛒 Panier" subtitle={groupe?.nom} backLabel="Retour au groupe" backTo={`/groupes/${id}`} />
@@ -138,11 +133,8 @@ export default function Panier() {
         }
       />
 
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
       <div style={s.body}>
-        {/* Toast */}
-        {toast && <div style={s.toast}>✓ {toast}</div>}
-        {error && <div style={s.errorBox}>⚠️ {error}</div>}
-
         <div style={s.layout}>
           {/* Colonne principale */}
           <div style={s.left}>
@@ -359,8 +351,6 @@ const s = {
   layout: { display: "grid", gridTemplateColumns: "1fr 300px", gap: "20px", alignItems: "start" },
   left:   { display: "flex", flexDirection: "column", gap: "16px" },
 
-  toast:    { background: "#EAF3DE", color: "#3B6D11", padding: "11px 16px", borderRadius: "10px", fontSize: "13px", fontWeight: "600" },
-  errorBox: { background: "#FCEBEB", color: "#A32D2D", padding: "11px 16px", borderRadius: "10px", fontSize: "13px" },
 
   card: {
     background: "white", borderRadius: "16px",

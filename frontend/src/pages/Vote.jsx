@@ -6,6 +6,7 @@ import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { CAT_ICONS, getDestIcon } from "../utils/icons";
 import PageHeader from "../components/PageHeader";
+import Toast from "../components/Toast";
 
 const CATEGORIES = ["plage", "montagne", "ville", "aventure", "culture"];
 
@@ -19,7 +20,7 @@ export default function Vote() {
   const [resultats, setResultats] = useState([]);
   const [monVote, setMonVote] = useState(null);
   const [totalMembres, setTotalMembres] = useState(0);
-  const [message, setMessage] = useState("");
+  const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const [search, setSearch] = useState("");
@@ -66,12 +67,12 @@ export default function Vote() {
         valeur: String(dest_id),
       });
       setMonVote(String(dest_id));
-      setMessage("Vote enregistré !");
+      setToast({ message: "Vote enregistré !", type: "success" });
       const res = await voteService.resultats(id, "destination");
       setResultats(res.resultats);
       setTotalMembres(res.total_membres);
     } catch (err) {
-      setMessage(err.message);
+      setToast({ message: err.message, type: "error" });
     }
   };
 
@@ -79,8 +80,9 @@ export default function Vote() {
     try {
       await voteService.valider({ groupe_id: id, type: "destination", valeur });
       groupService.getOne(id).then(setGroupe);
+      setToast({ message: "Destination validée !", type: "success" });
     } catch (err) {
-      setMessage(err.message);
+      setToast({ message: err.message, type: "error" });
     }
   };
 
@@ -111,7 +113,7 @@ export default function Vote() {
             <button
               onClick={() => groupe?.destination_id
                 ? navigate(`/groupes/${id}/transport`)
-                : setMessage("Validez d'abord une destination avant de passer au transport.")
+                : setToast({ message: "Validez d'abord une destination avant de passer au transport.", type: "info" })
               }
               style={{ ...s.btnNext, opacity: groupe?.destination_id ? 1 : 0.45, cursor: groupe?.destination_id ? "pointer" : "not-allowed" }}
               title={groupe?.destination_id ? "" : "Destination non validée"}
@@ -153,8 +155,11 @@ export default function Vote() {
         </div>
       </div>
 
-      {/* Message feedback */}
-      {message && <div style={s.toast}>{message}</div>}
+      <Toast
+        message={toast?.message}
+        type={toast?.type}
+        onClose={() => setToast(null)}
+      />
 
       {/* Mon vote actuel */}
       {monVote && (
@@ -300,10 +305,6 @@ const s = {
   catActive: {
     padding: "6px 14px", borderRadius: "20px", border: "1px solid #185FA5",
     background: "#185FA5", color: "white", cursor: "pointer", fontSize: "12px",
-  },
-  toast: {
-    margin: "12px 24px 0", background: "#EAF3DE", color: "#3B6D11",
-    padding: "10px 16px", borderRadius: "8px", fontSize: "13px",
   },
   monVoteBanner: {
     margin: "10px 24px 0", background: "#E6F1FB", color: "#0C447C",

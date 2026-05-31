@@ -7,6 +7,7 @@ import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PageHeader from "../components/PageHeader";
 import BudgetBar from "../components/BudgetBar";
+import Toast from "../components/Toast";
 
 const TRANSP_ICONS = { avion:"✈️", train:"🚆", bus:"🚌", bateau:"⛴️" };
 
@@ -25,8 +26,7 @@ export default function Transport() {
   const [resultats,     setResultats]     = useState([]);
   const [monVote,       setMonVote]       = useState(null);
   const [totalMembres,  setTotalMembres]  = useState(0);
-  const [message,       setMessage]       = useState("");
-  const [error,         setError]         = useState("");
+  const [toast,         setToast]         = useState(null);
 
   const chargerVotes = async (groupeId) => {
     try {
@@ -84,23 +84,21 @@ export default function Transport() {
   }, [monVote, transports, transportValideId, id]);
 
   const handleVoter = async (transportId) => {
-    setError("");
     try {
       await voteService.voter({ groupe_id: id, type: "transport", valeur: String(transportId) });
       setMonVote(String(transportId));
-      setMessage("✓ Vote enregistré !");
+      setToast({ message: "Vote enregistré !", type: "success" });
       await chargerVotes(id);
-    } catch (err) { setError(err.message); }
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   const handleValider = async (valeur) => {
-    setError("");
     try {
       await voteService.valider({ groupe_id: id, type: "transport", valeur });
       const itin = await api.get(`/api/itineraires/groupe/${id}`).catch(() => null);
       setItineraire(itin);
-      setMessage("✓ Transport validé !");
-    } catch (err) { setError(err.message); }
+      setToast({ message: "Transport validé !", type: "success" });
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
   if (loading) return <div style={s.loading}>Chargement...</div>;
@@ -120,7 +118,7 @@ export default function Transport() {
             <button
               onClick={() => transportValideId
                 ? navigate(`/groupes/${id}/hebergement`)
-                : setError("Validez d'abord un transport avant de passer à l'hébergement.")
+                : setToast({ message: "Validez d'abord un transport avant de passer à l'hébergement.", type: "info" })
               }
               style={{
                 ...s.btnNext,
@@ -135,9 +133,8 @@ export default function Transport() {
         }
       />
 
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
       <div style={s.body}>
-        {error   && <div style={s.errorBox}>{error}</div>}
-        {message && <div style={s.toast}>{message}</div>}
         {monVote && (
           <div style={s.banner}>
             ✓ Vous avez voté pour <strong>{transports.find(t=>String(t.id)===monVote)?.compagnie}</strong>
@@ -241,7 +238,7 @@ export default function Transport() {
                       const placesInsuff = t.places_dispo < totalMembres;
                       return (
                         <button
-                          onClick={() => placesInsuff ? setError(`Places insuffisantes : ${t.places_dispo} dispo, ${totalMembres} membres.`) : handleValider(String(t.id))}
+                          onClick={() => placesInsuff ? setToast({ message: `Places insuffisantes : ${t.places_dispo} dispo, ${totalMembres} membres.`, type: "error" }) : handleValider(String(t.id))}
                           style={{ ...s.btnValider, opacity: placesInsuff ? 0.5 : 1, cursor: placesInsuff ? "not-allowed" : "pointer" }}
                           title={placesInsuff ? `Seulement ${t.places_dispo} place(s) pour ${totalMembres} membres` : ""}
                         >
@@ -270,8 +267,6 @@ const s = {
   page:    { fontFamily:"Arial, sans-serif", minHeight:"100vh", background:"#F5F4F0" },
   loading: { textAlign:"center", padding:"60px", color:"#73726c" },
   body:    { padding:"20px 24px 32px", display:"flex", flexDirection:"column", gap:"14px" },
-  toast:    { background:"#EAF3DE", color:"#3B6D11", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
-  errorBox: { background:"#FCEBEB", color:"#A32D2D", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   banner:  { background:"#E6F1FB", color:"#0C447C", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
   destBanner: { background:"rgba(12,68,124,0.07)", color:"#0C447C", padding:"8px 16px", borderRadius:"8px", fontSize:"13px" },
   voteCount: { background:"rgba(255,255,255,0.15)", padding:"4px 12px", borderRadius:"20px", fontSize:"13px" },

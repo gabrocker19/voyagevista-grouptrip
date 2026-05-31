@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
 import { api } from "../services/api";
 import PageHeader from "../components/PageHeader";
+import Toast from "../components/Toast";
 
 export default function Itineraire() {
   const { id } = useParams();
@@ -15,8 +16,7 @@ export default function Itineraire() {
   const [activites,  setActivites] = useState([]);
   const [loading,    setLoading]   = useState(true);
   const [saving,     setSaving]    = useState(false);
-  const [message,    setMessage]   = useState("");
-  const [error,      setError]     = useState("");
+  const [toast,      setToast]     = useState(null);
 
   useEffect(() => {
     Promise.all([
@@ -90,10 +90,10 @@ export default function Itineraire() {
           hebergement_id: hebId, activite_ids: actIds, cout_total: coutTotal,
         });
       }
-      setMessage("Itinéraire validé !");
+      setToast({ message: "Itinéraire validé !", type: "success" });
       setTimeout(() => navigate(`/groupes/${id}/panier`), 900);
     } catch (err) {
-      setError(err.message);
+      setToast({ message: err.message, type: "error" });
     } finally {
       setSaving(false);
     }
@@ -147,10 +147,8 @@ export default function Itineraire() {
         }
       />
 
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
       <div style={st.body}>
-        {message && <div style={st.success}>✓ {message}</div>}
-        {error   && <div style={st.error}>⚠️ {error}</div>}
-
         {!pret && (
           <div style={st.alertManquant}>
             <span style={st.alertIcon}>🔒</span>
@@ -296,8 +294,6 @@ const st = {
   loading: { textAlign: "center", padding: "60px", color: "#73726c" },
   body:    { padding: "24px 32px 48px", maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "16px" },
 
-  success: { background: "#EAF3DE", color: "#3B6D11", padding: "12px 16px", borderRadius: "8px", fontSize: "14px" },
-  error:   { background: "#FCEBEB", color: "#A32D2D", padding: "12px 16px", borderRadius: "8px", fontSize: "14px" },
 
   alertManquant: {
     display: "flex", alignItems: "center", gap: "14px",
