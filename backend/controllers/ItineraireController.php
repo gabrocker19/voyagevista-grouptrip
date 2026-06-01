@@ -127,14 +127,18 @@ class ItineraireController {
         if ($itin['transport_id']) {
             $this->db->prepare("UPDATE transports SET places_dispo = places_dispo + ? WHERE id = ?")->execute([$nb_membres, $itin['transport_id']]);
         }
-        $stmt = $this->db->prepare("
-            UPDATE itineraires SET transport_id = NULL, cout_total = GREATEST(0, cout_total - COALESCE(
-                (SELECT prix FROM transports WHERE id = ?), 0
-            )) WHERE groupe_id = ?
-        ");
-        $stmt->execute([$itin['transport_id'], $groupe_id]);
+        // Remettre les places des activités
+        $stmt = $this->db->prepare("SELECT activite_id FROM itineraire_activites WHERE itineraire_id = ?");
+        $stmt->execute([$itin['id']]);
+        foreach ($stmt->fetchAll(PDO::FETCH_COLUMN) as $aid) {
+            $this->db->prepare("UPDATE activites SET places_restantes = places_restantes + 1 WHERE id = ?")->execute([$aid]);
+        }
+        $this->db->prepare("DELETE FROM itineraire_activites WHERE itineraire_id = ?")->execute([$itin['id']]);
 
-        echo json_encode(["message" => "Transport annulé."]);
+        $stmt = $this->db->prepare("UPDATE itineraires SET transport_id = NULL, hebergement_id = NULL, cout_total = 0 WHERE groupe_id = ?");
+        $stmt->execute([$groupe_id]);
+
+        echo json_encode(["message" => "Transport, hébergement et activités annulés."]);
     }
 
     public function annulerActivite($groupe_id, $activite_id) {
@@ -216,13 +220,22 @@ class ItineraireController {
         $itin = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$itin) { http_response_code(404); echo json_encode(["error" => "Itinéraire non trouvé."]); return; }
 
+        // Recalcul : transport + activités seulement (hébergement retiré)
         $stmt = $this->db->prepare("
-            UPDATE itineraires SET hebergement_id = NULL,
-            cout_total = GREATEST(0, cout_total - COALESCE(
-                (SELECT prix_nuit FROM hebergements WHERE id = ?), 0
-            )) WHERE groupe_id = ?
+            SELECT
+                COALESCE(t.prix, 0) +
+                COALESCE((SELECT SUM(a.prix) FROM activites a JOIN itineraire_activites ia ON ia.activite_id = a.id WHERE ia.itineraire_id = ?), 0)
+                AS nouveau_total
+            FROM itineraires i
+            LEFT JOIN transports t ON t.id = i.transport_id
+            WHERE i.id = ?
         ");
-        $stmt->execute([$itin['hebergement_id'], $groupe_id]);
+        $stmt->execute([$itin['id'], $itin['id']]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nouveau_total = $row ? max(0, (float)$row['nouveau_total']) : 0;
+
+        $stmt = $this->db->prepare("UPDATE itineraires SET hebergement_id = NULL, cout_total = ? WHERE groupe_id = ?");
+        $stmt->execute([$nouveau_total, $groupe_id]);
 
         echo json_encode(["message" => "Hébergement annulé."]);
     }

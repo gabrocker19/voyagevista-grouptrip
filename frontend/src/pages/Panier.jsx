@@ -27,7 +27,7 @@ export default function Panier() {
     api.get(`/api/itineraires/groupe/${id}`).then(setItineraire).catch(() => setItineraire(null));
 
   const annulerTransport = async () => {
-    if (!confirm("Annuler le transport sélectionné ?")) return;
+    if (!confirm("Annuler le transport ? Cela supprimera aussi l'hébergement et toutes les activités.")) return;
     try {
       await api.delete(`/api/itineraires/groupe/${id}/transport`);
       setToast({ message: "Transport annulé.", type: "success" });
@@ -86,7 +86,10 @@ export default function Panier() {
   const coutParPers  = parseFloat(itineraire.cout_total || 0);
   const totalGroupe  = (coutParPers * nbMembres).toFixed(0);
   const budgetMax    = groupe?.budget_max ? parseFloat(groupe.budget_max) : null;
-  const budgetDepasse= budgetMax && coutParPers > budgetMax;
+  const budgetDepasse    = budgetMax && coutParPers > budgetMax;
+  const manqueTransport  = !itineraire.compagnie;
+  const manqueHeb        = !itineraire.heb_nom;
+  const paiementBloque   = budgetDepasse || manqueTransport || manqueHeb;
   const budgetPct    = budgetMax ? Math.min((coutParPers / budgetMax) * 100, 100) : 0;
 
   const coutTransport = parseFloat(itineraire.transport_prix || 0);
@@ -289,20 +292,34 @@ export default function Panier() {
                 <div style={s.summaryTotalSub}>{nbMembres} × {coutParPers.toFixed(0)}€</div>
               </div>
 
+              {(manqueTransport || manqueHeb) && (
+                <div style={s.bloqueInfo}>
+                  {manqueTransport && <div>✈️ Transport requis pour payer</div>}
+                  {manqueHeb && <div>🏨 Hébergement requis pour payer</div>}
+                </div>
+              )}
               <button
-                onClick={() => navigate(`/groupes/${id}/paiement`)}
+                onClick={() => !paiementBloque && navigate(`/groupes/${id}/paiement`)}
                 style={{
                   ...s.btnPay,
-                  opacity: budgetDepasse ? 0.6 : 1,
-                  cursor: budgetDepasse ? "not-allowed" : "pointer",
-                  background: budgetDepasse
+                  opacity: paiementBloque ? 0.5 : 1,
+                  cursor: paiementBloque ? "not-allowed" : "pointer",
+                  background: paiementBloque
                     ? "#9AA5AE"
                     : "linear-gradient(135deg, #0C447C, #185FA5)",
                 }}
-                disabled={budgetDepasse}
-                title={budgetDepasse ? "Budget dépassé — ajustez l'itinéraire" : ""}
+                disabled={paiementBloque}
+                title={
+                  budgetDepasse ? "Budget dépassé — ajustez l'itinéraire"
+                  : manqueTransport ? "Ajoutez un transport pour continuer"
+                  : manqueHeb ? "Ajoutez un hébergement pour continuer"
+                  : ""
+                }
               >
-                {budgetDepasse ? "⚠️ Budget dépassé" : `🔒 Payer ${totalGroupe}€`}
+                {budgetDepasse ? "⚠️ Budget dépassé"
+                  : manqueTransport ? "✈️ Transport manquant"
+                  : manqueHeb ? "🏨 Hébergement manquant"
+                  : `🔒 Payer ${totalGroupe}€`}
               </button>
 
               <div style={s.secBadges}>
@@ -482,4 +499,5 @@ const s = {
     borderRadius: "20px", fontSize: "11px", color: "#73726c",
   },
   simNote: { textAlign: "center", fontSize: "11px", color: "#B0AFA8", margin: 0 },
+  bloqueInfo: { background: "#FFF5E6", border: "1px solid #F5C96A", borderRadius: "8px", padding: "8px 12px", marginBottom: "10px", fontSize: "12px", color: "#854F0B", display: "flex", flexDirection: "column", gap: "4px" },
 };
