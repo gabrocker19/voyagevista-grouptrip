@@ -25,6 +25,11 @@ export default function Itineraire() {
     ]).then(async ([g, itin]) => {
       setGroupe(g);
       if (itin) {
+        // Itinéraire déjà sauvegardé avec transport + hébergement → aller au panier
+        if (itin.transport_id && itin.hebergement_id) {
+          navigate(`/groupes/${id}/panier`, { replace: true });
+          return;
+        }
         setItineraire(itin);
         setActivites(itin.activites || []);
       } else {
@@ -71,7 +76,6 @@ export default function Itineraire() {
 
   const handleSave = async () => {
     setSaving(true);
-    setError("");
     try {
       if (itineraire) {
         await api.post("/api/itineraires", {
@@ -90,8 +94,7 @@ export default function Itineraire() {
           hebergement_id: hebId, activite_ids: actIds, cout_total: coutTotal,
         });
       }
-      setToast({ message: "Itinéraire validé !", type: "success" });
-      setTimeout(() => navigate(`/groupes/${id}/panier`), 400);
+      navigate(`/groupes/${id}/panier`);
     } catch (err) {
       setToast({ message: err.message, type: "error" });
     } finally {
