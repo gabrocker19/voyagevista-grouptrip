@@ -1,71 +1,68 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
 import { api } from "../services/api";
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [nbNotifs, setNbNotifs] = useState(0);
 
   useEffect(() => {
     if (!user) return;
     api.get("/api/notifications")
       .then((notifs) => {
-        const nonLues = notifs.filter((n) => n.lu === "0" || n.lu === 0).length;
-        setNbNotifs(nonLues);
+        setNbNotifs(notifs.filter((n) => n.lu === "0" || n.lu === 0).length);
       })
       .catch(() => {});
-  }, [user]);
-
-  const handleLogout = async () => {
-    await logout();
-    navigate("/login");
-  };
+  }, [user, location.pathname]);
 
   return (
-    <nav style={styles.nav}>
-      <Link to="/" style={styles.logo}>
-        ✈ VoyageVista
+    <nav style={s.nav}>
+      <Link to="/" style={s.logo}>
+        <span style={s.logoIcon}>✈</span>
+        VoyageVista
       </Link>
-      <div style={styles.links}>
+
+      <div style={s.links}>
         {user ? (
           <>
-            <Link to="/dashboard" style={styles.link}>
+            <Link
+              to="/dashboard"
+              style={location.pathname === "/dashboard" ? { ...s.btnPrimary, ...s.btnPrimaryActive } : s.btnPrimary}
+            >
               Mon espace
             </Link>
-            <Link to="/catalogue" style={styles.link}>
-              Destinations
+            <Link
+              to="/catalogue"
+              style={location.pathname === "/catalogue" ? { ...s.btnOutline, ...s.btnOutlineActive } : s.btnOutline}
+            >
+              Catalogue
             </Link>
+
             {user.role === "admin" && (
-              <Link to="/admin" style={{ ...styles.link, color: "#FFD580" }}>
+              <Link to="/admin" style={s.btnAdmin}>
                 ⚙️ Admin
               </Link>
             )}
-            <Link to="/notifications" style={styles.notifLink}>
+
+            <Link to="/notifications" style={s.notifLink}>
               🔔
               {nbNotifs > 0 && (
-                <span style={styles.notifBadge}>{nbNotifs > 9 ? "9+" : nbNotifs}</span>
+                <span style={s.notifBadge}>{nbNotifs > 9 ? "9+" : nbNotifs}</span>
               )}
             </Link>
-            <Link to="/profil" style={styles.profilLink}>
-              <div style={styles.avatarSmall}>
-                {user.nom.charAt(0).toUpperCase()}
-              </div>
-              <span style={styles.username}>{user.nom}</span>
+
+            <Link to="/profil" style={s.profilLink}>
+              <div style={s.avatar}>{user.nom.charAt(0).toUpperCase()}</div>
+              <span style={s.username}>{user.nom.split(" ")[0]}</span>
             </Link>
-            <button onClick={handleLogout} style={styles.btn}>
-              Déconnexion
-            </button>
           </>
         ) : (
           <>
-            <Link to="/login" style={styles.link}>
-              Connexion
-            </Link>
-            <Link to="/register" style={styles.link}>
-              Inscription
-            </Link>
+            <Link to="/login"    style={s.btnOutline}>Connexion</Link>
+            <Link to="/register" style={s.btnPrimary}>Inscription</Link>
           </>
         )}
       </div>
@@ -73,23 +70,87 @@ export default function Navbar() {
   );
 }
 
-const styles = {
+const s = {
   nav: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "12px 32px",
-    background: "#0C447C",
-    color: "white",
+    padding: "0 32px",
+    height: "54px",
+    background: "linear-gradient(90deg, #0A3C6E 0%, #1260A8 100%)",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.22)",
+    position: "sticky",
+    top: 0,
+    zIndex: 100,
   },
+
   logo: {
     color: "white",
     textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold",
+    fontSize: "17px",
+    fontWeight: "800",
+    letterSpacing: "0.3px",
+    display: "flex",
+    alignItems: "center",
+    gap: "7px",
   },
-  links: { display: "flex", alignItems: "center", gap: "20px" },
-  link: { color: "white", textDecoration: "none", fontSize: "14px" },
+  logoIcon: {
+    fontSize: "20px",
+    display: "inline-block",
+  },
+
+  links: { display: "flex", alignItems: "center", gap: "10px" },
+
+  // Bouton plein blanc — navigation principale
+  btnPrimary: {
+    background: "white",
+    color: "#0C447C",
+    border: "none",
+    padding: "7px 18px",
+    borderRadius: "20px",
+    cursor: "pointer",
+    fontSize: "13px",
+    fontWeight: "700",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    transition: "opacity 0.15s",
+  },
+  btnPrimaryActive: {
+    background: "#E6F1FB",
+    color: "#0A3C6E",
+  },
+
+  // Bouton contour blanc — navigation secondaire
+  btnOutline: {
+    background: "transparent",
+    color: "white",
+    border: "1.5px solid rgba(255,255,255,0.55)",
+    padding: "6px 17px",
+    borderRadius: "20px",
+    cursor: "pointer",
+    fontSize: "13px",
+    fontWeight: "600",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    transition: "border-color 0.15s, background 0.15s",
+  },
+  btnOutlineActive: {
+    borderColor: "white",
+    background: "rgba(255,255,255,0.12)",
+  },
+
+  // Admin
+  btnAdmin: {
+    color: "#FFD580",
+    textDecoration: "none",
+    fontSize: "13px",
+    fontWeight: "600",
+    padding: "6px 4px",
+  },
+
+  // Notifications
   notifLink: {
     color: "white",
     textDecoration: "none",
@@ -97,11 +158,12 @@ const styles = {
     position: "relative",
     display: "flex",
     alignItems: "center",
+    padding: "0 4px",
   },
   notifBadge: {
     position: "absolute",
-    top: "-6px",
-    right: "-8px",
+    top: "-5px",
+    right: "-4px",
     background: "#E84848",
     color: "white",
     borderRadius: "10px",
@@ -111,33 +173,31 @@ const styles = {
     minWidth: "16px",
     textAlign: "center",
   },
+
+  // Profil
   profilLink: {
     color: "white",
     textDecoration: "none",
     display: "flex",
     alignItems: "center",
     gap: "8px",
+    padding: "0 4px",
   },
-  avatarSmall: {
-    width: "28px",
-    height: "28px",
+  avatar: {
+    width: "30px",
+    height: "30px",
     borderRadius: "50%",
-    background: "rgba(255,255,255,0.2)",
-    border: "1px solid rgba(255,255,255,0.5)",
+    background: "rgba(255,255,255,0.18)",
+    border: "1.5px solid rgba(255,255,255,0.45)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "13px",
     fontWeight: "bold",
   },
-  username: { color: "#E6F1FB", fontSize: "14px" },
-  btn: {
-    background: "#185FA5",
-    color: "white",
-    border: "1px solid white",
-    padding: "6px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontSize: "14px",
+  username: {
+    color: "rgba(255,255,255,0.9)",
+    fontSize: "13px",
+    fontWeight: "500",
   },
 };

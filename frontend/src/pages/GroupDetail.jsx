@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { groupService } from "../services/group.service";
 import { useAuth } from "../context/AuthContext";
 import { api } from "../services/api";
+import PageHeader from "../components/PageHeader";
 
 export default function GroupDetail() {
   const { id } = useParams();
@@ -14,6 +15,8 @@ export default function GroupDetail() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [itineraire, setItineraire] = useState(null);
+  const [destinationNom, setDestinationNom] = useState(null);
+  const [confirmRefus, setConfirmRefus] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -23,6 +26,11 @@ export default function GroupDetail() {
       .then(([g, itin]) => {
         setGroupe(g);
         setItineraire(itin);
+        if (g.destination_id) {
+          api.get(`/api/destinations/${g.destination_id}`)
+            .then((dest) => setDestinationNom(dest.nom))
+            .catch(() => {});
+        }
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -52,12 +60,18 @@ export default function GroupDetail() {
   const monStatut = groupe.membres?.find((m) => m.id === user?.id)?.statut;
   const enAttente = monStatut === "en_attente";
   const destinationValidee = !!groupe.destination_id;
-  const itineraireValide = !!itineraire;
+  // itineraireValide = le groupe a été passé en plan_valide (bouton "Valider → Panier" cliqué)
+  const itineraireValide = groupe.statut === "plan_valide" || groupe.statut === "reservation_confirmee";
 
   const handleRepondreInvitation = async (statut) => {
     try {
       await groupService.rejoindre(id, statut);
-      groupService.getOne(id).then(setGroupe);
+      if (statut === "refuse") {
+        setMessage("Invitation refusée. Vous allez être redirigé...");
+        setTimeout(() => navigate("/dashboard"), 2000);
+      } else {
+        groupService.getOne(id).then(setGroupe);
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -71,35 +85,54 @@ export default function GroupDetail() {
   };
   const sc = statutColors[groupe.statut] || statutColors.en_formation;
 
+  const transportChoisi   = !!itineraire?.transport_id;
+  const hebergementChoisi = !!itineraire?.hebergement_id;
+  const activitesChoisies = (itineraire?.activites?.length ?? 0) > 0;
+
   // Étapes dynamiques
   const etapes = [
     {
+      emoji: "👥",
       label: "Former le groupe",
       done: true,
       action: null,
     },
     {
+      emoji: "🗳️",
       label: "Voter pour la destination",
       done: destinationValidee,
       action: () => navigate(`/groupes/${id}/vote`),
     },
     {
-      label: destinationValidee
-        ? `Planifier le voyage — destination validée ✓`
-        : "Planifier le voyage (disponible après vote)",
-      done: itineraireValide,
-      action: destinationValidee
-        ? () => navigate(`/groupes/${id}/transport`)
-        : null,
+      emoji: "✈️",
+      label: "Choisir le transport",
+      done: transportChoisi,
+      action: destinationValidee ? () => navigate(`/groupes/${id}/transport`) : null,
     },
     {
+      emoji: "🏨",
+      label: "Choisir l'hébergement",
+      done: hebergementChoisi,
+      action: transportChoisi ? () => navigate(`/groupes/${id}/hebergement`) : null,
+      locked_reason: !transportChoisi ? "Transport requis" : null,
+    },
+    {
+      emoji: "🎯",
+      label: "Choisir les activités",
+      done: activitesChoisies,
+      action: transportChoisi ? () => navigate(`/groupes/${id}/activites`) : null,
+      locked_reason: !transportChoisi ? "Transport requis" : null,
+    },
+    {
+      emoji: "🗺️",
       label: "Valider l'itinéraire",
       done: itineraireValide,
-      action: itineraireValide
+      action: (transportChoisi && hebergementChoisi)
         ? () => navigate(`/groupes/${id}/itineraire`)
         : null,
     },
     {
+      emoji: "💳",
       label: "Valider et payer",
       done: groupe.statut === "reservation_confirmee",
       action: itineraireValide ? () => navigate(`/groupes/${id}/panier`) : null,
@@ -108,19 +141,98 @@ export default function GroupDetail() {
 
   return (
     <div style={styles.page}>
-      {/* Header */}
-      <div style={styles.header}>
-        <div>
-          <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-            ← Mes voyages
-          </button>
-          <h1 style={styles.title}>{groupe.nom}</h1>
-          <p style={styles.sub}>Organisé par {groupe.organisateur_nom}</p>
+      {confirmRefus && (
+        <div style={styles.overlay} onClick={() => setConfirmRefus(false)}>
+          <div style={styles.modal} onClick={e => e.stopPropagation()}>
+            <h3 style={styles.modalTitle}>Refuser l'invitation ?</h3>
+            <p style={{ color: "#444", fontSize: "14px", marginBottom: "20px" }}>
+              Êtes-vous sûr de vouloir refuser l'invitation au voyage <strong>"{groupe.nom}"</strong> ?
+              Vous ne pourrez plus accéder à ce groupe.
+            </p>
+            <div style={styles.modalActions}>
+              <button style={styles.btnCancel} onClick={() => setConfirmRefus(false)}>
+                Annuler
+              </button>
+              <button style={styles.btnConfirmRefus} onClick={() => { setConfirmRefus(false); handleRepondreInvitation("refuse"); }}>
+                Refuser l'invitation
+              </button>
+            </div>
+          </div>
         </div>
-        <span style={{ ...styles.statut, background: sc.bg, color: sc.color }}>
-          {groupe.statut.replace(/_/g, " ")}
-        </span>
-      </div>
+      )}
+
+      <PageHeader
+        title={groupe.nom}
+        subtitle={<>Organisé par <strong>{groupe.organisateur_nom}</strong></>}
+        backLabel="Mes voyages"
+        backTo="/dashboard"
+        right={
+          <span style={{ ...styles.statut, background: sc.bg, color: sc.color }}>
+            {groupe.statut.replace(/_/g, " ")}
+          </span>
+        }
+      >
+        {/* Barre stats en bas du gradient */}
+        <div style={styles.headerStats}>
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{groupe.membres?.length || 0}</span>
+            <span style={styles.headerStatLabel}>👥 Membres</span>
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            <span style={styles.headerStatVal}>{groupe.budget_max ? `${groupe.budget_max}€` : "—"}</span>
+            <span style={styles.headerStatLabel}>💶 Budget / pers.</span>
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            {groupe.date_depart && groupe.date_retour ? (
+              <>
+                <span style={{ ...styles.headerStatVal, fontSize: "13px" }}>
+                  {new Date(groupe.date_depart).toLocaleDateString("fr-FR", { day:"numeric", month:"short" })}
+                  {" → "}
+                  {new Date(groupe.date_retour).toLocaleDateString("fr-FR", { day:"numeric", month:"short" })}
+                </span>
+                <span style={styles.headerStatLabel}>
+                  📅 {Math.round((new Date(groupe.date_retour) - new Date(groupe.date_depart)) / 86400000)} nuits
+                </span>
+              </>
+            ) : groupe.date_depart ? (
+              <>
+                <span style={{ ...styles.headerStatVal, fontSize: "13px" }}>
+                  {new Date(groupe.date_depart).toLocaleDateString("fr-FR", { day:"numeric", month:"short", year:"numeric" })}
+                </span>
+                <span style={styles.headerStatLabel}>📅 Départ</span>
+              </>
+            ) : (
+              <>
+                <span style={styles.headerStatVal}>—</span>
+                <span style={styles.headerStatLabel}>📅 Dates</span>
+              </>
+            )}
+          </div>
+          <div style={styles.headerStatDivider} />
+          <div style={styles.headerStat}>
+            <span style={{ ...styles.headerStatVal, fontSize: destinationNom ? "13px" : "16px" }}>
+              {destinationNom || (destinationValidee ? "✓" : "À voter")}
+            </span>
+            <span style={styles.headerStatLabel}>🌍 Destination</span>
+          </div>
+        </div>
+      </PageHeader>
+
+      <style>{`
+        .vv-steps {
+          display: grid;
+          gap: 12px;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        @media (max-width: 1050px) {
+          .vv-steps { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .vv-steps { grid-template-columns: repeat(2, 1fr); }
+        }
+      `}</style>
 
       <div style={styles.body}>
         {/* Bannière invitation en attente */}
@@ -133,96 +245,104 @@ export default function GroupDetail() {
               </p>
             </div>
             <div style={styles.inviteBtns}>
-              <button
-                onClick={() => handleRepondreInvitation("accepte")}
-                style={styles.btnAccepter}
-              >
+              <button onClick={() => handleRepondreInvitation("accepte")} style={styles.btnAccepter}>
                 ✓ Accepter
               </button>
-              <button
-                onClick={() => handleRepondreInvitation("refuse")}
-                style={styles.btnRefuser}
-              >
+              <button onClick={() => setConfirmRefus(true)} style={styles.btnRefuser}>
                 ✗ Refuser
               </button>
             </div>
           </div>
         )}
 
-        {/* Infos */}
-        <div style={styles.infoGrid}>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>👥</div>
-            <div style={styles.infoVal}>{groupe.membres?.length || 0}</div>
-            <div style={styles.infoLabel}>Membres</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>💶</div>
-            <div style={styles.infoVal}>
-              {groupe.budget_max ? `${groupe.budget_max}€` : "Non défini"}
-            </div>
-            <div style={styles.infoLabel}>Budget max / pers.</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>📅</div>
-            <div style={styles.infoVal}>
-              {groupe.date_depart || "À définir"}
-            </div>
-            <div style={styles.infoLabel}>Date de départ</div>
-          </div>
-          <div style={styles.infoCard}>
-            <div style={styles.infoIcon}>🌍</div>
-            <div style={styles.infoVal}>
-              {destinationValidee ? "✓ Validée" : "À voter"}
-            </div>
-            <div style={styles.infoLabel}>Destination</div>
+        {/* ── Étapes (cartes cliquables) ── */}
+        <div style={styles.section}>
+          <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
+          <div className="vv-steps">
+            {etapes.map((step, i) => {
+              const isActive = !step.done && !!step.action;
+              const isLocked = !step.done && !step.action;
+              return (
+                <div
+                  key={i}
+                  onClick={step.action || undefined}
+                  style={{
+                    ...styles.stepCard,
+                    ...(step.done  ? styles.stepCardDone   : {}),
+                    ...(isActive   ? styles.stepCardActive  : {}),
+                    ...(isLocked   ? styles.stepCardLocked  : {}),
+                    cursor: step.action ? "pointer" : "default",
+                  }}
+                >
+                  <div style={{ fontSize: "26px", marginBottom: "2px" }}>{step.emoji}</div>
+                  <div style={{
+                    ...styles.stepNum,
+                    background: step.done ? "#3B6D11" : isActive ? "#185FA5" : "#C8C6BC",
+                  }}>
+                    {step.done ? "✓" : i + 1}
+                  </div>
+                  <div style={styles.stepCardLabel}>{step.label}</div>
+                  {isActive && (
+                    <div style={styles.stepCardCta}>
+                      {i === 0 ? "Voir" : "Commencer →"}
+                    </div>
+                  )}
+                  {step.done && step.action && (
+                    <div style={styles.stepCardEdit}>Modifier</div>
+                  )}
+                  {isLocked && (
+                    <div style={styles.stepCardLock}>
+                      🔒 {step.locked_reason || "En attente"}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Itinéraire résumé si existe */}
         {itineraire && (
           <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>🗺️ Itinéraire actuel</h2>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"16px" }}>
+              <h2 style={{ ...styles.sectionTitle, marginBottom:0 }}>🗺️ Itinéraire actuel</h2>
+              {isOrganisateur && groupe.statut !== "reservation_confirmee" && (
+                <button
+                  onClick={async () => {
+                    if (!confirm("Supprimer l'itinéraire complet ? Transport, hébergement et activités seront retirés.")) return;
+                    try {
+                      await api.delete(`/api/itineraires/groupe/${id}`);
+                      setItineraire(null);
+                      groupService.getOne(id).then(setGroupe);
+                    } catch (e) { setError(e.message); }
+                  }}
+                  style={styles.btnSupprimerItin}
+                >
+                  🗑️ Supprimer l'itinéraire
+                </button>
+              )}
+            </div>
             <div style={styles.itinRow}>
               <span>✈️ Transport</span>
               <span style={styles.itinVal}>
-                {itineraire.compagnie
-                  ? `${itineraire.compagnie} — ${itineraire.transport_prix}€`
-                  : "Non sélectionné"}
+                {itineraire.compagnie ? `${itineraire.compagnie} — ${itineraire.transport_prix}€` : "Non sélectionné"}
               </span>
             </div>
             <div style={styles.itinRow}>
               <span>🏨 Hébergement</span>
               <span style={styles.itinVal}>
-                {itineraire.heb_nom
-                  ? `${itineraire.heb_nom} — ${itineraire.prix_nuit}€/nuit`
-                  : "Non sélectionné"}
+                {itineraire.heb_nom ? `${itineraire.heb_nom} — ${itineraire.prix_nuit}€/nuit` : "Non sélectionné"}
               </span>
             </div>
             <div style={styles.itinRow}>
               <span>🎯 Activités</span>
               <span style={styles.itinVal}>
-                {itineraire.activites?.length > 0
-                  ? `${itineraire.activites.length} activité(s)`
-                  : "Aucune"}
+                {itineraire.activites?.length > 0 ? `${itineraire.activites.length} activité(s)` : "Aucune"}
               </span>
             </div>
-            <div
-              style={{
-                ...styles.itinRow,
-                borderTop: "2px solid #E0DED6",
-                marginTop: "8px",
-                paddingTop: "8px",
-              }}
-            >
+            <div style={{ ...styles.itinRow, borderTop: "2px solid #E0DED6", marginTop: "8px", paddingTop: "8px" }}>
               <span style={{ fontWeight: "bold" }}>Total / personne</span>
-              <span
-                style={{
-                  fontWeight: "bold",
-                  color: "#0C447C",
-                  fontSize: "18px",
-                }}
-              >
+              <span style={{ fontWeight: "bold", color: "#0C447C", fontSize: "18px" }}>
                 {itineraire.cout_total}€
               </span>
             </div>
@@ -240,35 +360,34 @@ export default function GroupDetail() {
                   <div style={styles.memberName}>{m.nom}</div>
                   <div style={styles.memberEmail}>{m.email}</div>
                 </div>
-                <span
-                  style={{
-                    ...styles.memberBadge,
-                    background:
-                      m.role === "organisateur" ? "#E6F1FB" : "#F5F4F0",
-                    color: m.role === "organisateur" ? "#0C447C" : "#73726c",
-                  }}
-                >
+                <span style={{
+                  ...styles.memberBadge,
+                  background: m.role === "organisateur" ? "#E6F1FB" : "#F5F4F0",
+                  color: m.role === "organisateur" ? "#0C447C" : "#73726c",
+                }}>
                   {m.role}
                 </span>
-                <span
-                  style={{
-                    ...styles.memberBadge,
-                    background:
-                      m.statut === "accepte"
-                        ? "#EAF3DE"
-                        : m.statut === "en_attente"
-                          ? "#FAEEDA"
-                          : "#FCEBEB",
-                    color:
-                      m.statut === "accepte"
-                        ? "#3B6D11"
-                        : m.statut === "en_attente"
-                          ? "#854F0B"
-                          : "#A32D2D",
-                  }}
-                >
+                <span style={{
+                  ...styles.memberBadge,
+                  background: m.statut === "accepte" ? "#EAF3DE" : m.statut === "en_attente" ? "#FAEEDA" : "#FCEBEB",
+                  color: m.statut === "accepte" ? "#3B6D11" : m.statut === "en_attente" ? "#854F0B" : "#A32D2D",
+                }}>
                   {m.statut}
                 </span>
+                {isOrganisateur && m.role !== "organisateur" && groupe.statut !== "reservation_confirmee" && (
+                  <button
+                    onClick={async () => {
+                      if (!confirm(`Retirer "${m.nom}" du groupe ?`)) return;
+                      try {
+                        await api.delete(`/api/groupes/${id}/membres/${m.id}`);
+                        groupService.getOne(id).then(setGroupe);
+                      } catch (e) { setError(e.message); }
+                    }}
+                    style={styles.btnRetirerMembre}
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -289,53 +408,13 @@ export default function GroupDetail() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <button type="submit" style={styles.btnInvite}>
-                Inviter
-              </button>
+              <button type="submit" style={styles.btnInvite}>Inviter</button>
             </form>
             <p style={styles.hint}>
               Comptes de test : aurelien@test.fr · brice@test.fr · isiah@test.fr
             </p>
           </div>
         )}
-
-        {/* Étapes */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>🗺️ Prochaines étapes</h2>
-          <div style={styles.stepList}>
-            {etapes.map((s, i) => (
-              <div key={i} style={styles.stepRow}>
-                <span
-                  style={{
-                    ...styles.stepDot,
-                    background: s.done ? "#3B6D11" : "#D1CFC5",
-                  }}
-                >
-                  {s.done ? "✓" : i + 1}
-                </span>
-                <span
-                  style={{
-                    ...styles.stepLabel,
-                    color: s.done ? "#3B6D11" : s.action ? "#2C2C2A" : "#999",
-                    flex: 1,
-                  }}
-                >
-                  {s.label}
-                </span>
-                {s.action && !s.done && (
-                  <button onClick={s.action} style={styles.stepBtn}>
-                    Commencer →
-                  </button>
-                )}
-                {s.action && s.done && (
-                  <button onClick={s.action} style={styles.stepBtnDone}>
-                    Modifier
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -372,59 +451,39 @@ const styles = {
     padding: "10px 20px", borderRadius: "8px", cursor: "pointer",
     fontSize: "14px",
   },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.8)",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "8px",
-    display: "block",
-  },
-  header: {
-    background: "#0C447C",
-    color: "white",
-    padding: "32px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-  },
-  title: { fontSize: "26px", fontWeight: "bold", marginBottom: "6px" },
-  sub: { opacity: 0.8, fontSize: "14px" },
   statut: {
     padding: "6px 14px",
     borderRadius: "20px",
     fontSize: "12px",
     fontWeight: "600",
     whiteSpace: "nowrap",
+    flexShrink: 0,
   },
+  headerStats: {
+    display: "flex",
+    gap: "0",
+    background: "rgba(0,0,0,0.18)",
+    borderRadius: "12px 12px 0 0",
+    overflow: "hidden",
+    marginTop: "4px",
+  },
+  headerStat: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "14px 12px",
+    gap: "4px",
+  },
+  headerStatVal: { fontSize: "16px", fontWeight: "700", color: "white" },
+  headerStatLabel: { fontSize: "11px", color: "rgba(255,255,255,0.7)", whiteSpace: "nowrap" },
+  headerStatDivider: { width: "1px", background: "rgba(255,255,255,0.15)", margin: "10px 0" },
   body: {
     padding: "24px 32px",
     display: "flex",
     flexDirection: "column",
     gap: "20px",
   },
-  infoGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-    gap: "12px",
-  },
-  infoCard: {
-    background: "white",
-    borderRadius: "10px",
-    padding: "16px",
-    textAlign: "center",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
-  },
-  infoIcon: { fontSize: "24px", marginBottom: "6px" },
-  infoVal: {
-    fontSize: "18px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "4px",
-  },
-  infoLabel: { fontSize: "11px", color: "#73726c" },
   section: {
     background: "white",
     borderRadius: "12px",
@@ -512,40 +571,100 @@ const styles = {
     marginBottom: "12px",
     fontSize: "14px",
   },
-  stepList: { display: "flex", flexDirection: "column", gap: "12px" },
-  stepRow: { display: "flex", alignItems: "center", gap: "12px" },
-  stepDot: {
-    width: "28px",
-    height: "28px",
+  stepCard: {
+    background: "#F5F4F0",
+    border: "2px solid #E0DED6",
+    borderRadius: "12px",
+    padding: "18px 16px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+    gap: "10px",
+    transition: "box-shadow 0.15s",
+  },
+  stepCardActive: {
+    background: "#EBF3FC",
+    border: "2px solid #185FA5",
+    boxShadow: "0 4px 16px rgba(24,95,165,0.15)",
+  },
+  stepCardDone: {
+    background: "#F0F7EA",
+    border: "2px solid #84C257",
+  },
+  stepCardLocked: {
+    opacity: 0.55,
+  },
+  stepNum: {
+    width: "36px",
+    height: "36px",
     borderRadius: "50%",
     color: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "12px",
+    fontSize: "14px",
     fontWeight: "bold",
     flexShrink: 0,
   },
-  stepLabel: { fontSize: "14px" },
-  stepBtn: {
+  stepCardLabel: {
+    fontSize: "13px",
+    fontWeight: "600",
+    color: "#2C2C2A",
+    lineHeight: "1.35",
+  },
+  stepCardCta: {
+    marginTop: "auto",
     background: "#185FA5",
     color: "white",
-    border: "none",
-    padding: "6px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
+    padding: "7px 16px",
+    borderRadius: "8px",
     fontSize: "12px",
-    fontWeight: "500",
-    whiteSpace: "nowrap",
+    fontWeight: "600",
+    width: "100%",
   },
-  stepBtnDone: {
-    background: "#F5F4F0",
+  stepCardEdit: {
+    marginTop: "auto",
+    background: "white",
     color: "#73726c",
     border: "1px solid #D1CFC5",
-    padding: "6px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
+    padding: "6px 16px",
+    borderRadius: "8px",
     fontSize: "12px",
-    whiteSpace: "nowrap",
+    width: "100%",
+  },
+  stepCardLock: {
+    marginTop: "auto",
+    color: "#999",
+    fontSize: "11px",
+  },
+  // Modale refus invitation
+  overlay: {
+    position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)",
+    display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000,
+  },
+  modal: {
+    background: "white", borderRadius: "14px", padding: "28px 32px",
+    width: "100%", maxWidth: "420px", boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+  },
+  modalTitle: { fontSize: "17px", fontWeight: "bold", color: "#0C447C", marginBottom: "16px" },
+  modalActions: { display: "flex", gap: "10px", justifyContent: "flex-end" },
+  btnCancel: {
+    padding: "9px 20px", borderRadius: "8px", border: "1px solid #D1CFC5",
+    background: "white", color: "#444", cursor: "pointer", fontSize: "14px",
+  },
+  btnConfirmRefus: {
+    padding: "9px 20px", borderRadius: "8px", border: "none",
+    background: "#C0392B", color: "white", cursor: "pointer", fontSize: "14px", fontWeight: "bold",
+  },
+  btnRetirerMembre: {
+    width:"26px", height:"26px", borderRadius:"50%", border:"1px solid #F09595",
+    background:"#FCEBEB", color:"#A32D2D", cursor:"pointer",
+    fontSize:"12px", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0,
+  },
+  btnSupprimerItin: {
+    background: "#FCEBEB", color: "#A32D2D", border: "1px solid #F09595",
+    padding: "7px 14px", borderRadius: "8px", cursor: "pointer",
+    fontSize: "12px", fontWeight: "600", whiteSpace: "nowrap",
   },
 };

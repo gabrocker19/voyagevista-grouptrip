@@ -1,209 +1,233 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../services/api";
+import { catalogueService } from "../services/catalogue.service";
+import { CAT_ICONS, getDestIcon } from "../utils/icons";
+import PageHeader from "../components/PageHeader";
+
+const CATEGORIES = ["plage", "montagne", "ville", "aventure", "culture"];
 
 export default function Catalogue() {
   const navigate = useNavigate();
+
   const [destinations, setDestinations] = useState([]);
-  const [search, setSearch] = useState("");
-  const [categorie, setCategorie] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [searchDest, setSearchDest] = useState("");
+  const [catFiltre, setCatFiltre] = useState("");
 
   useEffect(() => {
-    const params = new URLSearchParams();
-    if (search) params.append("search", search);
-    if (categorie) params.append("categorie", categorie);
+    catalogueService.destinations().then(setDestinations).catch(console.error);
+  }, []);
 
-    api
-      .get(`/api/destinations?${params}`)
-      .then(setDestinations)
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [search, categorie]);
-
-  const categories = ["plage", "montagne", "ville", "aventure", "culture"];
+  const destsFiltrees = useMemo(
+    () =>
+      destinations.filter((d) => {
+        const q = searchDest.toLowerCase();
+        const matchSearch =
+          !q ||
+          d.nom.toLowerCase().includes(q) ||
+          d.pays.toLowerCase().includes(q);
+        const matchCat = !catFiltre || d.categorie === catFiltre;
+        return matchSearch && matchCat;
+      }),
+    [destinations, searchDest, catFiltre],
+  );
 
   return (
-    <div style={styles.page}>
-      <div style={styles.header}>
-        <button onClick={() => navigate("/dashboard")} style={styles.btnBack}>
-          ← Tableau de bord
-        </button>
-        <h1 style={styles.title}>🌍 Destinations</h1>
-        <p style={styles.sub}>Trouvez votre prochaine aventure</p>
-      </div>
+    <div style={s.page}>
+      <PageHeader
+        title="🌍 Catalogue"
+        subtitle="Explorez toutes nos destinations"
+        backLabel="Tableau de bord"
+        backTo="/dashboard"
+      />
 
-      <div style={styles.filters}>
+      <div style={s.filtersBar}>
         <input
-          style={styles.search}
+          style={s.searchInput}
           type="text"
-          placeholder="🔍 Rechercher une destination..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          placeholder="🔍 Rechercher une destination ou un pays..."
+          value={searchDest}
+          onChange={(e) => setSearchDest(e.target.value)}
         />
-        <div style={styles.cats}>
+        <div style={s.chips}>
           <button
-            style={categorie === "" ? styles.catActive : styles.cat}
-            onClick={() => setCategorie("")}
+            style={catFiltre === "" ? s.chipOn : s.chip}
+            onClick={() => setCatFiltre("")}
           >
-            Toutes
+            Toutes ({destinations.length})
           </button>
-          {categories.map((c) => (
+          {CATEGORIES.map((c) => (
             <button
               key={c}
-              style={categorie === c ? styles.catActive : styles.cat}
-              onClick={() => setCategorie(c)}
+              style={catFiltre === c ? s.chipOn : s.chip}
+              onClick={() => setCatFiltre(c)}
             >
-              {c.charAt(0).toUpperCase() + c.slice(1)}
+              {CAT_ICONS[c]} {c.charAt(0).toUpperCase() + c.slice(1)}&nbsp;(
+              {destinations.filter((d) => d.categorie === c).length})
             </button>
           ))}
         </div>
       </div>
 
-      {loading ? (
-        <p style={{ textAlign: "center", padding: "40px" }}>Chargement...</p>
-      ) : (
-        <div style={styles.grid}>
-          {destinations.map((d) => (
-            <div key={d.id} style={styles.card}>
-              <div style={styles.imgPlaceholder}>
-                {d.categorie === "plage"
-                  ? "🏖️"
-                  : d.categorie === "montagne"
-                    ? "🏔️"
-                    : d.categorie === "ville"
-                      ? "🏙️"
-                      : d.categorie === "aventure"
-                        ? "🧗"
-                        : "🏛️"}
+      <div style={s.destGrid}>
+        {destsFiltrees.length === 0 ? (
+          <p style={s.empty}>Aucune destination trouvée.</p>
+        ) : (
+          destsFiltrees.map((d) => (
+            <div
+              key={d.id}
+              style={{ ...s.destCard, cursor: "pointer" }}
+              onClick={() => navigate(`/catalogue/destinations/${d.id}`)}
+            >
+              <div
+                style={{
+                  ...s.destImg,
+                  backgroundImage: d.image_url
+                    ? `url(${d.image_url})`
+                    : undefined,
+                  backgroundColor: d.image_url ? undefined : "#E6F1FB",
+                }}
+              >
+                {!d.image_url ? (
+                  <span style={s.destEmoji}>{getDestIcon(d)}</span>
+                ) : (
+                  <span style={s.destIconBadge}>{getDestIcon(d)}</span>
+                )}
+                <span style={s.destBadge}>{d.categorie}</span>
               </div>
-              <div style={styles.cardBody}>
-                <div style={styles.cardTop}>
-                  <h3 style={styles.cardTitle}>{d.nom}</h3>
-                  <span style={styles.badge}>{d.categorie}</span>
-                </div>
-                <p style={styles.pays}>📍 {d.pays}</p>
-                <p style={styles.desc}>{d.description}</p>
-                <div style={styles.cardFooter}>
-                  <span style={styles.price}>À partir de {d.prix_min}€</span>
-                  <button style={styles.btn}>Voir les détails</button>
+              <div style={s.destBody}>
+                <div style={s.destTitle}>{d.nom}</div>
+                <div style={s.destPays}>📍 {d.pays}</div>
+                <div style={s.destDesc}>{d.description}</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={s.destPrice}>À partir de {d.prix_min}€</div>
+                  <span style={s.destCta}>Voir →</span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 }
 
-const styles = {
+const s = {
   page: {
     fontFamily: "Arial, sans-serif",
     minHeight: "100vh",
     background: "#F5F4F0",
   },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.8)",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "12px",
-    display: "block",
+  empty: {
+    textAlign: "center",
+    padding: "40px",
+    color: "#73726c",
+    fontSize: "14px",
   },
-  header: { background: "#0C447C", color: "white", padding: "40px 32px" },
-  title: { fontSize: "28px", fontWeight: "bold", marginBottom: "8px" },
-  sub: { opacity: 0.85, fontSize: "15px" },
-  filters: {
-    padding: "24px 32px",
+
+  filtersBar: {
     background: "white",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.06)",
+    padding: "14px 24px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+    position: "sticky",
+    top: 0,
+    zIndex: 10,
   },
-  search: {
+  searchInput: {
     width: "100%",
     padding: "10px 14px",
     borderRadius: "8px",
     fontSize: "14px",
     border: "1px solid #D1CFC5",
-    marginBottom: "12px",
+    marginBottom: "10px",
     boxSizing: "border-box",
   },
-  cats: { display: "flex", gap: "8px", flexWrap: "wrap" },
-  cat: {
-    padding: "6px 16px",
+  chips: { display: "flex", gap: "8px", flexWrap: "wrap" },
+  chip: {
+    padding: "6px 14px",
     borderRadius: "20px",
     border: "1px solid #D1CFC5",
     background: "white",
     cursor: "pointer",
-    fontSize: "13px",
+    fontSize: "12px",
   },
-  catActive: {
-    padding: "6px 16px",
+  chipOn: {
+    padding: "6px 14px",
     borderRadius: "20px",
     border: "1px solid #185FA5",
     background: "#185FA5",
     color: "white",
     cursor: "pointer",
-    fontSize: "13px",
+    fontSize: "12px",
   },
-  grid: {
+
+  destGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-    gap: "20px",
-    padding: "32px",
+    gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
+    gap: "16px",
+    padding: "24px",
   },
-  card: {
+  destCard: {
     background: "white",
     borderRadius: "12px",
     overflow: "hidden",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+    transition: "transform 0.15s, box-shadow 0.15s",
   },
-  imgPlaceholder: {
-    height: "140px",
-    background: "#E6F1FB",
+  destImg: {
+    height: "160px",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "relative",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "56px",
   },
-  cardBody: { padding: "16px" },
-  cardTop: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "4px",
+  destEmoji: { fontSize: "56px" },
+  destIconBadge: {
+    position: "absolute",
+    bottom: "10px",
+    right: "10px",
+    fontSize: "22px",
+    background: "rgba(255,255,255,0.88)",
+    borderRadius: "10px",
+    padding: "4px 8px",
+    lineHeight: 1,
+    backdropFilter: "blur(4px)",
   },
-  cardTitle: { fontSize: "18px", fontWeight: "bold", color: "#0C447C" },
-  badge: {
-    fontSize: "11px",
-    padding: "3px 8px",
-    borderRadius: "12px",
-    background: "#E6F1FB",
-    color: "#185FA5",
-    fontWeight: "500",
-  },
-  pays: { fontSize: "13px", color: "#999", margin: "4px 0 8px" },
-  desc: {
-    fontSize: "13px",
-    color: "#555",
-    lineHeight: "1.5",
-    marginBottom: "12px",
-  },
-  cardFooter: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  price: { fontSize: "15px", fontWeight: "bold", color: "#185FA5" },
-  btn: {
-    background: "#185FA5",
+  destBadge: {
+    position: "absolute",
+    top: "10px",
+    left: "10px",
+    background: "rgba(0,0,0,0.5)",
     color: "white",
-    border: "none",
-    padding: "7px 14px",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontSize: "13px",
+    padding: "3px 10px",
+    borderRadius: "12px",
+    fontSize: "11px",
   },
+  destBody: { padding: "14px 16px" },
+  destTitle: {
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#0C447C",
+    marginBottom: "2px",
+  },
+  destPays: { fontSize: "12px", color: "#73726c", marginBottom: "6px" },
+  destDesc: {
+    fontSize: "12px",
+    color: "#555",
+    lineHeight: "1.4",
+    marginBottom: "8px",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
+  },
+  destPrice: { fontSize: "13px", fontWeight: "bold", color: "#185FA5" },
+  destCta: { fontSize: "12px", color: "#185FA5", fontWeight: "600" },
 };

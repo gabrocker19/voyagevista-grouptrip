@@ -1,332 +1,300 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { catalogueService } from "../services/catalogue.service";
 import { groupService } from "../services/group.service";
+import { voteService } from "../services/vote.service";
 import { api } from "../services/api";
+import { useAuth } from "../context/AuthContext";
+import PageHeader from "../components/PageHeader";
+import BudgetBar from "../components/BudgetBar";
+import Toast from "../components/Toast";
+
+const TRANSP_ICONS = { avion:"✈️", train:"🚆", bus:"🚌", bateau:"⛴️" };
 
 export default function Transport() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [groupe, setGroupe] = useState(null);
-  const [transports, setTransports] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState(null);
-  const [message, setMessage] = useState("");
-  const [filtre, setFiltre] = useState("avion");
+  const { user } = useAuth();
+
+  const [groupe,      setGroupe]      = useState(null);
+  const [destination, setDestination] = useState(null);
+  const [transports,  setTransports]  = useState([]);
+  const [itineraire,  setItineraire]  = useState(null);
+  const [loading,     setLoading]     = useState(true);
+  const [filtre,      setFiltre]      = useState(null);
+
+  const [resultats,     setResultats]     = useState([]);
+  const [monVote,       setMonVote]       = useState(null);
+  const [totalMembres,  setTotalMembres]  = useState(0);
+  const [toast,         setToast]         = useState(null);
+
+  const chargerVotes = async (groupeId) => {
+    try {
+      const res = await voteService.resultats(groupeId, "transport");
+      setResultats(res.resultats);
+      setMonVote(res.mon_vote);
+      setTotalMembres(res.total_membres);
+    } catch {}
+  };
 
   useEffect(() => {
-    setLoading(true);
-    groupService
-      .getOne(id)
-      .then((g) => {
-        setGroupe(g);
-        // Récupérer le nom de la destination pour filtrer les transports
-        if (g.destination_id) {
-          return Promise.all([
-            catalogueService.transports({ type: filtre }),
-            api.get(`/api/destinations/${g.destination_id}`),
-          ]).then(([t, dest]) => {
-            // Filtrer les transports qui vont vers cette destination
-            const filtered = t.filter(
-              (tr) =>
-                tr.destination.toLowerCase().includes(dest.nom.toLowerCase()) ||
-                dest.pays.toLowerCase().includes(tr.destination.toLowerCase()),
-            );
-            setTransports(filtered.length > 0 ? filtered : t);
-          });
-        } else {
-          return catalogueService
-            .transports({ type: filtre })
-            .then(setTransports);
-        }
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [id, filtre]);
+    groupService.getOne(id).then(async (g) => {
+      setGroupe(g);
 
-  const handleSelect = async (transport) => {
-    setSelected(transport.id);
-    setMessage(
-      `✓ Transport sélectionné : ${transport.compagnie} — ${transport.prix}€/pers`,
-    );
+      // Itinéraire existant
+      api.get(`/api/itineraires/groupe/${id}`).then(setItineraire).catch(() => {});
+
+      // Votes
+      chargerVotes(id);
+
+      const dateParams = {};
+      if (g.date_depart) dateParams.date_debut = g.date_depart;
+      if (g.date_retour) dateParams.date_fin   = g.date_retour;
+
+      if (!g.destination_id) {
+        const all = await catalogueService.transports(dateParams);
+        setTransports(all);
+        setLoading(false);
+        return;
+      }
+      const dest = await api.get(`/api/destinations/${g.destination_id}`);
+      setDestination(dest);
+      let results = await catalogueService.transports({ destination: dest.nom, ...dateParams });
+      if (results.length === 0) results = await catalogueService.transports({ destination: dest.pays, ...dateParams });
+      if (results.length === 0) results = await catalogueService.transports(dateParams);
+      setTransports(results);
+      if (results.length > 0) setFiltre(results[0].type);
+      setLoading(false);
+    }).catch(console.error);
+  }, [id]);
+
+  const typesDisponibles = useMemo(() => [...new Set(transports.map(t => t.type))], [transports]);
+  const transportsFiltres = useMemo(() => filtre ? transports.filter(t => t.type === filtre) : transports, [transports, filtre]);
+
+  const totalVotes = resultats.reduce((a, r) => a + parseInt(r.nb_votes), 0);
+  const isOrganisateur = groupe?.organisateur_id === user?.id;
+
+  const transportValideId = itineraire?.transport_id ? String(itineraire.transport_id) : null;
+
+  // Persister le coût voté de cette page pour les autres pages
+  useEffect(() => {
+    const prix = transportValideId ? 0
+      : parseFloat(transports.find(t => String(t.id) === monVote)?.prix || 0);
+    sessionStorage.setItem(`vv_v_t_${id}`, prix);
+  }, [monVote, transports, transportValideId, id]);
+
+  const handleVoter = async (transportId) => {
+    try {
+      await voteService.voter({ groupe_id: id, type: "transport", valeur: String(transportId) });
+      setMonVote(String(transportId));
+      setToast({ message: "Vote enregistré !", type: "success" });
+      await chargerVotes(id);
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
-  const handleContinue = () => {
-    if (!selected) {
-      setMessage("Veuillez sélectionner un transport.");
-      return;
-    }
-    // Sauvegarder dans sessionStorage pour l'itinéraire
-    sessionStorage.setItem(`transport_${id}`, selected);
-    navigate(`/groupes/${id}/hebergement`);
+  const handleValider = async (valeur) => {
+    try {
+      await voteService.valider({ groupe_id: id, type: "transport", valeur });
+      const itin = await api.get(`/api/itineraires/groupe/${id}`).catch(() => null);
+      setItineraire(itin);
+      setToast({ message: "Transport validé !", type: "success" });
+    } catch (err) { setToast({ message: err.message, type: "error" }); }
   };
 
-  if (loading) return <div style={styles.loading}>Chargement...</div>;
-
-  const types = ["avion", "train"];
+  if (loading) return <div style={s.loading}>Chargement...</div>;
 
   return (
-    <div style={styles.page}>
-      <div style={styles.header}>
-        <div>
-          <button onClick={() => navigate(`/groupes/${id}`)} style={styles.btnBack}>
-            ← Retour au groupe
-          </button>
-          <h1 style={styles.title}>✈️ Transport</h1>
-          <p style={styles.sub}>{groupe?.nom}</p>
-        </div>
-        <div style={styles.steps}>
-          <span style={styles.stepActive}>1. Transport</span>
-          <span style={styles.stepArrow}>→</span>
-          <span style={styles.stepInactive}>2. Hébergement</span>
-          <span style={styles.stepArrow}>→</span>
-          <span style={styles.stepInactive}>3. Activités</span>
-          <span style={styles.stepArrow}>→</span>
-          <span style={styles.stepInactive}>4. Itinéraire</span>
-        </div>
-      </div>
+    <div style={s.page}>
+      <style>{`@keyframes valPulse{0%{box-shadow:0 0 0 0 rgba(66,168,90,.55)}50%{box-shadow:0 0 0 8px rgba(66,168,90,0)}100%{box-shadow:0 0 0 4px rgba(66,168,90,.18)}}`}</style>
 
-      <div style={styles.body}>
-        {message && <div style={styles.success}>{message}</div>}
+      <PageHeader
+        title="✈️ Transport"
+        subtitle={groupe?.nom}
+        backLabel="Retour au groupe"
+        backTo={`/groupes/${id}`}
+        right={
+          <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+            <span style={s.voteCount}>{totalVotes}/{totalMembres} vote{totalMembres>1?"s":""}</span>
+            <button
+              onClick={() => transportValideId
+                ? navigate(`/groupes/${id}/hebergement`)
+                : setToast({ message: "Validez d'abord un transport avant de passer à l'hébergement.", type: "info" })
+              }
+              style={{
+                ...s.btnNext,
+                opacity: transportValideId ? 1 : 0.45,
+                cursor:  transportValideId ? "pointer" : "not-allowed",
+              }}
+              title={transportValideId ? "" : "Un transport doit être validé par l'organisateur"}
+            >
+              {transportValideId ? "Hébergement →" : "🔒 Hébergement"}
+            </button>
+          </div>
+        }
+      />
 
-        {/* Filtres type */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Type de transport</h2>
-          <div style={styles.typeFilters}>
-            {types.map((t) => (
-              <button
-                key={t}
-                onClick={() => setFiltre(t)}
-                style={filtre === t ? styles.typeActive : styles.typeBtn}
-              >
-                {t === "avion"
-                  ? "✈️"
-                  : t === "train"
-                    ? "🚆"
-                    : t === "bus"
-                      ? "🚌"
-                      : "⛴️"}{" "}
-                {t}
+      <Toast message={toast?.message} type={toast?.type} onClose={() => setToast(null)} />
+      <div style={s.body}>
+        {monVote && (
+          <div style={s.banner}>
+            ✓ Vous avez voté pour <strong>{transports.find(t=>String(t.id)===monVote)?.compagnie}</strong>
+          </div>
+        )}
+        {destination && (
+          <div style={s.destBanner}>📍 Destination : <strong>{destination.nom}</strong>, {destination.pays}</div>
+        )}
+        {(groupe?.date_depart || groupe?.date_retour) && (
+          <div style={s.dateBanner}>
+            🗓️ Transports filtrés pour votre voyage
+            {groupe.date_depart && <> · départ à partir du <strong>{new Date(groupe.date_depart).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}</strong></>}
+            {groupe.date_retour && <> · retour avant le <strong>{new Date(groupe.date_retour).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}</strong></>}
+          </div>
+        )}
+
+        {/* Filtre type */}
+        {typesDisponibles.length > 1 && (
+          <div style={s.filterBar}>
+            {typesDisponibles.map(t => (
+              <button key={t} onClick={() => setFiltre(t)} style={filtre===t ? s.chipOn : s.chip}>
+                {TRANSP_ICONS[t]} {t}
               </button>
             ))}
           </div>
-        </div>
+        )}
+
+        {/* Barre de budget */}
+        {(() => {
+          const valide      = itineraire?.cout_total || 0;
+          const myExtra     = transportValideId ? 0
+            : parseFloat(transports.find(t => String(t.id) === monVote)?.prix || 0);
+          const votedHeb    = parseFloat(sessionStorage.getItem(`vv_v_h_${id}`) || 0);
+          const votedAct    = parseFloat(sessionStorage.getItem(`vv_v_a_${id}`) || 0);
+          return (
+            <BudgetBar
+              budget={groupe?.budget_max}
+              valide={valide}
+              monVoteExtra={myExtra + votedHeb + votedAct}
+            />
+          );
+        })()}
 
         {/* Liste transports */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>
-            Trajets disponibles
-            <span style={styles.counter}>
-              {transports.length} résultat{transports.length > 1 ? "s" : ""}
-            </span>
-          </h2>
+        <div style={s.list}>
+          {transportsFiltres.length === 0
+            ? <p style={s.empty}>Aucun transport disponible.</p>
+            : transportsFiltres.map(t => {
+              const res = resultats.find(r => r.valeur === String(t.id));
+              const nbVotes = res ? parseInt(res.nb_votes) : 0;
+              const pct = totalMembres > 0 ? Math.round((nbVotes/totalMembres)*100) : 0;
+              const isMyVote = monVote === String(t.id);
+              const isValidated = transportValideId === String(t.id);
 
-          {transports.length === 0 ? (
-            <p style={styles.empty}>Aucun trajet disponible pour ce type.</p>
-          ) : (
-            <div style={styles.list}>
-              {transports.map((t) => (
-                <div
-                  key={t.id}
-                  style={{
-                    ...styles.card,
-                    border:
-                      selected === t.id
-                        ? "2px solid #185FA5"
-                        : "1px solid #E0DED6",
-                  }}
-                >
-                  <div style={styles.cardLeft}>
-                    <div style={styles.compagnie}>{t.compagnie}</div>
-                    <div style={styles.trajet}>
-                      <span style={styles.ville}>{t.origine}</span>
-                      <span style={styles.arrow}>→</span>
-                      <span style={styles.ville}>{t.destination}</span>
+              return (
+                <div key={t.id} style={{
+                  ...s.card,
+                  border: isValidated ? "2px solid #42A85A" : isMyVote ? "2px solid #185FA5" : "1px solid #E0DED6",
+                  boxShadow: isValidated ? "0 0 0 4px rgba(66,168,90,0.18)" : undefined,
+                  animation: isValidated ? "valPulse 0.7s ease-out" : undefined,
+                }}>
+                  <div style={s.cardLeft}>
+                    <div style={s.typeChip}>{TRANSP_ICONS[t.type]} {t.type}</div>
+                    <div style={s.compagnie}>
+                      {t.compagnie}
+                      {isValidated && <span style={s.validBadge}>✓ Validé</span>}
                     </div>
-                    <div style={styles.dates}>
-                      🗓️{" "}
-                      {new Date(t.date_depart).toLocaleDateString("fr-FR", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
+                    <div style={s.trajet}>
+                      <span style={s.ville}>{t.origine}</span>
+                      <span style={s.arrow}>→</span>
+                      <span style={s.ville}>{t.destination}</span>
                     </div>
-                    <div style={styles.places}>
-                      💺 {t.places_dispo} places disponibles
+                    <div style={s.dates}>
+                      🛫 Départ : <strong>{new Date(t.date_depart).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</strong>
                     </div>
+                    {t.date_arrivee && (
+                      <div style={s.dates}>
+                        🛬 Retour : <strong>{new Date(t.date_arrivee).toLocaleDateString("fr-FR",{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}</strong>
+                      </div>
+                    )}
+                    <div style={{
+                      ...s.places,
+                      color: t.places_dispo <= 5 ? "#A32D2D" : t.places_dispo <= 20 ? "#854F0B" : "#73726c",
+                      fontWeight: t.places_dispo <= 5 ? "700" : "normal",
+                    }}>
+                      {t.places_dispo <= 5 ? "🔴" : t.places_dispo <= 20 ? "🟡" : "💺"} {t.places_dispo} place{t.places_dispo > 1 ? "s" : ""} restante{t.places_dispo > 1 ? "s" : ""}
+                    </div>
+                    {/* Barre de vote */}
+                    <div style={s.voteBarBg}><div style={{...s.voteBarFill, width:`${pct}%`}}/></div>
+                    <div style={s.voteStats}>{nbVotes} vote{nbVotes!==1?"s":""} ({pct}%) {res?.votants && <span style={s.votants}>— {res.votants}</span>}</div>
                   </div>
-                  <div style={styles.cardRight}>
-                    <div style={styles.prix}>
-                      {t.prix}€<span style={styles.perPers}>/pers</span>
-                    </div>
+                  <div style={s.cardRight}>
+                    <div style={s.prix}>{t.prix}€<span style={s.perPers}>/pers</span></div>
                     <button
-                      onClick={() => handleSelect(t)}
-                      style={{
-                        ...styles.btnSelect,
-                        background: selected === t.id ? "#185FA5" : "white",
-                        color: selected === t.id ? "white" : "#185FA5",
-                      }}
+                      onClick={() => handleVoter(t.id)}
+                      style={{...s.btnVote, background:isMyVote?"#185FA5":"white", color:isMyVote?"white":"#185FA5"}}
                     >
-                      {selected === t.id ? "✓ Sélectionné" : "Sélectionner"}
+                      {isMyVote ? "✓ Voté" : "Voter"}
                     </button>
+                    {isOrganisateur && nbVotes > 0 && !isValidated && (() => {
+                      const placesInsuff = t.places_dispo < totalMembres;
+                      return (
+                        <button
+                          onClick={() => placesInsuff ? setToast({ message: `Places insuffisantes : ${t.places_dispo} dispo, ${totalMembres} membres.`, type: "error" }) : handleValider(String(t.id))}
+                          style={{ ...s.btnValider, opacity: placesInsuff ? 0.5 : 1, cursor: placesInsuff ? "not-allowed" : "pointer" }}
+                          title={placesInsuff ? `Seulement ${t.places_dispo} place(s) pour ${totalMembres} membres` : ""}
+                        >
+                          {placesInsuff ? "⚠️ Places insuffisantes" : "👑 Valider"}
+                        </button>
+                      );
+                    })()}
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              );
+            })
+          }
         </div>
 
-        <button onClick={handleContinue} style={styles.btnContinue}>
-          Continuer → Hébergement
-        </button>
+        {isOrganisateur && (
+          <div style={s.infoBox}>
+            👑 En tant qu'organisateur, cliquez sur <strong>"Valider"</strong> sur le transport qui a remporté le vote.
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-const styles = {
-  page: {
-    fontFamily: "Arial, sans-serif",
-    minHeight: "100vh",
-    background: "#F5F4F0",
-  },
-  loading: { textAlign: "center", padding: "60px", color: "#73726c" },
-  header: { background: "#0C447C", color: "white", padding: "24px 32px" },
-  title: { fontSize: "24px", fontWeight: "bold", marginBottom: "4px" },
-  sub: { opacity: 0.8, fontSize: "13px", marginBottom: "12px" },
-  steps: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    flexWrap: "wrap",
-  },
-  btnBack: {
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.8)",
-    cursor: "pointer",
-    fontSize: "13px",
-    padding: "0",
-    marginBottom: "8px",
-    display: "block",
-  },
-  stepActive: {
-    background: "white",
-    color: "#0C447C",
-    padding: "4px 12px",
-    borderRadius: "20px",
-    fontSize: "12px",
-    fontWeight: "bold",
-  },
-  stepInactive: { color: "rgba(255,255,255,0.6)", fontSize: "12px" },
-  stepArrow: { color: "rgba(255,255,255,0.4)", fontSize: "12px" },
-  body: {
-    padding: "24px 32px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "16px",
-  },
-  success: {
-    background: "#EAF3DE",
-    color: "#3B6D11",
-    padding: "12px 16px",
-    borderRadius: "8px",
-    fontSize: "14px",
-  },
-  section: {
-    background: "white",
-    borderRadius: "12px",
-    padding: "20px 24px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.06)",
-  },
-  sectionTitle: {
-    fontSize: "15px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "14px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  counter: { fontSize: "12px", fontWeight: "normal", color: "#73726c" },
-  typeFilters: { display: "flex", gap: "8px", flexWrap: "wrap" },
-  typeBtn: {
-    padding: "8px 18px",
-    borderRadius: "20px",
-    border: "1px solid #D1CFC5",
-    background: "white",
-    cursor: "pointer",
-    fontSize: "13px",
-  },
-  typeActive: {
-    padding: "8px 18px",
-    borderRadius: "20px",
-    border: "1px solid #185FA5",
-    background: "#185FA5",
-    color: "white",
-    cursor: "pointer",
-    fontSize: "13px",
-  },
-  list: { display: "flex", flexDirection: "column", gap: "10px" },
-  card: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "16px",
-    borderRadius: "10px",
-    background: "#FAFAF8",
-    gap: "16px",
-  },
-  cardLeft: { flex: 1 },
-  compagnie: {
-    fontSize: "15px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "6px",
-  },
-  trajet: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    marginBottom: "4px",
-  },
-  ville: { fontSize: "14px", fontWeight: "500", color: "#2C2C2A" },
-  arrow: { color: "#185FA5", fontWeight: "bold" },
-  dates: { fontSize: "12px", color: "#73726c", marginBottom: "2px" },
-  places: { fontSize: "12px", color: "#73726c" },
-  cardRight: { textAlign: "center", flexShrink: 0 },
-  prix: {
-    fontSize: "22px",
-    fontWeight: "bold",
-    color: "#0C447C",
-    marginBottom: "8px",
-  },
-  perPers: { fontSize: "12px", fontWeight: "normal", color: "#73726c" },
-  btnSelect: {
-    padding: "8px 16px",
-    borderRadius: "6px",
-    border: "1px solid #185FA5",
-    cursor: "pointer",
-    fontSize: "13px",
-    fontWeight: "500",
-    whiteSpace: "nowrap",
-  },
-  empty: {
-    color: "#73726c",
-    fontSize: "14px",
-    textAlign: "center",
-    padding: "20px",
-  },
-  btnContinue: {
-    background: "#185FA5",
-    color: "white",
-    border: "none",
-    padding: "14px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontSize: "15px",
-    fontWeight: "bold",
-  },
+const s = {
+  page:    { fontFamily:"Arial, sans-serif", minHeight:"100vh", background:"#F5F4F0" },
+  loading: { textAlign:"center", padding:"60px", color:"#73726c" },
+  body:    { padding:"20px 24px 32px", display:"flex", flexDirection:"column", gap:"14px" },
+  banner:  { background:"#E6F1FB", color:"#0C447C", padding:"10px 16px", borderRadius:"8px", fontSize:"13px" },
+  destBanner: { background:"rgba(12,68,124,0.07)", color:"#0C447C", padding:"8px 16px", borderRadius:"8px", fontSize:"13px" },
+  voteCount: { background:"rgba(255,255,255,0.15)", padding:"4px 12px", borderRadius:"20px", fontSize:"13px" },
+  btnNext: { background:"rgba(255,255,255,0.18)", border:"1px solid rgba(255,255,255,0.45)", color:"white", padding:"6px 14px", borderRadius:"20px", cursor:"pointer", fontSize:"13px", fontWeight:"600", whiteSpace:"nowrap" },
+  filterBar: { display:"flex", gap:"8px", flexWrap:"wrap", background:"white", padding:"12px 16px", borderRadius:"10px", boxShadow:"0 1px 4px rgba(0,0,0,0.05)" },
+  chip:    { padding:"6px 16px", borderRadius:"20px", border:"1px solid #D1CFC5", background:"white", cursor:"pointer", fontSize:"13px" },
+  chipOn:  { padding:"6px 16px", borderRadius:"20px", border:"1px solid #185FA5", background:"#185FA5", color:"white", cursor:"pointer", fontSize:"13px" },
+  list:    { display:"flex", flexDirection:"column", gap:"10px" },
+  card:    { display:"flex", justifyContent:"space-between", alignItems:"flex-start", padding:"16px", borderRadius:"12px", background:"white", gap:"16px", boxShadow:"0 2px 6px rgba(0,0,0,0.06)", transition:"box-shadow 0.15s" },
+  cardLeft:  { flex:1 },
+  typeChip:  { display:"inline-block", background:"#E6F1FB", color:"#0C447C", padding:"2px 10px", borderRadius:"12px", fontSize:"11px", marginBottom:"6px" },
+  compagnie: { fontSize:"15px", fontWeight:"bold", color:"#0C447C", marginBottom:"4px", display:"flex", alignItems:"center", gap:"8px" },
+  validBadge:{ background:"#42A85A", color:"white", padding:"2px 8px", borderRadius:"12px", fontSize:"11px", fontWeight:"bold" },
+  trajet:    { display:"flex", alignItems:"center", gap:"8px", marginBottom:"4px" },
+  ville:     { fontSize:"14px", fontWeight:"500", color:"#2C2C2A" },
+  arrow:     { color:"#185FA5", fontWeight:"bold" },
+  dates:     { fontSize:"12px", color:"#73726c", marginBottom:"2px" },
+  places:    { fontSize:"12px", color:"#73726c", marginBottom:"8px" },
+  voteBarBg: { height:"5px", background:"#E0DED6", borderRadius:"3px", overflow:"hidden", marginBottom:"4px" },
+  voteBarFill:{ height:"100%", background:"#185FA5", borderRadius:"3px", transition:"width 0.3s" },
+  voteStats: { fontSize:"11px", color:"#73726c" },
+  votants:   { color:"#185FA5" },
+  cardRight: { textAlign:"center", flexShrink:0, display:"flex", flexDirection:"column", gap:"8px", alignItems:"center" },
+  prix:      { fontSize:"22px", fontWeight:"bold", color:"#0C447C" },
+  perPers:   { fontSize:"12px", fontWeight:"normal", color:"#73726c" },
+  btnVote:   { padding:"8px 16px", borderRadius:"6px", border:"1px solid #185FA5", cursor:"pointer", fontSize:"13px", fontWeight:"500", whiteSpace:"nowrap" },
+  btnValider:{ padding:"7px 12px", borderRadius:"6px", border:"none", background:"#EAF3DE", color:"#3B6D11", cursor:"pointer", fontSize:"12px", fontWeight:"500" },
+  empty:     { textAlign:"center", padding:"32px", color:"#73726c" },
+  infoBox:   { background:"#E6F1FB", color:"#0C447C", padding:"14px 18px", borderRadius:"8px", fontSize:"13px" },
+  dateBanner:{ background:"#FFF8E6", color:"#854F0B", padding:"10px 16px", borderRadius:"8px", fontSize:"13px", border:"1px solid #F5DFA0" },
 };

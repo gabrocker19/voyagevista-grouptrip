@@ -18,4 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 session_set_cookie_params(['path' => '/', 'samesite' => 'Lax']);
 session_start();
+// Libère immédiatement le verrou de session. Sinon PHP le garde jusqu'à la fin
+// de la requête et toutes les requêtes du même utilisateur se sérialisent
+// (ex. la page Itinéraire charge 5 requêtes en parallèle). $_SESSION reste
+// lisible ; les rares endpoints qui écrivent la session la rouvrent eux-mêmes.
+session_write_close();
 require_once 'routes/router.php';

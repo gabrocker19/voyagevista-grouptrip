@@ -80,12 +80,13 @@ class ReservationController {
         // Notifier tous les membres
         foreach ($membres as $uid) {
             $stmt = $this->db->prepare("
-                INSERT INTO notifications (utilisateur_id, type, message)
-                VALUES (?, 'reservation', ?)
+                INSERT INTO notifications (utilisateur_id, type, message, lien)
+                VALUES (?, 'reservation', ?, ?)
             ");
             $stmt->execute([
                 $uid,
-                "Réservation confirmée — Réf. {$reference}. Montant : {$montant}€/pers."
+                "Réservation confirmée — Réf. {$reference}. Montant : {$montant}€/pers.",
+                "/groupes/{$groupe_id}"
             ]);
         }
 
